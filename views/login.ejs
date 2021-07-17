@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+    <title>Authentification</title>
+  </head>
+<link rel="stylesheet" type="text/css" href="/stylesheets/login.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" >
+<div class="container">
+  
+    <div class="img">
+        <img src="/stylesheets/doctor-nurse.jpg">
+    </div>
+    <div class="login-content"> <form action="auth" method="POST">
+            <img src="/stylesheets/logoapp.jpg">
+            <h2 class="title">Bienvenue</h2>
+               <div class="input-div one">
+                  <div class="i">
+                          <i class="fas fa-user"></i>
+                  </div>
+                  <div class="div">
+                          <h5>Nom d'utilisateur</h5>
+                          <input type="text" for="username"name="username" class="input"  required>
+                  </div>
+               </div>
+               <div class="input-div pass">
+                  <div class="i"> 
+                       <i class="fas fa-lock"></i>
+                  </div>
+                  <div class="div">
+                       <h5>Mot de passe</h5>
+                       <input type="password" for="password"name="password"  class="input" required>
+                  </div>
+            </div>
+            <a href="#">Mot de passe oublié?</a>
+            <input type="submit" class="btn" value="Se Connecter"></a>
+        </form>
+        <script>
+            const inputs = document.querySelectorAll(".input");
+
+
+             function addcl(){
+	            let parent = this.parentNode.parentNode;
+	            parent.classList.add("focus");
+                              }
+
+            function remcl(){
+	            let parent = this.parentNode.parentNode;
+	            if(this.value == ""){
+		          parent.classList.remove("focus");
+	                                }
+                              }
+
+
+            inputs.forEach(input => {
+	               input.addEventListener("focus", addcl);
+	               input.addEventListener("blur", remcl);
+                              });
+
+        </script>
+    </div>
+    </div>
+</div>

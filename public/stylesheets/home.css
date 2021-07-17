@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    height: 10vh;
+  }
+  /* caro */
+  .navbar-style {
+    box-shadow: 0 5px 10px #efefef;
+  }
+  .logo {
+    height: 50px;
+    padding: 2px 10px;
+  }
+  li a {
+    color: black;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  .icon-bar {
+    background: rgb(76, 0, 255);
+  }
+  
+  p {
+    font-size: large;
+    margin: 5px 10px;
+  }
+  a.btn {
+    margin-left: 90px;
+    margin-top: 30px;
+    width: 150px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #4e2793, #80ffdb);
+    border: none;
+    color: white;
+    padding: 5px 13px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-size: 200%;
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+  }
+  a.btn:hover {
+    box-shadow: 5px 5px 10px #999;
+    transition: 0.3s;
+  }
+  .button {
+    background-image: linear-gradient(to right, #4e2793, #80ffdb);
+    border: none;
+    color: white;
+    padding: 5px 13px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-size: 200%;
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+    margin: 5px 5px;
+  }
+  .button:hover {
+    background-position: right;
+    box-shadow: 5px 5px 10px #999;
+    transition: 0.3s;
+  }
+
+  h1 {
+    padding-top: 100px;
+    font-size: 60px;
+  }
+  

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/orientation.css" />
+
+    <title>Sah-Tech | Orientation</title>
+</head>
+
+<body id="body">
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav_icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="navbar__left">
+                <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Modifier orientation </button>
+                <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Imprimer orientation</button>
+                <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Supprimer orientation</button>
+                <div class="navbar__left1">
+                <form action="evacuation" method="GET">
+                    <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter Evacuation
+                    </button></form>
+                    <div>
+                        <form action="orientation" method="GET">
+                        <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter Orientation </button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="navbar__right">
+
+                <a href="#">
+                    <img width="30" src="/stylesheets/medecina.png" alt="" />
+                    <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
+                </a>
+            </div>
+        </nav>
+
+        <main>
+            <form class="form1" id="form1">
+                <label class="titre" for="form1">
+                    <h1>Orientation</h1>
+                </label>
+                <br>
+                <div class="form_wrap">
+                    <div class="input_grp">
+                        <div class="input_wrap">
+                          <label for="nom">Nom</label>
+                          <input type="text" id="nom" name="nom">
+                        </div>
+                        <div class="input_wrap">
+                          <label for="Prénom">Prénom</label>
+                          <input type="text" id="Prénom" name="Prénom">
+                        </div>
+                      </div>
+                      <br>
+                      <div class="input_grp">
+                      <div class="input_wrap">
+                        <label for="age">Age</label><br>
+                        <input type="text" id="age" name="age" >
+                      </div>
+                      <div class="input_wrap">
+                        <label for="nom_medecin">Dr</label>
+                        <input type="text" id="nom_medecin" name="nom_medecin">
+                      </div>
+                     </div>
+                      
+
+                      <br><br>
+                      <div class="input_wrap">
+                        <label for="Orienter">Orienter vers</label><br>
+                        <input type="text" name="Orienter" id="Evacuer" placeholder="Adresse de l'orientation."style="padding: 10px; width: 530px;" />
+                    </div>
+
+                    
+
+
+
+
+
+                    <div >
+                        <button class="btn" style="margin-left: 100px">Enregistrer</button>
+                        <button class="btn" style="margin-left: 150px" >Annuler</button>
+                      </div>
+
+                </div>
+            </form>
+
+        </main>
+
+        <div id="sidebar">
+            <div class="sidebar__title">
+                <div class="sidebar__img">
+                    <img src="/stylesheets/logoapppp.png" alt="logo" />
+
+                </div>
+                <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
+            </div>
+
+            <div class="sidebar__menu">
+                <div class="sidebar__link active_menu_link">
+                    <i class="fa fa-home"></i>
+                    <h2>Tableau de bord</h2>
+                </div>
+                <div class="sidebar__link active_menu_link ">
+                    <i class="fa fa-folder" aria-hidden="true"></i>
+                    <a href="#">Dossier Médical</a>
+                </div>
+                <div class="sidebar__link active_menu_link">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <a href="#">Examen Médical</a>
+                </div>
+                <div class="sidebar__link active_menu_link">
+                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                    <a href="#">Agenda</a>
+                </div>
+                <div class="sidebar__link active_menu_link">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <a href="#">Statistiques</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+</body>
+
+</html>

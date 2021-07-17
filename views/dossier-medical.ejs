@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/dossierMedical.css" />
+    <title>Dossier medical</title>
+  </head>
+  <body id="body">
+    <div class="container">
+      <nav class="navbar">
+        <div class="nav_icon" onclick="toggleSidebar()">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="navbar__left">
+          <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Créer un dossier</button>
+          <button class="btn"><i class="fa fa-search" aria-hidden="true"></i> Consulter un dossier</button>
+          <button class="btn"><i class="fa fa-pencil" aria-hidden="true"></i> Modifier un dossier</button>
+        </div>
+        <div class="navbar__right">
+          
+          <a href="#">
+            <img width="30" src="medecina.png" alt="" />
+            <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
+          </a>
+        </div>
+      </nav>
+
+      <main>
+        <div class="main__container">
+         <form class="form"> 
+          <label class="titre"><h1>Informations Personnelles</h1></label>    
+             <div class="form_wrap">
+              <div class="input_grp">
+                <div class="input_wrap">
+                  <label for="nom">Nom</label>
+                  <input type="text" id="nom">
+                </div>
+                <div class="input_wrap">
+                  <label for="Prénom">Prénom</label>
+                  <input type="text" id="Prénom">
+                </div>
+              </div>
+              <div class="input_wrap">
+                <label for="date_naiss">Date de naissance</label><br>
+                <input type="date" id="birthday" name="birthday" style="padding: 10px; width: 530px;">
+              </div>
+              <div class="input_wrap">
+                <label for="lieu_naiss">Lieux de naissance</label>
+                <select style="padding: 10px; width: 555px;">
+                  <option>1- Adrar</option>
+                  <option>2- Chlef</option>
+                  <option>3- Laghouet</option>
+                  <option>4- Oum El Bouaghi</option>
+                  <option>5- Batna</option>
+                  <option>6- Béjaïa</option>
+                  <option>7- Biskra</option>
+                  <option>8- Béchar </option>
+                  <option>9- Blida</option>
+                  <option>10- Bouira</option>
+                  <option>11- Tamanrasset</option>
+                  <option>12- Tébessa</option>
+                  <option>13- Tlemcen</option>
+                  <option>14- Tiaret</option>
+                  <option>15- Tizi Ouzou</option>
+                  <option>16- Alger</option>
+                  <option>17- Djelfa</option>
+                  <option>18- Jijel</option>
+                  <option>19- Sétif</option>
+                  <option>20- Saida</option>
+                  <option>21- Skikda</option>
+                  <option>22- Sidi Bel Abbès</option>
+                  <option>23- Annaba</option>
+                  <option>24- Guelma</option>
+                  <option>25- Constantine</option>
+                  <option>26- Médéa</option>
+                  <option>27- Mostaganem</option>
+                  <option>28- M'Sila</option>
+                  <option>29- Mascara</option>
+                  <option>30- Ouargla</option>
+                  <option>31- Oran</option>
+                  <option>32- El Bayadh</option>
+                  <option>33- Illizi</option>
+                  <option>34- Bordj Bou Arreridj</option>
+                  <option>35- Boumerdès </option>
+                  <option>36- El Taref</option>
+                  <option>37- Tindouf</option>
+                  <option>38- Tissemsilt</option>
+                  <option>39- El Oued</option>
+                  <option>40- Khenchela</option>
+                  <option>41- Souk Ahras</option>
+                  <option>42- Tipaza</option>
+                  <option>43- Mila</option>
+                  <option>44- Aïn Defla</option>
+                  <option>45-	Naâma</option>
+                  <option>46- Ain Témouchent</option>
+                  <option>47- Ghardaïa</option>
+                  <option>48- Relizane</option>
+                </select>
+              </div>
+              <div class="input_wrap">
+                <label for="grs">Groupe sanguin</label><br>
+                <select style="padding: 10px; width: 555px;">
+                  <option>A+</option>
+                  <option>A-</option>
+                  <option>B+</option>
+                  <option>B-</option>
+                  <option>O+</option>
+                  <option>O-</option>
+                  <option>AB+</option>
+                  <option>AB-</option>
+                </select>
+              </div>
+              <div class="input_wrap">
+                <label for="adr">Adresse</label>
+                <input type="text" id="adr">
+              </div>
+              <div class="input_wrap">
+                <label for="email">Email</label>
+                <input  style="padding: 10px; width: 531px;" type="email" id="email">
+              </div>
+              <div class="input_wrap">
+                <label for="num_tel">Numéro telephone</label>
+                <input  style="padding: 10px; width: 531px;"type="tel" id="num_tel">
+              </div>
+              <div class="input_wrap">
+                <label for="nss">N°SS</label>
+                <input  style="padding: 10px; width: 531px;" type="number" id="nss">
+              </div>
+              <div class="input_wrap">
+                <label for="catégorie">Catégorie</label>
+                <select style="padding: 10px; width: 555px;">
+                  <option>Etudiant</option>
+                  <option>ATS</option>
+                  <option>Enseignant</option>
+                </select>
+              </div>
+              <div class="input_wrap">
+                <label>Sexe</label>
+                <ul>
+                  <li>
+                    <label class="radio_wrap">
+                      <input type="radio" name="gender" value="male" class="input_radio" checked>
+                      <span>Homme</span>
+                    </label>
+                  </li>
+                  <li>
+                    <label class="radio_wrap">
+                      <input type="radio" name="gender" value="female" class="input_radio">
+                      <span>Femme</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        
+         
+          <label class="titre" for="form1"><h1>Biométrique</h1></label>
+            <div class="form_wrap">
+             <div class="input_grp">
+               <div class="input_wrap">
+                 <label for="Poids">Poids</label>
+                 <input style="padding: 10px; width: 250px;" type="number" id="Poids">
+               </div>
+               <div class="input_wrap">
+                 <label for="Taille">Taille</label>
+                 <input style="padding: 10px; width: 250px;"type="number" id="Taille">
+               </div>
+             </div>
+             <div class="input_wrap">
+               <label for="IMC">IMC</label>
+               <input style="padding: 10px; width: 530px;" type="number" id="IMC">
+             </div>
+           </div>
+        
+        <label class="titre"><h1>Antecedents</h1></label> 
+        
+         
+        <div class="form_wrap">
+          
+            <div class="input_wrap">
+              <h1>Medicaux</h1>
+               
+              <input type="checkbox" id="HTA" name="HTA">
+              <label for="HTA"> HTA</label>
+              <input type="checkbox" id="autres" name="autres">
+              <label for="autres"> autres</label>
+              <h3>Remarque</h3>
+              <input type="text" id="remarque">
+            </div>
+          
+          <div class="input_wrap">
+            <h1>Chirugicaux</h1>
+               
+            <input type="checkbox" id="app" name="app">
+            <label for="app"> Appendicectomie</label>
+            <input type="checkbox" id="chole" name="chole" >
+            <label for="chole"> Cholecystectomie</label>
+            <h3>Remarque</h3>
+            <input type="text" id="remarque1">
+          </div>
+          <div class="input_wrap">
+            <h1>Allergique</h1>
+            <input type="text" id="Allergique">
+          </div>
+          <div class="input_wrap">
+            <h1>Familiaux</h1>
+               
+            <input type="checkbox" id="cardio" name="cardio">
+            <label for="cardio"> Cardiopathie</label>
+            <input type="checkbox" id="autres" name="autres">
+            <label for="autres"> autres</label>
+            <h3>Remarque</h3>
+            <input type="text" id="remarque2">
+          </div>
+          <div class="input_wrap">
+            <h1>Toxiques</h1>
+            <input type="text" id="Toxiques">
+          </div>  
+        </div>
+     <label class="titre"><h1>Dépistage</h1></label> 
+          <div class="form_wrap">
+            <div class="input_wrap">
+              <h1>Peau et muqueuses</h1>
+              <input type="checkbox" id="aff" name="aff">
+              <label for="aff"> Affections cutanées</label>
+            </div>
+          <div class="input_wrap">
+            <h1>Ophtalmologique</h1>
+               
+            <input type="checkbox" id="larmo" name="larmo">
+            <label for="larmo"> Larmolement</label>
+            <input type="checkbox" id="Douleur" name="Douleur">
+            <label for="Douleur"> Douleurs</label>
+            <input type="checkbox" id="tdl" name="tdl">
+            <label for="toggleSidebar"> Taches devant les yeux</label>
+          </div>
+          <div class="input_wrap">
+            <h1>O.R.L</h1>
+               
+            <input type="checkbox" id="siff" name="siff">
+            <label for="siff"> Siffelements</label>
+            <input type="checkbox" id="angine" name="angine">
+            <label for="ang"> Angines répétées</label>
+            <input type="checkbox" id="ang" name="ang" value="ang">
+            <label for="epi"> Epistaxis</label>
+            
+          </div>
+          <div class="input_wrap">
+            <h1>Locomoteur</h1>
+               
+            <input type="checkbox" id="muscu" name="muscu" value="muscu">
+            <label for="muscu"> Douleurs musculaires</label>
+            <input type="checkbox" id="articu" name="articu" value="articu">
+            <label for="articu"> Douleurs articulaires</label><br>
+            <input type="checkbox" id="vérté" name="vérté" value="vérté">
+            <label for="vérté"> Douleurs vértébrales</label>
+            <input type="checkbox" id="neuro" name="neuro" value="neuro">
+            <label for="neuro"> Neurologiques</label>
+          </div>
+          <div class="input_wrap">
+            <h1>Respiratoire</h1>    
+           <input type="checkbox" id="toux" name="toux" value="toux">
+            <label for="toux"> Toux</label>
+            <input type="checkbox" id="expec" name="expec" value="expec">
+            <label for="expec"> Expectorations</label>
+            <input type="checkbox" id="tho" name="tho" value="tho">
+            <label for="tho"> Douleurs thoraciques</label>
+          </div> 
+          <div class="input_wrap">
+            <h1>Cardio-Vasculaire</h1>    
+           <input type="checkbox" id="palpi" name="palpi" value="palpi">
+            <label for="palpi"> Palpitation</label>
+            <input type="checkbox" id="oedèmes" name="oedèmes" value="oedèmes">
+            <label for="oedèmes"> Douleur oedèmes</label><br>
+            <input type="checkbox" id="marche" name="marche" value="marche">
+            <label for="marche"> Douleurs à la marche</label>
+            <input type="checkbox" id="repos" name="repos" value="repos">
+            <label for="repos"> Douleurs au repos</label><br>
+            <input type="checkbox" id="leffort" name="leffort" value="leffort">
+            <label for="leffort"> Douleurs à l'effort</label>
+            <input type="checkbox" id="permanents" name="permanents" value="permanents">
+            <label for="permanents"> Douleurs permanents</label>
+          </div>  
+          <div class="input_wrap">
+            <h1>Digestif</h1>    
+           <input type="checkbox" id="appétit" name="appétit" value="appétit">
+            <label for="appétit"> Appétit</label>
+            <input type="checkbox" id="transit" name="transit" value="transit">
+            <label for="transit"> Transit</label><br>
+            <input type="checkbox" id="Selles" name="Selles" value="Selles">
+            <label for="selles"> Selles</label>
+            <input type="checkbox" id="pyrosis" name="pyrosis" value="pyrosis">
+            <label for="pyrosis"> Pyrosis</label><br>
+            <input type="checkbox" id="Rectoreagies" name="Rectoreagies" value="Rectoreagies">
+            <label for="Rectoreagies"> Rectoreagies</label>
+            <input type="checkbox" id="abdominales" name="abdominales" value="abdominales">
+            <label for="abdominales"> Douleurs abdominales</label>
+          </div> 
+          <div class="input_wrap">
+            <h1>Génito-urinaire</h1>    
+           <input type="checkbox" id="Miction" name="Miction" value="Miction">
+            <label for="Miction"> Miction</label>
+            <input type="checkbox" id="Pollakiurie" name="Pollakiurie" value="Pollakiurie">
+            <label for="Pollakiurie"> Pollakiurie</label>
+            <input type="checkbox" id="Banaturie" name="Banaturie" value="Banaturie">
+            <label for="Banaturie"> Banaturie</label>
+            <input type="checkbox" id="Dysurie" name="Dysurie" value="Dysurie">
+            <label for="Dysurie"> Dysurie</label><br>
+            <input type="checkbox" id="mictionnelles" name="mictionnelles" value="mictionnelles">
+            <label for="mictionnelles"> Ballures mictionnelles</label>
+            <input type="checkbox" id="Coliques" name="Coliques" value="Coliques">
+            <label for="Coliques"> Coliques néphrétiques </label>
+            <div class="input_wrap">
+              <label > Cycle </label><br>
+              <input type="checkbox" id="Régulier" name="Régulier" value="Régulier">
+              <label for="Régulier"> Régulier</label><br>
+              <input type="checkbox" id="Irrégulier" name="Irrégulier" value="Irrégulier">
+              <label for="Irrégulier"> Irrégulier </label>
+            </div>
+          </div>    
+          <div class="input_wrap">
+            <h1>Neurologique et psychisme</h1>    
+           <input type="checkbox" id="Sommeil" name="Sommeil" value="Sommeil">
+            <label for="Sommeil"> Sommeil</label>
+            <input type="checkbox" id="Vertiges" name="Vertiges" value="Vertiges">
+            <label for="Vertiges"> Vertiges</label>
+            <input type="checkbox" id="Céphalées" name="Céphalées" value="Céphalées">
+            <label for="Céphalées"> Céphalées</label>
+            <input type="checkbox" id="Peur" name="Peur" value="Peur">
+            <label for="Peur"> Peur de vide</label><br>
+            <input type="checkbox" id="Perte" name="Perte" value="Perte">
+            <label for="Perte"> Perte de connaissance</label>
+            <input type="checkbox" id="Parésie" name="Parésie" value="Parésie">
+            <label for="Parésie"> Parésie </label>
+            <input type="checkbox" id="Paresthésie" name="Paresthésie" value="Paresthésie">
+            <label for="Paresthésie"> Paresthésie</label><br>
+              
+            </div>
+            <div class="input_wrap">
+              <h1>Hémathologique et gonglionnaire</h1>    
+             <input type="checkbox" id="Echymose" name="Echymose" value="Echymose">
+              <label for="Echymose"> Echymose</label>
+              <input type="checkbox" id="Tendances" name="Tendances" value="Tendances">
+              <label for="Tendances"> Tendances aux hémorragies</label>
+                
+              </div>
+              <div class="input_wrap">
+                <h1>Endocrinologie</h1>    
+               <input type="checkbox" id="Obésité" name="Obésité" value="Obésité">
+                <label for="Obésité"> Obésité familiale</label>
+                <input type="checkbox" id="Maigraire" name="Maigraire" value="Maigraire">
+                <label for="Maigraire"> Maigraire familiale</label>
+                  
+                </div>
+                    
+        </div>
+        <div >
+          <button class="btn">Enregistrer</button>
+          <button class="btn" style="margin-left: 350px; margin-top: 50px;" >Annuler</button>
+        </div>
+
+     </form>
+        </div>
+        
+      </main>
+
+      <div id="sidebar">
+        <div class="sidebar__title">
+          <div class="sidebar__img">
+            <img src="logoapppp.png" alt="logo" />
+            
+          </div>
+          <i
+            onclick="closeSidebar()"
+            class="fa fa-times"
+            id="sidebarIcon"
+            aria-hidden="true"
+          ></i>
+        </div>
+
+        <div class="sidebar__menu">
+          <div class="sidebar__link active_menu_link">
+            <i class="fa fa-home"></i>
+            <h2>Tableau de bord</h2>
+          </div>
+          <div class="sidebar__link active_menu_link ">
+            <i class="fa fa-folder" aria-hidden="true"></i>
+            <a href="#">Dossier Médical</a>
+          </div>
+          <div class="sidebar__link active_menu_link">
+            <i class="fa fa-stethoscope" aria-hidden="true"></i>
+            <a href="#">Examen Médical</a>
+          </div>
+          <div class="sidebar__link active_menu_link">
+            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+            <a href="#">Agenda</a>
+          </div>
+          <div class="sidebar__link active_menu_link">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            <a href="#">Statistiques</a>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+  </body>
+</html>
+
+
