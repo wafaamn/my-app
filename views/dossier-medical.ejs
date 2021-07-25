@@ -35,17 +35,17 @@
 
       <main>
         <div class="main__container">
-         <form class="form"> 
+         <form class="form" action="/creer" method="POST"> 
           <label class="titre"><h1>Informations Personnelles</h1></label>    
              <div class="form_wrap">
               <div class="input_grp">
                 <div class="input_wrap">
                   <label for="nom">Nom</label>
-                  <input type="text" id="nom">
+                  <input type="text" id="nom" name ="nom">
                 </div>
                 <div class="input_wrap">
                   <label for="Prénom">Prénom</label>
-                  <input type="text" id="Prénom">
+                  <input type="text" id="Prénom" name ="prenom">
                 </div>
               </div>
               <div class="input_wrap">
@@ -54,7 +54,7 @@
               </div>
               <div class="input_wrap">
                 <label for="lieu_naiss">Lieux de naissance</label>
-                <select style="padding: 10px; width: 555px;">
+                <select style="padding: 10px; width: 555px;" name ="lieu_naiss">
                   <option>1- Adrar</option>
                   <option>2- Chlef</option>
                   <option>3- Laghouet</option>
@@ -107,7 +107,7 @@
               </div>
               <div class="input_wrap">
                 <label for="grs">Groupe sanguin</label><br>
-                <select style="padding: 10px; width: 555px;">
+                <select style="padding: 10px; width: 555px;" name ="grs">
                   <option>A+</option>
                   <option>A-</option>
                   <option>B+</option>
@@ -120,23 +120,23 @@
               </div>
               <div class="input_wrap">
                 <label for="adr">Adresse</label>
-                <input type="text" id="adr">
+                <input type="text" id="adr" name ="adr">
               </div>
               <div class="input_wrap">
                 <label for="email">Email</label>
-                <input  style="padding: 10px; width: 531px;" type="email" id="email">
+                <input  style="padding: 10px; width: 531px;" type="email" id="email" name ="email">
               </div>
               <div class="input_wrap">
                 <label for="num_tel">Numéro telephone</label>
-                <input  style="padding: 10px; width: 531px;"type="tel" id="num_tel">
+                <input  style="padding: 10px; width: 531px;"type="tel" id="num_tel" name ="num_tel">
               </div>
               <div class="input_wrap">
                 <label for="nss">N°SS</label>
-                <input  style="padding: 10px; width: 531px;" type="number" id="nss">
+                <input  style="padding: 10px; width: 531px;" type="number" id="nss" name ="nss">
               </div>
               <div class="input_wrap">
                 <label for="catégorie">Catégorie</label>
-                <select style="padding: 10px; width: 555px;">
+                <select style="padding: 10px; width: 555px;" name ="categorie">
                   <option>Etudiant</option>
                   <option>ATS</option>
                   <option>Enseignant</option>
@@ -167,16 +167,16 @@
              <div class="input_grp">
                <div class="input_wrap">
                  <label for="Poids">Poids</label>
-                 <input style="padding: 10px; width: 250px;" type="number" id="Poids">
+                 <input style="padding: 10px; width: 250px;" type="number" id="Poids" name = "poids">
                </div>
                <div class="input_wrap">
                  <label for="Taille">Taille</label>
-                 <input style="padding: 10px; width: 250px;"type="number" id="Taille">
+                 <input style="padding: 10px; width: 250px;"type="number" id="Taille" name ="taille">
                </div>
              </div>
              <div class="input_wrap">
                <label for="IMC">IMC</label>
-               <input style="padding: 10px; width: 530px;" type="number" id="IMC">
+               <input style="padding: 10px; width: 530px;" type="number" id="IMC" name="imc">
              </div>
            </div>
         
@@ -229,25 +229,25 @@
           <div class="form_wrap">
             <div class="input_wrap">
               <h1>Peau et muqueuses</h1>
-              <input type="checkbox" id="aff" name="aff">
+              <input type="checkbox" id="aff" name="aff" value="add">
               <label for="aff"> Affections cutanées</label>
             </div>
           <div class="input_wrap">
             <h1>Ophtalmologique</h1>
                
-            <input type="checkbox" id="larmo" name="larmo">
+            <input type="checkbox" id="larmo" name="ophtalmo" value="larmolement">
             <label for="larmo"> Larmolement</label>
-            <input type="checkbox" id="Douleur" name="Douleur">
+            <input type="checkbox" id="Douleur" name="ophtalmo" value="douleurs">
             <label for="Douleur"> Douleurs</label>
-            <input type="checkbox" id="tdl" name="tdl">
+            <input type="checkbox" id="tdl" name="ophtalmo"value ="taches devant les yeux"> 
             <label for="toggleSidebar"> Taches devant les yeux</label>
           </div>
           <div class="input_wrap">
             <h1>O.R.L</h1>
                
-            <input type="checkbox" id="siff" name="siff">
+            <input type="checkbox" id="siff" name="siff" value ="siffelements">
             <label for="siff"> Siffelements</label>
-            <input type="checkbox" id="angine" name="angine">
+            <input type="checkbox" id="angine" name="angine" value="angines">
             <label for="ang"> Angines répétées</label>
             <input type="checkbox" id="ang" name="ang" value="ang">
             <label for="epi"> Epistaxis</label>
