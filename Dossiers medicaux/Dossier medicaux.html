@@ -9,44 +9,75 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" href="Dossier medicaux.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <title>Sah-Tech | Dossiers Médicaux</title>
 </head>
 
 <body id="body">
+  <!--sidebar starts here-->
+  <div class="sidebar">
+    <img src="logoapppp.png" class="sidebar_img">
+    <div class="logo-details">
+       <i class='bx bx-menu' id="btttn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+         <button class="bttn"> 
+          <i class="fa fa-folder" aria-hidden="true"></i>
+          <span class="links_name">Dossier médical</span>
+         </button> 
+         <span class="tooltip">Dossier médical</span>
+      </li>
+      <li>
+       <button class="bttn">
+        <i class="fa fa-stethoscope" aria-hidden="true"></i>
+         <span class="links_name">Examen médical</span>
+       </button>
+       <span class="tooltip">Examen médical</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+         <span class="links_name">Agenda</span>
+       </button>
+       <span class="tooltip">Agenda</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+         <span class="links_name">Statistique</span>
+       </button>
+       <span class="tooltip">Statistique</span>
+     </li>
+     <li>
+      <button class="bttn">
+       <i class="fa fa-plus-square" aria-hidden="true"></i>
+        <span class="links_name">Créer un dossier</span>
+      </button>
+      <span class="tooltip">Créer un dossier</span>
+    </li>
+
+    </ul>
+  </div>
+  <!--sidebar ends here-->
     <div class="container">
-        <nav class="navbar">
-            
-            <div class="nav_icon" onclick="toggleSidebar()">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </div>
-            <div class="navbar__left">
-              <button class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> Créer un dossier</button>
-           
-            </div>
-            <div class="navbar__right">
+        <nav class="navbar">    
+              <h2 for="btttn">Dossiers médicaux</h2>
               <div class="search-wrapper">
-                <span class="las la-search"></span>
+                <span class="las la-search" ></span>
                 <input type="search" placeholder="Recherche" />
-            </div>
-              
-                <a href="#">
-                    <img width="50" src="medecina.png" alt="" />
-                    <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
-                </a>
+              </div>
+              <!--modification profil-->
+              <div class="user-wrapper">
+                <img src="medecina.png" width="60px" height="60px" alt="">
                 <div>
                     <h4>Dr</h4>
                     <small>Mr merabet</small>
                 </div>
-              
-              
             </div>
         </nav>
-
-        <main>
-            <table>
+        <main class="main">
+            <table class="table">
             <thead>
                 <tr>
                   <th>N°Dossier</th>
@@ -106,42 +137,9 @@
               </tbody>
             </table>
         </main>
-
-        <div id="sidebar">
-            <div class="sidebar__title">
-                <div class="sidebar__img">
-                    <img src="logoapppp.png" alt="logo" />
-
-                </div>
-                <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
-            </div>
-
-            <div class="sidebar__menu">
-                <div class="sidebar__link active_menu_link">
-                    <i class="fa fa-home"></i>
-                    <h2>Tableau de bord</h2>
-                </div>
-                <div class="sidebar__link active_menu_link ">
-                    <i class="fa fa-folder" aria-hidden="true"></i>
-                    <a href="#">Dossier Médical</a>
-                </div>
-                <div class="sidebar__link active_menu_link">
-                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
-                    <a href="#">Examen Médical</a>
-                </div>
-                <div class="sidebar__link active_menu_link">
-                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                    <a href="#">Agenda</a>
-                </div>
-                <div class="sidebar__link active_menu_link">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                    <a href="#">Statistiques</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
+      </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="Dossier medicaux.js"></script>
 
 </body>
 
