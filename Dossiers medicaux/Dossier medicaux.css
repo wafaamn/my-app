@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
- /* sidebar starts here; */
-*{
-  
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+/* sidebar starts here; */
+* {
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-.sidebar{
+.sidebar {
   position: fixed;
   left: 0;
   top: 0;
@@ -26,19 +25,19 @@
   opacity: 0;
   transition: all 0.5s ease;
 }
-.sidebar.open .sidebar_img{
+.sidebar.open .sidebar_img {
   opacity: 1;
 }
-.sidebar.open{
+.sidebar.open {
   width: 275px;
 }
-.sidebar .logo-details{
+.sidebar .logo-details {
   height: 60px;
   display: flex;
   align-items: center;
   position: relative;
 }
-.sidebar .logo-details #btttn{
+.sidebar .logo-details #btttn {
   position: absolute;
   top: -75%;
   right: 0;
@@ -51,10 +50,10 @@
   transition: all 0.5s ease;
   margin-right: 20px;
 }
-.sidebar.open .logo-details #btttn{
+.sidebar.open .logo-details #btttn {
   text-align: right;
 }
-.sidebar i{
+.sidebar i {
   color: #fff;
   height: 60px;
   min-width: 50px;
@@ -62,20 +61,20 @@
   text-align: center;
   line-height: 60px;
 }
-.sidebar .nav-list{
+.sidebar .nav-list {
   margin-top: -20px;
   height: 100%;
 }
-.sidebar .nav-list .bttn{
+.sidebar .nav-list .bttn {
   background-color: #4e2793;
   border: none;
 }
-.sidebar li{
+.sidebar li {
   position: relative;
   margin: 8px 0;
   list-style: none;
 }
-.sidebar li .tooltip{
+.sidebar li .tooltip {
   position: absolute;
   top: -20px;
   left: calc(100% + 15px);
@@ -89,22 +88,20 @@
   opacity: 0;
   pointer-events: none;
   transition: 0s;
-  
 }
-.sidebar li:hover .tooltip{
+.sidebar li:hover .tooltip {
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
   top: 50%;
   transform: translateY(-50%);
 }
-.sidebar.open li .tooltip{
+.sidebar.open li .tooltip {
   display: none;
-
 }
-.sidebar input{
+.sidebar input {
   font-size: 15px;
-  color: #FFF;
+  color: #fff;
   font-weight: 400;
   outline: none;
   height: 50px;
@@ -115,11 +112,11 @@
   transition: all 0.5s ease;
   background: #1d1b31;
 }
-.sidebar.open input{
+.sidebar.open input {
   padding: 0 20px 0 50px;
   width: 100%;
 }
-.sidebar li button{
+.sidebar li button {
   display: flex;
   height: 100%;
   width: 100%;
@@ -127,12 +124,12 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #11101D;
+  background: #11101d;
 }
-.sidebar .bttn:hover{
-  background: #FFF;
+.sidebar .bttn:hover {
+  background: #fff;
 }
-.sidebar  .bttn .links_name{
+.sidebar .bttn .links_name {
   color: #fff;
   font-size: 15px;
   font-weight: 400;
@@ -141,29 +138,29 @@
   pointer-events: none;
   transition: 0.4s;
 }
-.sidebar.open .bttn .links_name{
+.sidebar.open .bttn .links_name {
   opacity: 1;
   pointer-events: auto;
 }
 .sidebar li button:hover .links_name,
-.sidebar li button:hover i{
+.sidebar li button:hover i {
   transition: all 0.5s ease;
-  color: #11101D;
+  color: #11101d;
 }
-.sidebar li i{
+.sidebar li i {
   height: 50px;
   line-height: 50px;
   font-size: 18px;
   border-radius: 12px;
 }
-.sidebar.open~.container{
+.sidebar.open ~ .container {
   margin-left: 5px;
 }
 .user-wrapper {
   display: flex;
   align-items: center;
 }
- /* sidebar ends here */
+/* sidebar ends here */
 *::after {
   box-sizing: border-box;
   margin: 0;
@@ -179,7 +176,6 @@
   color: #4f546c;
   font-size: 0.9rem;
   background-color: #f9fbff;
-  
 }
 
 .table {
@@ -191,35 +187,31 @@
   margin-top: -60px;
   width: 1150px;
   height: 500px;
-  
 }
-  thead {
-    box-shadow: 0 5px 10px #e1e5ee;
-  }
+thead {
+  box-shadow: 0 5px 10px #e1e5ee;
+}
 
-  th {
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-size: 0.7rem;
-    font-weight: 900;
-    
-  }
+th {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
 
-  td {
-    padding: 1rem 2rem;
-  }
+td {
+  padding: 1rem 2rem;
+}
 
-  a {
-    text-decoration: none;
-    color: #2962ff;
-  }
- 
+a {
+  text-decoration: none;
+  color: #2962ff;
+}
 
-
-  tr:nth-child(even) {
-    background-color: #b4f5e265;
-  }
+tr:nth-child(even) {
+  background-color: #b4f5e265;
+}
 
 /*  styling scrollbars  */
 ::-webkit-scrollbar {
@@ -326,7 +318,7 @@ main {
 
 .search-wrapper input {
   height: 100%;
-  padding: .5rem;
+  padding: 0.5rem;
   border: none;
   outline: none;
 }
@@ -346,8 +338,7 @@ main {
   font-family: "Poppins", sans-serif;
   margin: 1rem 0;
   margin-left: 200px;
-
-  }
+}
 
 .btn:hover {
   background-position: right;
@@ -393,3 +384,106 @@ main {
     display: none;
   }
 }
+/* drop-dwon user account */
+.icons-size {
+  color: #333;
+  font-size: 14px;
+}
+.action {
+  position: fixed;
+  right: 30px;
+  top: 0px;
+}
+.action .profile {
+  border-radius: 100%;
+  cursor: pointer;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  width: 60px;
+}
+.action .profile img {
+  width: 100%;
+  top: 0;
+  position: absolute;
+  object-fit: cover;
+  left: 0;
+  height: 100%;
+}
+.action .menu {
+  background-color: #fff;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 10px 20px;
+  position: absolute;
+  right: -10px;
+  width: 250px;
+  transition: 0.5s;
+  top: 120px;
+  visibility: hidden;
+  opacity: 0;
+}
+.action .menu.active {
+  opacity: 1;
+  top: 80px;
+  visibility: visible;
+}
+.action .menu::before {
+  background-color: #fff;
+  content: "";
+  height: 20px;
+  position: absolute;
+  right: 30px;
+  transform: rotate(45deg);
+  top: -5px;
+  width: 20px;
+}
+.action .menu h3 {
+  color: #555;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3em;
+  padding: 20px 0px;
+  text-align: left;
+  width: 100%;
+}
+.action .menu h3 div {
+  color: #818181;
+  font-size: 14px;
+  font-weight: 400;
+}
+.action .menu ul li {
+  align-items: center;
+  border-top: 1px solid rgba(0.5, 0.5, 0.5, 0.5);
+  display: flex;
+  justify-content: left;
+  list-style: none;
+  padding: 10px 0px;
+}
+.action .menu ul li img {
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.action .menu ul li button {
+  display: inline-block;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+.action .menu ul li:hover img {
+  opacity: 1;
+}
+.action .menu ul li:hover button {
+  color: #4e2793;
+}
+.rundown-btn {
+  border: none;
+  background-color: #fff;
+}
+/* end drop-down user account */
