@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="Dossier medicaux.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <title>Dossiers Médicaux | Sah-Tech</title>
 </head>
 
@@ -69,11 +71,40 @@
               </div>
               <!--modification profil-->
               <div class="user-wrapper">
-                <img src="medecina.png" width="60px" height="60px" alt="">
-                <div>
+                <div class="action">
+                  <div class="profile" onclick="menuToggle();">
+                    <img src="medecina.png"  alt="">
+                  </div>
+          
+                  <div class="menu">
+                      <h3>
+                          MERABET MOHAMED
+                          <div>m.merabet@esi-sba.dz</div>
+                      </h3>
+                      <ul>
+                          <li>
+                              <span class="material-icons icons-size">person</span>
+                              <button class="rundown-btn">Mon Profile</button>
+                          </li>
+                          <li>
+                              <span class="material-icons icons-size">mode</span>
+                              <button class="rundown-btn">Changer de compte</button>
+                          </li>
+                          <li>
+                              <span class="material-icons icons-size">mail</span>
+                              <button class="rundown-btn">Inbox</button>
+                          </li>
+                          <li>
+                              <span class="material-icons icons-size">logout</span>
+                              <button class="rundown-btn">Se déconnecter</button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+                <!-- <div>
                     <h4>Dr</h4>
                     <small>Mr merabet</small>
-                </div>
+                </div> -->
             </div>
         </nav>
         <main class="main">
@@ -140,6 +171,14 @@
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="Dossier medicaux.js"></script>
+    <!-- début de rundown user account -->
+    <script>
+      function menuToggle(){
+          const toggleMenu = document.querySelector('.menu');
+          toggleMenu.classList.toggle('active')
+      }
+  </script>
+  <!-- fin de rundown user account -->
 
 </body>
 
