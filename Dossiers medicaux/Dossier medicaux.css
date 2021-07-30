@@ -384,7 +384,7 @@ main {
     display: none;
   }
 }
-/* rundown user account */
+/* drop-dwon user account */
 .icons-size {
   color: #333;
   font-size: 14px;
@@ -454,7 +454,7 @@ main {
 }
 .action .menu ul li {
   align-items: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0.5, 0.5, 0.5, 0.5);
   display: flex;
   justify-content: left;
   list-style: none;
@@ -486,4 +486,4 @@ main {
   border: none;
   background-color: #fff;
 }
-/* end reundoun user account */
+/* end drop-down user account */
