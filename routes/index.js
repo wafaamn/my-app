@@ -81,7 +81,7 @@ router.post('/auth',function(request,response){
   var username = request.body.username;
 	var password = request.body.password;
 	if (username && password) {
-		con.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error,results,fields) {
+		con.query('SELECT * FROM utilisateur WHERE email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
        // response.render('interfacemedecin');
