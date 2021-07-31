@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="nv compte.css" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <title>Sah-Tech | Dossiers Médicaux</title>
+</head>
+
+<body id="body">
+  <!--sidebar starts here-->
+  <div class="sidebar">
+    <img src="logoapppp.png" class="sidebar_img">
+    <div class="logo-details">
+       <i class='bx bx-menu' id="btttn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+         <button class="bttn"> 
+          <i class="fa fa-folder" aria-hidden="true"></i>
+          <span class="links_name">Dossier médical</span>
+         </button> 
+         <span class="tooltip">Dossier médical</span>
+      </li>
+      <li>
+       <button class="bttn">
+        <i class="fa fa-stethoscope" aria-hidden="true"></i>
+         <span class="links_name">Examen médical</span>
+       </button>
+       <span class="tooltip">Examen médical</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+         <span class="links_name">Agenda</span>
+       </button>
+       <span class="tooltip">Agenda</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+         <span class="links_name">Statistique</span>
+       </button>
+       <span class="tooltip">Statistique</span>
+     </li>
+     <li>
+      <button class="bttn">
+       <i class="fa fa-plus-square" aria-hidden="true"></i>
+        <span class="links_name">Créer un dossier</span>
+      </button>
+      <span class="tooltip">Créer un dossier</span>
+    </li>
+
+    </ul>
+  </div>
+  <!--sidebar ends here-->
+    <div class="container">
+        <nav class="navbar">    
+              <h2 for="btttn">Création compte</h2>
+              <div class="search-wrapper">
+                <span class="las la-search" ></span>
+                <input type="search" placeholder="Recherche" />
+              </div>
+              <!--modification profil-->
+              <div class="user-wrapper">
+                <img src="medecina.png" width="60px" height="60px" alt="">
+                <div>
+                    <h4>Admin</h4>
+                    <small>-------</small>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="main__container">
+              <form class="form"> 
+               <div class="titre"><h1>Ajouter un nouveau compte</h1></div>    
+                  <div class="form_wrap">
+                   <div class="input_grp">
+                     <div class="input_wrap">
+                       <label for="nom"><h4>Nom</h4></label>
+                       <input type="text" id="nom" required>
+                   
+                     </div>
+                     <div class="input_wrap">
+                       <label for="Prénom"><h4>Prénom</h4></label>
+                       <input type="text" id="Prénom" required>
+                     </div>
+                   </div>
+                  <div class="input_grp1">
+                   <div class="input_wrap">
+                     <label for="email"><h4>Email</h4></label>
+                     <input type="email" id="email" required>
+                   </div>
+                   <div class="input_wrap">
+                     <label for="num_tel"><h4>Numéro téléphone</h4></label>
+                     <input type="tel" id="num_tel" required>
+                   </div>
+                  </div> 
+                 <div class="input_grp2"> 
+                  <div class="input_wrap">
+                    <label for="mot de passe"><h4>Mot de passe</h4></label>
+                    <input type="password" id="mot de passe" required>
+                  </div>
+                  <div class="input_wrap">
+                    <button class="btn" >Enregistrer</button>
+                 </div> 
+                 </div>
+              </form>
+            </div>
+        </main>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="nv compte.js"></script>
+
+</body>
+
+</html>
