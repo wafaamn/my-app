@@ -386,7 +386,7 @@ main {
 }
 /* drop-dwon user account */
 .icons-size {
-  color: #333;
+  color: #fff;
   font-size: 14px;
 }
 .action {
@@ -411,7 +411,7 @@ main {
   height: 100%;
 }
 .action .menu {
-  background-color: #fff;
+  background-color: #4e2793;
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   padding: 10px 20px;
@@ -429,7 +429,7 @@ main {
   visibility: visible;
 }
 .action .menu::before {
-  background-color: #fff;
+  background-color: #4e2793;
   content: "";
   height: 20px;
   position: absolute;
@@ -439,7 +439,7 @@ main {
   width: 20px;
 }
 .action .menu h3 {
-  color: #555;
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.3em;
@@ -448,13 +448,13 @@ main {
   width: 100%;
 }
 .action .menu h3 div {
-  color: #818181;
+  color: #f3f4f6;
   font-size: 14px;
   font-weight: 400;
 }
 .action .menu ul li {
   align-items: center;
-  border-top: 1px solid rgba(0.5, 0.5, 0.5, 0.5);
+  border-top: 1px solid rgba(150, 150, 150, 150);
   display: flex;
   justify-content: left;
   list-style: none;
@@ -468,7 +468,7 @@ main {
 }
 .action .menu ul li button {
   display: inline-block;
-  color: #555;
+  color: #f3f4f6;
   font-size: 14px;
   font-weight: 600;
   padding-left: 10px;
@@ -480,10 +480,10 @@ main {
   opacity: 1;
 }
 .action .menu ul li:hover button {
-  color: #4e2793;
+  color: #80ffdb;
 }
 .rundown-btn {
   border: none;
-  background-color: #fff;
+  background-color: #4e2793;
 }
 /* end drop-down user account */
