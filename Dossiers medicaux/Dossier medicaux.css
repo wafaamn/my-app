@@ -455,12 +455,13 @@ main {
   font-weight: 400;
 }
 .action .menu ul li {
-  align-items: center;
+  align-items:center;
   border-top: 1px solid rgba(150, 150, 150, 150);
   display: flex;
-  justify-content: left;
+  
   list-style: none;
   padding: 10px 0px;
+  
 }
 .action .menu ul li img {
   max-width: 20px;
@@ -481,11 +482,28 @@ main {
 .action .menu ul li:hover img {
   opacity: 1;
 }
-.action .menu ul li:hover button {
-  color: #80ffdb;
-}
 .rundown-btn {
   border: none;
   background-color: #4e2793;
+  padding: 10px;
+  width: 210px;
+}
+.rundown-btn:hover{
+  background-color: #fff;
+}
+.menu li button:hover .links_name,
+.menu li button:hover span {
+  transition: all 0.5s ease;
+  color: #11101d;
+}
+.menu li #p{
+  display:flex;
+}
+.menu li .links_name h4 {
+  font-size: 13.5px;
+  font-display:initial;
+  margin-top: -20px;
+  
+  
 }
 /* end drop-down user account */
