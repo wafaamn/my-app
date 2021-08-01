@@ -2,12 +2,14 @@ var express = require('express');
 const { UnavailableForLegalReasons } = require('http-errors');
 var creerDossRouter = express.Router() ;
 var con = require('../conn/conn');
-var idp , iddep ;
+var idp  ;
+var iddep ;
+var idant ;
 // got home page 
 
 
 //Handle POST request for User Registration
-creerDossRouter.post('/creer', function (req, res, next) {
+creerDossRouter.post('', function (req, res, next) {
     console.log("message !");
 
     var nom = req.body.nom;
@@ -294,7 +296,7 @@ creerDossRouter.post('/creer', function (req, res, next) {
             console.log("ce patient déja a un dossier ")
             res.send('Cette personne a déja un dossier  ');
         
-        }else { 
+        } else { 
             var id = "select IdPatient from patient where email = ?";
                 con.query(id, [email], function (err, result, fields) {
                     if (err) throw err;
@@ -330,7 +332,7 @@ creerDossRouter.post('/creer', function (req, res, next) {
                             iddep = result[0].Iddep ;
                             console.log(iddep);
                         }
-                        var sqlinsert = "insert into dossiermed (IdPatient ,poids , taille , IMC , nss , categorie , grs, categorie , idAnt , Iddep ) values ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
+                        var sqlinsert = "insert into dossiermed (IdPatient ,poids , taille , IMC , nss , grs , categorie , idAnt , Iddep ) values ( ? , ? , ? , ? , ? , ? , ? , ? , ? )";
                         con.query(sqlinsert, [idp, poids, taille, imc, nss, grs , categorie , idant , iddep], function (err, result, fields) {
                             if (err) throw err;
                             console.log("creation est terminé ! ");
