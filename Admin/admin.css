@@ -128,11 +128,13 @@ header label span {
 .search-wrapper {
   border: 1px solid #ccc;
   border-radius: 30px;
-  height: 50px;
-  width: 350px;
+  height: 35px;
+  width: 300px;
   display: flex;
   align-items: center;
   overflow-x: hidden;
+  margin-top: 3px;
+  margin-left: 20px;
 }
 
 .search-wrapper span {
@@ -164,9 +166,9 @@ header label span {
 }
 
 main {
-  margin-top: 85px;
+  margin-top: 65px;
   padding: 2rem 1.5rem;
-  background: #f1f5f9;
+  background: #f9fbff;
   min-height: calc(100vh - 90px);
 }
 
