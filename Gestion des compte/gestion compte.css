@@ -13,58 +13,160 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-
 .sidebar {
-  width: 275px;
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
+  width: 105px;
   background: #4e2793;
-  z-index: 100;
-  transition: width 300ms;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
 }
-.sidebar .sidebar_img {
+
+ .sidebar .sidebar_img {
   display: flex;
   align-items: center;
-  padding-top: 10px;
-  margin-left: 75px;
+  margin-left: 70px;
   width: 75px;
   object-fit: contain;
+  transition: all 0.5s ease;
   opacity: 1;
-  transition: 0.5s;
+}
+.sidebar.open .sidebar_img {
+  opacity: 0;
 }
 
-.sidebar-menu {
-  margin-top: 2.7rem;
+#nav-toggle:checked + .sidebar {
+  width: 275px;
 }
-
-.sidebar-menu li {
-  width: 100%;
-  margin-bottom: 1.8rem;
-  padding-left: 1rem;
+.sidebar .logo-details {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
-
-.sidebar-menu button {
-  padding-left: 0.3rem;
-  display: block;
+.sidebar .logo-details #btttn {
+  position: absolute;
+  top: -42%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin-left: 200px;
+}
+.sidebar.open .logo-details #btttn {
+  text-align: right;
+}
+.sidebar i {
   color: #fff;
-  font-size: 1 rem;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
 }
-
-.sidebar-menu .bttn {
+.sidebar .nav-list {
+  margin-top: -60px;
+  height: 100%;
+}
+.sidebar .nav-list .bttn {
   background-color: #4e2793;
   border: none;
 }
-.sidebar-menu button:hover {
-  color: rgb(0.5, 0.5, 0.5);
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
 }
-.sidebar-menu button span:first-child {
-  font-size: 1.5rem;
-  padding-right: 1rem;
+.sidebar li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 30px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0s;
+}
+.sidebar li:hover .tooltip {
+  display: none;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+  
+}
+.sidebar.open  li .tooltip {
+  
+  display: flex;
+}
+.sidebar input {
+  font-size: 15px;
   color: #fff;
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background: #1d1b31;
 }
+
+.sidebar li button {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  color:#ffffff;
+  font-size: 15px;
+  font-weight: 400;
+}
+.sidebar .bttn:hover {
+  background: #fff;
+}
+.sidebar .bttn .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar.open  .bttn .links_name {
+ 
+ 
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+
+}
+.sidebar li button:hover .links_name,
+.sidebar li button:hover i {
+  transition: all 0.5s ease;
+  color: #11101d;
+}
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+
 /* inside when i drop to colse */
+/*
 #nav-toggle:checked + .sidebar {
   width: 70px;
 }
@@ -81,21 +183,24 @@
 #nav-toggle:checked + .sidebar li span:last-child {
   display: none;
 }
+*/
 
 #nav-toggle:checked ~ .main-content {
-  margin-left: 70px;
+  margin-left: 270px;
 }
 
 #nav-toggle:checked ~ .main-content header {
-  width: calc(100% - 70px);
-  left: 70px;
+  width: 1000px;
+  left: 275px;
+  
 }
+
 /* inside when i drop to colse */
 
 /* we change margin-left to 275 to be colete */
 .main-content {
   transition: margin-left 300ms;
-  margin-left: 275px;
+  margin-left: 110px;
 }
 
 header {
@@ -105,11 +210,10 @@ header {
   padding: 1rem 1.5rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
-  left: 275px;
-  width: calc(106% - 345px);
+  left: 105px;
+  width: calc(106% - 165px);
   top: 0;
-  z-index: 100;
-  transition: left 300ms;
+  transition: left 500ms;
 }
 
 #nav-toggle {
