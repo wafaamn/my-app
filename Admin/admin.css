@@ -145,6 +145,10 @@
   opacity: 1;
   pointer-events: auto;
 }
+.sidebar .bttn .links_name a {
+text-decoration: none;
+color: #fff;
+}
 .sidebar.open  .bttn .links_name {
  
  
@@ -159,6 +163,10 @@
   transition: all 0.5s ease;
   color: #11101d;
 }
+.sidebar .bttn .links_name a:hover {
+  transition: all 0.5s ease;
+  color: #11101d;
+  }
 .sidebar li i {
   height: 50px;
   line-height: 50px;
