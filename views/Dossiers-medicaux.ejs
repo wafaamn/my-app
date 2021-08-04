@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="Dossier medicaux.css" />
+    <link rel="stylesheet" href="/stylesheets/Dossiers-medicaux.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -126,6 +126,21 @@
                 </tr>
               </thead>
               <tbody>
+                <%
+                if(userData.length!=0){
+                var i=1;
+                userData.forEach(function(data){
+                %>
+                <tr>
+                    <td><%=data.idDoss</data> %></td>
+                    <td><%=data.poids %></td>
+                </tr>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                <% } %>
                 <tr>
                   <td><a href="#">001</a></td>
                   <td>Ourrad</td>
@@ -176,7 +191,7 @@
         </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="Dossier medicaux.js"></script>
+    <script src="/stylesheets/Dossiers-medicaux.js"></script>
     <!-- début drop-down user account -->
     <script>
       function menuToggle(){

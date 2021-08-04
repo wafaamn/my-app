@@ -111,7 +111,15 @@ router.get('/creer' ,function(req,res){
   res.render('dossier-medical')
 });
 router.get('/examen' ,function(req,res){
-  res.render('examen-medical')
+  res.render('Dossiers-medicaux')
+});
+router.get('/dossier' ,function(req,res){
+  var sql='SELECT * FROM dossiermed';
+    con.query(sql, function (err, data, fields) {
+      console.log(data);  
+    if (err) throw err;
+  res.render('Dossiers-medicaux', { title: 'User List', userData: data});
+});
 });
 router.get('/examenclinique' ,function(req,res){
   res.render('examen-clinique')
