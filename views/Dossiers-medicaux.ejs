@@ -18,7 +18,7 @@
 <body id="body">
   <!--sidebar starts here-->
   <div class="sidebar">
-    <img src="logoapppp.png" class="sidebar_img">
+    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
     <div class="logo-details">
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
@@ -74,7 +74,7 @@
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="medecina.png"  alt="">
+                    <img src="/stylesheets/img/medecina.png"  alt="">
                   </div>
           
                   <div class="menu">
@@ -131,8 +131,200 @@
                 var i=1;
                 userData.forEach(function(data){
                 %>
-                <tr>
-                    <td><%=data.idDoss</data> %></td>
+                <tr><!DOCTYPE html>
+                  <html lang="en">
+                  
+                  <head>
+                      <meta charset="UTF-8" />
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                  
+                      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+                          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+                      <link rel="stylesheet" href="/stylesheets/Dossiers-medicaux.css" />
+                      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+                      <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+                      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+                      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+                      <title>Dossiers Médicaux | Sah-Tech</title>
+                  </head>
+                  
+                  <body id="body">
+                    <!--sidebar starts here-->
+                    <div class="sidebar">
+                      <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
+                      <div class="logo-details">
+                         <i class='bx bx-menu' id="btttn" ></i>
+                      </div>
+                      <ul class="nav-list">
+                        <li>
+                           <button class="bttn"> 
+                            <i class="fa fa-folder" aria-hidden="true"></i>
+                            <span class="links_name">Dossier médical</span>
+                           </button> 
+                           <span class="tooltip">Dossier médical</span>
+                        </li>
+                        <li>
+                         <button class="bttn">
+                          <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                           <span class="links_name">Examen médical</span>
+                         </button>
+                         <span class="tooltip">Examen médical</span>
+                       </li>
+                       <li>
+                         <button class="bttn">
+                          <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                           <span class="links_name">Agenda</span>
+                         </button>
+                         <span class="tooltip">Agenda</span>
+                       </li>
+                       <li>
+                         <button class="bttn">
+                          <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                           <span class="links_name">Statistique</span>
+                         </button>
+                         <span class="tooltip">Statistique</span>
+                       </li>
+                       <li>
+                        <button class="bttn">
+                         <i class="fa fa-plus-square" aria-hidden="true"></i>
+                          <span class="links_name">Créer un dossier</span>
+                        </button>
+                        <span class="tooltip">Créer un dossier</span>
+                      </li>
+                  
+                      </ul>
+                    </div>
+                    <!--sidebar ends here-->
+                      <div class="container">
+                          <nav class="navbar">    
+                                <h2 for="btttn">Dossiers médicaux</h2>
+                                <div class="search-wrapper">
+                                  <span class="las la-search" ></span>
+                                  <input type="search" placeholder="Recherche" />
+                                </div>
+                                <!--modification profil-->
+                                <!-- drop-down user account -->
+                                <div class="user-wrapper">
+                                  <div class="action">
+                                    <div class="profile" onclick="menuToggle();">
+                                      <img src="/stylesheets/img/medecina.png"  alt="">
+                                    </div>
+                            
+                                    <div class="menu">
+                                        <h3>
+                                            MERABET MOHAMED
+                                            <div>m.merabet@esi-sba.dz</div>
+                                        </h3>
+                                        <ul>
+                                            <li>
+                                                <span class="material-icons icons-size">person</span>
+                                                <button class="rundown-btn">Mon Profile</button>
+                                            </li>
+                                            <li>
+                                                <span class="material-icons icons-size">mode</span>
+                                                <button class="rundown-btn">Modifier le compte</button>
+                                            </li>
+                                            <li>
+                                                <span class="material-icons icons-size">mail</span>
+                                                <button class="rundown-btn">Boite de réception</button>
+                                            </li>
+                                            <li>
+                                                <span class="material-icons icons-size">logout</span>
+                                                <button class="rundown-btn">Se déconnecter</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                              </div>             <!-- drop-down user account -->
+                          </nav>
+                          <main class="main">
+                              <table class="table">
+                              <thead>
+                                  <tr>
+                                    <th>N°Dossier</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Sexe</th>
+                                    <th>Date_Naiss</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <%
+                                  if(userData.length!=0){
+                                  var i=1;
+                                  userData.forEach(function(data){
+                                  %>
+                                  <tr>
+                                    <td><%=data.IdPatient%></td>
+                                    <td><%=data.DateNaissance%></td>
+                                    <td>1/5/2021</td>
+                                    <td>
+                                      <p class="status status-unpaid">Unpaid</p>
+                                    </td>
+                                    <td class="amount">$520.18</td>
+                                  </tr>
+                                  <%  i++; }) %>
+                                  <% } else{ %>
+                                      <tr>
+                                          <td colspan="7">No Data Found</td>
+                                      </tr>
+                                  <% } %>
+                                  <tr>
+                                    <td><a href="#">INV__1002</a></td>
+                                    <td>Sonic</td>
+                                    <td>1/4/2021</td>
+                                    <td>
+                                      <p class="status status-paid">Paid</p>
+                                    </td>
+                                    <td class="amount">$415.25</td>
+                                  </tr>
+                                  <tr>
+                                    <td><a href="#">INV__1003</a></td>
+                                    <td>Innercircle</td>
+                                    <td>1/2/2021</td>
+                                    <td>
+                                      <p class="status status-pending">Pending</p>
+                                    </td>
+                                    <td class="amount">$1324.84</td>
+                                  </tr>
+                                  <tr>
+                                    <td><a href="#">INV__1004</a></td>
+                                    <td>Varsity Plus</td>
+                                    <td>12/30/2020</td>
+                                    <td>
+                                      <p class="status status-pending">Pending</p>
+                                    </td>
+                                    <td class="amount">$998.26</td>
+                                  </tr>
+                                  <tr>
+                                    <td><a href="#">INV__1005</a></td>
+                                    <td>Highlander</td>
+                                    <td>12/18/2020</td>
+                                    <td>
+                                      <p class="status status-paid">Paid</p>
+                                    </td>
+                                    <td class="amount">$1152.35</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          </main>
+                        </div>
+                      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                      <script src="/stylesheets/Dossiers-medicaux.js"></script>
+                      <!-- début drop-down user account -->
+                      <script>
+                        function menuToggle(){
+                            const toggleMenu = document.querySelector('.menu');
+                            toggleMenu.classList.toggle('active')
+                        }
+                    </script>
+                    <!-- fin drop-down user account -->
+                  
+                  </body>
+                  
+                  </html>
+                    <td><%=data.idDoss %></td>
                     <td><%=data.poids %></td>
                 </tr>
                 <%  i++; }) %>
@@ -191,7 +383,7 @@
         </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="/stylesheets/Dossiers-medicaux.js"></script>
+    <script src="/stylesheets/fichiers-js/Dossiers-medicaux.js"></script>
     <!-- début drop-down user account -->
     <script>
       function menuToggle(){
