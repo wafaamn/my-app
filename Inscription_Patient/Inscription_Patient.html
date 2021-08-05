@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="Inscription_Patient.css" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <title>Sah-Tech | Inscription</title>
+</head>
+
+<body id="body">
+        <main>
+              <form class="form"> 
+               <div class="titre"><h1>Bienvenue</h1></div>    
+                  <div class="form_wrap">
+                   <div class="input_grp">
+                     <div class="input_wrap">
+                       <label for="nom"><h4>Nom</h4></label>
+                       <input type="text" id="nom" required>
+                     </div>
+                     <div class="input_wrap">
+                       <label for="Prénom"><h4>Prénom</h4></label>
+                       <input type="text" id="Prénom" required>
+                     </div>
+                   </div>
+                   <div class="input_grp0">
+                   <div class="input_wrap">
+                    <label for="date_naiss"><h4>Date de naissance</h4></label>
+                    <input type="date" id="birthday" name="birthday">
+                  </div>   
+                <div class="input_wrap">
+                  <label><h4>Sexe</h4></label>
+                  <div class="input_grp01">
+                    <div class="input_wrap">
+                    <label for="mal" id="labelmal"><h4>homme</h4></label>
+                    <input type="radio" id="mal" name="homme" value="homme">
+                    </div>
+                    <div class="input_wrap">
+                    <label for="femal" id="labelfemal"><h4>femme</h4></label>
+                    <input type="radio" id="femal" name="femme">
+                    </div>
+                    </div>
+                  </div>
+                </div>  
+        
+                  <div class="input_grp1">
+                   <div class="input_wrap">
+                     <label for="email"><h4>Email</h4></label>
+                     <input type="email" id="email" required>
+                   </div>
+                   <div class="input_wrap">
+                     <label for="num_tel"><h4>Numéro téléphone</h4></label>
+                     <input type="tel" id="num_tel" required>
+                   </div>
+                  </div> 
+                 <div class="input_grp2"> 
+                    <div class="input_wrap">
+                        <label for="catégorie"><h4>Catégorie</h4></label>
+                        <select id="catégorie">
+                          <option>Etudiant</option>
+                          <option>ATS</option>
+                          <option>Enseignant</option>
+                        </select>
+                      </div>
+                  <div class="input_wrap">
+                    <label for="mot de passe"><h4>Mot de passe</h4></label>
+                    <input type="password" id="mot de passe" required>
+                  </div>
+             
+                 </div>
+                 <div class="input_wrap">
+                    <button class="btn" >S'inscrire</button>
+                 </div> 
+              </form>
+        </main>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</body>
+
+</html>
