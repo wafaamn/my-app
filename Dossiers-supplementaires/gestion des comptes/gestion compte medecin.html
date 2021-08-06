@@ -10,52 +10,64 @@
     <link rel="stylesheet" href="gestion compte.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" >
 </head>
 
 <body>
-
-    <input type="checkbox" id="nav-toggle">
+    <input type="checkbox" id="nav-toggle" checked="checked">
     <div class="sidebar">
+      
+      
         <img src="logoapppp.png" class="sidebar_img">
         <div class="logo-details">
-       <i class='bx bx-menu' id="btttn" ></i>
-    </div>
-        <!--Side bar start here-->
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <button  class="bttn acive">
-                        <span class="las la-home"></span>
-                    <span>Dashboard</span></button>
-                </li>
-
-                <li>
-                    <button class="bttn" ><span class="las la-stethoscope"></span>
-                    <span>Medecins</span></button>
-                </li>
-                <li>
-                    <button class="bttn"><span class="las la-user"></span>
-                    <span>Infirmiers</span></button>
-                </li>
-                <li>
-                    <button class="bttn"><span class="las la-user-injured"></span>
-                    <span>Pacients</span></button>
-                </li>
-                <li>
-                    <button class="bttn"><span class="las la-history"></span>
-                    <span>Assistant Administratif</span></button>
-                </li>
-                
-            </ul>
+            <label for="nav-toggle" >
+            <i class='bx bx-menu' id="btttn" ></i>
+            </label>
         </div>
+     
+      
+      
+        <!--Side bar start here-->
+            <ul class="nav-list">
+              <li>
+                 <button class="bttn"> 
+                <i class="fa fa-user-md" aria-hidden="true"></i>
+                  <span class="links_name">Medecins</span>
+                 </button> 
+                 <span class="tooltip">Dossier médical</span>
+              </li>
+              <li>
+               <button class="bttn">
+                <i class="fa fa-medkit" aria-hidden="true"></i>
+                 <span class="links_name">Infirmiers</span>
+               </button>
+               <span class="tooltip">Examen médical</span>
+             </li>
+             <li>
+               <button class="bttn">
+                <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                 <span class="links_name">Assistants administratif</span>
+               </button>
+               <span class="tooltip">Agenda</span>
+             </li>
+             <li>
+               <button class="bttn">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                 <span class="links_name">Patients</span>
+               </button>
+               <span class="tooltip">Statistique</span>
+             </li>
+            </ul>
     </div>
 
     <div class="main-content">
         <header>
             <h2>
                 <label for="nav-toggle">
-                    <span class="las la-bars"></span>
-                </label> Dashboard
+                 
+                </label> Tableau de bord
             </h2>
 
             <div class="search-wrapper">
@@ -203,7 +215,7 @@
         </main>
 
     </div>
-
+<script src="Gs compte.js"></script>
 </body>
 
 </html>

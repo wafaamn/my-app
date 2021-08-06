@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="Dossier medicaux.css" />
+    <link rel="stylesheet" href="Dossiers medicaux.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -122,68 +122,84 @@
                   <th>Prénom</th>
                   <th>Sexe</th>
                   <th>Date_Naiss</th>
-                  
+                  <th style="color:blueviolet;">Consulter</th>
+                  <th style="color:blueviolet;">Modifier</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><a href="#">INV__1001</a></td>
-                  <td>Paragon</td>
-                  <td>1/5/2021</td>
+                  <td><a href="#">001</a></td>
+                  <td>Ourrad</td>
+                  <td>Imane</td>
                   <td>
-                    <p class="status status-unpaid">Unpaid</p>
+                    <p class="status status-unpaid">Femme</p>
                   </td>
-                  <td class="amount">$520.18</td>
+                  <td class="amount">06.04.2001</td>
+                  <td class="amount"><button class="btn">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button></td>
+                  <td class="amount">
+                    <button class="btn">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                  </td>
                 </tr>
                 <tr>
-                  <td><a href="#">INV__1002</a></td>
-                  <td>Sonic</td>
-                  <td>1/4/2021</td>
+                  <td><a href="#">002</a></td>
+                  <td>Bouziane</td>
+                  <td>Djihane</td>
                   <td>
-                    <p class="status status-paid">Paid</p>
+                    <p class="status status-paid">Femme</p>
                   </td>
-                  <td class="amount">$415.25</td>
+                  <td class="amount">03.05.1999</td>
+                  <td class="amount"><button class="btn">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button></td>
+                  <td class="amount"><button class="btn">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button></td>
                 </tr>
                 <tr>
-                  <td><a href="#">INV__1003</a></td>
-                  <td>Innercircle</td>
-                  <td>1/2/2021</td>
+                  <td><a href="#">003</a></td>
+                  <td>Lakhmi</td>
+                  <td>Khaoula</td>
                   <td>
-                    <p class="status status-pending">Pending</p>
+                    <p class="status status-pending">Femme</p>
                   </td>
-                  <td class="amount">$1324.84</td>
+                  <td class="amount">14.10.1999</td>
+                  <td class="amount">03.05.1999</td>
+                  <td class="amount">03.05.1999</td>
                 </tr>
                 <tr>
-                  <td><a href="#">INV__1004</a></td>
-                  <td>Varsity Plus</td>
-                  <td>12/30/2020</td>
+                  <td><a href="#">004</a></td>
+                  <td>Mimouni</td>
+                  <td>Wafaa</td>
                   <td>
-                    <p class="status status-pending">Pending</p>
+                    <p class="status status-pending">Femme</p>
                   </td>
-                  <td class="amount">$998.26</td>
+                  <td class="amount">26.06.1999</td>
+                  <td class="amount">03.05.1999</td>
+                  <td class="amount">03.05.1999</td>
                 </tr>
                 <tr>
-                  <td><a href="#">INV__1005</a></td>
-                  <td>Highlander</td>
-                  <td>12/18/2020</td>
+                  <td><a href="#">005</a></td>
+                  <td>Aggoune</td>
+                  <td>Lina</td>
                   <td>
-                    <p class="status status-paid">Paid</p>
+                    <p class="status status-paid">Femme</p>
                   </td>
-                  <td class="amount">$1152.35</td>
+                  <td class="amount">23.02.2001</td>
+                  <td class="amount">03.05.1999</td>
+                  <td class="amount">03.05.1999</td>
                 </tr>
               </tbody>
             </table>
         </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="Dossier medicaux.js"></script>
+    <script src="Dossiers medicaux.js"></script>
     <!-- début drop-down user account -->
-    <script>
-      function menuToggle(){
-          const toggleMenu = document.querySelector('.menu');
-          toggleMenu.classList.toggle('active')
-      }
-  </script>
+ 
   <!-- fin drop-down user account -->
 
 </body>

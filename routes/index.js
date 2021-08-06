@@ -108,11 +108,20 @@ router.get('/medecin', function(request, response) {
 	response.end();
 });
 router.get('/creer' ,function(req,res){
-  res.render('dossier-medical')
+  var sql='SELECT * FROM patient where idPatient=1';
+  con.query(sql, function (err, data, fields) {
+    console.log(data);  
+  if (err) throw err;
+  res.render('dossier-medical',{ title:'dossier' , userData:data});
+});
 });
 router.get('/examen' ,function(req,res){
-  res.render('examen-medical')
+  res.render('examen-medical');
 });
+router.get('/dossiers' ,function(req,res){
+  res.render('Dossiers-medicaux');
+});           
+
 router.get('/examenclinique' ,function(req,res){
   res.render('examen-clinique')
 });

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Admin | Sah-Tech</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+</head>
+
+<body>
+ 
+    <input type="checkbox" id="nav-toggle" checked="checked">
+    <div class="sidebar">
+      
+      
+        <img src="logoapppp.png" class="sidebar_img">
+        <div class="logo-details">
+            <label for="nav-toggle" >
+            <i class='bx bx-menu' id="btttn" ></i>
+            </label>
+        </div>
+     
+      
+      
+        <!--Side bar start here-->
+            <ul class="nav-list">
+              <li>
+                <form action="connect" method="get">
+                 <button class="bttn"> 
+                 <i class="fa fa-user-md" aria-hidden="true"></i>
+                  <span class="links_name">Medecins</span>
+                 </button> 
+                </form>
+                 <span class="tooltip">Dossier médical</span>
+              </li>
+              <li>
+               <button class="bttn">
+                <i class="fa fa-medkit" aria-hidden="true"></i>
+                 <span class="links_name">Infirmiers</span>
+               </button>
+               <span class="tooltip">Examen médical</span>
+             </li>
+             <li>
+               <button class="bttn">
+                <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                 <span class="links_name">Assistants administratif</span>
+               </button>
+               <span class="tooltip">Agenda</span>
+             </li>
+             <li>
+               <button class="bttn">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                 <span class="links_name">Patients</span>
+               </button>
+               <span class="tooltip">Statistique</span>
+             </li>
+             <li>
+                <button class="bttn">
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                  <span class="links_name"><a href="nv compte.html">Créer un compte</a></span>
+                </button>
+                <span class="tooltip">Statistique</span>
+              </li>
+            </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+           
+            <h2>
+                
+                <label for="nav-toggle">
+                   
+                </label> Tableau de bord
+            </h2>
+
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Recherche"/>
+            </div>
+            <div class="user-wrapper">
+                <img src="medecina.png" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Administrateur</h4>
+                    <small>Super Admin</small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="cards">
+
+                <div class="card-single">
+                    <div>
+                        <h1>5</h1>
+                        <span>Medecins</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>12</h1>
+                        <span>Infirmiers</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-medkit" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>25</h1>
+                        <span>Patients</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>2</h1>
+                        <span>Assistant Administratif</span>
+                    </div>
+                    <div>
+                        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <!--Tableau des compte-->
+            <div class="recent-grid">
+                <div class="projects">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Tous les comptes</h3>
+                            <button>Voir tout </button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom Prenom</td>
+                                            <td>Email</td>
+                                            <td>Statu</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Sidi Mohammed BENSLIMANE</td>
+                                            <td>s.benslimane@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status green"></span> Accepter
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aggoune Lina</td>
+                                            <td>l.aggoune@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lakhmi Khaoula</td>
+                                            <td>k.lakhmi@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bouziane Djihane</td>
+                                            <td>d.bouziane@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ourrad Imane</td>
+                                            <td>i.ourrad@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status green"></span> Accepter
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>MOSTEFAOUI Mohameed</td>
+                                            <td>m.mostefaoui@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status green"></span> Accepter
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>MAZOUNI MEHDI</td>
+                                            <td>m.mazouni@esi-sba.dz </td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Djamel AMAR BENSABER</td>
+                                            <td>d.amarbensaber@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ali RIGHI</td>
+                                            <td>a.righi@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mimouni Wafaa</td>
+                                            <td>w.mimouni@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status green"></span> Accepter
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mohamed réda Aced</td>
+                                            <td>m.aced@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>ACHOUAK CHERIF</td>
+                                            <td>a.cherif@esi-sba.d</td>
+                                            <td>
+                                                <span class="status green"></span> Accepter
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>DJAZIA HABABELA</td>
+                                            <td>d.hababela@esi-sba.dz </td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mohamed KECHAR</td>
+                                            <td>m.kechar@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status red"></span> En Attente
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Merabet Mohamed </td>
+                                            <td>m.merabet@esi-sba.dz</td>
+                                            <td>
+                                                <span class="status green"></span> Accepter
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="customers">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Nouveaux Patients</h3>
+
+                            <button>Voir tout</button>
+                        </div>
+
+                        <div class="card-body">
+
+                            <div class="customer">
+                                <div class="info">
+                                    <div>
+                                        <h4>Aggoune Lina</h4>
+                                        <small>l.aggoune@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <span class="las la-user-circle"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div class="info">
+                                                                        <div>
+                                        <h4>Mohamed KECHAR</h4>
+                                        <small>m.kechar@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                                                    </div>
+                            </div>
+
+                            <div class="customer ">
+                                <div class="info ">
+                                    
+                                    <div>
+                                        <h4>Lakhmi Khaoula</h4>
+                                        <small>k.lakhmi@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                                                   </div>
+                            </div>
+
+                            <div class="customer ">
+                                <div class="info ">
+                                    
+                                    <div>
+                                        <h4>Bouziane Djihane</h4>
+                                        <small>d.bouziane@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="customer ">
+                                <div class="info ">
+                                    <div>
+                                        <h4>Djamel AMAR BENSABER</h4>
+                                        <small>d.amarbensaber@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                  
+                                </div>
+                            </div>
+
+                            <div class="customer ">
+                                <div class="info ">
+                                    <div>
+                                        <h4>Ali RIGHI</h4>
+                                        <small>a.righi@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="customer ">
+                                <div class="info ">
+                                    
+                                    <div>
+                                        <h4>DJAZIA HABABELA</h4>
+                                        <small>d.hababela@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                    
+                                </div>
+                            </div>
+
+
+                            <div class="customer ">
+                                <div class="info ">
+                                   
+                                    <div>
+                                        <h4>Mohamed réda Aced</h4>
+                                        <small>m.aced@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="customer ">
+                                <div class="info ">
+                                    
+                                    <div>
+                                        <h4>MAZOUNI MEHDI</h4>
+                                        <small>m.mazouni@esi-sba.dz</small>
+                                    </div>
+                                </div>
+                                <div class="contact ">
+                                    <span class="las la-user-circle "></span>
+                                    
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>

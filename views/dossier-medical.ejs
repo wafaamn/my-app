@@ -27,7 +27,7 @@
         <div class="navbar__right">
           
           <a href="#">
-            <img width="30" src="medecina.png" alt="" />
+            <img width="30" src="/stylesheets/img/medecina.png" alt="" />
             <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
           </a>
         </div>
@@ -40,9 +40,14 @@
              <div class="form_wrap">
               <div class="input_grp">
                 <div class="input_wrap">
+                  <%
+                  if(userData.length!=0){
+                  userData.forEach(function(data){
+                  %>
                   <label for="nom">Nom</label>
-                  <input type="text" id="nom" name ="nom">
+                  <input type="text" id="nom" name ="nom" required value="<%=data.nom%>">
                 </div>
+                <%})}%>
                 <div class="input_wrap">
                   <label for="Prénom">Prénom</label>
                   <input type="text" id="Prénom" name ="prenom">
@@ -375,7 +380,7 @@
       <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
-            <img src="logoapppp.png" alt="logo" />
+            <img src="/stylesheets/img/logoapppp.png" alt="logo" />
             
           </div>
           <i
