@@ -180,11 +180,6 @@
   overflow-y: auto;
 }
 
-a {
-  text-decoration: none;
-  color: #2962ff;
-}
-
 tr:nth-child(even) {
   background-color: #b4f5e265;
 }
