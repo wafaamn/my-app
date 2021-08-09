@@ -180,33 +180,6 @@
   overflow-y: auto;
 }
 
-.table {
-  border-collapse: collapse;
-  box-shadow: 0 5px 10px #e1e5ee;
-  background-color: white;
-  text-align: left;
-  overflow: hidden;
-  margin-top: -60px;
-  width: 1000px;
-  height: 500px;
-  margin-left: 10px;
-}
-thead {
-  box-shadow: 0 5px 10px #e1e5ee;
-}
-
-th {
-  padding: 1rem 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  font-size: 0.7rem;
-  font-weight: 900;
-}
-
-td {
-  padding: 1rem 2rem;
-}
-
 a {
   text-decoration: none;
   color: #2962ff;
@@ -217,13 +190,12 @@ tr:nth-child(even) {
 }
 
 /*  styling scrollbars  */
-/* kayen ziyada */
 
 * {
   margin: 0;
   padding: 0;
 }
-/* keyn ziyada */
+
 .font-bold {
   font-weight: 700;
 }

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <title>Rendez-vous| Sah-Tech</title>
+    <title>Rendez-vous | Sah-Tech</title>
 </head>
 
 <body id="body">
@@ -114,42 +114,12 @@
             </div>             <!-- drop-down user account -->
         </nav>
         <main class="main">            
-            <div class="main__container">
-              <form class="form"> 
-               <div class="titre"><h1>Réservation de rendez-vous</h1></div>    
-                  <div class="form_wrap">
-                   <div class="input_grp">
-                     <div class="input_wrap">
-                       <label for="nom"><h4>Nom</h4></label>
-                       <input type="text" id="nom" required>
-                   
-                     </div>
-                     <div class="input_wrap">
-                       <label for="Prénom"><h4>Prénom</h4></label>
-                       <input type="text" id="Prénom" required>
-                     </div>
-                   </div>
-                  <div class="input_grp1">
-                   <div class="input_wrap">
-                     <label for="email"><h4>Email</h4></label>
-                     <input type="email" id="email" required>
-                   </div>
-                   <div class="input_wrap">
-                     <label for="num_tel"><h4>Numéro téléphone</h4></label>
-                     <input type="tel" id="num_tel" required>
-                   </div>
-                  </div> 
-                 <div class="input_grp2"> 
-                  <div class="input_wrap">
-                    <label for="mot de passe"><h4>Mot de passe</h4></label>
-                    <input type="password" id="mot de passe" required>
-                  </div>
-                  <div class="input_wrap">
-                    <button class="btn" >Enregistrer</button>
-                 </div> 
-                 </div>
-              </form>
-            </div>
+          <div id="calendar" style="height: 450px; width: 600"></div>
+
+          <div id="alrt" style="margin-left: 45%"></div>
+        
+          <script src="MindFusion.Scheduling.js"></script>
+          <script src="ItemEvents.js"></script>
         </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
