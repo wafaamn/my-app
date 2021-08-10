@@ -120,6 +120,9 @@
                 <input type="radio" name="slider" id="Bilan_paraclinique">
                 <input type="radio" name="slider" id="Rapport">
                 <input type="radio" name="slider" id="Ordonnance">
+                <input type="radio" name="slider" checked id="Certificat">
+                <input type="radio" name="slider" id="Evacuation">
+                <input type="radio" name="slider" id="Orientation">
                 <div class="title"><h1>Ourrad Imane</h1></div>
                 <label><h4>Email</h4>
                   <small>i.ourrad@esi-sba.dz</small>
@@ -137,12 +140,17 @@
                 </div>
             
                 <nav>
+                  <div class="nav1">
                   <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Examen clinique</label>
                   <label for="Bilan_paraclinique" class="blog"><i class="fas fa-blog"></i>Bilan paraclinique</label>
                   <label for="Rapport" class="code"><i class="fas fa-code"></i>Rapport</label>
                   <label for="Ordonnance" class="help"><i class="far fa-envelope"></i>Ordonnance</label>
-      
-                  
+                  </div>
+                  <div class="nav2">
+                  <label for="Certificat" class="Certificat"><i class="fas fa-home"></i>Certificat</label>
+                  <label for="Evacuation" class="Evacuation"><i class="fas fa-blog"></i>Evacuation</label>
+                  <label for="Orientation" class="Orientation" style="margin-left: 48px;"><i class="fas fa-code"></i>Orientation</label>
+                  </div>
                 </nav>
                 <section>
                   <div class="content content-1">
@@ -168,7 +176,7 @@
                         </div>
                       <div class="input_wrap">
                         <label for="examen" style="font-size: 30px;">Examen du jour + synthèse</label>
-                        <textarea type="text" id="examen" style="padding: 50px; width:450px;"></textarea>
+                        <textarea type="text" id="examen" style="padding: 50px; width:450px; display:block;"></textarea>
                       </div>
                       <div >
                         <button class="btn">Enregistrer</button>
@@ -178,46 +186,68 @@
                     </p>
                   </div>
                   <div class="content content-2">
-                    <div class="title">This is a Blog content</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit amet. Possimus doloris nesciunt mollitia culpa sint itaque, vitae praesentium assumenda suscipit fugit doloremque adipisci doloribus, sequi facere itaque cumque accusamus, quam molestias sed provident quibusdam nam deleniti. Autem eaque aut impedit eo nobis quia, eos sequi tempore! Facere ex repellendus, laboriosam perferendise. Enim quis illo harum, exercitationem nam totam fugit omnis natus quam totam, repudiandae dolor laborum! Commodi?</p>
+                    <div class="title"></div>
+                    <button class="btn">Choisir un fichier</button>
+                    <div >
+                      <button class="btn">Enregistrer</button>
+                      <button class="btn" >Annuler</button>
+                    </div>
                   </div>
                   <div class="content content-3">
-                    <div class="title">This is a Code content</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, debitis nesciunt! Consectetur officiis, libero nobis dolorem pariatur quisquam temporibus. Labore quaerat neque facere itaque laudantium odit veniam consectetur numquam delectus aspernatur, perferendis repellat illo sequi excepturi quos ipsam aliquid est consequuntur.</p>
+                    <div class="title"></div>
+                    <textarea name="message" rows="20" cols="100" placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
+                    <div >
+                      <button class="btn">Enregistrer</button>
+                      <button class="btn" >Annuler</button>
+                    </div>
                   </div>
                   <div class="content content-4">
                     <div class="title">This is a Help content</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim reprehenderit null itaq, odio repellat asperiores vel voluptatem magnam praesentium, eveniet iure ab facere officiis. Quod sequi vel, rem quam provident soluta nihil, eos. Illo oditu omnis cumque praesentium voluptate maxime voluptatibus facilis nulla ipsam quidem mollitia! Veniam, fuga, possimus. Commodi, fugiat aut ut quorioms stu necessitatibus, cumque laborum rem provident tenetur.</p>
+                  </div>
+                  <div class="content content-5">
+                    <div class="title"></div>
+                   <div style="display:flex;margin-left: 50px;"> 
+                   <div class="div1" style="display:block;">
+                    <label><h4>Type</h4></label>
+                     <select>
+                       <option>traitement</option>
+                       <option>prolongation</option>
+                     </select>
+                     <label><h4>Durée</h4></label>
+                     <input type="number">
+                   </div>
+                   <div class="div2" style="display:block;margin-left: 300px;">
+                      <label><h4>Du</h4></label>
+                      <input type="date">
+                      <label><h4>Au</h4></label>
+                      <input type="date">
+                  </div>
+                </div>
+                   <div>
+                    <button class="btn">Enregistrer</button>
+                    <button class="btn" >Annuler</button>
+                  </div>
+            </div>
+                  <div class="content content-6">
+                    <div class="title"></div>
+                    <textarea name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
+                    <div >
+                      <button class="btn">Enregistrer</button>
+                      <button class="btn" >Annuler</button>
+                    </div>
+                  </div>
+                  <div class="content content-7">
+                    <div class="title"></div>
+                    <textarea name="message" rows="5" cols="100" placeholder="Orientation." style="margin-left: 130px;"></textarea>
+                    <div >
+                      <button class="btn">Enregistrer</button>
+                      <button class="btn" >Annuler</button>
+                    </div>
                   </div>
                 </section>
                  
               </div>
-              <div class="wrapper2">
-              <input type="radio" name="slider" id="Certificat">
-              <input type="radio" name="slider" id="Evacuation">
-              <input type="radio" name="slider" id="Orientation">
-              <nav>
-                <label for="Certificat" class="Certificat"><i class="fas fa-home"></i>Certificat</label>
-                <label for="Evacuation" class="Evacuation"><i class="fas fa-blog"></i>Evacuation</label>
-                <label for="Orientation" class="Orientation"><i class="fas fa-code"></i>Orientation</label>
-               
-              </nav>
-              <section>
-                <div class="content content-5">
-                  <div class="title">Nom Prenom</div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero aspernatur nobis provident dolores molestias quia quisquam laborum, inventore quis, distinctioa, fugit repudiandae delectus sunt ipsam! Odio illo at quia doloremque fugit iops, asperiores? Consectetur esse officia labore voluptatum blanditiis molestias dic voluptas est, minima unde sequi, praesentium dicta suscipit quisquam iure sed, nemo.</p>
-                </div>
-                <div class="content content-6">
-                  <div class="title">This is a Blog content</div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit amet. Possimus doloris nesciunt mollitia culpa sint itaque, vitae praesentium assumenda suscipit fugit doloremque adipisci doloribus, sequi facere itaque cumque accusamus, quam molestias sed provident quibusdam nam deleniti. Autem eaque aut impedit eo nobis quia, eos sequi tempore! Facere ex repellendus, laboriosam perferendise. Enim quis illo harum, exercitationem nam totam fugit omnis natus quam totam, repudiandae dolor laborum! Commodi?</p>
-                </div>
-                <div class="content content-7">
-                  <div class="title">This is a Code content</div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, debitis nesciunt! Consectetur officiis, libero nobis dolorem pariatur quisquam temporibus. Labore quaerat neque facere itaque laudantium odit veniam consectetur numquam delectus aspernatur, perferendis repellat illo sequi excepturi quos ipsam aliquid est consequuntur.</p>
-                </div>
-              </section>
-              </div>
-        </main>
+                  </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="Examen-medical.js"></script>
