@@ -177,33 +177,21 @@
     border-radius: 5px;
     background: #fff;
     box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-  
   }
-  .wrapper2{
-    max-width: 2000px;
-    margin:70px;
-    margin-left: 60px;
-    width: 90%;
-    margin-top: 10px;
-    padding: 40px 30px 30px 30px;
-    border-radius: 5px;
-    background: #fff;
-    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-  
-  }
-  .wrapper nav{
+  .wrapper .nav1{
     position: relative;
     width: 120%;
     height: 50px;
     display: flex;
     align-items: center;
   }
-  .wrapper2 nav{
+  .wrapper .nav2{
     position: relative;
     width: 120%;
     height: 50px;
     display: flex;
     align-items: center;
+    margin-left: -30px;
   }
 
   .wrapper nav label{
@@ -221,28 +209,10 @@
     margin: 0 5px;
     transition: all 0.3s ease;
   }
-  .wrapper2 nav label{
-    display: block;
-    height: 100%;
-    width: 20%;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    color:#17a2b8;
-    font-size: 17px;
-    border-radius: 5px;
-    margin: 0 5px;
-    transition: all 0.3s ease;
-  }
- 
   .wrapper nav label:hover{
     background: rgba(23,162,184,0.3);
   }
-  .wrapper2 nav label:hover{
-    background: rgba(23,162,184,0.3);
-  }
+
  
   
  
@@ -305,6 +275,7 @@
     display: none;
     background: #fff;
   }
+
   #Examen_clinique:checked ~ section .content-1,
   #Bilan_paraclinique:checked ~ section .content-2,
   #Rapport:checked ~ section .content-3,
@@ -314,6 +285,7 @@
   #Orientation:checked ~ section .content-7{
     display: block;
   }
+ 
   section .content .title{
     font-size: 21px;
     font-weight: 500;

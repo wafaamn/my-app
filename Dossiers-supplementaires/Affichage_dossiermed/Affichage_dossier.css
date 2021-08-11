@@ -432,6 +432,34 @@
     height: 200px;
     
   }
+  .div1 table{
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px #e1e5ee;
+    background-color: rgb(243, 243, 243);
+    text-align: left;
+    overflow: hidden;
+    margin-top: 50px;
+    max-width: 500px;
+    width: 50%;
+   
+    height: 200px; 
+  }
+  .div1{
+      display:flex;
+      margin-left: -30px;
+ }
+ .div1 .table1{
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px #e1e5ee;
+    background-color: rgb(243, 243, 243);
+    text-align: left;
+    overflow: hidden;
+    margin-top: 50px;
+    max-width: 500px;
+    width: 46%;
+    margin-left: 38px;
+    height: 200px; 
+}
   td {
     padding: 1rem 2rem;
   }
