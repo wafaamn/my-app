@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Medecins | Sah-Tech</title>
+    <title>Patients | Sah-Tech</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="gestion compte.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -67,7 +67,8 @@
             <h2>
                 <label for="nav-toggle">
                  
-                </label> Medecins      </h2>
+                </label> Patients
+            </h2>
 
             <div class="search-wrapper">
                 <span class="las la-search"></span>
@@ -89,7 +90,7 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Medecins</h3>
+                            <h3>Patients</h3>
                             
                         </div>
 
@@ -102,31 +103,13 @@
                                             <td>Email</td>
                                             <td>Statu</td>
                                             <td>Activer</td>
+                                            <td>Accepter</td>
                                             <td>Modifier</td>
                                             <td>Supprimer</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Merabet Mohamed </td>
-                                            <td>m.merabet@esi-sba.dz</td>
-                                            <td>
-                                                <span class="status green"></span> Accepter
-                                            </td>
-                                            <td>
-                                                <div class="checkbox">
-                                                    <input type="checkbox" id="click">
-                                                    <label for="click" class="text"></label>
-                                                  </div> 
-                                            </td>
-                                            <td>
-                                                <button id="button-icon"> <span class="material-icons-outlined">
-                                                edit
-                                                </span> </button></td>
-                                            <td><button id="button-icon"><span class="material-icons-outlined">
-                                                delete
-                                                </span> </button></td>
-                                        </tr>
+                                        
                                          <tr>
                                             <td>Aggoune Lina</td>
                                             <td>l.aggoune@esi-sba.dz</td>
@@ -137,8 +120,10 @@
                                                 <input type="checkbox" id="click">
                                                 <label for="click" class="text"></label>
                                               </div> 
-                                            </td>
-                                            <td><button id="button-icon"><span class="material-icons-outlined">
+                                            </td> 
+                                            <td><button class="acc-btn">Accepter</button></td>
+                                            <td>
+                                                <button id="button-icon"><span class="material-icons-outlined">
                                                 edit
                                                 </span> </button></td>
                                             <td><button id="button-icon"> <span class="material-icons-outlined">
@@ -157,6 +142,7 @@
                                                 <label for="click" class="text"></label>
                                               </div> 
                                             </td>
+                                            <td><button class="acc-btn">Accepter</button></td>
                                             <td><button id="button-icon"><span class="material-icons-outlined">
                                                 edit
                                                 </span> </button></td>
@@ -175,6 +161,7 @@
                                                 <label for="click" class="text"></label>
                                               </div> 
                                             </td>
+                                            <td><button class="acc-btn">Accepter</button></td>
                                             <td><button id="button-icon"> <span class="material-icons-outlined">
                                                 edit
                                                 </span> </button></td>
@@ -182,24 +169,7 @@
                                                 delete
                                                 </span> </button></td>
                                         </tr>
-                                        <tr>
-                                            <td>Ourrad Imane</td>
-                                            <td>i.ourrad@esi-sba.dz</td>
-                                            <td>
-                                                <span class="status green"></span> Accepter
-                                            </td>
-                                            <td><div class="checkbox">
-                                                <input type="checkbox" id="click">
-                                                <label for="click" class="text"></label>
-                                              </div> 
-                                            </td>
-                                            <td><button id="button-icon"> <span class="material-icons-outlined">
-                                                edit
-                                                </span> </button></td>
-                                            <td><button id="button-icon"><span class="material-icons-outlined">
-                                                delete
-                                                </span> </button></td>
-                                        </tr> 
+                                        
                                         
                                     </tbody>
                                 </table>
