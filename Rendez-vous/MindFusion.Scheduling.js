@@ -13740,43 +13740,43 @@ var EditForm = function (_BaseForm) {
             }
 
             //contacts
-            var ctrl = this._controls["contacts"];
-            var contacts = [];
-            var c = ctrl.getSelected();
-            for (var i = 0, l = c.length; i < l; i++) {
-                contacts.push(this.calendar._schedule.contacts.items()[c[i]]);
-            }
+            // var ctrl = this._controls["contacts"];
+            // var contacts = [];
+            // var c = ctrl.getSelected();
+            // for (var i = 0, l = c.length; i < l; i++) {
+            //     contacts.push(this.calendar._schedule.contacts.items()[c[i]]);
+            // }
 
-            var getContacts = false;
-            if (type == 'new') {
-                getContacts = true;
-                if (currentItem.resources != undefined) {
-                    appItem.resources = currentItem.resources;
-                }
-                if (currentItem.task != undefined) {
-                    appItem.task = currentItem.task;
-                }
-            }
+            // var getContacts = false;
+            // if (type == 'new') {
+            //     getContacts = true;
+            //     if (currentItem.resources != undefined) {
+            //         appItem.resources = currentItem.resources;
+            //     }
+            //     if (currentItem.task != undefined) {
+            //         appItem.task = currentItem.task;
+            //     }
+            // }
 
-            if (currentItem.contacts == null && contacts.length > 0) {
-                //new contacts collection
-                appItem.contacts = contacts;
-                changed = true;
-            } else if (currentItem.contacts && contacts.length != currentItem.contacts.count()) {
-                //contacts collection changed
-                appItem.contacts = contacts;
-                changed = true;
-            } else if (currentItem.contacts && contacts.length == currentItem.contacts.count()) {
-                for (var i = 0, l = contacts.length; i < l; i++) {
-                    if (!contacts[i].equals(currentItem.contacts.items()[i])) {
-                        getContacts = true;
-                        changed = true;
-                        break;
-                    }
-                }
-                //contacts collection changed
-                if (getContacts) appItem.contacts = contacts;
-            }
+            // if (currentItem.contacts == null && contacts.length > 0) {
+            //     //new contacts collection
+            //     appItem.contacts = contacts;
+            //     changed = true;
+            // } else if (currentItem.contacts && contacts.length != currentItem.contacts.count()) {
+            //     //contacts collection changed
+            //     appItem.contacts = contacts;
+            //     changed = true;
+            // } else if (currentItem.contacts && contacts.length == currentItem.contacts.count()) {
+            //     for (var i = 0, l = contacts.length; i < l; i++) {
+            //         if (!contacts[i].equals(currentItem.contacts.items()[i])) {
+            //             getContacts = true;
+            //             changed = true;
+            //             break;
+            //         }
+            //     }
+            //     //contacts collection changed
+            //     if (getContacts) appItem.contacts = contacts;
+            // }
 
             //recurrence
             if (currentItem.currentRecurrence) {
