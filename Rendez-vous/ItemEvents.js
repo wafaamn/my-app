@@ -1,3 +1,4 @@
+//Mapping to MindFusion.Scheduling
 var p = MindFusion.Scheduling;
 
 // create a new instance of the calendar 
@@ -10,41 +11,36 @@ calendar.render();
 
 calendar.itemCreating.addEventListener(handleItemCreating);
 calendar.itemModified.addEventListener(handleItemModified);
-calendar.itemDeleting.addEventListener(handleItemDeleting);
 
-function handleItemDeleting(sender, args) {
-	args.cancel = true;
-	showWarning("You are not allowed to delete an item");
-}
 
 function handleItemCreating(sender, args) {
-	if (itemOnSunday(args.item) || itemTooLate(args.item)) {
+	if (itemOnFriday(args.item) || itemTooLate(args.item)) {
 		args.cancel = true;
-		showWarning("Items cannot include Sunday or take place after 8PM");
+		showWarning("Les rendez-vous ne peuvent pas inclure le vendredi ou avoir lieu après 20h ");
 	}
 }
 
 function handleItemModified(sender, args) {
-	if (itemOnSunday(args.item) || itemTooLate(args.item)) {
+	if (itemOnFriday(args.item) || itemTooLate(args.item)) {
 		args.item.startTime = args.oldItem.startTime;
 		args.item.endTime = args.oldItem.endTime;
 
-		showWarning("Items cannot include Sunday or take place after 8PM");
+		showWarning("Les rendez-vous ne peuvent pas inclure le vendredi ou avoir lieu après 20h ");
 	}
 }
 
-function itemOnSunday(item) {
+function itemOnFriday(item) {
 	var endTime = item.endTime.clone().addMilliseconds(-1);
 
-	if (item.startTime.dayOfWeek == 0 ||
-		endTime.dayOfWeek == 0)
+	if (item.startTime.dayOfWeek == 5 ||
+		endTime.dayOfWeek == 5)
 		return true;
 
 	var startTime = item.startTime.clone();
 
 	while (startTime.compareTo(endTime) <= 0) {
 
-		if (startTime.dayOfWeek == 0)
+		if (startTime.dayOfWeek == 5)
 			return true;
 
 		startTime.addDays(1);

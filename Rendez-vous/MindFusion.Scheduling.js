@@ -6322,72 +6322,75 @@ var locale = {
         "firstDayOfWeek": 0
     },
     "strings": {
-        "newFormHeader": "Nouvel Rendz-vous",
-        "editFormHeader": "Modifier Rendz-vous",
-        "newRecurrenceFormHeader": "Nouvelle Récurrence ",
-        "editRecurrenceFormHeader": "Modifier Récurrence ",
-        "cueFormHeader": "D'autre Patiens",
-        "dateCaption": "Date",
-        "datesCaption": "Dates",
-        "subjectCaption": "Patient",
-        "startTimeCaption": "Début RDV",
-        "endTimeCaption": "Fin RDV",
-        "allDayEventCaption": "RDV d'une journée",
-        "reminderCaption": "Rappel ",
-        "detailsCaption": "Details",
-        "contactsCaption": "Contacts",
-        "todayCaption": "Today",
-        "locationCaption": "Catégorie",
-        "patternCaption": "Pattern",
-        "rangeCaption": "Range of recurrence",
-        "everyCaption": "Every",
-        "ofEveryCaption": "of every",
-        "startCaption": "Start",
-        "noEndCaption": "No end date",
-        "endAfterCaption": "End after",
-        "endDateCaption": "End by",
-        "saveButtonCaption": "Enregistre",
-        "optionsButtonCaption": "Options",
-        "cancelButtonCaption": "Annuler",
-        "recurrenceButtonCaption": "Recurrence",
-        "deleteButtonCaption": "Supprimer",
-        "secondsValue": "seconds",
-        "minuteValue": "minute",
-        "minutesValue": "minutes",
-        "hourValue": "heure",
-        "hoursValue": "heures",
-        "dayValue": "jour",
-        "daysValue": "jours",
-        "weeksValue": "semaine",
-        "monthValue": "mois",
-        "dailyValue": "Daily",
-        "weeklyValue": "Weekly",
-        "monthlyValue": "Monthly",
-        "yearlyValue": "Yearly",
-        "intervalValue": "By time interval",
-        "firstValue": "first",
-        "secondValue": "second",
-        "thirdValue": "third",
-        "fourthValue": "fourth",
-        "lastValue": "last",
-        "weekendValue": "weekend",
-        "weekdayValue": "weekday",
-        "recurrenceDailyOnePattern": "Occurs every day",
-        "recurrenceDailyTwoPattern": "Occurs every [Days] days",
-        "recurrenceDailyThreePattern": "Occurs every weekday",
-        "recurrenceDailyFourPattern": "Occurs every weekend day",
-        "recurrenceWeeklyOnePattern": "Occurs every [DaysOfWeek]",
-        "recurrenceWeeklyTwoPattern": "Occurs every [Weeks] weeks on [DaysOfWeek]",
-        "recurrenceMonthlyOnePattern": "Occurs day [DayOfMonth] of every [Months] month(s)",
-        "recurrenceMonthlyTwoPattern": "Occurs the [Occurrence] [Day] of every [Months] month(s)",
-        "recurrenceYearlyOnePattern": "Occurs every [MonthOfYear] [DayOfMonth]",
-        "recurrenceYearlyTwoPattern": "Occurs the [Occurrence] [Day] of [MonthOfYear]",
-        "recurrenceIntervalPattern": "Occurs every [Interval.Days] days [Interval.Hours] hours [Interval.Minutes] minutes [Interval.Seconds] seconds",
-        "recurrenceStartDatePattern": "effective [StartDate]",
-        "recurrenceEndDatePattern": "until [EndDate]",
-        "recurrenceTimeOnePattern": "from [StartTime] to [EndTime]",
-        "recurrenceTimeTwoPattern": "at [StartTime]"
-    }
+      "newFormHeader": "Nouvel Rendz-vous",
+      "editFormHeader": "Modifier Rendz-vous",
+      "newRecurrenceFormHeader": "Nouvelle Récurrence ",
+      "editRecurrenceFormHeader": "Modifier Récurrence ",
+      "cueFormHeader": "D'autre Patiens",
+      "dateCaption": "Date",
+      "datesCaption": "Dates",
+      "subjectCaption": "Patient",
+      "startTimeCaption": "Début RDV",
+      "endTimeCaption": "Fin RDV",
+      "allDayEventCaption": "Spécifier le temps",
+      "reminderCaption": "Rappel ",
+      "detailsCaption": "Details",
+      "contactsCaption": "Contacts",
+      "todayCaption": "Aujourd'hui ",
+      "locationCaption": "Catégorie",
+      "patternCaption": "Modèle ",
+      "rangeCaption": "Range of recurrence",
+      "everyCaption": "Chaque",
+      "ofEveryCaption": "de chaque ",
+      "startCaption": "Début",
+      "noEndCaption": "Pas de date de fin ",
+      "endAfterCaption": "Terminer après ",
+      "endDateCaption": "Terminer ",
+      "saveButtonCaption": "Enregistre",
+      "optionsButtonCaption": "Options",
+      "cancelButtonCaption": "Annuler",
+      "recurrenceButtonCaption": "Récurrence",
+      "deleteButtonCaption": "Supprimer",
+      "secondsValue": "seconds",
+      "minuteValue": "minute",
+      "minutesValue": "minutes",
+      "hourValue": "heure",
+      "hoursValue": "heures",
+      "dayValue": "jour",
+      "daysValue": "jours",
+      "weeksValue": "semaine",
+      "monthValue": "mois",
+      "dailyValue": " Quotidien",
+      "weeklyValue": "Hebdomadaire ",
+      "monthlyValue": "Mensuel ",
+      "yearlyValue": "Annuelle",
+      "etudiantCatégorie" :"Etudiant",
+      "enseignantCatégorie": "Enseingnant",
+      "atsCatégorie":"ATS",
+      "intervalValue": "Par intervalle de temps ",
+      "firstValue": "première",
+      "secondValue": "seconde",
+      "thirdValue": "troisième ",
+      "fourthValue": "Quatrième",
+      "lastValue": "dernier",
+      "weekendValue": "fin de semaine ",
+      "weekdayValue": "jour de la semaine ",
+      "recurrenceDailyOnePattern": "Occurs every day",
+      "recurrenceDailyTwoPattern": "Occurs every [Days] days",
+      "recurrenceDailyThreePattern": "Occurs every weekday",
+      "recurrenceDailyFourPattern": "Occurs every weekend day",
+      "recurrenceWeeklyOnePattern": "Occurs every [DaysOfWeek]",
+      "recurrenceWeeklyTwoPattern": "Occurs every [Weeks] weeks on [DaysOfWeek]",
+      "recurrenceMonthlyOnePattern": "Occurs day [DayOfMonth] of every [Months] month(s)",
+      "recurrenceMonthlyTwoPattern": "Occurs the [Occurrence] [Day] of every [Months] month(s)",
+      "recurrenceYearlyOnePattern": "Occurs every [MonthOfYear] [DayOfMonth]",
+      "recurrenceYearlyTwoPattern": "Occurs the [Occurrence] [Day] of [MonthOfYear]",
+      "recurrenceIntervalPattern": "Occurs every [Interval.Days] days [Interval.Hours] hours [Interval.Minutes] minutes [Interval.Seconds] seconds",
+      "recurrenceStartDatePattern": "effective [StartDate]",
+      "recurrenceEndDatePattern": "until [EndDate]",
+      "recurrenceTimeOnePattern": "from [StartTime] to [EndTime]",
+      "recurrenceTimeTwoPattern": "at [StartTime]"
+  }
 };
 
 /** 
@@ -13356,9 +13359,18 @@ var EditForm = function (_BaseForm) {
             this.addControl(newControl);
 
             // Create Location
-            var locationId = item.location != null ? item.location.id : "";
-            newControl = this.createDropDownList({ id: "location", items: this._getLocations(), initValue: this._getItemLocationIndex() });
-            newControl.element.style.width = "45%";
+            var patternItems = [];
+            patternItems.push({ value: 0, text: this.localInfo.etudiantCatégorie });
+            patternItems.push({ value: 1, text: this.localInfo.enseignantCatégorie });
+            patternItems.push({ value: 2, text: this.localInfo.atsCatégorie });
+            
+
+            //var locationId = item.location != null ? item.location.id : "";
+            newControl = this.createDropDownList({ id: "location", items: patternItems });
+            //newControl.element.style.width = "45%";
+            var style = newControl.element.style;
+            style.margin ="15px";
+            style.width = "45%";
             var s = document.createElement("span");
             s.className = "mfp-text-label-fixed";
             s.innerHTML = this.localInfo.locationCaption;
@@ -13543,7 +13555,7 @@ var EditForm = function (_BaseForm) {
             newControl = this.createTextArea({ id: "details", initValue: initValue });
             var style = newControl.element.style;
             style.height = "100px";
-            style.width = "206px";
+            style.width = "400px";
 
             var s = document.createElement("span");
             s.className = "mfp-text-label-fixed";
@@ -13558,19 +13570,19 @@ var EditForm = function (_BaseForm) {
             newRow.appendChild(newCol);
 
             //contacts
-            var options = { id: "contacts", items: this._getContacts(), selectedValues: this._getItemContacts() };
-            newControl = this.createCheckBoxList(options);
+            //var options = { id: "contacts", items: this._getContacts(), selectedValues: this._getItemContacts() };
+            //newControl = this.createCheckBoxList(options);
 
-            var s = document.createElement("span");
-            s.className = "mfp-text-label-fixed";
-            s.innerHTML = this.localInfo.contactsCaption;
-            newCol.appendChild(s);
+            //var s = document.createElement("span");
+            //s.className = "mfp-text-label-fixed";
+            //s.innerHTML = this.localInfo.contactsCaption;
+            newCol.appendChild(s); // postion-right 
 
-            newCol.appendChild(newControl.element);
+            newCol.appendChild(newControl.element); // position-left
             this.addControl(newControl);
             content.appendChild(newRow);
 
-            content.appendChild(this.divider());
+            //content.appendChild(this.divider());
 
             return content;
         }
