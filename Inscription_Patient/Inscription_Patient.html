@@ -30,8 +30,8 @@
                    </div>
                    <div class="input_grp0">
                    <div class="input_wrap">
-                    <label for="date_naiss"><h4>Date de naissance</h4></label>
-                    <input type="date" id="birthday" name="birthday">
+                    <label for="birthday"><h4>Date de naissance</h4></label>
+                    <input type="date" id="birthday" name="birthday" required>
                   </div>   
                 <div class="input_wrap">
                   <label><h4>Sexe</h4></label>
@@ -50,8 +50,57 @@
         
                   <div class="input_grp1">
                    <div class="input_wrap">
-                     <label for="email"><h4>Email</h4></label>
-                     <input type="email" id="email" required>
+                     <label for="lieux"><h4>Lieux de naissance</h4></label>
+                     <select id="lieux">
+                      <option>1- Adrar</option>
+                      <option>2- Chlef</option>
+                      <option>3- Laghouet</option>
+                      <option>4- Oum El Bouaghi</option>
+                      <option>5- Batna</option>
+                      <option>6- Béjaïa</option>
+                      <option>7- Biskra</option>
+                      <option>8- Béchar </option>
+                      <option>9- Blida</option>
+                      <option>10- Bouira</option>
+                      <option>11- Tamanrasset</option>
+                      <option>12- Tébessa</option>
+                      <option>13- Tlemcen</option>
+                      <option>14- Tiaret</option>
+                      <option>15- Tizi Ouzou</option>
+                      <option>16- Alger</option>
+                      <option>17- Djelfa</option>
+                      <option>18- Jijel</option>
+                      <option>19- Sétif</option>
+                      <option>20- Saida</option>
+                      <option>21- Skikda</option>
+                      <option>22- Sidi Bel Abbès</option>
+                      <option>23- Annaba</option>
+                      <option>24- Guelma</option>
+                      <option>25- Constantine</option>
+                      <option>26- Médéa</option>
+                      <option>27- Mostaganem</option>
+                      <option>28- M'Sila</option>
+                      <option>29- Mascara</option>
+                      <option>30- Ouargla</option>
+                      <option>31- Oran</option>
+                      <option>32- El Bayadh</option>
+                      <option>33- Illizi</option>
+                      <option>34- Bordj Bou Arreridj</option>
+                      <option>35- Boumerdès </option>
+                      <option>36- El Taref</option>
+                      <option>37- Tindouf</option>
+                      <option>38- Tissemsilt</option>
+                      <option>39- El Oued</option>
+                      <option>40- Khenchela</option>
+                      <option>41- Souk Ahras</option>
+                      <option>42- Tipaza</option>
+                      <option>43- Mila</option>
+                      <option>44- Aïn Defla</option>
+                      <option>45-	Naâma</option>
+                      <option>46- Ain Témouchent</option>
+                      <option>47- Ghardaïa</option>
+                      <option>48- Relizane</option>
+                    </select>
                    </div>
                    <div class="input_wrap">
                      <label for="num_tel"><h4>Numéro téléphone</h4></label>
@@ -61,18 +110,25 @@
                  <div class="input_grp2"> 
                     <div class="input_wrap">
                         <label for="catégorie"><h4>Catégorie</h4></label>
-                        <select id="catégorie">
+                        <select id="catégorie" required>
                           <option>Etudiant</option>
                           <option>ATS</option>
                           <option>Enseignant</option>
                         </select>
                       </div>
                   <div class="input_wrap">
-                    <label for="mot de passe"><h4>Mot de passe</h4></label>
-                    <input type="password" id="mot de passe" required>
+                    <label for="text"><h4>Adresse</h4></label>
+                    <input type="text" id="text" required>
                   </div>
              
                  </div>
+                 <div class="input_grp2"> 
+                  <div class="input_wrap">
+                      <label for="mot_de_passe"><h4>Mot de passe</h4></label>
+                      <input type="password" id="mot_de_passe" required>
+                    </div>
+               </div>
+          
                  <div class="input_wrap">
                     <button class="btn" >S'inscrire</button>
                  </div> 
