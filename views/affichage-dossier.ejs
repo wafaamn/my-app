@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/affichage-dossier.css" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <title>Dossiers Médicaux | Sah-Tech</title>
+</head>
+
+<body id="body">
+  <!--sidebar starts here-->
+  <div class="sidebar">
+    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
+    <div class="logo-details">
+       <i class='bx bx-menu' id="btttn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+         <button class="bttn"> 
+          <i class="fa fa-folder" aria-hidden="true"></i>
+          <span class="links_name">Dossier médical</span>
+         </button> 
+         <span class="tooltip">Dossier médical</span>
+      </li>
+      <li>
+       <button class="bttn">
+        <i class="fa fa-stethoscope" aria-hidden="true"></i>
+         <span class="links_name">Examen médical</span>
+       </button>
+       <span class="tooltip">Examen médical</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+         <span class="links_name">Agenda</span>
+       </button>
+       <span class="tooltip">Agenda</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+         <span class="links_name">Statistique</span>
+       </button>
+       <span class="tooltip">Statistique</span>
+     </li>
+     <li>
+      <button class="bttn">
+       <i class="fa fa-plus-square" aria-hidden="true"></i>
+        <span class="links_name">Créer un dossier</span>
+      </button>
+      <span class="tooltip">Créer un dossier</span>
+    </li>
+
+    </ul>
+  </div>
+  <!--sidebar ends here-->
+    <div class="container">
+        <nav class="navbar">    
+              <h2 for="btttn">Dossier médical</h2>
+              <div class="search-wrapper">
+                <span class="las la-search" ></span>
+                <input type="search" placeholder="Recherche" />
+              </div>
+              <!--modification profil-->
+              <!-- drop-down user account -->
+              <div class="user-wrapper">
+                <div class="action">
+                  <div class="profile" onclick="menuToggle();">
+                    <img src="/stylesheets/img/medecina.png"  alt="">
+                  </div>
+          
+                  <div class="menu">
+                      <h3>
+                          MERABET MOHAMED
+                          <div>m.merabet@esi-sba.dz</div>
+                      </h3>
+                      <ul>
+                          <li>
+                              <button class="rundown-btn">
+                                <span class="material-icons icons-size" id="p">person</span>
+                                <span class="links_name"><h4>Mon profile</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">mode</span>
+                                <span class="links_name"><h4>Modifier le compte</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">mail</span>
+                            
+                                <span class="links_name"><h4>Boite de récéption</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">logout</span>
+                                <span class="links_name"><h4>Se déconnecter</h4></span>
+                              </button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+            </div>             <!-- drop-down user account -->
+        </nav>
+        <main class="main">
+            <div class="wrapper">
+                
+                <input type="radio" name="slider" checked id="Examen_clinique">
+                <input type="radio" name="slider" id="Bilan_paraclinique">
+                <input type="radio" name="slider" id="Rapport">
+                <input type="radio" name="slider" id="Ordonnance">
+                <div style="margin-bottom: 20px;margin-top:-20px;">
+                  <%
+                  userData.forEach(function(result){
+                  
+                  userData2.forEach(function(result1){
+                    userData3.forEach(function(result2){
+                  %>
+                <div class="title"><h1><%=result.nom%> <%=result.prenom %></h1></div>
+                <label><h4>Email</h4>
+                  <small><%=result.email%></small>
+                </label>
+                <label><h4>Catégorie</h4>
+                  <small><%=result1.categorie %></small>
+                </label>
+                <div style="margin-left: 500px;margin-top: -88px;">
+                <label><h4>Type</h4>
+                  <small>Consultation</small>
+                </label>
+                <label><h4>Date</h4>
+                  <small>07/08/2021</small>
+                </label>
+                </div>
+                </div>
+            
+                <nav>
+                  <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Information</label>
+                  <label for="Bilan_paraclinique" class="blog"><i class="fas fa-blog"></i>Biométrique</label>
+                  <label for="Rapport" class="code"><i class="fas fa-code"></i>Antécédents</label>
+                  <label for="Ordonnance" class="help"><i class="far fa-envelope"></i>Dépistage</label>
+      
+                  
+                </nav>
+                <section>
+                  <div class="content content-1">
+                   
+                
+                    <p>
+                        <table class="table">
+                         
+                            <tbody>
+                              <tr>
+                                <td><h4>Date de naissance</h4></td>
+                                <td><%=result.datenaissance%></td>
+                                <td><h4>Lieu de naissance</h4></td>
+                                <td><%=result.wilaya %></td>
+                              </tr>
+                              <tr>
+                                <td><h4>Adresse</h4></td>
+                                <td><%=result.adress %></td>
+                                <td><h4>Numéro téléphone</h4></td>
+                                <td><%=result.numtel%></td>
+                              </tr>
+                              <tr>
+                                <td><h4>Groupe sanguin</h4></td>
+                                <td><%=result1.grs %></td>
+                                <td><h4>N°SS</h4></td>
+                                <td><%=result1.nss %></td>
+                              </tr>
+                              <tr>
+                                <td><h4>Sexe</h4></td>
+                                <td><%=result.sexe %></td>
+                              
+                              </tr>
+                            </tbody>
+                     </table>
+                    </p>
+                  </div>
+                  <div class="content content-2">
+                    <div class="title"></div>
+                    <p>
+                
+                        <table class="table">
+                         
+                              <tbody>
+                                <tr>
+                                  <td><h4>Taille</h4></td>
+                                  <td><%=result1.taille %></td>
+                                </tr>
+                                <tr>
+                                  <td><h4>Poids</h4></td>
+                                  <td><%=result1.poids %></td>
+                                </tr>
+                                <tr>
+                                  <td><h4>IMC</h4></td>
+                                  <td><%=result1.IMC %></td>
+                                </tr>
+                              </tbody>
+                       </table>
+                    </p>
+                  </div>
+                  <div class="content content-3">
+                    <div class="title"></div>
+                    <p>
+                      <div class="div1">
+                        <table class="table">
+                           
+                            <tbody>
+                                <tr>
+                                    <td> <h2>Médicaux</h2></td>
+                                  </tr>
+                                <tr>
+                                  <% if (result2.hta=1){%>
+                                <td>HTA</td><%}%>
+                              </tr>
+                              <tr>
+                                <td>---------</td>
+                              </tr>
+                              <tr>
+                                <td><h4>Remarque</h4>---------------</td>
+                              </tr>
+                            </tbody>
+                     </table>
+                     <table class="table">
+                        <tbody>
+                            <tr>
+                                <td> <h2>Chirugicaux</h2></td>
+                              </tr>
+                          <tr>
+                            <td>---------</td>
+                           
+                          </tr>
+                          <tr>
+                            <td>---------</td>
+                           
+                          </tr>
+                          <tr>
+                            <td><h4>Remarque</h4>----------</td>
+                         
+                          </tr>
+                        </tbody>
+                 </table>
+                      </div>
+                      <div class="div1">
+                        <table class="table">
+                           
+                            <tbody>
+                                <tr>
+                                
+                                    <td> <h2>Allergique</h2></td>
+                                  
+                                  </tr>
+                                  <tr>
+                                
+                                    <td>-----------</td>
+                                  
+                                  </tr>
+                        
+                            </tbody>
+                     </table>
+                     <table class="table">
+                        <tbody>
+                            <tr>
+                                <td> <h2>Toxique</h2></td>
+                              </tr>
+                          <tr>
+                            <td>-----------</td>
+                          </tr>
+                     
+                        </tbody>
+                 </table>
+                      </div>
+                      <div class="div1">
+                        <table class="table1" >
+                           
+                            <tbody>
+                                <tr>
+                                
+                                    <td> <h2>Familiaux</h2></td>
+                                  
+                                  </tr>
+                              <tr>
+                                
+                                <td>-----------</td>
+                              
+                              </tr>
+                              <tr>
+                                <td>-----------</td>
+                                
+                              </tr>
+                              <tr>
+                                <td><h4>Remarque</h4>-----------</td>
+                               
+                              </tr>
+                            </tbody>
+                     </table>
+                      </div>
+                    </p>
+                  </div>
+                  <div class="content content-4">
+                    <div class="title"></div>
+                    <p>
+                        <div class="div1">
+                            <table class="table" style="max-width: 2000px;width:95%;">
+                               
+                                <tbody>
+                                    <tr>  
+                                     <td>---</td>
+                                      <td>---</td>
+                                      <td>---</td>
+                                      <td>---</td>
+                                      <td>---</td>
+                                      <td>---</td>
+                                      <td>---</td>
+                                   
+                                    </tr>
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                  </tbody>
+                         </table>
+                        </div>
+                    </p>
+                  </div>
+                </section>
+                 
+              </div>
+              <%  }) }) })%>
+
+       
+        </main>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/stylesheets/fichiers-js/affichage-dossier.js"></script>
+    <!-- début drop-down user account -->
+ 
+  <!-- fin drop-down user account -->
+
+</body>
+
+</html>

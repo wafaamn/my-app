@@ -5,7 +5,8 @@ var con = mysql.createConnection({
     host : 'localhost',
     user : 'root',
     password : '25192519',
-    database : 'sahtech'
+    database : 'sahtech',
+    dateStrings:true
 });
 
 con.connect((err) => {
