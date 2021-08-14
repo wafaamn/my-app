@@ -73,7 +73,7 @@ main {
   padding: 25px;
   border-radius: 5px;
   width: 1000px;
-  height: 500px;
+  height: 600px;
   display: block;
   justify-content:right;
   
@@ -88,7 +88,7 @@ main {
   margin-left: -25px;
   margin-top: -25px;
   text-align: center;
-  height: 500px;
+  height: 600px;
   font-size: 10px;
 }
 .titre h1 {
@@ -98,7 +98,7 @@ main {
 }
 
 .form_wrap {
-  margin-top: -500px;
+  margin-top: -600px;
   margin-left: 150px;
 }
 
@@ -115,11 +115,13 @@ main {
   margin-bottom: 3px;
   color: #272729;
   margin-top: 30px;
+  
 }
 .form_wrap .input_wrap #labelmal,#labelfemal {
     display:inline-block;
     
     color: #272729;
+    
    
   }
   .form_wrap .input_grp01 {
@@ -132,6 +134,7 @@ main {
   }
   .form_wrap .input_grp01 .input_wrap {
    margin-right: 16px;
+   padding:10px;
    
   }
 
@@ -174,6 +177,14 @@ main {
   padding: 10px;
 }
 .form_wrap .input_grp2 select {
+    width: 200px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #373738;
+    outline: none;
+  
+  }
+  .form_wrap .input_grp1 select {
     width: 200px;
     padding: 10px;
     border-radius: 3px;
@@ -238,151 +249,6 @@ main {
 }
 .form_wrap input[type="password"]:focus {
   border-color: #3ea175;
-}
-#name {
-  width: 100%;
-  height: 100px;
-}
-.name {
-  margin-left: 25px;
-  margin-top: 30px;
-  width: 125px;
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
-}
-.firstname {
-  position: relative;
-  left: 200px;
-  top: -37px;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-}
-.lastname {
-  position: relative;
-  left: 417px;
-  top: -80px;
-  line-height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  color: #555;
-}
-.firstlabel {
-  position: relative;
-  color: #e5e5e5;
-  text-transform: capitalize;
-  font-size: 14px;
-  left: 203px;
-  top: -45px;
-}
-.lastlabel {
-  position: relative;
-  color: #e5e5e5;
-  text-transform: capitalize;
-  font-size: 14px;
-  left: 492px;
-  top: -76px;
-}
-.company {
-  position: relative;
-  left: 200px;
-  top: -37px;
-  line-height: 40px;
-  width: 480px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  color: #555;
-}
-.email {
-  position: relative;
-  left: 200px;
-  top: -37px;
-  line-height: 40px;
-  width: 480px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  color: #555;
-}
-
-.Code {
-  position: relative;
-  left: 200px;
-  top: -37px;
-  line-height: 40px;
-  width: 95px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  color: #555;
-}
-.number {
-  position: relative;
-  left: 200px;
-  top: -37px;
-  line-height: 40px;
-  width: 255px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  color: #555;
-}
-.area-code {
-  position: relative;
-  color: #e5e5e5;
-  text-transform: capitalize;
-  font-size: 16px;
-  left: 54px;
-  top: -4px;
-}
-.phone-number {
-  position: relative;
-  color: #e5e5e5;
-  text-transform: capitalize;
-  font-size: 16px;
-  left: -100px;
-  top: -2px;
-}
-.option {
-  position: relative;
-  left: 200px;
-  top: -37px;
-  line-height: 40px;
-  width: 532px;
-  height: 40px;
-  border-radius: 6px;
-  padding: 0 22px;
-  font-size: 16px;
-  color: #555;
-  outline: none;
-  overflow: hidden;
-}
-.option option {
-  font-size: 20px;
-}
-#coustomer {
-  margin-left: 25px;
-  color: white;
-  font-size: 18px;
-}
-.radio {
-  display: inline-block;
-  padding-right: 70px;
-  font-size: 25px;
-  margin-left: 25px;
-  margin-top: 15px;
-  color: white;
-}
-.radio input {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: none;
 }
 .bbtn {
   background-color: #3baf9f;
