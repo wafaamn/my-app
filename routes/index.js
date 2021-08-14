@@ -108,9 +108,9 @@ router.get('/medecin', function(request, response) {
 	response.end();
 });
 router.get('/creer' ,function(req,res){
-  var sql='SELECT * FROM patient where idPatient=1';
+  var sql='SELECT * FROM view_ant where iddoss=1';
   con.query(sql, function (err, data, fields) {
-    console.log(data);  
+    console.log(data);
   if (err) throw err;
   res.render('dossier-medical',{ title:'dossier' , userData:data});
 });
@@ -119,9 +119,78 @@ router.get('/examen' ,function(req,res){
   res.render('examen-medical');
 });
 router.get('/dossiers' ,function(req,res){
-  res.render('Dossiers-medicaux');
-});           
+var sql='SELECT * FROM view';
+con.query(sql, function (err, data, fields) {
+if (err) throw err;
+console.log(data);
+res.render('Dossiers-medicaux', { title: 'User List', userData: data});
+});
 
+});   
+router.get('/Consulter/:id',function(req,res){
+  var idd=req.params.id;
+  // first query
+var query1=function(callback)
+{
+con.query('select * from view where iddoss=?',[idd],function(err,result,fields)
+{
+  if(err) throw err;
+  console.log(result);
+return callback(result);
+});
+
+}
+// query2
+var query2=function(callback)
+{
+con.query('select * from dossiermed where iddoss=?',[idd] , function (err,result, fields) {
+if (err) throw err;
+console.log(result);
+return callback(result);
+});
+
+}
+// query3
+var query3=function(callback)
+{
+con.query('select * from view_ant where iddoss=?',[idd] , function (err,result, fields) {
+if (err) throw err;
+console.log(result);
+return callback(result);
+});
+
+
+}  
+// render to same page
+query1(function(result){
+query2(function(result1){
+query3(function(result2){
+res.render('affichage-dossier', { title: 'User List', userData: result, userData2: result1, userData3: result2});
+});
+
+});
+});
+
+});
+router.post('/find', (req, res) => {
+
+  var searchTerm = req.body.search;
+
+  console.log(searchTerm);
+
+  con.query('SELECT * FROM view WHERE nom = ?', [searchTerm], (err, rows) => {
+
+      if (!err) {
+          res.render('Dossiers-medicaux', { rows });
+      } else {
+          console.log(err);
+      }
+
+      console.log('the data from  view : \n', rows);
+  });
+
+
+});
 router.get('/examenclinique' ,function(req,res){
   res.render('examen-clinique')
 });
