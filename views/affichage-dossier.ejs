@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="Affichage_dossier.css" />
+    <link rel="stylesheet" href="/stylesheets/affichage-dossier.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 <body id="body">
   <!--sidebar starts here-->
   <div class="sidebar">
-    <img src="logoapppp.png" class="sidebar_img">
+    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
     <div class="logo-details">
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
@@ -74,7 +74,7 @@
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="medecina.png"  alt="">
+                    <img src="/stylesheets/img/medecina.png"  alt="">
                   </div>
           
                   <div class="menu">
@@ -121,12 +121,18 @@
                 <input type="radio" name="slider" id="Rapport">
                 <input type="radio" name="slider" id="Ordonnance">
                 <div style="margin-bottom: 20px;margin-top:-20px;">
-                <div class="title"><h1>Ourrad Imane</h1></div>
+                  <%
+                  userData.forEach(function(result){
+                  
+                  userData2.forEach(function(result1){
+                    userData3.forEach(function(result2){
+                  %>
+                <div class="title"><h1><%=result.nom%> <%=result.prenom %></h1></div>
                 <label><h4>Email</h4>
-                  <small>i.ourrad@esi-sba.dz</small>
+                  <small><%=result.email%></small>
                 </label>
                 <label><h4>Catégorie</h4>
-                  <small>Etudiant</small>
+                  <small><%=result1.categorie %></small>
                 </label>
                 <div style="margin-left: 500px;margin-top: -88px;">
                 <label><h4>Type</h4>
@@ -147,35 +153,34 @@
                   
                 </nav>
                 <section>
-                 
                   <div class="content content-1">
                    
                 
                     <p>
                         <table class="table">
-                            <!--<button id=bbbtn>modifier</button>-->
+                         
                             <tbody>
                               <tr>
                                 <td><h4>Date de naissance</h4></td>
-                                <td class="td1">---</td>
-                                <td><h4>Lieux de naissance</h4></td>
-                                <td>---</td>
+                                <td><%=result.datenaissance%></td>
+                                <td><h4>Lieu de naissance</h4></td>
+                                <td><%=result.wilaya %></td>
                               </tr>
                               <tr>
                                 <td><h4>Adresse</h4></td>
-                                <td>---</td>
+                                <td><%=result.adress %></td>
                                 <td><h4>Numéro téléphone</h4></td>
-                                <td>---</td>
+                                <td><%=result.numtel%></td>
                               </tr>
                               <tr>
                                 <td><h4>Groupe sanguin</h4></td>
-                                <td>---</td>
+                                <td><%=result1.grs %></td>
                                 <td><h4>N°SS</h4></td>
-                                <td>---</td>
+                                <td><%=result1.nss %></td>
                               </tr>
                               <tr>
                                 <td><h4>Sexe</h4></td>
-                                <td>---</td>
+                                <td><%=result.sexe %></td>
                               
                               </tr>
                             </tbody>
@@ -191,15 +196,15 @@
                               <tbody>
                                 <tr>
                                   <td><h4>Taille</h4></td>
-                                  <td>---</td>
+                                  <td><%=result1.taille %></td>
                                 </tr>
                                 <tr>
                                   <td><h4>Poids</h4></td>
-                                  <td>---</td>
+                                  <td><%=result1.poids %></td>
                                 </tr>
                                 <tr>
                                   <td><h4>IMC</h4></td>
-                                  <td>---</td>
+                                  <td><%=result1.IMC %></td>
                                 </tr>
                               </tbody>
                        </table>
@@ -216,7 +221,8 @@
                                     <td> <h2>Médicaux</h2></td>
                                   </tr>
                                 <tr>
-                                <td>---------</td>
+                                  <% if (result2.hta=1){%>
+                                <td>HTA</td><%}%>
                               </tr>
                               <tr>
                                 <td>---------</td>
@@ -381,11 +387,13 @@
                 </section>
                  
               </div>
+              <%  }) }) })%>
+
        
         </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="Affichage_dossiermed.js"></script>
+    <script src="/stylesheets/fichiers-js/affichage-dossier.js"></script>
     <!-- début drop-down user account -->
  
   <!-- fin drop-down user account -->

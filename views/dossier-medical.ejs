@@ -47,7 +47,7 @@
                   <label for="nom">Nom</label>
                   <input type="text" id="nom" name ="nom" required value="<%=data.nom%>">
                 </div>
-                <%})}%>
+                
                 <div class="input_wrap">
                   <label for="Prénom">Prénom</label>
                   <input type="text" id="Prénom" name ="prenom">
@@ -193,14 +193,14 @@
             <div class="input_wrap">
               <h1>Medicaux</h1>
                
-              <input type="checkbox" id="HTA" name="hta">
+              <input type="checkbox" id="HTA" name="hta"<% if(data.hta=1) { %>checked<% }%>>
               <label for="HTA"> HTA</label>
               <input type="checkbox" id="autres" name="autre">
               <label for="autres"> autres</label>
               <h3>Remarque</h3>
               <input type="text" id="remarque" name = "psmed">
             </div>
-          
+            <%})}%>
           <div class="input_wrap">
             <h1>Chirugicaux</h1>
                

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="Inscription_Patient.css" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <title>Sah-Tech | Inscription</title>
+</head>
+
+<body id="body">
+        <main>
+              <form class="form"> 
+               <div class="titre"><h1>Bienvenue</h1></div>    
+                  <div class="form_wrap">
+                   <div class="input_grp">
+                     <div class="input_wrap">
+                       <label for="nom"><h4>Nom</h4></label>
+                       <input type="text" id="nom" required>
+                     </div>
+                     <div class="input_wrap">
+                       <label for="Prénom"><h4>Prénom</h4></label>
+                       <input type="text" id="Prénom" required>
+                     </div>
+                   </div>
+                   <div class="input_grp0">
+                   <div class="input_wrap">
+                    <label for="birthday"><h4>Date de naissance</h4></label>
+                    <input type="date" id="birthday" name="birthday" required>
+                  </div>   
+                <div class="input_wrap">
+                  <label><h4>Sexe</h4></label>
+                  <div class="input_grp01">
+                    <div class="input_wrap">
+                    <label for="mal" id="labelmal"><h4>homme</h4></label>
+                    <input type="radio" id="mal" name="homme" value="homme">
+                    </div>
+                    <div class="input_wrap">
+                    <label for="femal" id="labelfemal"><h4>femme</h4></label>
+                    <input type="radio" id="femal" name="femme">
+                    </div>
+                    </div>
+                  </div>
+                </div>  
+        
+                  <div class="input_grp1">
+                   <div class="input_wrap">
+                     <label for="lieux"><h4>Lieux de naissance</h4></label>
+                     <select id="lieux">
+                      <option>1- Adrar</option>
+                      <option>2- Chlef</option>
+                      <option>3- Laghouet</option>
+                      <option>4- Oum El Bouaghi</option>
+                      <option>5- Batna</option>
+                      <option>6- Béjaïa</option>
+                      <option>7- Biskra</option>
+                      <option>8- Béchar </option>
+                      <option>9- Blida</option>
+                      <option>10- Bouira</option>
+                      <option>11- Tamanrasset</option>
+                      <option>12- Tébessa</option>
+                      <option>13- Tlemcen</option>
+                      <option>14- Tiaret</option>
+                      <option>15- Tizi Ouzou</option>
+                      <option>16- Alger</option>
+                      <option>17- Djelfa</option>
+                      <option>18- Jijel</option>
+                      <option>19- Sétif</option>
+                      <option>20- Saida</option>
+                      <option>21- Skikda</option>
+                      <option>22- Sidi Bel Abbès</option>
+                      <option>23- Annaba</option>
+                      <option>24- Guelma</option>
+                      <option>25- Constantine</option>
+                      <option>26- Médéa</option>
+                      <option>27- Mostaganem</option>
+                      <option>28- M'Sila</option>
+                      <option>29- Mascara</option>
+                      <option>30- Ouargla</option>
+                      <option>31- Oran</option>
+                      <option>32- El Bayadh</option>
+                      <option>33- Illizi</option>
+                      <option>34- Bordj Bou Arreridj</option>
+                      <option>35- Boumerdès </option>
+                      <option>36- El Taref</option>
+                      <option>37- Tindouf</option>
+                      <option>38- Tissemsilt</option>
+                      <option>39- El Oued</option>
+                      <option>40- Khenchela</option>
+                      <option>41- Souk Ahras</option>
+                      <option>42- Tipaza</option>
+                      <option>43- Mila</option>
+                      <option>44- Aïn Defla</option>
+                      <option>45-	Naâma</option>
+                      <option>46- Ain Témouchent</option>
+                      <option>47- Ghardaïa</option>
+                      <option>48- Relizane</option>
+                    </select>
+                   </div>
+                   <div class="input_wrap">
+                     <label for="num_tel"><h4>Numéro téléphone</h4></label>
+                     <input type="tel" id="num_tel" required>
+                   </div>
+                  </div> 
+                 <div class="input_grp2"> 
+                    <div class="input_wrap">
+                        <label for="catégorie"><h4>Catégorie</h4></label>
+                        <select id="catégorie" required>
+                          <option>Etudiant</option>
+                          <option>ATS</option>
+                          <option>Enseignant</option>
+                        </select>
+                      </div>
+                  <div class="input_wrap">
+                    <label for="text"><h4>Adresse</h4></label>
+                    <input type="text" id="text" required>
+                  </div>
+             
+                 </div>
+                 <div class="input_grp2"> 
+                  <div class="input_wrap">
+                      <label for="mot_de_passe"><h4>Mot de passe</h4></label>
+                      <input type="password" id="mot_de_passe" required>
+                    </div>
+               </div>
+          
+                 <div class="input_wrap">
+                    <button class="btn" >S'inscrire</button>
+                 </div> 
+              </form>
+        </main>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</body>
+
+</html>

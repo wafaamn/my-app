@@ -18,7 +18,7 @@
 <body id="body">
   <!--sidebar starts here-->
   <div class="sidebar">
-    <img src="logoapppp.png" class="sidebar_img">
+    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
     <div class="logo-details">
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
@@ -67,14 +67,15 @@
               <h2 for="btttn">Dossiers médicaux</h2>
               <div class="search-wrapper">
                 <span class="las la-search" ></span>
-                <input type="search" placeholder="Recherche" />
+                <form  action ="find" method="POST">
+                <input type="search" placeholder="search" for="search" name="search"/></form>
               </div>
               <!--modification profil-->
               <!-- drop-down user account -->
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="medecina.png"  alt="">
+                    <img src="/stylesheets/img/medecina.png"  alt="">
                   </div>
           
                   <div class="menu">
@@ -120,78 +121,34 @@
                   <th>N°Dossier</th>
                   <th>Nom</th>
                   <th>Prénom</th>
-                  <th>Sexe</th>
                   <th>Date_Naiss</th>
+                  <th>Sexe</th>
                   <th style="color:blueviolet;">Consulter</th>
-                  <th style="color:blueviolet;">Modifier</th>
                 </tr>
               </thead>
               <tbody>
+                <%
+                if(userData.length!=0){
+                var i=1;
+                userData.forEach(function(data){
+                %>
                 <tr>
-                  <td><a href="#">001</a></td>
-                  <td>Ourrad</td>
-                  <td>Imane</td>
+                  <td><%=data.Iddoss %></td>
+                  <td><%=data.nom %></td>
+                  <td><%=data.prenom %></td>
                   <td>
-                    <p class="status status-unpaid">Femme</p>
+                    <p class="status status-unpaid"><%=data.datenaissance %></p>
                   </td>
-                  <td class="amount">06.04.2001</td>
-                  <td class="amount"><button class="btn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button></td>
-                  <td class="amount">
-                    <button class="btn">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                  </td>
+                  <td><%=data.sexe %></td>
+                  <td><a href="/consulter/<%=data.Iddoss%>">Consulter</a></td>
                 </tr>
-                <tr>
-                  <td><a href="#">002</a></td>
-                  <td>Bouziane</td>
-                  <td>Djihane</td>
-                  <td>
-                    <p class="status status-paid">Femme</p>
-                  </td>
-                  <td class="amount">03.05.1999</td>
-                  <td class="amount"><button class="btn">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button></td>
-                  <td class="amount"><button class="btn">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                  </button></td>
-                </tr>
-                <tr>
-                  <td><a href="#">003</a></td>
-                  <td>Lakhmi</td>
-                  <td>Khaoula</td>
-                  <td>
-                    <p class="status status-pending">Femme</p>
-                  </td>
-                  <td class="amount">14.10.1999</td>
-                  <td class="amount">03.05.1999</td>
-                  <td class="amount">03.05.1999</td>
-                </tr>
-                <tr>
-                  <td><a href="#">004</a></td>
-                  <td>Mimouni</td>
-                  <td>Wafaa</td>
-                  <td>
-                    <p class="status status-pending">Femme</p>
-                  </td>
-                  <td class="amount">26.06.1999</td>
-                  <td class="amount">03.05.1999</td>
-                  <td class="amount">03.05.1999</td>
-                </tr>
-                <tr>
-                  <td><a href="#">005</a></td>
-                  <td>Aggoune</td>
-                  <td>Lina</td>
-                  <td>
-                    <p class="status status-paid">Femme</p>
-                  </td>
-                  <td class="amount">23.02.2001</td>
-                  <td class="amount">03.05.1999</td>
-                  <td class="amount">03.05.1999</td>
-                </tr>
+                <%  i++; }) %>
+                <% } else{ %>
+                    <tr>
+                        <td colspan="7">No Data Found</td>
+                    </tr>
+                <% } %>
+               
               </tbody>
             </table>
         </main>

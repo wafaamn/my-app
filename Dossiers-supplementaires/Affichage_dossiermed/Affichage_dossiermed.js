@@ -14,7 +14,7 @@ closeBtn.addEventListener("click", ()=>{
 });
 
   //button.addEventListener("click", ()=>{
-   // td.forEach(td => {
+    //td.forEach(td => {
     //td.innerHTML = '<input>' ;})
   //});
 

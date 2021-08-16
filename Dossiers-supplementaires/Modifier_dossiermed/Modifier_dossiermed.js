@@ -1,5 +1,8 @@
 let sidebar = document.querySelector(".sidebar");
 let closeBtn = document.querySelector("#btttn");
+const td = document.querySelectorAll(".td1");
+let button = document.querySelector("#bbbtn");
+
 
 function menuToggle(){
     const toggleMenu = document.querySelector('.menu');
@@ -9,6 +12,12 @@ closeBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("open");
   menuBtnChange();//calling the function(optional)
 });
+
+  //button.addEventListener("click", ()=>{
+   // td.forEach(td => {
+    //td.innerHTML = '<input>' ;})
+  //});
+
 
 // following are the code to change sidebar button(optional)
 function menuBtnChange() {
