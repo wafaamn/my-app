@@ -186,9 +186,9 @@
   background-color: white;
   text-align: left;
   overflow: hidden;
-  margin-top: -60px;
-  width: 1000px;
-  height: 500px;
+  margin-top: -660px;
+  max-width: 2000px;
+  width: 100%;
   margin-left: 10px;
 }
 thead {
@@ -205,17 +205,18 @@ th {
 
 td {
   padding: 1rem 2rem;
+
 }
 
 a {
   text-decoration: none;
   color: #2962ff;
 }
-
-tr:nth-child(even) {
-  background-color: #b4f5e265;
+.form table{
+    justify-content: space-between;
+    margin-left: 100px;
+    display:flex;
 }
-
 /*  styling scrollbars  */
 
 * {
@@ -274,7 +275,9 @@ tr:nth-child(even) {
   outline: none;
 }
 .btn {
+ 
   border: none;
+ 
   padding: 12px 16px;
   font-size: 13px;
   cursor: pointer;
@@ -285,6 +288,8 @@ tr:nth-child(even) {
   background-size: 200%;
   font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
+  
+ 
 }
 
 .btn:hover {
@@ -449,7 +454,72 @@ tr:nth-child(even) {
   font-size: 13.5px;
   font-display:initial;
   margin-top: -20px;
-  
-  
 }
+  
+  .action2 .form {
+    background-color: rgb(243, 243, 243);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 10px 20px;
+    position:absolute;
+    margin-left: 320px;
+    width: 550px;
+    transition: 0.5s;
+    top: 120px;
+    visibility: hidden;
+    opacity: 0;
+  }
+ 
+  .action2 .form.active {
+    opacity: 1;
+    top: 100px;
+    visibility: visible;
+    height: 350px;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.2);
+    border-color:#11101d;
+  }
+ .btn {
+    background-image: linear-gradient(to right,#4e2793,#80ffdb);
+    border: none; 
+    color: white; 
+    padding: 12px 16px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: .5s;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-size: 200%;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    margin: 1rem 0;  
+  }
+  .action3 .formm {
+    background-color: rgb(243, 243, 243);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 10px 20px;
+    position:absolute;
+    width: 550px;
+    transition: 0.5s;
+    top: 120px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .action3 .formm .form1{
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .action3 .formm.activee {
+    opacity: 1;
+    top: 100px;
+    visibility: visible;
+    height: 350px;
+    box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.2);
+    border-color:#11101d;
+  } 
+  /* end drop-down user account */
+  
+/* end drop-down user account */
+
 /* end drop-down user account */
