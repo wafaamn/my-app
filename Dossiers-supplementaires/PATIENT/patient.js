@@ -6,10 +6,10 @@ function menuToggle(){
     toggleMenu.classList.toggle('active')
 }
 function formToggle(){
-  const toggleform = document.querySelector('.form');
-  toggleform.classList.toggle('active')
- 
-}
+    const toggleform = document.querySelector('.form');
+    toggleform.classList.toggle('active')
+   
+  }
 closeBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("open");
   menuBtnChange();//calling the function(optional)

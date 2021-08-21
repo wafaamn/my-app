@@ -65,6 +65,7 @@
     <div class="container">
         <nav class="navbar">    
               <h2 for="btttn">Examen médical</h2>
+            
               <div class="search-wrapper">
                 <span class="las la-search" ></span>
                 <input type="search" placeholder="Recherche" />
@@ -111,9 +112,49 @@
                       </ul>
                   </div>
               </div>
-            </div>             <!-- drop-down user account -->
+            </div>           
+            
+            <!-- hada code li tzidih -->
+
+            
+            <div class="user-wrapper2">
+              <div class="action2">
+            
+                <button class="btn" onclick="formToggle();">Programmer un rdv</button>
+                <div class="form">
+                    <form>
+                      <div class="title"><h1>Ourrad Imane</h1></div>
+                      <div>
+                      <label><h4>Email</h4>
+                        <small>i.ourrad@esi-sba.dz</small>
+                      </label>
+                      </div>
+                      <label> Date</label>
+                      <div class="form1">
+                      <input type="date">
+                      </div>
+
+                      <div class="form1">
+                        <label>heure debut</label>
+                      <input type="time">
+                      <label>heure fin</label>
+                      <input type="time">
+                      </div>
+                      <label>description</label>
+                      <div class="form1">
+                      <textarea cols="50" rows="6"></textarea>
+                      </div>
+                      <div class="form1" style="display:flex;">
+                        <button class="btn">Envoyer</button>
+                        <button class="btn">Annuler</button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+          </div> 
         </nav>
         <main class="main">
+         
             <div class="wrapper">
                 
                 <input type="radio" name="slider" checked id="Examen_clinique">

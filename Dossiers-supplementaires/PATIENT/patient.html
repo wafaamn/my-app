@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="patient.css" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <title>Dossiers Médicaux | Sah-Tech</title>
+</head>
+
+<body id="body">
+  <!--sidebar starts here-->
+  <div class="sidebar">
+    <img src="logoapppp.png" class="sidebar_img">
+    <div class="logo-details">
+       <i class='bx bx-menu' id="btttn" ></i>
+    </div>
+  </div>
+  <!--sidebar ends here-->
+    <div class="container">
+        <nav class="navbar">    
+              <h2 for="btttn">Patient</h2>
+              <!--modification profil-->
+              <!-- drop-down user account -->
+              <div class="user-wrapper">
+                <div class="action">
+                  <div class="profile" onclick="menuToggle();">
+                    <img src="medecina.png"  alt="">
+                  </div>
+          
+                  <div class="menu">
+                      <h3>
+                          MERABET MOHAMED
+                          <div>m.merabet@esi-sba.dz</div>
+                      </h3>
+                      <ul>
+                          <li>
+                              <button class="rundown-btn">
+                                <span class="material-icons icons-size" id="p">person</span>
+                                <span class="links_name"><h4>Mon profile</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">mode</span>
+                                <span class="links_name"><h4>Modifier le compte</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">mail</span>
+                            
+                                <span class="links_name"><h4>Boite de récéption</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">logout</span>
+                                <span class="links_name"><h4>Se déconnecter</h4></span>
+                              </button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+            </div>             <!-- drop-down user account -->
+            <div class="user-wrapper2">
+                <div class="action2">
+              
+                  <button class="btn" onclick="formToggle();">Demander un rdv</button>
+                  <div class="form">
+                      <form>
+                        <label> Date</label>
+                        <div class="form1">
+                        <input type="date">
+                        </div>
+  
+                        <div class="form1">
+                          <label>heure debut</label>
+                        <input type="time">
+                        <label>heure fin</label>
+                        <input type="time">
+                        </div>
+                        <label>description</label>
+                        <div class="form1">
+                        <textarea cols="50" rows="6"></textarea>
+                        </div>
+                        <div class="form1" style="display:flex;">
+                          <button class="btn">Envoyer</button>
+                          <button class="btn">Annuler</button>
+                        </div>
+                      </form>
+                  </div>
+              </div>
+            </div> 
+        </nav>
+        <main class="main">
+           
+        </main>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="patient.js"></script>
+    <!-- début drop-down user account -->
+ 
+  <!-- fin drop-down user account -->
+
+</body>
+
+</html>
