@@ -166,6 +166,30 @@
   align-items: left;
 }
 /* sidebar ends here */
+.form_wrap{
+  margin-left: 100px;
+}
+.form_wrap .div1{
+  display:flex;
+  justify-content:space-around; 
+  margin-left: 250px;
+}
+.form_wrap .div11{
+  margin-left:-375px;
+}
+.form_wrap .div12{
+  margin-left:120px;
+}
+
+.input_wrap1{
+  margin-top: 20px;
+}
+.input_wrap2{
+  margin-top: 20px;
+}
+.input_wrap3{
+  margin-top: 20px;
+}
 ::selection{
     background: rgba(23,162,184,0.3);
   }
@@ -539,13 +563,13 @@
 }
 .action2 .form .form1{
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .action2 .form.active {
   opacity: 1;
-  top: 100px;
+  top: 80px;
   visibility: visible;
-  height: 450px;
+  height: 310px;
   box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.2);
   border-color:#11101d;
 }

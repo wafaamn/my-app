@@ -118,11 +118,6 @@
                 <div class="form">
                     <form>
                       <div class="title"><h1>Ourrad Imane</h1></div>
-                      <div>
-                      <label><h4>Email</h4>
-                        <small>i.ourrad@esi-sba.dz</small>
-                      </label>
-                      </div>
                       <label> Date</label>
                       <div class="form1">
                       <input type="date">
@@ -134,9 +129,9 @@
                       <label>heure fin</label>
                       <input type="time">
                       </div>
-                      <label>description</label>
+                      <label>Motif</label>
                       <div class="form1">
-                      <textarea cols="50" rows="6"></textarea>
+                      <textarea cols="50" rows="2"></textarea>
                       </div>
                       <div class="form1" style="display:flex;">
                         <button class="btn">Envoyer</button>
@@ -193,25 +188,30 @@
                 
                     <p>
                       <div class="form_wrap">
-                
-                        <div class="input_wrap">
-                          <label for="fname" style="font-size: 30px;">Motif</label><br>
-                          <input type="text" id="fname">
+                        <div class="input_wrap1">
+                          <label for="fname"><h2>Motif</h2></label>
+                          <textarea cols="110" rows="2" id="fname"></textarea>
                         </div>
-                        <div class="input_wrap">
-                          <label for="Paramètre" style="font-size: 30px;">Paramètres vitaux</label><br><br>
-                          <label for="TA" style="font-size: 19px;">TA</label>
+                        <div class="input_wrap2">
+                          <label for="Paramètre"><h2>Paramètres vitaux</h2></label>
+                          <div class="div1">
+                          <div class="div11">
+                          <label for="TA"><h4>TA</h4></label>
                           <input type="text" id="TA">
-                          <label for="FC" style="font-size: 19px;">FC</label>
+                          <label for="FC"><h4>FC</h4></label>
                           <input type="text" id="FC" >
-                          <label for="SpO2" style="font-size: 19px;">SpO2</label>
+                          </div>
+                          <div class="div12">
+                          <label for="SpO2"><h4>SpO2</h4></label>
                           <input type="text" id="SpO2" >
-                          <label for="Glycémie" style="font-size: 19px;">Glycémie</label>
+                          <label for="Glycémie"><h4>Glycémie</h4></label>
                           <input type="text" id="Glycémie">
+                          </div>
+                          </div>
                         </div>
-                      <div class="input_wrap">
-                        <label for="examen" style="font-size: 30px;">Examen du jour + synthèse</label>
-                        <textarea type="text" id="examen" style="padding: 50px; width:450px; display:block;"></textarea>
+                      <div class="input_wrap3">
+                        <label for="examen"><h2>Examen du jour + synthèse</h2></label>
+                        <textarea cols="110" rows="6" id="examen"></textarea>
                       </div>
                       <div >
                         <button class="btn">Enregistrer</button>
