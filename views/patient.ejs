@@ -101,10 +101,9 @@
                                         <tr>
                                             <td>Nom Prenom</td>
                                             <td>Email</td>
-                                            <td>Statu</td>
+                                            <td>Categorie</td>
                                             <td>Activer</td>
                                             <td>Accepter</td>
-                                            <td>Modifier</td>
                                             <td>Supprimer</td>
                                         </tr>
                                     </thead>
@@ -114,19 +113,13 @@
                                          <tr>
                                             <td><%=data.nom%> <%=data.prenom%></td>
                                             <td><%=data.email%></td>
-                                            <td>
-                                                <span class="status red"></span> En Attente
-                                            </td>
+                                            <td><%=data.categorie%></td>
                                             <td><div class="checkbox">
                                                 <input type="checkbox" id="click">
                                                 <label for="click" class="text"></label>
                                               </div> 
                                             </td> 
-                                            <td><form action="/accepter/<%=data.email%>" method="POST"><button class="acc-btn">Accepter</button></form></td>
-                                            <td>
-                                                <button id="button-icon"><span class="material-icons-outlined">
-                                                edit
-                                                </span> </button></td>
+                                            <td><form action="/accepter/<%=data.email%>" method="POST"><button class="acc-btn" id="accBtn">Accepter</button></form></td>
                                             <td><button id="button-icon"> <span class="material-icons-outlined">
                                                 delete
                                                 </span> </button></td>

@@ -16,6 +16,7 @@
 </head>
 
 <body id="body">
+  <form action="" method="POST">
   <!--sidebar starts here-->
   <div class="sidebar">
     <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
@@ -23,13 +24,6 @@
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
-         <button class="bttn"> 
-          <i class="fa fa-folder" aria-hidden="true"></i>
-          <span class="links_name">Dossier médical</span>
-         </button> 
-         <span class="tooltip">Dossier médical</span>
-      </li>
       <li>
        <button class="bttn">
         <i class="fa fa-stethoscope" aria-hidden="true"></i>
@@ -39,26 +33,11 @@
      </li>
      <li>
        <button class="bttn">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-         <span class="links_name">Agenda</span>
-       </button>
-       <span class="tooltip">Agenda</span>
-     </li>
-     <li>
-       <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
        </button>
        <span class="tooltip">Statistique</span>
      </li>
-     <li>
-      <button class="bttn">
-       <i class="fa fa-plus-square" aria-hidden="true"></i>
-        <span class="links_name">Créer un dossier</span>
-      </button>
-      <span class="tooltip">Créer un dossier</span>
-    </li>
-
     </ul>
   </div>
   <!--sidebar ends here-->
@@ -103,10 +82,11 @@
                               </button>
                           </li>
                           <li>
+                            <form action="deconnecter" method="GET">
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">logout</span>
                                 <span class="links_name"><h4>Se déconnecter</h4></span>
-                              </button>
+                              </button></form>
                           </li>
                       </ul>
                   </div>
@@ -153,7 +133,6 @@
                 <section>
                  
                   <div class="content content-1">
-                    <form action="" method="POST">
                     <p>
                         <table class="table">
                         
@@ -171,7 +150,6 @@
                                 <td><%=data.NumTel%></td>
                               </tr>
                               <tr>
-              
                                 <td><h4>Groupe sanguin</h4></td>
                                 <td>  <select name="grs"  required value="<%=data1.grs%>" >
                                     <option>A+</option>
@@ -386,13 +364,10 @@
                         </div>
                     </div>  
                     <div>
-                        <button class="btn" type="submit">Enregistrer</button>
-                      
-                        <button class="btn" >Annuler</button>
+                      <form action="" method="POST">
+                        <button class="btn" >Enregistrer</button></form>
                       </div>    
                   </div>
-                
-                </form>
                 </section>
               </div>
               <% }) }) }) })%>
@@ -403,7 +378,7 @@
     <!-- début drop-down user account -->
  
   <!-- fin drop-down user account -->
-
+</form>
 </body>
 
 </html>
