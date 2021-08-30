@@ -248,6 +248,18 @@
   section .content p{
   text-align: justify;
   }
+  .input_wrapa{
+    display:flex;
+    justify-content: space-between;
+  }
+  .antece1 input[type="checkbox"]{
+    margin-bottom: 30px;
+    margin-top: 10px;
+     }
+.antece2 input[type="checkbox"]{
+      margin-bottom: 23px;
+      margin-top: 10px;
+       }
   .depistage{
       display:flex;
       justify-content: space-between;
