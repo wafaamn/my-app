@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/Modifier-dossier.css" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <title>Dossiers Médicaux | Sah-Tech</title>
+</head>
+
+<body id="body">
+  <!--sidebar starts here-->
+  <div class="sidebar">
+    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
+    <div class="logo-details">
+       <i class='bx bx-menu' id="btttn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+         <button class="bttn"> 
+          <i class="fa fa-folder" aria-hidden="true"></i>
+          <span class="links_name">Dossier médical</span>
+         </button> 
+         <span class="tooltip">Dossier médical</span>
+      </li>
+      <li>
+       <button class="bttn">
+        <i class="fa fa-stethoscope" aria-hidden="true"></i>
+         <span class="links_name">Examen médical</span>
+       </button>
+       <span class="tooltip">Examen médical</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+         <span class="links_name">Agenda</span>
+       </button>
+       <span class="tooltip">Agenda</span>
+     </li>
+     <li>
+       <button class="bttn">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+         <span class="links_name">Statistique</span>
+       </button>
+       <span class="tooltip">Statistique</span>
+     </li>
+     <li>
+      <button class="bttn">
+       <i class="fa fa-plus-square" aria-hidden="true"></i>
+        <span class="links_name">Créer un dossier</span>
+      </button>
+      <span class="tooltip">Créer un dossier</span>
+    </li>
+
+    </ul>
+  </div>
+  <!--sidebar ends here-->
+    <div class="container">
+        <nav class="navbar">    
+              <h2 for="btttn">Dossier médical</h2>
+              <div class="search-wrapper">
+                <span class="las la-search" ></span>
+                <input type="search" placeholder="Recherche" />
+              </div>
+              <!--modification profil-->
+              <!-- drop-down user account -->
+              <div class="user-wrapper">
+                <div class="action">
+                  <div class="profile" onclick="menuToggle();">
+                    <img src="/stylesheets/img/medecina.png"  alt="">
+                  </div>
+          
+                  <div class="menu">
+                      <h3>
+                          MERABET MOHAMED
+                          <div>m.merabet@esi-sba.dz</div>
+                      </h3>
+                      <ul>
+                          <li>
+                              <button class="rundown-btn">
+                                <span class="material-icons icons-size" id="p">person</span>
+                                <span class="links_name"><h4>Mon profile</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">mode</span>
+                                <span class="links_name"><h4>Modifier le compte</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">mail</span>
+                            
+                                <span class="links_name"><h4>Boite de récéption</h4></span>
+                              </button>
+                          </li>
+                          <li>
+                            <button class="rundown-btn">
+                              <span class="material-icons icons-size" id="p">logout</span>
+                                <span class="links_name"><h4>Se déconnecter</h4></span>
+                              </button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+            </div>             <!-- drop-down user account -->
+        </nav>
+        <main class="main">
+            <div class="wrapper">
+                <input type="radio" name="slider" checked id="Examen_clinique">
+                <input type="radio" name="slider" id="Bilan_paraclinique">
+                <input type="radio" name="slider" id="Rapport">
+                <input type="radio" name="slider" id="Ordonnance">
+                <div style="margin-bottom: 20px;margin-top:-20px;">
+                  <%
+                  userData.forEach(function(data){
+                  userData2.forEach(function(data1){
+                  userData3.forEach(function(data2){
+                  userData4.forEach(function(data3){ %>
+                <div class="title"><h1><%=data.nom%> <%=data.prenom%></h1></div>
+                <label><h4>Email</h4>
+                  <small><%=data.Email%></small>
+                </label>
+                <label><h4>Catégorie</h4>
+                  <small><%=data1.categorie%></small>
+                </label>
+                <div style="margin-left: 500px;margin-top: -88px;">
+                <label><h4>Type</h4>
+                  <small>Consultation</small>
+                </label>
+                <label><h4>Date</h4>
+                  <small>07/08/2021</small>
+                </label>
+                </div>
+                </div>
+            
+                <nav>
+                  <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Information</label>
+                  <label for="Bilan_paraclinique" class="blog"><i class="fas fa-blog"></i>Biométrique</label>
+                  <label for="Rapport" class="code"><i class="fas fa-code"></i>Antécédents</label>
+                  <label for="Ordonnance" class="help"><i class="far fa-envelope"></i>Dépistage</label>
+      
+                  
+                </nav>
+                <section>
+                 
+                  <div class="content content-1">
+                    <form action="" method="POST">
+                    <p>
+                        <table class="table">
+                        
+                            <tbody>
+                              <tr>
+                                <td><h4>Date de naissance</h4></td>
+                                <td><%=data.DateNaissance%></td>
+                                <td><h4>Lieu de naissance</h4></td>
+                                <td><%=data.wilaya%></td>
+                              </tr>
+                              <tr>
+                                <td><h4>Adresse</h4></td>
+                                <td><%=data.Adress%></td>
+                                <td><h4>Numéro téléphone</h4></td>
+                                <td><%=data.NumTel%></td>
+                              </tr>
+                              <tr>
+              
+                                <td><h4>Groupe sanguin</h4></td>
+                                <td>  <select name="grs"  required value="<%=data1.grs%>" >
+                                    <option>A+</option>
+                                    <option>A-</option>
+                                    <option>B+</option>
+                                    <option>B-</option>
+                                    <option>O+</option>
+                                    <option>O-</option>
+                                    <option>AB+</option>
+                                    <option>AB-</option>
+                                  </select></td>
+                                <td><h4>N°SS</h4></td>
+                                <td> <input type="number" id="nss" name="nss"  required value="<%=data1.nss%>"></td>
+                              </tr>
+                              <tr>
+                                <td><h4>Sexe</h4></td>
+                                <td><%=data.sexe%></td>
+                              
+                              </tr>
+                            </tbody>
+                     </table> 
+                    </p>
+
+                  </div>
+                  <div class="content content-2">
+                    <div class="title"></div>
+                    <div class="input_wrap">
+                        <label for="Poids">Poids</label>
+                        <input type="number" id="Poids" name="poids"  required value="<%=data1.poids%>">
+                      </div>
+                      <div class="input_wrap">
+                        <label for="Taille">Taille</label>
+                        <input type="number" id="Taille" name="taille"  required value="<%=data1.taille%>">
+                      </div>
+                    <div class="input_wrap">
+                      <label for="IMC">IMC</label>
+                      <input type="number" id="IMC" name="imc"  required value="<%=data1.IMC%>">
+                    </div> 
+                  </div>
+                  <div class="content content-3">
+                    <div class="title"></div>
+                    <div class="input_wrap">
+                        <h1>Medicaux</h1>
+                      
+                        <input type="checkbox" id="HTA" name="hta" value="hta" <%= data2.hta ? "checked" : "" %>>
+                        <label for="HTA"> HTA</label>
+                        <input type="checkbox" id="autres" name="autres"  <%= data2.autre ? "checked" : "" %>>
+                        <label for="autres"> autres</label>
+                        <h3>Remarque</h3>
+                        <input type="text" id="remarque" name="remarque"  required value="<%=data2.Remarque%>">
+                      </div>
+                    
+                    <div class="input_wrap">
+                      <h1>Chirugicaux</h1>
+                         
+                      <input type="checkbox" id="app" name="app"  <%= data2.Appendicectomie ? "checked" : "" %>>
+                      <label for="app"> Appendicectomie</label>
+                      <input type="checkbox" id="chole" name="chole" <%= data2.Cholecystectomie ? "checked" : "" %> >
+                      <label for="chole"> Cholecystectomie</label>
+                      <h3>Remarque</h3>
+                      <input type="text" id="remarque1" name="remarque1"  required value="<%=data2.remarque1%>" >
+                    </div>
+                    <div class="input_wrap">
+                      <h1>Allergique</h1>
+                      <input type="text" id="Allergique" name="allgq" required value="<%=data2.Allergique%>">
+                    </div>
+                    <div class="input_wrap">
+                      <h1>Familiaux</h1>
+                         
+                      <input type="checkbox" id="cardio" name="cardio" <%= data2.Cardiopathie ? "checked" : "" %>>
+                      <label for="cardio"> Cardiopathie</label>
+                      <input type="checkbox" id="autres" name="autres1" <%= data2.autres ? "checked" : "" %>>
+                      <label for="autres"> autres</label>
+                      <h3>Remarque</h3>
+                      <input type="text" id="remarque2" name="remarque2"  required value="<%=data2.remarque2%>">
+                    </div>
+                    <div class="input_wrap">
+                      <h1>Toxiques</h1>
+                      <input type="text" id="Toxiques" name="tox"  required value="<%=data2.Toxiques%>">
+                    </div>  
+                  </div>
+                  <div class="content content-4">
+                    <div class="title"></div>
+                    <div class="depistage">
+                    <div class="depistage1">
+                        
+                          <h1>Peau et muqueuses</h1>
+                          <input type="checkbox" id="aff" name="aff" <%= data3.affectation ? "checked" : "" %>>
+                          <label for="aff"> Affections cutanées</label>
+                    
+                      
+                        <h1>Ophtalmologique</h1>
+                           
+                        <input type="checkbox" id="larmo" name="larmo"  <%= data3.Larmolement ? "checked" : "" %>>
+                        <label for="larmo"> Larmolement</label>
+                        <input type="checkbox" id="Douleur" name="douleur" <%= data3.Douleurs ? "checked" : "" %>>
+                        <label for="Douleur"> Douleurs</label>
+                        <input type="checkbox" id="tdl" name="tdl" <%= data3.Taches ? "checked" : "" %>>
+                        <label for="toggleSidebar"> Taches devant les yeux</label>
+                    
+                    
+                        <h1>O.R.L</h1>
+                           
+                        <input type="checkbox" id="siff" name="siff" <%= data3.Siffelements ? "checked" : "" %>>
+                        <label for="siff"> Siffelements</label>
+                        <input type="checkbox" id="angine" name="angine" <%= data3.Angines ? "checked" : "" %>>
+                        <label for="ang"> Angines répétées</label>
+                        <input type="checkbox" id="ang" name="ang" value="ang" <%= data3.Epistaxis ? "checked" : "" %>>
+                        <label for="epi"> Epistaxis</label>
+                        
+                      
+                      
+                        <h1>Locomoteur</h1>
+                           
+                        <input type="checkbox" id="muscu" name="muscu" value="muscu" <%= data3.musculaires ? "checked" : "" %>>
+                        <label for="muscu"> Douleurs musculaires</label>
+                        <input type="checkbox" id="articu" name="articu" value="articu" <%= data3.articulaires ? "checked" : "" %>>
+                        <label for="articu"> Douleurs articulaires</label><br>
+                        <input type="checkbox" id="vérté" name="verte" value="vérté" <%= data3.vértébrales ? "checked" : "" %>>
+                        <label for="vérté"> Douleurs vértébrales</label>
+                        <input type="checkbox" id="neuro" name="neuro" value="neuro" <%= data3.Neurologiques ? "checked" : "" %>>
+                        <label for="neuro"> Neurologiques</label>
+                      
+                    
+                        <h1>Respiratoire</h1>    
+                       <input type="checkbox" id="toux" name="toux" value="toux" <%= data3.Toux ? "checked" : "" %>>
+                        <label for="toux"> Toux</label>
+                        <input type="checkbox" id="expec" name="expec" value="expec" <%= data3.Expectorations ? "checked" : "" %>>
+                        <label for="expec"> Expectorations</label>
+                        <input type="checkbox" id="tho" name="tho" value="tho" <%= data3.thoraciques ? "checked" : "" %>>
+                        <label for="tho"> Douleurs thoraciques</label>
+                      
+                      
+                        <h1>Cardio-Vasculaire</h1>    
+                       <input type="checkbox" id="palpi" name="palpi" value="palpi" <%= data3.Palpitation ? "checked" : "" %>>
+                        <label for="palpi"> Palpitation</label>
+                        <input type="checkbox" id="oedèmes" name="oedemes" value="oedèmes" <%= data3.oedèmes ? "checked" : "" %>>
+                        <label for="oedèmes"> Douleur oedèmes</label><br>
+                        <input type="checkbox" id="marche" name="marche" value="marche" <%= data3.marche ? "checked" : "" %>>
+                        <label for="marche"> Douleurs à la marche</label>
+                        <input type="checkbox" id="repos" name="repos" value="repos" <%= data3.repos ? "checked" : "" %>>
+                        <label for="repos"> Douleurs au repos</label><br>
+                        <input type="checkbox" id="leffort" name="leffort" value="leffort" <%= data3.effort ? "checked" : "" %>>
+                        <label for="leffort"> Douleurs à l'effort</label>
+                        <input type="checkbox" id="permanents" name="permanents" value="permanents" <%= data3.permanents ? "checked" : "" %>>
+                        <label for="permanents"> Douleurs permanents</label>
+                    </div>
+                    <div class="depistage2">
+                        <h1>Digestif</h1>    
+                       <input type="checkbox" id="appétit" name="appetit" value="appétit" <%= data3.Appétit ? "checked" : "" %>>
+                        <label for="appétit"> Appétit</label>
+                        <input type="checkbox" id="transit" name="transit" value="transit" <%= data3.Transit ? "checked" : "" %>>
+                        <label for="transit"> Transit</label><br>
+                        <input type="checkbox" id="Selles" name="Selles" value="selles" <%= data3.Selles ? "checked" : "" %>>
+                        <label for="selles"> Selles</label>
+                        <input type="checkbox" id="pyrosis" name="pyrosis" value="pyrosis" <%= data3.Pyrosis ? "checked" : "" %>>
+                        <label for="pyrosis"> Pyrosis</label><br>
+                        <input type="checkbox" id="Rectoreagies" name="Rectoreagies" value="rectoreagies" <%= data3.Rectoreagies ? "checked" : "" %>>
+                        <label for="Rectoreagies"> Rectoreagies</label>
+                        <input type="checkbox" id="abdominales" name="abdominales" value="abdominales" <%= data3.abdominales ? "checked" : "" %>>
+                        <label for="abdominales"> Douleurs abdominales</label>
+                    
+                        <h1>Génito-urinaire</h1>    
+                       <input type="checkbox" id="Miction" name="Miction" value="Miction" <%= data3.Miction ? "checked" : "" %>>
+                        <label for="Miction"> Miction</label>
+                        <input type="checkbox" id="Pollakiurie" name="pollakiurie" value="pollakiurie" <%= data3.Pollakiurie ? "checked" : "" %>>
+                        <label for="Pollakiurie"> Pollakiurie</label>
+                        <input type="checkbox" id="Banaturie" name="banaturie" value="banaturie" <%= data3.Banaturie ? "checked" : "" %>>
+                        <label for="Banaturie"> Banaturie</label>
+                        <input type="checkbox" id="Dysurie" name="dysurie" value="dysurie" <%= data3.Dysurie ? "checked" : "" %>>
+                        <label for="Dysurie"> Dysurie</label><br>
+                        <input type="checkbox" id="mictionnelles" name="mictionnelles" value="mictionnelles" <%= data3.Ballures ? "checked" : "" %>>
+                        <label for="mictionnelles"> Ballures mictionnelles</label>
+                        <input type="checkbox" id="Coliques" name="coliques" value="coliques" <%= data3.Coliques ? "checked" : "" %>>
+                        <label for="Coliques"> Coliques néphrétiques </label>
+                        
+                          <label > Cycle </label><br>
+                          <input type="checkbox" id="Régulier" name="Regulier" value="Régulier" <%= data3.CycleRegulier ? "checked" : "" %>>
+                          <label for="Régulier"> Régulier</label><br>
+                          <input type="checkbox" id="Irrégulier" name="Irregulier" value="irrégulier" <%= data3.CycleIrregulier ? "checked" : "" %>>
+                          <label for="Irrégulier"> Irrégulier </label>
+                        
+                        <h1>Neurologique et psychisme</h1>    
+                       <input type="checkbox" id="Sommeil" name="Sommeil" value="sommeil" <%= data3.Sommeil ? "checked" : "" %>>
+                        <label for="Sommeil"> Sommeil</label>
+                        <input type="checkbox" id="Vertiges" name="Vertiges" value="vertiges" <%= data3.Vertiges ? "checked" : "" %>>
+                        <label for="Vertiges"> Vertiges</label>
+                        <input type="checkbox" id="Céphalées" name="Cephalees" value="céphalées" <%= data3.Céphalées ? "checked" : "" %>>
+                        <label for="Céphalées"> Céphalées</label>
+                        <input type="checkbox" id="Peur" name="Peur" value="peur" <%= data3.Peurvide ? "checked" : "" %>>
+                        <label for="Peur"> Peur de vide</label><br>
+                        <input type="checkbox" id="Perte" name="Perte" value="perte" <%= data3.Perteconnai? "checked" : "" %>>
+                        <label for="Perte"> Perte de connaissance</label>
+                        <input type="checkbox" id="Parésie" name="Parésie" value="parésie" <%= data3.Parésie ? "checked" : "" %>>
+                        <label for="Parésie"> Parésie </label>
+                        <input type="checkbox" id="Paresthésie" name="Paresthesie" value="paresthésie" <%= data3.Paresthésie ? "checked" : "" %>>
+                        <label for="Paresthésie"> Paresthésie</label><br>
+                          
+                          <h1>Hémathologique et gonglionnaire</h1>    
+                         <input type="checkbox" id="Echymose" name="Echymose" value="echymose" <%= data3.Echymose ? "checked" : "" %>>
+                          <label for="Echymose"> Echymose</label>
+                          <input type="checkbox" id="Tendances" name="Tendances" value="tendances" <%= data3.hémorragies ? "checked" : "" %>>
+                          <label for="Tendances"> Tendances aux hémorragies</label>
+                            
+                       
+                            <h1>Endocrinologie</h1>    
+                           <input type="checkbox" id="Obésité" name="Obesite" value="obésité" <%= data3.Obésité ? "checked" : "" %>>
+                            <label for="Obésité"> Obésité familiale</label>
+                            <input type="checkbox" id="Maigraire" name="Maigraire" value="maigraire" <%= data3.Maigraire ? "checked" : "" %>>
+                            <label for="Maigraire"> Maigraire familiale</label>
+                              
+                        </div>
+                    </div>  
+                    <div>
+                        <button class="btn" type="submit">Enregistrer</button>
+                      
+                        <button class="btn" >Annuler</button>
+                      </div>    
+                  </div>
+                
+                </form>
+                </section>
+              </div>
+              <% }) }) }) })%>
+        </main>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/stylesheets/fichiers-js/Modifier-dossier.js"></script>
+    <!-- début drop-down user account -->
+ 
+  <!-- fin drop-down user account -->
+
+</body>
+
+</html>
