@@ -291,6 +291,9 @@ a {
 tr form {
   display:inline-block;
 }
+i{
+  color:#fff;
+}
 
 .btn:hover {
   background-position: right;
