@@ -71,7 +71,13 @@ router.get('/home', function(req, res, next) {
 router.get('/', function(request, response) {
 response.render('home')
 });
-router.get('/index', function(request, response) {
+router.get('/deconnecter', function(request, response) {
+  response.render('login')
+  });
+  router.get('/modifier/deconnecter', function(request, response) {
+    response.render('login')
+    });
+router.get('/inscrire', function(request, response) {
   response.render('inscription-patient')
   });
   router.post('/inscrire',function(req,res){
@@ -145,6 +151,37 @@ router.post('/auth',function(request,response){
 		response.end();
 	}
 });
+router.post('/modifier/auth',function(request,response){
+
+  var username = request.body.username;
+	var password = request.body.password;
+	if (username && password) {
+		con.query('SELECT * FROM utilisateur WHERE email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
+			if (results.length > 0) {
+				request.session.loggedin = true;
+        con.query('select * from medecin where email= ?',[username],function(err,result){
+          if (result.length>0){
+            response.redirect('/dossiers');
+          };
+        })
+
+            con.query('select * from adminstrateur where email= ?',[username],function(err,result){
+              if (result.length>0){
+                response.redirect('/admin');
+          };
+        })
+       // response.render('interfacemedecin');
+			} else {
+       
+			response.send('Incorrect Username and/or Password!');
+			}			
+		//	response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
 
 router.get('/medecin', function(request, response) {
 	if (request.session.loggedin) {
@@ -168,7 +205,7 @@ router.get('/creer' ,function(req,res){
 });
 });
 router.get('/examen' ,function(req,res){
-  res.render('Modifier-dossier');
+  res.render('examen-medical');
 });
 router.get('/dossiers' ,function(req,res){
 var sql='SELECT * FROM myview';

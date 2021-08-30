@@ -1,8 +1,10 @@
 let sidebar = document.querySelector(".sidebar");
 let closeBtn = document.querySelector("#btttn");
-const accBtn = document.querySelectorAll("#accBtn");
 
-
+function menuToggle(){
+    const toggleMenu = document.querySelector('.menu');
+    toggleMenu.classList.toggle('active')
+}
 closeBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("open");
   menuBtnChange();//calling the function(optional)
@@ -16,7 +18,3 @@ function menuBtnChange() {
    closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
  }
 } 
- accBtn.forEach(function(accBtn) {
-  accBtn.addEventListener("click", ()=> accBtn.style.backgroundColor='#bfbfbf' );
- });
- 
