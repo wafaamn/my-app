@@ -162,6 +162,22 @@
   align-items: center;
 }
 /* sidebar ends here */
+.btn {
+  background-image: linear-gradient(to right,#4e2793,#80ffdb);
+  border: none; 
+  color: white; 
+  padding: 12px 16px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: .5s;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-size: 200%;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  margin: 1rem 0;  
+}
 ::selection{
     background: rgba(23,162,184,0.3);
   }
@@ -179,33 +195,14 @@
     box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
   
   }
-  .wrapper2{
-    max-width: 2000px;
-    margin:70px;
-    margin-left: 60px;
-    width: 90%;
-    margin-top: 10px;
-    padding: 40px 30px 30px 30px;
-    border-radius: 5px;
-    background: #fff;
-    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-  
-  }
   .wrapper nav{
     position: relative;
     width: 120%;
     height: 50px;
     display: flex;
     align-items: center;
+    margin-top: 100px;
   }
-  .wrapper2 nav{
-    position: relative;
-    width: 120%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-  }
-
   .wrapper nav label{
     display: block;
     height: 100%;
@@ -215,22 +212,8 @@
     cursor: pointer;
     position: relative;
     z-index: 1;
-    color:#17a2b8;
-    font-size: 17px;
-    border-radius: 5px;
-    margin: 0 5px;
-    transition: all 0.3s ease;
-  }
-  .wrapper2 nav label{
-    display: block;
-    height: 100%;
-    width: 20%;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    color:#17a2b8;
+    color:#ffffff;
+    background-color: #4e2793;
     font-size: 17px;
     border-radius: 5px;
     margin: 0 5px;
@@ -238,7 +221,7 @@
   }
  
   .wrapper nav label:hover{
-    background: rgba(23,162,184,0.3);
+    background: #9ff2e1;
   }
   .wrapper2 nav label:hover{
     background: rgba(23,162,184,0.3);
@@ -256,31 +239,7 @@
   }
   nav label i{
     padding-right: 7px;
-  }
- 
-  nav .slider{
-    position: absolute;
-    height: 100%;
-    width: 21%;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-    border-radius: 5px;
-    background: #17a2b8;
-    transition: all 0.3s ease;
-  }
-  nav .slider2{
-    position: absolute;
-    height: 100%;
-    width: 21%;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-    border-radius: 5px;
-    background: #17a2b8;
-    transition: all 0.3s ease;
-  }
-  
+  }  
   input[type="radio"]{
     display: none;
   }
@@ -322,6 +281,18 @@
   section .content p{
   text-align: justify;
   }
+  .input_wrapa{
+    display:flex;
+    justify-content: space-between;
+  }
+  .antece1 input[type="checkbox"]{
+    margin-bottom: 30px;
+    margin-top: 10px;
+     }
+.antece2 input[type="checkbox"]{
+      margin-bottom: 23px;
+      margin-top: 10px;
+       }
   .depistage{
       display:flex;
       justify-content: space-between;
