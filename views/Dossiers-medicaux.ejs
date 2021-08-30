@@ -104,6 +104,7 @@
                               </button>
                           </li>
                           <li>
+                            <form action=""
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">logout</span>
                                 <span class="links_name"><h4>Se déconnecter</h4></span>
@@ -133,14 +134,14 @@
                 userData.forEach(function(data){
                 %>
                 <tr>
-                  <td><%=data.Iddoss %></td>
+                  <td><%=data.iddoss %></td>
                   <td><%=data.nom %></td>
                   <td><%=data.prenom %></td>
                   <td>
                     <p class="status status-unpaid"><%=data.datenaissance %></p>
                   </td>
                   <td><%=data.sexe %></td>
-                  <td><a href="/consulter/<%=data.Iddoss%>">Consulter</a></td>
+                  <td><a href="/consulter/<%=data.idpatient%>">Consulter</a></td>
                 </tr>
                 <%  i++; }) %>
                 <% } else{ %>

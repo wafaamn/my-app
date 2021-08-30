@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <title>Dossiers Médicaux | Sah-Tech</title>
+    <title>Dossiers Médicau | Sah-Tech</title>
 </head>
 
 <body id="body">
@@ -68,6 +68,7 @@
               <div class="search-wrapper">
                 <span class="las la-search" ></span>
                 <input type="search" placeholder="Recherche" />
+
               </div>
               <!--modification profil-->
               <!-- drop-down user account -->
@@ -141,6 +142,7 @@
                 <label><h4>Date</h4>
                   <small>07/08/2021</small>
                 </label>
+                <a href="/modifier/<%=result.idpatient%>">Modifier</a>
                 </div>
                 </div>
             
@@ -221,14 +223,12 @@
                                     <td> <h2>Médicaux</h2></td>
                                   </tr>
                                 <tr>
-                                  <% if (result2.hta=1){%>
+                                  <% if (result2.hta!=0){%>
                                 <td>HTA</td><%}%>
                               </tr>
                               <tr>
-                                <td>---------</td>
-                              </tr>
-                              <tr>
-                                <td><h4>Remarque</h4>---------------</td>
+                                <% if (result2.Remarque!=0){%>
+                                <td><h4>Remarque</h4><%=result2.Remarque%></td><%}%>
                               </tr>
                             </tbody>
                      </table>
@@ -238,15 +238,18 @@
                                 <td> <h2>Chirugicaux</h2></td>
                               </tr>
                           <tr>
-                            <td>---------</td>
+                            <% if (result2.Appendicectomie!=0){%>
+                            <td>Appendicectomie</td><%}%>
                            
                           </tr>
                           <tr>
-                            <td>---------</td>
+                            <% if (result2.Cholecystectomie!=0){%>
+                            <td>Cholecystectomie</td><%}%>
                            
                           </tr>
                           <tr>
-                            <td><h4>Remarque</h4>----------</td>
+                            <% if (result2.remarque1!=0){%>
+                            <td><h4>Remarque</h4><%=result2.remarque1%></td><%}%>
                          
                           </tr>
                         </tbody>
@@ -257,13 +260,8 @@
                            
                             <tbody>
                                 <tr>
-                                
-                                    <td> <h2>Allergique</h2></td>
-                                  
-                                  </tr>
-                                  <tr>
-                                
-                                    <td>-----------</td>
+                                  <% if (result2.Allergique!=0){%>
+                                    <td> Allergique</td><h2><%=result2.Allergique%></h2><%}%>
                                   
                                   </tr>
                         
@@ -271,40 +269,30 @@
                      </table>
                      <table class="table">
                         <tbody>
-                            <tr>
-                                <td> <h2>Toxique</h2></td>
-                              </tr>
                           <tr>
-                            <td>-----------</td>
+                                
+                            <td> <h2>Familiaux</h2></td>
+                          
+                          </tr>
+                          <tr>
+                            <% if (result2.Cardiopathie!=0){%>
+                            <td>Cardiopathie</td><%}%>
+                          
+                          </tr>
+                            <tr>
+                              <% if (result2.remarque2!=0) {%>
+                                <td><h2>Remarque</h2></td>
+                              </tr>
+                              <tr>
+                                <td><%=result2.remarque2%></td>
+                              </tr><%}%>
+                          <tr>
+                            <% if (result2.Toxiques!=0){%>
+                            <td><%=result2.Toxiques%></td><%}%>
                           </tr>
                      
                         </tbody>
                  </table>
-                      </div>
-                      <div class="div1">
-                        <table class="table1" >
-                           
-                            <tbody>
-                                <tr>
-                                
-                                    <td> <h2>Familiaux</h2></td>
-                                  
-                                  </tr>
-                              <tr>
-                                
-                                <td>-----------</td>
-                              
-                              </tr>
-                              <tr>
-                                <td>-----------</td>
-                                
-                              </tr>
-                              <tr>
-                                <td><h4>Remarque</h4>-----------</td>
-                               
-                              </tr>
-                            </tbody>
-                     </table>
                       </div>
                     </p>
                   </div>
