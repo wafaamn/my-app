@@ -185,14 +185,15 @@
   box-shadow: 0 5px 10px #e1e5ee;
   background-color: white;
   text-align: left;
-  overflow: hidden;
-  margin-top: -660px;
   max-width: 2000px;
   width: 100%;
   margin-left: 10px;
 }
 thead {
   box-shadow: 0 5px 10px #e1e5ee;
+}
+h1{
+  margin-left: 20px;
 }
 
 th {
