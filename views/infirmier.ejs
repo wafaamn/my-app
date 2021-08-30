@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="infirmier.css" />
+    <link rel="stylesheet" href="/stylesheets/infirmier.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 <body id="body">
   <!--sidebar starts here-->
   <div class="sidebar">
-    <img src="logoapppp.png" class="sidebar_img">
+    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
     <div class="logo-details">
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
@@ -36,7 +36,7 @@
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="medecina.png"  alt="">
+                    <img src="/stylesheets/img/medecina.png"  alt="">
                   </div>
           
                   <div class="menu">
@@ -76,23 +76,25 @@
             </div>             <!-- drop-down user account -->
         </nav>
         <main class="main">
+                  <%= title%>
             <div class="user-wrapper2">
                 <div class="action2">
                   <div class="form">
-                      <form>
+                    <% if(demandeData.length!=0){ demandeData.forEach(function(data){ %>
+                      <form action="infirmier/modifier/<%=data.IdDemandeRDV%>" method="POST">
                         <table>
                             <tbody>
                               <tr>
                                 <td><h4>Date</h4></td>
-                                <td><input type="date"></td>
+                                <td><input type="date" name="date"></td>
                               </tr>
                               <tr>
                                 <td><h4>Heure debut</h4></td>
-                                <td><input type="time"></td>
+                                <td><input type="time" name="hdebut"></td>
                               </tr>
                               <tr>
                                 <td><h4>Heure fin</h4></td>
-                                <td><input type="time"></td>
+                                <td><input type="time" name="hfin"></td>
                               </tr>
                             </tbody>
                         </table>
@@ -101,6 +103,7 @@
                           <button class="btn">Annuler</button>
                         </div>
                       </form>
+                      <% })}%>
                   </div>
               </div>
             </div> 
@@ -119,38 +122,86 @@
                 </tr>
               </thead>
               <tbody>
+                <% if(demandeData.length!=0){ var i=1; demandeData.forEach(function(data){ %>
                 <tr>
-                  <td>Ourrad</td>
-                  <td>Imane</td>
-                  <td>21/08/2021 </td>
-                  <td class="amount">Etudiant</td>
-                  <td>consultation </td>
-                  <td class="amount">13:00</td>
-                  <td>14:00 </td>
+                  <td><%=data.nom%></td>
+                  <td><%=data.prenom%></td>
+                  <td><%=data.DateRDV%></td>
+                  <td class="amount"><%=data.categorie%></td>
+                  <td><%=data.Motif%> </td>
+                  <td class="amount"><%=data.HeureDébutRDV%></td>
+                  <td><%=data.HeureFinRDV%> </td>
                   <td class="amount">
-                    <form action="connect" method="GET">
-                  <button class="btn"  >
+                    <form action="infirmier/accepter/<%=data.IdDemandeRDV%>" method="GET"></form>
+                  <button class="btn"  ><a href="infirmier/accepter/<%=data.IdDemandeRDV%>">
                     <i class="fa fa-check" aria-hidden="true"></i>
                   </button>
-                </form>
-                <form action="connect" method="GET">
-                    <button class="btn">
-                        <i class="fa fa-times" aria-hidden="true"></i>
+                  </form>
+                  <form action="infirmier/refuser/<%=data.IdDemandeRDV%>" method="GET">
+                    <button class="btn"><a href = "infirmier/refuser/<%=data.IdDemandeRDV%>">
+                        <i class="fa fa-times" aria-hidden="true"></i></a>
                       </button>
-                </form>
-                <form action="connect" method="GET">
-                      <button class="btn">
-                        <i class="fa fa-pencil" aria-hidden="true" onclick="formToggle();"></i>
+                  </form>
+                      <form action="infirmier/refuser/<%=data.IdDemandeRDV%>" method="GET">
+                      <button class="btn"><a  href="infirmier/modifier/<%=data.IdDemandeRDV%>">
+                        <i class="fa fa-pencil" aria-hidden="true" onclick="formToggle();" ></i></a>
                       </button>
-                </form>
+                      </form>
                   </td>
                 </tr>
+                <% i++; }) %>
+                  <% } else{ %>
+                    <tr>
+                      <td colspan="7">No Data Found</td>
+                    </tr>
+                    <% } %>
               </tbody>
             </table>
+             <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date</th>
+                    <th>Catégorie</th>
+                    <th>Motif</th>
+                    <th>H-debut</th>
+                    <th>H-fin</th>
+                    <th style="color:blueviolet;">Options</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if(rdv.length!=0){ var i=1; rdv.forEach(function(data){ %>
+                    <tr>
+                      <td><%=data.nom%></td>
+                      <td><%=data.prenom%></td>
+                      <td><%=data.DateRDV%></td>
+                      <td class="amount"><%=data.categorie%></td>
+                      <td><%=data.Motif%></td>
+                      <td class="amount"><%=data.HeureDébutRDV%></td>
+                      <td><%=data.HeureFinRDV%></td>
+                      <td class="amount">
+                        <form action="infirmier/delete/<%=data.IdRDV%>" method="GET">
+                        <button class="btn"><a href="infirmier/delete/<%=data.IdRDV%>">
+                          <i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </button>
+                        </form>
+                      </td>
+                    </tr>
+                  <% i++; }) %>
+                  <% } else{ %>
+                    <tr>
+                      <td colspan="7">No Data Found</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
         </main>
+    </div>
+   
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="infirmier.js"></script>
+    <script src="/stylesheets/infirmier.js"></script>
     <!-- début drop-down user account -->
  
   <!-- fin drop-down user account -->

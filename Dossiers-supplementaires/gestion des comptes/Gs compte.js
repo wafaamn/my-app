@@ -1,5 +1,6 @@
 let sidebar = document.querySelector(".sidebar");
 let closeBtn = document.querySelector("#btttn");
+const accBtn = document.querySelectorAll("#accBtn");
 
 
 closeBtn.addEventListener("click", ()=>{
@@ -15,3 +16,7 @@ function menuBtnChange() {
    closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
  }
 } 
+ accBtn.forEach(function(accBtn) {
+  accBtn.addEventListener("click", ()=> accBtn.style.backgroundColor='#bfbfbf' );
+ });
+ 

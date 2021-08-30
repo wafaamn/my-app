@@ -166,6 +166,30 @@
   align-items: left;
 }
 /* sidebar ends here */
+.form_wrap{
+  margin-left: 100px;
+}
+.form_wrap .div1{
+  display:flex;
+  justify-content:space-around; 
+  margin-left: 250px;
+}
+.form_wrap .div11{
+  margin-left:-375px;
+}
+.form_wrap .div12{
+  margin-left:120px;
+}
+
+.input_wrap1{
+  margin-top: 20px;
+}
+.input_wrap2{
+  margin-top: 20px;
+}
+.input_wrap3{
+  margin-top: 20px;
+}
 ::selection{
     background: rgba(23,162,184,0.3);
   }
@@ -188,7 +212,7 @@
     height: 50px;
     display: flex;
     align-items: center;
-    margin-top: 260px;
+    margin-top: 100px;
   }
   .wrapper .nav2{
     position: relative;
@@ -196,7 +220,7 @@
     height: 50px;
     display: flex;
     align-items: center;
-    margin-left: -30px;
+    margin-top: 30px;
   }
 
   .wrapper nav label{
@@ -204,14 +228,19 @@
     height: 100%;
     width: 20%;
     text-align: center;
-    color:#17a2b8;
+    line-height: 50px;
+    
+    
+    
+    color:#ffffff;
+    background-color: #4e2793;
     font-size: 17px;
     border-radius: 5px;
     margin: 0 5px;
     transition: all 0.3s ease;
   }
   .wrapper nav label:hover{
-    background: rgba(23,162,184,0.3);
+    background: #9ff2e1;
   }
 
  
@@ -228,49 +257,8 @@
   nav label i{
     padding-right: 7px;
   }
- 
-  nav .slider{
-    position: absolute;
-    height: 100%;
-    width: 21%;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-    border-radius: 5px;
-    background: #17a2b8;
-    transition: all 0.3s ease;
-  }
-  nav .slider2{
-    position: absolute;
-    height: 100%;
-    width: 21%;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-    border-radius: 5px;
-    background: #17a2b8;
-    transition: all 0.3s ease;
-  }
-  
   input[type="radio"]{
     display: none;
-  }
- 
-  #Bilan_paraclinique:checked ~ nav .slider{
-    left: 21%;
-  }
-  #Rapport:checked ~ nav .slider{
-    left: 42%;
-  }
-  #Ordonnance:checked ~ nav .slider{
-    left: 63%;
-  }
- 
-  #Evacuation:checked ~ nav .slider2{
-    left: 21%;
-  }
-  #Orientation:checked ~ nav .slider2{
-    left: 42%;
   }
   section .content{
     display: none;
@@ -575,13 +563,13 @@
 }
 .action2 .form .form1{
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .action2 .form.active {
   opacity: 1;
-  top: 100px;
+  top: 80px;
   visibility: visible;
-  height: 450px;
+  height: 310px;
   box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.2);
   border-color:#11101d;
 }
