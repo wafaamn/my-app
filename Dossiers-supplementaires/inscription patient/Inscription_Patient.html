@@ -15,17 +15,18 @@
 
 <body id="body">
         <main>
+            <form class="formm" action="inscrire" method="POST">
               <form class="form"> 
                <div class="titre"><h1>Bienvenue</h1></div>    
                   <div class="form_wrap">
                    <div class="input_grp">
                      <div class="input_wrap">
                        <label for="nom"><h4>Nom</h4></label>
-                       <input type="text" id="nom" required>
+                       <input type="text" id="nom"  name="nom" required>
                      </div>
                      <div class="input_wrap">
                        <label for="Prénom"><h4>Prénom</h4></label>
-                       <input type="text" id="Prénom" required>
+                       <input type="text" id="Prénom"  name="prénom" required>
                      </div>
                    </div>
                    <div class="input_grp0">
@@ -34,7 +35,7 @@
                     <input type="date" id="birthday" name="birthday" required>
                   </div>   
                 <div class="input_wrap">
-                  <label><h4>Sexe</h4></label>
+                  <label style="margin-left: 20px;"><h4>Sexe</h4></label>
                   <div class="input_grp01">
                     <div class="input_wrap">
                     <label for="mal" id="labelmal"><h4>homme</h4></label>
@@ -42,7 +43,7 @@
                     </div>
                     <div class="input_wrap">
                     <label for="femal" id="labelfemal"><h4>femme</h4></label>
-                    <input type="radio" id="femal" name="femme">
+                    <input type="radio" id="femal" name="femme" value="femme">
                     </div>
                     </div>
                   </div>
@@ -50,8 +51,8 @@
         
                   <div class="input_grp1">
                    <div class="input_wrap">
-                     <label for="lieux"><h4>Lieux de naissance</h4></label>
-                     <select id="lieux">
+                     <label for="lieux"><h4>Lieu de naissance</h4></label>
+                     <select id="lieux" name="lieux">
                       <option>1- Adrar</option>
                       <option>2- Chlef</option>
                       <option>3- Laghouet</option>
@@ -104,28 +105,28 @@
                    </div>
                    <div class="input_wrap">
                      <label for="num_tel"><h4>Numéro téléphone</h4></label>
-                     <input type="tel" id="num_tel" required>
+                     <input type="tel" id="num_tel"  name="num_tel" required>
                    </div>
                   </div> 
                  <div class="input_grp2"> 
                     <div class="input_wrap">
                         <label for="catégorie"><h4>Catégorie</h4></label>
-                        <select id="catégorie" required>
+                        <select id="catégorie" name="catégorie" required>
                           <option>Etudiant</option>
                           <option>ATS</option>
                           <option>Enseignant</option>
                         </select>
                       </div>
                   <div class="input_wrap">
-                    <label for="text"><h4>Adresse</h4></label>
-                    <input type="text" id="text" required>
+                    <label for="text"><h4>Adresse Email</h4></label>
+                    <input type="text" name="text" id="text" required>
                   </div>
              
                  </div>
                  <div class="input_grp2"> 
                   <div class="input_wrap">
                       <label for="mot_de_passe"><h4>Mot de passe</h4></label>
-                      <input type="password" id="mot_de_passe" required>
+                      <input type="password" name="mot_de_passe" id="mot_de_passe" required>
                     </div>
                </div>
           
@@ -133,6 +134,7 @@
                     <button class="btn" >S'inscrire</button>
                  </div> 
               </form>
+            </form>
         </main>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>

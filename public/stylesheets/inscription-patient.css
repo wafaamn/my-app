@@ -16,6 +16,16 @@ body {
 .font-bold {
   font-weight: 700;
 }
+.formm{
+  display:inline-block;
+  background: rgb(247, 245, 245);
+  padding: 25px;
+  border-radius: 5px;
+  width: 1000px;
+  height: 600px;
+  justify-content:right; 
+  margin-left: 150px;
+}
 
 .container {
   display: grid;
@@ -58,28 +68,15 @@ main {
 }
 /*registration form*/
 
-.regform {
-  width: 800px;
-  background-color: rgb(0, 0, 0, 0.6);
-  margin: auto;
-  color: #ffffff;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-  border-radius: 15px 15px 0px 0px;
-}
+
 
 .form {
-  background: rgb(255, 255, 255);
+  background: rgb(192, 30, 30);
   padding: 25px;
   border-radius: 5px;
   width: 1000px;
   height: 600px;
-  display: block;
-  justify-content:right;
-  
-  margin-top: 50px;
-  margin-left: 165px;
-  
+  justify-content:right;  
 }
 .titre {
   background-image: linear-gradient(to right, #80ffdb, #4e2793);
@@ -119,7 +116,6 @@ main {
 }
 .form_wrap .input_wrap #labelmal,#labelfemal {
     display:inline-block;
-    
     color: #272729;
     
    
@@ -129,11 +125,9 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    margin-left: -10px;
-   
   }
   .form_wrap .input_grp01 .input_wrap {
-   margin-right: 16px;
+ 
    padding:10px;
    
   }
