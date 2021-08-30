@@ -3,6 +3,17 @@ let closeBtn = document.querySelector("#btttn");
 const td = document.querySelectorAll(".td1");
 let button = document.querySelector("#bbbtn");
 
+// let poids = document.getElementById("Poids").value;
+// let taille = document.getElementById("Taille").value;
+// let imc = (poids/(taille*taille));
+// document.getElementById("IMC").value = imc; 
+let calculate = document.getElementById("calculer")
+calculate.addEventListener("click", ()=>{
+  let poids = document.getElementById("Poids").value;
+let taille = document.getElementById("Taille").value;
+let imc = (poids/(taille*taille));
+document.getElementById("IMC").value = imc.toFixed(2); 
+});
 
 function menuToggle(){
     const toggleMenu = document.querySelector('.menu');
