@@ -39,36 +39,17 @@
      </li>
      <li>
        <button class="bttn">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-         <span class="links_name">Agenda</span>
-       </button>
-       <span class="tooltip">Agenda</span>
-     </li>
-     <li>
-       <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
        </button>
        <span class="tooltip">Statistique</span>
      </li>
-     <li>
-      <button class="bttn">
-       <i class="fa fa-plus-square" aria-hidden="true"></i>
-        <span class="links_name">Créer un dossier</span>
-      </button>
-      <span class="tooltip">Créer un dossier</span>
-    </li>
-
     </ul>
   </div>
   <!--sidebar ends here-->
     <div class="container">
         <nav class="navbar">    
               <h2 for="btttn">Dossier médical</h2>
-              <div class="search-wrapper">
-                <span class="las la-search" ></span>
-                <input type="search" placeholder="Recherche" />
-              </div>
               <!--modification profil-->
               <!-- drop-down user account -->
               <div class="user-wrapper">
@@ -87,12 +68,6 @@
                               <button class="rundown-btn">
                                 <span class="material-icons icons-size" id="p">person</span>
                                 <span class="links_name"><h4>Mon profile</h4></span>
-                              </button>
-                          </li>
-                          <li>
-                            <button class="rundown-btn">
-                              <span class="material-icons icons-size" id="p">mode</span>
-                                <span class="links_name"><h4>Modifier le compte</h4></span>
                               </button>
                           </li>
                           <li>
@@ -199,21 +174,22 @@
                   <div class="content content-2">
                     <div class="title"></div>
                     <div class="input_wrap">
-                        <label for="Poids">Poids</label>
+                        <label for="Poids"><h4>Poids</h4></label>
                         <input type="number" id="Poids" name="poids"  required value="<%=data1.poids%>">
                       </div>
                       <div class="input_wrap">
-                        <label for="Taille">Taille</label>
+                        <label for="Taille"><h4>Taille</h4></label>
                         <input type="number" id="Taille" name="taille"  required value="<%=data1.taille%>">
                       </div>
                     <div class="input_wrap">
-                      <label for="IMC">IMC</label>
+                      <label for="IMC"><h4>IMC</h4></label>
                       <input type="number" id="IMC" name="imc"  required value="<%=data1.IMC%>">
                     </div> 
                   </div>
                   <div class="content content-3">
                     <div class="title"></div>
-                    <div class="input_wrap">
+                    <div class="input_wrapa">
+                   <div class="antece1">   
                         <h1>Medicaux</h1>
                       
                         <input type="checkbox" id="HTA" name="hta" value="hta" <%= data2.hta ? "checked" : "" %>>
@@ -222,7 +198,7 @@
                         <label for="autres"> autres</label>
                         <h3>Remarque</h3>
                         <input type="text" id="remarque" name="remarque"  required value="<%=data2.Remarque%>">
-                      </div>
+                      
                     
                     <div class="input_wrap">
                       <h1>Chirugicaux</h1>
@@ -234,6 +210,8 @@
                       <h3>Remarque</h3>
                       <input type="text" id="remarque1" name="remarque1"  required value="<%=data2.remarque1%>" >
                     </div>
+                  </div>
+                  <div class="antece2">
                     <div class="input_wrap">
                       <h1>Allergique</h1>
                       <input type="text" id="Allergique" name="allgq" required value="<%=data2.Allergique%>">
@@ -252,6 +230,8 @@
                       <h1>Toxiques</h1>
                       <input type="text" id="Toxiques" name="tox"  required value="<%=data2.Toxiques%>">
                     </div>  
+                  </div>  
+                  </div>
                   </div>
                   <div class="content content-4">
                     <div class="title"></div>
