@@ -139,6 +139,11 @@ router.post('/auth',function(request,response){
                 response.redirect('/admin');
           };
         })
+        con.query('select * from infirmier where email= ?', [username], function (err, result) {
+          if (result.length > 0) {
+            response.redirect('/infirmier');
+          };
+        })
        // response.render('interfacemedecin');
 			} else {
        
@@ -168,6 +173,16 @@ router.post('/modifier/auth',function(request,response){
             con.query('select * from adminstrateur where email= ?',[username],function(err,result){
               if (result.length>0){
                 response.redirect('/admin');
+          };
+        })
+        con.query('select * from infirmier where email= ?', [username], function (err, result) {
+          if (result.length > 0) {
+            response.redirect('/infirmier');
+          };
+        })
+        con.query('select * from patient where email= ?', [username], function (err, result) {
+          if (result.length > 0) {
+            response.redirect('/patient');
           };
         })
        // response.render('interfacemedecin');
@@ -204,11 +219,84 @@ router.get('/creer' ,function(req,res){
   res.render('dossier-medical',{ title:'dossier' , userData:data});
 });
 });
-router.get('/examen' ,function(req,res){
-  res.render('examen-medical');
+router.get('/examen/:id', function (req, res) {
+
+  var userid = req.params.id;
+  var sql = 'SELECT * FROM dossmed WHERE IdPatient = ?'
+  con.query(sql, [userid], function (err, data) {
+    if (err) throw err;
+    console.log('data of examen is :', data)
+    res.render('examen-medical', { userData: data });
+  });
+
+router.post('/examen/:id', function (req, res) {
+  var userid = req.params.id;
+  console.log('this is the user id ', userid)
+  var date = req.body.date;
+  var hdebut = req.body.hdebut;
+  var hfin = req.body.hfin;
+  var txt = req.body.txt;
+
+  var rdv = 'INSERT INTO rendezvous (dateRDV ,HeureDébutRDV , HeureFinRDV,Motif,IdPatient , IdMed) Values (? , ? , ? , ? , ? , ?)'
+  var idmed = 'SELECT IdMedecin from medecin ;';
+  con.query(idmed, function (err, result) {
+    if (err) throw err;
+    idmed = result[0].IdMedecin;
+    console.log(idmed);
+    con.query(rdv, [date, hdebut, hfin, txt, userid, idmed], function (err, result) {
+      if (err) throw err;
+      console.log('insertion de rdv est terminé', result);
+
+    })
+  })
+  con.query('SELECT nom FROM patient WHERE IdPatient = ?', [userid], function (err, result) {
+    if (err) throw err;
+    nom = result[0].nom;
+    con.query('SELECT prenom FROM patient WHERE IdPatient = ?', [userid], function (err, result) {
+      if (err) throw err;
+      prenom = result[0].prenom;
+
+      const modifier = `<h3>Bonjour ${nom} ${prenom} </h3><p>votre rendez-vous est programmer en <b>${date}</b> de <b> ${hdebut}</b> à <b> ${hfin}</b>  </p>`
+
+      con.query('SELECT Email FROM patient WHERE IdPatient = ?', [userid], function (err, result) {
+        if (err) throw err;
+        email = result[0].Email;
+        let transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            type: 'OAuth2',
+            user: 'sahtechteam@gmail.com',
+            pass: 'Sahtech&99',
+            clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
+            clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
+            refreshToken: '1//04p1VDGRnXsdSCgYIARAAGAQSNwF-L9IrXhUWfbfzrFUfmoOGsYZhsBrUYhxd2BuAxzovJa-61OB2_7x3UiC_RgHJaTI15oeDJfo'
+          }
+        })
+
+        let mailOptions = {
+          from: '"Team Sahtech" <sahtechteam@gmail.com>', // sender address
+          to: email, // list of receivers
+          subject: " rendez-vous", // Subject line
+          text: "rdv", // plain text body
+          html: modifier, // html body
+        };
+
+        transporter.sendMail(mailOptions, function (err, data) {
+          if (err) {
+            console.log("Error " + err);
+          } else {
+            console.log("Email sent successfully");
+          }
+        });
+      })
+    })
+  })
+
+})
+
 });
 router.get('/dossiers' ,function(req,res){
-var sql='SELECT * FROM myview';
+var sql='SELECT * FROM myview where IdDoss IS NOT NULL ';
 con.query(sql, function (err, data, fields) {
 if (err) throw err;
 console.log(data);
