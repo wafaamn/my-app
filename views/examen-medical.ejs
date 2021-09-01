@@ -89,32 +89,46 @@
             
             <div class="user-wrapper2">
               <div class="action2">
+                
             
                 <button class="btn" onclick="formToggle();">Programmer un rdv</button>
-                <div class="form">
+                <form action="" method="POST">
+                  <div class="form">
                     <form>
-                      <div class="title"><h1>Ourrad Imane</h1></div>
-                      <label> Date</label>
-                      <div class="form1">
-                      <input type="date">
-                      </div>
-
-                      <div class="form1">
-                        <label>heure debut</label>
-                      <input type="time">
-                      <label>heure fin</label>
-                      <input type="time">
-                      </div>
-                      <label>Motif</label>
-                      <div class="form1">
-                      <textarea cols="50" rows="2"></textarea>
-                      </div>
-                      <div class="form1" style="display:flex;">
-                        <button class="btn">Envoyer</button>
-                        <button class="btn">Annuler</button>
-                      </div>
+                      <% if(userData.length!=0){ userData.forEach(function(data){ %>
+                        <div class="title">
+                          <h1>
+                            <%=data.nom%>
+                              <%=data.prenom%>
+                          </h1>
+                        </div>
+                        <div>
+                          <label>
+                            <h4>Email</h4>
+                            <small id="email" name="email" value="<%=data.Email%>"><%=data.Email%></small>
+                          </label>
+                        </div>
+                        <label> Date</label>
+                        <div class="form1">
+                          <input type="date" name="date">
+                        </div>
+                
+                        <div class="form1">
+                          <label>heure debut</label>
+                          <input type="time" name="hdebut">
+                          <label>heure fin</label>
+                          <input type="time" name="hfin">
+                        </div>
+                        <label>description</label>
+                        <div class="form1">
+                          <textarea cols="10" rows="3" name="txt"></textarea>
+                        </div>
+                        <div class="form1" style="display:flex;">
+                          <button class="btn">Envoyer</button>
+                          <button class="btn">Annuler</button>
+                        </div>
+                        <%})}%>
                     </form>
-                </div>
             </div>
           </div> 
         </nav>

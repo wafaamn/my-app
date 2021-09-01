@@ -59,16 +59,16 @@ NumTel int,
 Email varchar(40) unique ,
 foreign key(Email)references utilisateur (email) );
 
-create table RendezVous (IdRDV int primary key , 
-DateRDV datetime ,
+create table RendezVous (IdRDV int primary key not null , 
+DateRDV date ,
 HeureDébutRDV time, 
 HeureFinRDV time,
 Motif varchar(40),
 IdPatient int not null,
 foreign key (IdPatient) references patient (Idpatient),
-IdInfirmier int not null ,
+IdInfirmier int  ,
 foreign key (IdInfirmier) references infirmier (IdInfirmier), 
-IdMed int not null ,
+IdMed int ,
 foreign key (IdMed ) references medecin(IdMedecin));
 
 create table Statistique (IdStat int primary key ,
@@ -192,3 +192,30 @@ Obésité varchar(40),
 Maigraire varchar(40));
 
 
+CREATE VIEW view_ant AS
+SELECT antecedant.*, dossiermed.IdDoss  FROM antecedant
+LEFT OUTER JOIN dossiermed
+ON antecedant.IdAnt = dossiermed.IdAnt ;
+
+CREATE VIEW dossmed AS
+SELECT patient.*, dossiermed.IdDoss ,dossiermed.categorie  FROM patient
+LEFT OUTER JOIN dossiermed
+ON patient.IdPatient = dossiermed.IdPatient ;
+
+create table demanderdv (IdDemandeRDV int primary key not null , 
+DateRDV date ,
+HeureDébutRDV time, 
+HeureFinRDV time,
+Motif varchar(40),
+IdPatient int not null,
+foreign key (IdPatient) references patient (IdPatient));
+
+CREATE VIEW demande AS
+SELECT demanderdv.*, patient.nom , patient.prenom , patient.categorie  FROM demanderdv
+LEFT OUTER JOIN patient
+ON patient.IdPatient = demanderdv.IdPatient ;
+
+CREATE VIEW rdv AS
+SELECT rendezvous.*, patient.nom , patient.prenom , patient.categorie  FROM rendezvous
+LEFT OUTER JOIN patient
+ON patient.IdPatient = rendezvous.IdPatient ;
