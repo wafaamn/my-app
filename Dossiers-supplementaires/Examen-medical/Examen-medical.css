@@ -558,16 +558,13 @@
   opacity: 0;
   
 }
-.action2 .formm {
+ .formm {
   background-color: rgb(243, 243, 243);
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   padding: 10px 20px;
-  position:absolute;
-  margin-left: -750px;
   width: 950px;
   transition: 0.5s;
-  top: 120px;
   visibility: visible;
   opacity: 1;
   height: 300px;
