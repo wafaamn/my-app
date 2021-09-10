@@ -219,6 +219,22 @@ router.get('/creer' ,function(req,res){
   res.render('dossier-medical',{ title:'dossier' , userData:data});
 });
 });
+router.get('/examen' ,function(req,res){
+  var sql='SELECT * FROM myview';
+con.query(sql, function (err, data, fields) {
+if (err) throw err;
+console.log(data);
+res.render('Dossiers-medicaux1', { title: 'User List', userData: data});
+});
+});
+router.get('/examen-medical/:id',function(req,res){
+  var idd=req.params.id;
+  con.query('select * from myview where iddoss=?',[idd],function(err,data,fields)
+{
+  if(err) throw err;
+  res.render('examen-medical',{userData:data})
+});
+/*
 router.get('/examen/:id', function (req, res) {
 
   var userid = req.params.id;
@@ -293,7 +309,7 @@ router.post('/examen/:id', function (req, res) {
   })
 
 })
-
+*/
 });
 router.get('/dossiers' ,function(req,res){
 var sql='SELECT * FROM myview where IdDoss IS NOT NULL ';
@@ -427,7 +443,7 @@ router.get('/modifier/:id' ,function(req,res){
  
   
 });
-router.post('/modifier/:id',function(req,res){
+router.post('/enregistrer/:id',function(req,res){
   var idpat=req.params.id;
   /*info dossiermed starts*/
   var  grs=req.body.grs,
@@ -722,21 +738,87 @@ con.query('update depistage set  affectation=?,Larmolement=?,Douleurs=?,Taches=?
 router.get('/examenclinique' ,function(req,res){
   res.render('examen-clinique')
 });
-router.get('/rapport' ,function(req,res){
-  res.render('rapport-medical')
+router.post('/examen-medical/rapport/:id' ,function(req,res){
+  var rapport=req.body.message;
+  console.log(rapport);
+  var idpat=req.params.id;
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into rapport(idpatient,idmedecin,text) values(?,?,?)',[idpat,idmed,rapport],function(err,data){
+    console.log("rapport inseré!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/ordonnance' ,function(req,res){
-  res.render('ordonnance')
+router.post('/examen-medical/ordonnance/:id' ,function(req,res){
+  var ordonnance=req.body.message;
+  console.log(ordonnance);
+  var idpat=req.params.id;
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into ordonnance(idpatient,idmedecin,description) values(?,?,?)',[idpat,idmed,ordonnance],function(err,data){
+    console.log("ordonnance inseréé!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/evacuation' ,function(req,res){
-  res.render('evacuation')
+router.post('/examen-clinique/:id' ,function(req,res){
+  var idpat=req.params.id,
+      motif=req.body.motif,
+      ta=req.body.ta,
+      fc=req.body.fc,
+      spo=req.body.spo,
+      gly=req.body.glycemie,
+      syn=req.body.synthese;
+
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into examenclinique(idpat,idmed,motif,ta,fc,spo,glycemie,synthese) values(?,?,?,?,?,?,?,?)',[idpat,idmed,motif,ta,fc,spo,gly,syn],function(err,data){
+    console.log("examen inseréé!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/certificat' ,function(req,res){
-  res.render('certificat-medical')
+router.post('/evacuation/:id' ,function(req,res){
+  var description=req.body.message;
+  console.log(description);
+  var idpat=req.params.id;
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into evacuation(idpat,idmed,description) values(?,?,?)',[idpat,idmed,description],function(err,data){
+    console.log("evacuation inseréé!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/orientation' ,function(req,res){
-  res.render('orientation')
-});
+router.post('/examen-medical/certificat/:id' ,function(req,res){
+  var idpat=req.params.id,
+      type=req.body.type,
+      duree=req.body.duree,
+      debut=req.body.debut,
+      fin=req.body.fin;
+      console.log(idpat);
+      con.query("select idmedecin from medecin",function(err,result){
+        idmed=result[0].idmedecin;
+        con.query("insert into certificatmdicale (idpatient,idmed,type,duree,datedebut,datefin",[idpat,idmed,type,duree,debut,fin],function(err,result){
+          console.log('certificat insereéé!!!')
+        })
+      })
+      res.status(204).send();
+      });
+
+      router.post('/examen-medical/orientation/:id' ,function(req,res){
+        var message=req.body.message;
+        console.log(message);
+        var idpat=req.params.id;
+        con.query('select idmedecin from medecin',function(err,result){
+          idmed=result[0].idmedecin;
+        con.query('insert into orientation(idpatient,idmedecin,descriptionort) values(?,?,?)',[idpat,idmed,message],function(err,data){
+          console.log("orientation inserée!!!!");
+        })
+      })
+      res.status(204).send();
+      });
  /*** Interface admin starts */
  router.get("/patient",function(req,res){
    con.query('select * from demandesins ',function(err,data){
