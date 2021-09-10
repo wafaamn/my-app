@@ -208,8 +208,112 @@ router.get('/medecin', function(request, response) {
 	response.end();
 });
 router.get('/admin',function(req,res){
-  res.render('interface-admin');
-  res.end();
+  // query1
+var query1=function(callback)
+{
+con.query('select * from patient',function (err,result, fields) {
+if (err) throw err;
+console.log(result);
+return callback(result);
+});
+
+}
+// query2
+var query2=function(callback)
+{
+con.query('select * from medecin', function (err,result1, fields) {
+if (err) throw err;
+return callback(result1);
+});
+
+}
+// query3
+var query3=function(callback)
+{
+con.query('select * from infirmier' , function (err,result2, fields) {
+if (err) throw err;
+return callback(result2);
+});
+
+}
+// query4
+var query4=function(callback)
+{
+con.query('select * from assistantadmin' , function (err,result3, fields) {
+if (err) throw err;
+return callback(result3);
+});
+
+}
+// query5
+var query5=function(callback)
+{
+con.query('select * from adminstrateur' , function (err,result4, fields) {
+if (err) throw err;
+return callback(result4);
+});
+
+}
+// query6
+var query6=function(callback)
+{
+con.query('select count(idmedecin) from medecin' , function (err,result5, fields) {
+if (err) throw err;
+console.log(result5);
+return callback(result5);
+});
+
+}
+// query7
+var query7=function(callback)
+{
+con.query('select count(idpatient) from patient' , function (err,result6, fields) {
+if (err) throw err;
+console.log(result6);
+return callback(result6);
+});
+
+}
+// query8
+var query8=function(callback)
+{
+con.query('select count(idinfirmier) from infirmier' , function (err,result7, fields) {
+if (err) throw err;
+console.log(result7);
+return callback(result7);
+});
+
+}
+// query9
+var query9=function(callback)
+{
+con.query('select count(idassistant) from assistantadmin' , function (err,result8, fields) {
+if (err) throw err;
+console.log(result8);
+return callback(result8);
+});
+
+}
+query1(function(result){
+  query2(function(result1){
+  query3(function(result2){
+    query4(function(result3){
+      query5(function(result4){
+        query6(function(result5){
+          query7(function(result6){
+            query8(function(result7){
+              query9(function(result8){
+  res.render('interface-admin', { userData: result, userData2: result1, userData3: result2,userData4: result3, userData5: result4,userData6: result5, userData7: result6, userData8: result7,userData9: result8,});
+  });
+  
+  });
+  });
+});
+});
+});
+});
+});
+  });
 });
 router.get('/creer' ,function(req,res){
   var sql='SELECT * FROM view_ant where iddoss=1';
@@ -750,6 +854,14 @@ router.post('/examen-medical/rapport/:id' ,function(req,res){
 })
 res.status(204).send();
 });
+router.get('/examen-medical/rapport/:id',function(req,res){
+  idpat=req.params.id;
+
+  con.query('select * from rapport where idpatient=?',[idpat],function(err,data1){
+    if(err) throw err;
+    res.render('examen-medical',{userData:data1});
+  })
+})
 router.post('/examen-medical/ordonnance/:id' ,function(req,res){
   var ordonnance=req.body.message;
   console.log(ordonnance);
@@ -820,12 +932,80 @@ router.post('/examen-medical/certificat/:id' ,function(req,res){
       res.status(204).send();
       });
  /*** Interface admin starts */
+ router.get('/gestion-medecin',function(req,res){
+   con.query('select * from medecin ',function(err,data){
+     if (err) throw err;
+     res.render('gestion-medecin',{userData:data})
+   })
+ }
+
+ );
+ router.get('/assistant',function(req,res){
+  con.query('select * from assistantadmin ',function(err,data){
+    if (err) throw err;
+    res.render('gestion-assistant',{userData:data})
+  })
+}
+
+);
+router.get('/infermier',function(req,res){
+  con.query('select * from infirmier ',function(err,data){
+    if (err) throw err;
+    res.render('gestion-infermier',{userData:data})
+  })
+}
+
+);
+router.get('/gestion-patient',function(req,res){
+  con.query('select * from patient ',function(err,data){
+    if (err) throw err;
+    res.render('gestion-patient',{userData:data})
+  })
+}
+
+);
+router.get('/creer-compte',function(req,res){
+  res.render("creer-compte");
+});
+router.post('/creer-compte',function(req,res){
+  var nom=req.body.nom,
+      prenom=req.body.prenom,
+      email=req.body.email,
+      num=req.body.num-tel,
+      date=req.body.date,
+      mdp=req.body.mdp,
+      cat=req.body.catégorie;
+      console.log('cat');
+      if (cat="medecin"){
+      con.query('insert into medecin (nom,prenom,numtel,email,datenaissance)values (?,?,?,?,?,?)',[nom,prenom,num,email,date],function(err){
+        if (err) throw err;
+        console.log('hello');
+
+      })
+    }
+      else if (cat="infermier"){
+        con.query('insert into infirmier values (?,?,?,?,?,?)',[nom,prenom,num,email,date],function(err){
+          if (err) throw err;
+          console.log('hello2'); 
+      })
+    }
+      else{
+        con.query('insert into assistantadmin values (?,?,?,?,?,?)',[nom,prenom,num,email,date],function(err){
+          if (err) throw err;
+          console.log('hello');
+      })
+    }
+      con.query('insert into utilisateur values(?,?)',[email,mdp],function(err){
+        if (err) throw err;
+        console.log("inserer");
+      })
+});
  router.get("/patient",function(req,res){
    con.query('select * from demandesins ',function(err,data){
      if (err) throw err;
      console.log(data)
   
-   res.render("patient",{title: 'Liste-demandes',userData:data})
+   res.render("patients",{title: 'Liste-demandes',userData:data})
    })
  });
  router.post('/accepter/:id',function(req,res){
@@ -893,6 +1073,7 @@ console.log(email);
 })
  });
 });
+
 /* router.post('/accepter/:id',function(res,res){
    var email=req.params.id;
   con.query('insert into patient(nom,prenom) select nom,prenom from demandesins where email=?',[email],function(err,result){
@@ -913,5 +1094,6 @@ console.log(email);
     //res.redirect('/');
   //}
 //})
+
 
 module.exports = router;

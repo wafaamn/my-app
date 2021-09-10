@@ -89,46 +89,49 @@
             
             <div class="user-wrapper2">
               <div class="action2">
-                
-            
+                <%
+                  userData.forEach(function(data){
+                    %>
                 <button class="btn" onclick="formToggle();">Programmer un rdv</button>
                 <form action="" method="POST">
                   <div class="form">
                     <form>
-                      <% if(userData.length!=0){ userData.forEach(function(data){ %>
-                        <div class="title">
-                          <h1>
-                            <%=data.nom%>
-                              <%=data.prenom%>
-                          </h1>
-                        </div>
-                        <div>
-                          <label>
-                            <h4>Email</h4>
-                            <small id="email" name="email" value="<%=data.Email%>"><%=data.Email%></small>
-                          </label>
-                        </div>
-                        <label> Date</label>
-                        <div class="form1">
-                          <input type="date" name="date">
-                        </div>
-                
-                        <div class="form1">
-                          <label>heure debut</label>
-                          <input type="time" name="hdebut">
-                          <label>heure fin</label>
-                          <input type="time" name="hfin">
-                        </div>
-                        <label>description</label>
-                        <div class="form1">
-                          <textarea cols="10" rows="3" name="txt"></textarea>
-                        </div>
-                        <div class="form1" style="display:flex;">
-                          <button class="btn">Envoyer</button>
-                          <button class="btn">Annuler</button>
-                        </div>
-                        <%})}%>
+                      <div class="title"><h1><%=data.nom%> <%=data.prenom%></h1></div>
+                      <label> Date</label>
+                      <div class="form1">
+                      <input type="date">
+                      </div>
+
+                      <div class="form1">
+                        <label>heure debut</label>
+                      <input type="time">
+                      <label>heure fin</label>
+                      <input type="time">
+                      </div>
+                      <label>Motif</label>
+                      <div class="form1">
+                      <textarea cols="50" rows="2"></textarea>
+                      </div>
+                      <div class="form1" style="display:flex;">
+                        <button class="btn">Envoyer</button>
+                        <button class="btn">Annuler</button>
+                      </div>
                     </form>
+                  </div>
+                  <%
+                  userData.forEach(function(data1){
+                    %>
+                    <div class="formm">
+                      <table>
+                      <th>affichage</th>
+                      <tr>
+                        <td id="td"><%=data1.text%>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <%})%>
+                    
             </div>
           </div> 
         </nav>
@@ -143,12 +146,12 @@
                 <input type="radio" name="slider" checked id="Certificat">
                 <input type="radio" name="slider" id="Evacuation">
                 <input type="radio" name="slider" id="Orientation">
-                <div class="title"><h1>Ourrad Imane</h1></div>
+                <div class="title"><h1><%=data.nom%> <%=data.prenom%></h1></div>
                 <label><h4>Email</h4>
-                  <small>i.ourrad@esi-sba.dz</small>
+                  <small><%=data.email%></small>
                 </label>
                 <label><h4>Catégorie</h4>
-                  <small>Etudiant</small>
+                  <small><%=data.categorie%></small>
                 </label>
                 <div style="margin-left: 500px;margin-top: -88px;">
                 <label><h4>Type</h4>
@@ -158,7 +161,7 @@
                   <small>07/08/2021</small>
                 </label>
                 </div>
-            
+    
                 <nav>
                   <div class="nav1">
                   <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Examen clinique</label>
@@ -179,32 +182,33 @@
                     <p>
                       <div class="form_wrap">
                         <div class="input_wrap1">
+                          <form action="/examen-clinique/<%=data.idpatient%>" method="POST">
                           <label for="fname"><h2>Motif</h2></label>
-                          <textarea cols="110" rows="2" id="fname"></textarea>
+                          <textarea cols="110" rows="2" id="fname" name="motif"></textarea>
                         </div>
                         <div class="input_wrap2">
                           <label for="Paramètre"><h2>Paramètres vitaux</h2></label>
                           <div class="div1">
                           <div class="div11">
                           <label for="TA"><h4>TA</h4></label>
-                          <input type="text" id="TA">
+                          <input type="text" id="TA" name="ta">
                           <label for="FC"><h4>FC</h4></label>
-                          <input type="text" id="FC" >
+                          <input type="text" id="FC"  name="fc">
                           </div>
                           <div class="div12">
                           <label for="SpO2"><h4>SpO2</h4></label>
-                          <input type="text" id="SpO2" >
+                          <input type="text" id="SpO2" name="spo" >
                           <label for="Glycémie"><h4>Glycémie</h4></label>
-                          <input type="text" id="Glycémie">
+                          <input type="text" id="Glycémie" name="glycemie">
                           </div>
                           </div>
                         </div>
                       <div class="input_wrap3">
                         <label for="examen"><h2>Examen du jour + synthèse</h2></label>
-                        <textarea cols="110" rows="6" id="examen"></textarea>
+                        <textarea cols="110" rows="6" id="examen" name="synthese"></textarea>
                       </div>
                       <div >
-                        <button class="btn">Enregistrer</button>
+                        <button class="btn">Enregistrer</button></form>
                         <button class="btn" >Annuler</button>
                       </div>
                     </div>
@@ -221,19 +225,23 @@
                     </div>
                   </div>
                   <div class="content content-3">
-                    <div class="title"></div>
-                    <textarea name="message" rows="20" cols="100" placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
-                    <div >
-                      <button class="btn">Enregistrer</button>
+                    <form action="/examen-medical/rapport/<%=data.idpatient%>" method="POST">
+                    <div class="title">
+                    <textarea name="message" rows="20" cols="100"  placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
+                    </div>
+                    <div>
+                     <form action="" method="GET"><button class="btn">Enregistrer</button></form></form>
+                     <button class="btn" >Imprimer</button>
                       <button class="btn" >Annuler</button>
                     </div>
+
                   </div>
                   <div class="content content-4">
-                    <div class="title">
+                    <div class="title"><form action="/examen-medical/ordonnance/<%=data.idpatient%>" method="POST">
                       <textarea name="message" rows="20" cols="100" placeholder="Ordonnance." style="margin-left: 130px;"></textarea>
                     </div>
                     <div >
-                      <button class="btn">Enregistrer</button>
+                      <button class="btn">Enregistrer</button></fform>
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
@@ -241,44 +249,49 @@
                     <div class="title"></div>
                    <div style="display:flex;margin-left: 50px;"> 
                    <div class="div1" style="display:block;">
+                    <form action="/examen-medical/certificat/<%=data.idpatient%>" method="POST">
                     <label><h4>Type</h4></label>
-                     <select>
+                     <select name="type">
                        <option>traitement</option>
                        <option>prolongation</option>
                      </select>
                      <label><h4>Durée</h4></label>
-                     <input type="number">
+                     <input type="number" name="duree">
                    </div>
                    <div class="div2" style="display:block;margin-left: 300px;">
                       <label><h4>Du</h4></label>
-                      <input type="date">
+                      <input type="date" name="debut">
                       <label><h4>Au</h4></label>
-                      <input type="date">
+                      <input type="date" name="fin">
                   </div>
                 </div>
                    <div>
-                    <button class="btn">Enregistrer</button>
+                    <button class="btn">Enregistrer</button></form>
                     <button class="btn" >Annuler</button>
                   </div>
             </div>
                   <div class="content content-6">
-                    <div class="title"></div>
+                    <div class="title">
+                      <form action="/evacuation/<%=data.idpatient%>" method="POST">
                     <textarea name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
-                    <div >
-                      <button class="btn">Enregistrer</button>
+                    </div>
+                    <div>
+                      <button class="btn">Enregistrer</button></form>
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
                   <div class="content content-7">
+                    <form action="/examen-medical/orientation/<%=data.idpatient%>" method="POST">
                     <div class="title"></div>
                     <textarea name="message" rows="5" cols="100" placeholder="Orientation." style="margin-left: 130px;"></textarea>
                     <div >
-                      <button class="btn">Enregistrer</button>
+                      <button class="btn">Enregistrer</button></form>
+
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
                 </section>
-                 
+                <%})%>
               </div>
                   </main>
       </div>

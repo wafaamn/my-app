@@ -108,11 +108,11 @@
                 userData.forEach(function(data){
                 %>
                 <tr>
-                  <td><%=data.IdDoss %></td>
+                  <td><%=data.iddoss %></td>
                   <td><a href ="/examen/<%=data.IdPatient%>" ><%=data.nom %></a></td>
                   <td><%=data.prenom %></td>
                   <td>
-                    <p class="status status-unpaid"><%=data.DateNaissance %></p>
+                    <p class="status status-unpaid"><%=data.datenaissance %></p>
                   </td>
                   <td><%=data.sexe %></td>
                   <td><a href="/modifier/<%=data.idpatient%>">Consulter</a></td>
