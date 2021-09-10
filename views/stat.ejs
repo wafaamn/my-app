@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js">
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+
+        const data = {
+            labels: [
+                'Red',
+                'Blue'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: chartData,
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        const config = {
+            type: 'pie',
+            data: data,
+        };
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myNewChart = new Chart(ctx, config);
+    </script>
+</html>

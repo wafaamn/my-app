@@ -22,19 +22,19 @@ CREATE TABLE patient ( IdPatient int primary key not null ,
     foreign key(Email)references utilisateur (email) );
     
     create table dossiermed (
-    IdDoss int primary key not null default 0 ,
-    IdPatient int not null ,
+    IdDoss int primary key not null auto_increment ,
+    IdPatient int not null unique ,
     foreign key (IdPatient) references patient (IdPatient ) ,
     poids float ,
     taille float CHECK( taille > 0 && taille < 200) ,
-    IMC int,
+    IMC float,
     nss varchar(10),
     grs varchar(10),
-    categorie varchar (40) ,
      IdAnt int not null ,
     foreign key (IdAnt ) references antecedant(IdAnt),
 	Iddep int not null ,
-    foreign key (Iddep ) references depistage(Iddep)
+    foreign key (Iddep ) references depistage(Iddep),
+    categorie enum('etudiant','ATS','enseignant')
     );
     
     
@@ -125,8 +125,8 @@ create table Consultation (IdConsultation int primary key ,
  foreign key (IdMed) references medecin (IdMedecin)); 
 
 
-create table antecedant ( IdAnt int primary key auto_increment default 0 ,
-IdPatient int ,
+create table antecedant ( IdAnt int primary key auto_increment ,
+IdPatient int not null unique,
 foreign key (IdPatient) references patient (IdPatient),
 hta boolean  ,
 autre boolean  ,
@@ -142,7 +142,7 @@ Toxiques varchar(255));
 
 drop table depistage;
 create table depistage ( Iddep int primary key auto_increment ,
-IdPatient int unique,
+IdPatient int not null unique,
 foreign key (IdPatient) references patient (IdPatient),
 affectation varchar(40),
 Larmolement varchar(40),

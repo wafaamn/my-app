@@ -125,21 +125,21 @@ router.post('/auth',function(request,response){
   var username = request.body.username;
 	var password = request.body.password;
 	if (username && password) {
-		con.query('SELECT * FROM utilisateur WHERE email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
+		con.query('SELECT * FROM utilisateur WHERE Email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
-        con.query('select * from medecin where email= ?',[username],function(err,result){
+        con.query('select * from medecin where Email= ?',[username],function(err,result){
           if (result.length>0){
             response.redirect('/dossiers');
           };
         })
 
-            con.query('select * from adminstrateur where email= ?',[username],function(err,result){
+            con.query('select * from adminstrateur where Email= ?',[username],function(err,result){
               if (result.length>0){
                 response.redirect('/admin');
           };
         })
-        con.query('select * from infirmier where email= ?', [username], function (err, result) {
+        con.query('select * from infirmier where Email= ?', [username], function (err, result) {
           if (result.length > 0) {
             response.redirect('/infirmier');
           };
@@ -208,7 +208,7 @@ router.get('/medecin', function(request, response) {
 	response.end();
 });
 router.get('/admin',function(req,res){
-  res.render('interface-admin');
+  res.render('admin');
   res.end();
 });
 router.get('/creer' ,function(req,res){
@@ -406,7 +406,7 @@ router.get('/modifier/:id' ,function(req,res){
  // query4
  var query4=function(callback)
  {
- con.query('select * from depistage where idpatient=?',[idpat] , function (err,result, fields) {
+ con.query('select * from depistage where IdPatient=?',[idpat] , function (err,result, fields) {
  if (err) throw err;
  console.log(result);
  return callback(result);
@@ -530,7 +530,7 @@ var aff = req.body.aff,
       douleur = false
   }
   else { douleur = true }
-  if (tdl = null) {
+  if (tdl == null) {
       tdl = false
   }
   else { tdl = true }
@@ -701,17 +701,17 @@ var aff = req.body.aff,
 console.log(hta);
  console.log(grs);
  console.log(regulier);
-  con.query('update dossiermed set grs=?,nss=? ,poids=?, taille=?, imc=? where idpatient=?',[grs,nss,poids,taille,imc,idpat],function(err,data,fields)
+  con.query('update dossiermed set grs=?,nss=? ,poids=?, taille=?, imc=? where IdPatient=?',[grs,nss,poids,taille,imc,idpat],function(err,data,fields)
   {
     if(err) throw err;
-    console.log("updated")
+    console.log("updated1")
 });                                                                                                          
-con.query('update antecedant set hta=?,autre=?,remarque=?, Appendicectomie=?,Cholecystectomie=?,remarque1=?,Allergique=?,Cardiopathie=?,autres=?,remarque2=?,Toxiques=? where idpatient=?',[hta,autres,re,app,chole,re1,allgq,cardio,autres1,re2,tox,idpat],function(err,data,fields)
+con.query('update antecedant set hta=?,autre=?,pdMed=?, Appendicectomie=?,Cholecystectomie=?,psChirurg=?,Allergique=?,Cardiopathie=?,autres=?,psFamille=?,Toxiques=? where IdPatient=?',[hta,autres,re,app,chole,re1,allgq,cardio,autres1,re2,tox,idpat],function(err,data,fields)
   {
     if(err) throw err;
-    console.log("updated");
+    console.log("updated2");
 });
-con.query('update depistage set  affectation=?,Larmolement=?,Douleurs=?,Taches=?,Siffelements=?,Angines=?,Epistaxis=?,musculaires=?,articulaires=?,vértébrales=?,Neurologiques=?,Toux=?,Expectorations=?,thoraciques=?,Palpitation=?,oedèmes=?,marche=?,repos=?,effort=?,permanents=?,Appétit=?,Transit=?,selles=?,Pyrosis=?,Rectoreagies=?,abdominales=?,Miction=?,Pollakiurie=?,Banaturie=?,Dysurie=?,Ballures=?,Coliques=?,CycleRegulier=?,CycleIrregulier=?,Sommeil=?,Vertiges=?,Céphalées=?,Peurvide=?,Perteconnai=?,Parésie=?,Paresthésie=?,Echymose=?,hémorragies=?,Obésité=?,Maigraire=? where idpatient=?'
+con.query('update depistage set  affectation=?,Larmolement=?,Douleurs=?,Taches=?,Siffelements=?,Angines=?,Epistaxis=?,musculaires=?,articulaires=?,vértébrales=?,Neurologiques=?,Toux=?,Expectorations=?,thoraciques=?,Palpitation=?,oedèmes=?,marche=?,repos=?,effort=?,permanents=?,Appétit=?,Transit=?,selles=?,Pyrosis=?,Rectoreagies=?,abdominales=?,Miction=?,Pollakiurie=?,Banaturie=?,Dysurie=?,Ballures=?,Coliques=?,CycleRegulier=?,CycleIrregulier=?,Sommeil=?,Vertiges=?,Céphalées=?,Peurvide=?,Perteconnai=?,Parésie=?,Paresthésie=?,Echymose=?,hémorragies=?,Obésité=?,Maigraire=? where IdPatient=?'
 ,[aff ,larmo , douleur , tdl ,siff , angine,ang ,muscu ,articu ,verte,neuro ,toux , expec , tho,palpi ,oedemes ,marche ,repos ,leffort ,permanents ,appetit ,transit, selles,pyrosis ,rectoreagies , abdominales ,miction ,pollakiurie,banaturie , dysurie, mictionnelles ,coliques , regulier,irregulier, sommeil , vertiges, cephalees ,peur ,perte, paresie,paresthesie ,echymose , tendances , obesite ,maigraire,idpat],function(err,data,fields)
   {
     if(err) throw err;
@@ -738,12 +738,12 @@ router.get('/orientation' ,function(req,res){
   res.render('orientation')
 });
  /*** Interface admin starts */
- router.get("/patient",function(req,res){
+ router.get('/patients',function(req,res){
    con.query('select * from demandesins ',function(err,data){
      if (err) throw err;
      console.log(data)
   
-   res.render("patient",{title: 'Liste-demandes',userData:data})
+   res.render("patients",{title: 'Liste-demandes',userData:data})
    })
  });
  router.post('/accepter/:id',function(req,res){
@@ -773,7 +773,7 @@ console.log(email);
   });
  
   console.log(email)
-   con.query('insert into utilisateur(email,motpasse) select email,mdp from demandesins where email=?',[email],function(err,result){
+   con.query('insert into utilisateur(email,MotPasse) select email,mdp from demandesins where email=?',[email],function(err,result){
     if (err) throw err;
      con.query('insert into patient(nom,prenom,numtel,wilaya,sexe,datenaissance,email) select nom,prenom,numtel,wilaya,sexe,datenaissance,email from demandesins where email=?',[email],function(err,result){
     if (err) throw err;
@@ -799,7 +799,7 @@ console.log(email);
     con.query("select categorie from demandesins where email=?",[email],function(err,result3){
       catg=result3[0].categorie;
       if (err) throw err;
-    con.query('update dossiermed set categorie=? where idpatient',[catg,idpat],function(err,result){
+    con.query('update dossiermed set categorie=? where idpatient=?',[catg,idpat],function(err,result){
       if (err) throw err;
     })
     res.status(204).send();
@@ -810,6 +810,10 @@ console.log(email);
 })
 })
  });
+ con.query('delete from demandesins where email = ?',[email],function(err,result){
+   if (err) throw err ; 
+   console.log("delete from demande table")
+ })
 });
 /* router.post('/accepter/:id',function(res,res){
    var email=req.params.id;

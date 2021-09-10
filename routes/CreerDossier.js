@@ -288,9 +288,9 @@ creerDossRouter.post('', function (req, res, next) {
     } else { maigraire = true }
 
 
-    var sql = 'select d.IdPatient from dossiermed d , patient p  where ( d.IdPatient = p.IdPatient );';
+    var sql = 'select d.IdPatient from dossiermed d , patient p  where ( d.IdPatient = p.IdPatient and Email =?);';
 
-    con.query(sql, function (err, result, fields) {
+    con.query(sql,[email], function (err, result, fields) {
         if (err) throw err;
         if (result.length > 0) {
             console.log("ce patient déja a un dossier ")

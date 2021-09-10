@@ -130,7 +130,7 @@
                   %>
                 <div class="title"><h1><%=result.nom%> <%=result.prenom %></h1></div>
                 <label><h4>Email</h4>
-                  <small><%=result.email%></small>
+                  <small><%=result.Email%></small>
                 </label>
                 <label><h4>Catégorie</h4>
                   <small><%=result1.categorie %></small>
@@ -142,7 +142,7 @@
                 <label><h4>Date</h4>
                   <small>07/08/2021</small>
                 </label>
-                <a href="/modifier/<%=result.idpatient%>">Modifier</a>
+                <a href="/modifier/<%=result.IdPatient%>">Modifier</a>
                 </div>
                 </div>
             
@@ -164,15 +164,15 @@
                             <tbody>
                               <tr>
                                 <td><h4>Date de naissance</h4></td>
-                                <td><%=result.datenaissance%></td>
+                                <td><%=result.DateNaissance%></td>
                                 <td><h4>Lieu de naissance</h4></td>
                                 <td><%=result.wilaya %></td>
                               </tr>
                               <tr>
                                 <td><h4>Adresse</h4></td>
-                                <td><%=result.adress %></td>
+                                <td><%=result.Adress %></td>
                                 <td><h4>Numéro téléphone</h4></td>
-                                <td><%=result.numtel%></td>
+                                <td><%=result.NumTel%></td>
                               </tr>
                               <tr>
                                 <td><h4>Groupe sanguin</h4></td>
@@ -227,8 +227,8 @@
                                 <td>HTA</td><%}%>
                               </tr>
                               <tr>
-                                <% if (result2.Remarque!=0){%>
-                                <td><h4>Remarque</h4><%=result2.Remarque%></td><%}%>
+                                <% if (result2.pdMed!=0){%>
+                                <td><h4>Remarque</h4><%=result2.pdMed%></td><%}%>
                               </tr>
                             </tbody>
                      </table>
@@ -248,8 +248,8 @@
                            
                           </tr>
                           <tr>
-                            <% if (result2.remarque1!=0){%>
-                            <td><h4>Remarque</h4><%=result2.remarque1%></td><%}%>
+                            <% if (result2.psChirurg!=0){%>
+                            <td><h4>Remarque</h4><%=result2.psChirurg%></td><%}%>
                          
                           </tr>
                         </tbody>
@@ -280,11 +280,11 @@
                           
                           </tr>
                             <tr>
-                              <% if (result2.remarque2!=0) {%>
+                              <% if (result2.psFamille!=0) {%>
                                 <td><h2>Remarque</h2></td>
                               </tr>
                               <tr>
-                                <td><%=result2.remarque2%></td>
+                                <td><%=result2.psFamille%></td>
                               </tr><%}%>
                           <tr>
                             <% if (result2.Toxiques!=0){%>

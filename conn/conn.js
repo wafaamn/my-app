@@ -4,7 +4,7 @@ var con = mysql.createConnection({
 
     host : 'localhost',
     user : 'root',
-    password : '25192519',
+    password : 'asmamohamed',
     database : 'sahtech',
     dateStrings:true
 });
