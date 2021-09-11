@@ -289,7 +289,7 @@ var query9=function(callback)
 {
 con.query('select count(idassistant) from assistantadmin' , function (err,result8, fields) {
 if (err) throw err;
-var cnt = result8[0];
+var cnt = result8[0]['count(idassistant)'];
 console.log(cnt)
 console.log(result8);
 return callback(result8);
@@ -1005,7 +1005,7 @@ router.get('/gestion-patient',function(req,res){
 router.get('/creer-compte',function(req,res){
   res.render("creer-compte");
 });
-router.post('',function(req,res){
+router.post('/creer-compte',function(req,res){
   console.log('dkhlt');
   var nom=req.body.nom,
       prenom=req.body.prenom,
