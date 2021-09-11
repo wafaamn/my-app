@@ -563,11 +563,12 @@
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   padding: 10px 20px;
-  width: 950px;
+  width: 750px;
   transition: 0.5s;
   visibility: visible;
   opacity: 1;
   height: 300px;
+  margin-left: 100px;
 }
 .action2 .form .form1{
   justify-content: space-between;

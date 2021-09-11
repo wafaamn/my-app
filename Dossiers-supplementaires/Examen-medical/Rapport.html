@@ -43,7 +43,7 @@
   <!--sidebar ends here-->
     <div class="container">
         <nav class="navbar">    
-              <h2 for="btttn">Examen médical</h2>
+              <h2 for="btttn">Rapport</h2>
           
               <!--modification profil-->
               <!-- drop-down user account -->
@@ -85,198 +85,57 @@
             </div>           
             
             <!-- hada code li tzidih -->
-
-            
-            <div class="user-wrapper2">
-              <div class="action2">
-            
-                <button class="btn" onclick="formToggle();">Programmer un rdv</button>
-                <div class="form">
-                    <form>
-                      <div class="title"><h1>Ourrad Imane</h1></div>
-                      <label> Date</label>
-                      <div class="form1">
-                      <input type="date">
-                      </div>
-
-                      <div class="form1">
-                        <label>heure debut</label>
-                      <input type="time">
-                      <label>heure fin</label>
-                      <input type="time">
-                      </div>
-                      <label>Motif</label>
-                      <div class="form1">
-                      <textarea cols="50" rows="2"></textarea>
-                      </div>
-                      <div class="form1" style="display:flex;">
-                        <button class="btn">Envoyer</button>
-                        <button class="btn">Annuler</button>
-                      </div>
-                    </form>
-                </div>
-            </div>
-          </div> 
         </nav>
         <main class="main">
          
             <div class="wrapper">
                 
-                <input type="radio" name="slider" checked id="Examen_clinique">
-                <input type="radio" name="slider" id="Bilan_paraclinique">
-                <input type="radio" name="slider" id="Rapport">
-                <input type="radio" name="slider" id="Ordonnance">
-                <input type="radio" name="slider" checked id="Certificat">
-                <input type="radio" name="slider" id="Evacuation">
-                <input type="radio" name="slider" id="Orientation">
-                <div class="title"><h1>Ourrad Imane</h1></div>
-                <label><h4>Email</h4>
-                  <small>i.ourrad@esi-sba.dz</small>
-                </label>
-                <label><h4>Catégorie</h4>
-                  <small>Etudiant</small>
-                </label>
-                <div style="margin-left: 500px;margin-top: -88px;">
-                <label><h4>Type</h4>
-                  <small>Consultation</small>
-                </label>
-                <label><h4>Date</h4>
-                  <small>07/08/2021</small>
-                </label>
-                </div>
-            
-                <nav>
-                  <div class="nav1">
-                  <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Examen clinique</label>
-                  <label for="Bilan_paraclinique" class="blog"><i class="fas fa-blog"></i>Bilan paraclinique</label>
-                  <label for="Rapport" class="code"><i class="fas fa-code"></i>Rapport</label>
-                  <label for="Ordonnance" class="help"><i class="far fa-envelope"></i>Ordonnance</label>
-                  </div>
-                  <div class="nav2">
-                  <label for="Certificat" class="Certificat"><i class="fas fa-home"></i>Certificat</label>
-                  <label for="Evacuation" class="Evacuation"><i class="fas fa-blog"></i>Evacuation</label>
-                  <label for="Orientation" class="Orientation"><i class="fas fa-code"></i>Orientation</label>
-                  </div>
-                </nav>
-                <section>
-                  <div class="content content-1">
-                   
-                
-                    <p>
-                      <div class="form_wrap">
-                        <div class="input_wrap1">
-                          <label for="fname"><h2>Motif</h2></label>
-                          <textarea cols="110" rows="2" id="fname"></textarea>
-                        </div>
-                        <div class="input_wrap2">
-                          <label for="Paramètre"><h2>Paramètres vitaux</h2></label>
-                          <div class="div1">
-                          <div class="div11">
-                          <label for="TA"><h4>TA</h4></label>
-                          <input type="text" id="TA">
-                          <label for="FC"><h4>FC</h4></label>
-                          <input type="text" id="FC" >
-                          </div>
-                          <div class="div12">
-                          <label for="SpO2"><h4>SpO2</h4></label>
-                          <input type="text" id="SpO2" >
-                          <label for="Glycémie"><h4>Glycémie</h4></label>
-                          <input type="text" id="Glycémie">
-                          </div>
-                          </div>
-                        </div>
-                      <div class="input_wrap3">
-                        <label for="examen"><h2>Examen du jour + synthèse</h2></label>
-                        <textarea cols="110" rows="6" id="examen"></textarea>
-                      </div>
-                      <div >
-                        <button class="btn">Enregistrer</button>
-                        <button class="btn" >Annuler</button>
-                        
-                      </div>
-                    </div>
-                    </p>
-                  </div>
-                  <div class="content content-2">
-                    <div class="title"></div>
-                    <input type="file" id="real-file" hidden="hidden" />
-                    <button class="btn" type="button" id="custom-button">Séléctionner un fichier</button>
-                    <span id="custom-text">Pas de fichier choisi</span>
-                    <div >
-                      <button class="btn">Enregistrer</button>
-                      <button class="btn" >Annuler</button>
-                    </div>
-                  </div>
-                  <div class="content content-3">
-                    <div class="title"></div>
-                    <div class="formm">
-                    <table>
-                        <th>affichage</th>
-                        <tr>
-                          <td id="td">cc</td>
+                <div class="formm">
+                    <table id="td">
+                        <tr> 
+                            <td>
+                                <div style="display:flex;">
+                                <h4>Dr </h4> &nbsp; Merabet Mohamed
+                                </div>
+                            </td>
+                                
+                        </tr>
+                        <tr> 
+                            <td><h4>Généraliste</h4></td>
+                        </tr>
+                        <tr> 
+                            <td><h4>Sidi bel abbes</h4></td>
+                        </tr>
+                        <tr> 
+                            <td>
+                                <div style="display:flex;">
+                                <h4>Tel:</h4> &nbsp; 048 74 94 52
+                                </div>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td><h1 style="margin-left: 300px;">Rapport</h1></td>
+                        </tr>
+                    
+                        <tr> 
+                            <td><h4>Nom:</h4></td>
+                        </tr>
+                        <tr>    
+                            <td><h4>Prénom:</h4></td>
+                        </tr>
+                        <tr> 
+                            <td><h4>Date de naissance:</h4></td>
+                        </tr>
+                        <tr>    
+                          <td>cc</td>
                         </tr>
                     </table>
-                    </div>
-                    <div >
-                      <button class="btn">Enregistrer</button>
-                      <button class="btn" >Annuler</button>
-                      <button class="btn" onclick="printContent('td')">Print Content</button>
-                    </div>
-                  </div>
-                  <div class="content content-4">
-                    <div class="title">
-                      <textarea name="message" rows="20" cols="100" placeholder="Ordonnance." style="margin-left: 130px;"></textarea>
-                    </div>
-                    <div >
-                      <button class="btn">Enregistrer</button>
-                      <button class="btn" >Annuler</button>
-                    </div>
-                  </div>
-                  <div class="content content-5">
-                    <div class="title"></div>
-                   <div style="display:flex;margin-left: 50px;"> 
-                   <div class="div1" style="display:block;">
-                    <label><h4>Type</h4></label>
-                     <select>
-                       <option>traitement</option>
-                       <option>prolongation</option>
-                     </select>
-                     <label><h4>Durée</h4></label>
-                     <input type="number">
-                   </div>
-                   <div class="div2" style="display:block;margin-left: 300px;">
-                      <label><h4>Du</h4></label>
-                      <input type="date">
-                      <label><h4>Au</h4></label>
-                      <input type="date">
-                  </div>
                 </div>
-                   <div>
-                    <button class="btn">Enregistrer</button>
-                    <button class="btn" >Annuler</button>
-                  </div>
-            </div>
-                  <div class="content content-6">
-                    <div class="title"></div>
-                    <textarea id="tx" name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
-                    <div >
-                      <button class="btn">Enregistrer</button>
-                      <button class="btn" >Annuler</button>
-                      
-                    </div>
-                  </div>
-                  <div class="content content-7">
-                    <div class="title"></div>
-                    <textarea name="message" rows="5" cols="100" placeholder="Orientation." style="margin-left: 130px;"></textarea>
-                    <div >
-                      <button class="btn">Enregistrer</button>
-                      <button class="btn" >Annuler</button>
-                      <button class="btn" >Imprimer</button>
-                    </div>
-                  </div>
-                </section>
+                <div >
+                      <button class="btn" onclick="printContent('td')">Imprimer</button>
+                </div>
                
-              </div>
+            </div>
          </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
