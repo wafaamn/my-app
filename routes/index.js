@@ -289,6 +289,8 @@ var query9=function(callback)
 {
 con.query('select count(idassistant) from assistantadmin' , function (err,result8, fields) {
 if (err) throw err;
+var cnt = result8[0];
+console.log(cnt)
 console.log(result8);
 return callback(result8);
 });
@@ -868,12 +870,48 @@ router.post('/examen-medical/ordonnance/:id' ,function(req,res){
   var idpat=req.params.id;
   con.query('select idmedecin from medecin',function(err,result){
     idmed=result[0].idmedecin;
-  con.query('insert into ordonnance(idpatient,idmedecin,description) values(?,?,?)',[idpat,idmed,ordonnance],function(err,data){
+  con.query('insert into ordonnance(idpatient,idmed,description) values(?,?,?)',[idpat,idmed,ordonnance],function(err,data){
+    if (err) throw err 
     console.log("ordonnance inseréé!!!!");
   })
 })
 res.status(204).send();
 });
+router.get('/enr-ordonnace/:id',function(req,res){
+  con.query(' select * from ordonnance where idordonnace=(select max(idordonnace) from ordonnance)',function(err,data){
+    if (err)throw err
+    console.log(data)
+  res.render('imp-ordonnace',{userData:data})
+})
+})
+router.get('/enr-certificat/:id',function(req,res){
+  con.query(' select * from certificatmdicale where idcertificatmedicale=(select max(idcertificatmedicale) from certificatmdicale)',function(err,data){
+    if (err)throw err
+    console.log(data)
+  res.render('imp-certificat',{userData:data})
+})
+})
+router.get('/enr-evacuation/:id',function(req,res){
+  con.query(' select * from evacuation where ideva=(select max(ideva) from ideva)',function(err,data){
+    if (err)throw err
+    console.log(data)
+  res.render('imp-evacuation',{userData:data})
+})
+})
+router.get('/enr-orientation/:id',function(req,res){
+  con.query(' select * from orientation where idorientation=(select max(idorientation) from orientation)',function(err,data){
+    if (err)throw err
+    console.log(data)
+  res.render('imp-orientation',{userData:data})
+})
+});
+router.get('/enr-rapport/:id',function(req,res){
+  con.query(' select * from rapport where idrapport=(select max(idrapport) from rapport)',function(err,data){
+    if (err)throw err
+    console.log(data)
+  res.render('imp-rapport',{userData:data})
+})
+})
 router.post('/examen-clinique/:id' ,function(req,res){
   var idpat=req.params.id,
       motif=req.body.motif,
@@ -967,7 +1005,8 @@ router.get('/gestion-patient',function(req,res){
 router.get('/creer-compte',function(req,res){
   res.render("creer-compte");
 });
-router.post('/creer-compte',function(req,res){
+router.post('',function(req,res){
+  console.log('dkhlt');
   var nom=req.body.nom,
       prenom=req.body.prenom,
       email=req.body.email,
