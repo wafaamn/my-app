@@ -36,15 +36,16 @@
                   </div>
           
                   <div class="menu">
+                      <% if(data1.length!=0){ data1.forEach(function(data){ %>
                       <h3>
-                          nom prenom 
-                          <div>email</div>
+                          <%=data.nom%> <%=data.prenom%>
+                          <div><%=data.Email%></div>
                       </h3>
                       <ul>
                           <li>
-                              <button class="rundown-btn">
+                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>">
                                 <span class="material-icons icons-size" id="p">person</span>
-                                <span class="links_name"><h4>Mon profile</h4></span>
+                                <span class="links_name"><h4>Mon profile</h4></span></a>
                               </button>
                           </li>
                           <li>
@@ -67,6 +68,7 @@
                               </button>
                           </li>
                       </ul>
+                      <% })}%>
                   </div>
               </div>
             </div>             <!-- drop-down user account -->
@@ -103,6 +105,35 @@
             </div> 
         </nav>
         <main class="main">
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th>Date</th>
+                <th>Motif</th>
+                <th>H-debut</th>
+                <th>H-fin</th>          
+              </tr>
+            </thead>
+            <tbody>
+              <% if(data.length!=0){ var i=1; data.forEach(function(data){ %>
+              <tr>
+                <td><%=data.DateRDV%> </td>
+                <td><%=data.Motif%></td>
+                <td class="amount"><%=data.HeureDébutRDV%></td>
+                <td> <%=data.HeureFinRDV%></td>
+              </tr>
+              <% i++; }) %>
+                <% } else{ %>
+                  <tr>
+                    <td colspan="7">No Data Found</td>
+                  </tr>
+                  <% } %>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
            
         </main>
       </div>

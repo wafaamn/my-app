@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/statistique.css" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"><!-- link to add-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <title>Statistique | Sah-Tech</title>
+</head>
+
+<body id="body">
+    <!--sidebar starts here-->
+    <div class="sidebar">
+        <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
+        <div class="logo-details">
+            <i class='bx bx-menu' id="btttn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <button class="bttn">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <span class="links_name">Examen médical</span>
+                </button>
+                <span class="tooltip">Examen médical</span>
+            </li>
+            <li>
+                <button class="bttn">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <span class="links_name">Statistique</span>
+                </button>
+                <span class="tooltip">Statistique</span>
+            </li>
+        </ul>
+    </div>
+    <!--sidebar ends here-->
+    <div class="container">
+        <nav class="navbar">
+            <h2 for="btttn">Statistique</h2>
+
+            <!--modification profil-->
+            <!-- drop-down user account -->
+            <div class="user-wrapper">
+                <div class="action">
+                    <div class="profile" onclick="menuToggle();">
+                        <img src="/stylesheets/img/medecina.png" alt="">
+                    </div>
+
+                    <div class="menu">
+                        <h3>
+                            MERABET MOHAMED
+                            <div>m.merabet@esi-sba.dz</div>
+                        </h3>
+                        <ul>
+                            <li>
+                                <button class="rundown-btn">
+                                    <span class="material-icons icons-size" id="p">person</span>
+                                    <span class="links_name">
+                                        <h4>Mon profile</h4>
+                                    </span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="rundown-btn">
+                                    <span class="material-icons icons-size" id="p">mail</span>
+
+                                    <span class="links_name">
+                                        <h4>Boite de récéption</h4>
+                                    </span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="rundown-btn">
+                                    <span class="material-icons icons-size" id="p">logout</span>
+                                    <span class="links_name">
+                                        <h4>Se déconnecter</h4>
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- hada code li tzidih -->
+        </nav>
+        <main class="main">
+            <form action="PatientsParSexe" method="GET">
+                <button class="bttn">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <span class="links_name">Patients Par Sexe</span>
+                </button>
+            </form>
+            <form action="Consultation" method="GET">
+                <button class="bttn">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <span class="links_name">Consultation</span>
+                </button>
+            </form>
+            <form action="PatientsParMaladies" method="GET">
+                <button class="bttn">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <span class="links_name">Patients Par Maladies</span>
+                </button>
+            </form>
+            <div>
+                <canvas id="barChart"></canvas>
+            </div>
+        </main>
+        <script>
+            const labelss = ['hat', 'Cholecystectomie', 'Appendicectomie', 'Cardiopathie', 'Allergique', 'Diabète'];
+                const datas = {
+                    labels: labelss,
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: barData,
+                        fill: false,
+                        backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                        tension: 1
+                    }]
+                };
+                const configs = {
+                    type: 'bar',
+                    data: datas,
+                };
+                var ctx = document.getElementById("barChart").getContext("2d");
+                var myNewChart = new Chart(ctx, configs);
+            // var ctx = document.getElementById('barChart').getContext('2d');
+            //     var myChart = new Chart(ctx, {
+            //         type: 'bar',
+            //         data: {
+            //             labels: ['hat', 'Cholecystectomie', 'Appendicectomie', 'Cardiopathie', 'Allergique', 'Diabète'],
+            //             datasets: [{
+            //                 label: 'Patients Par Maladies',
+            //                 data: barData,
+            //                 backgroundColor: [
+            //                     'rgba(255, 99, 132, 0.2)',
+            //                     'rgba(54, 162, 235, 0.2)',
+            //                     'rgba(255, 206, 86, 0.2)',
+            //                     'rgba(75, 192, 192, 0.2)',
+            //                     'rgba(153, 102, 255, 0.2)',
+            //                     'rgba(255, 159, 64, 0.2)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(255, 99, 132, 1)',
+            //                     'rgba(54, 162, 235, 1)',
+            //                     'rgba(255, 206, 86, 1)',
+            //                     'rgba(75, 192, 192, 1)',
+            //                     'rgba(153, 102, 255, 1)',
+            //                     'rgba(255, 159, 64, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             }]
+            //         },
+            //         options: {
+            //             scales: {
+            //                 y: {
+            //                     beginAtZero: true
+            //                 }
+            //             }
+            //         }
+            //     });
+        </script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/stylesheets/fichiers-js/statistique.js"></script>
+    <!-- début drop-down user account -->
+
+    <!-- fin drop-down user account -->
+
+</body>
+
+</html>

@@ -114,14 +114,14 @@
                 userData.forEach(function(data){
                 %>
                 <tr>
-                  <td><%=data.iddoss %></td>
+                  <td><%=data.IdDoss %></td>
                   <td><%=data.nom %></td>
                   <td><%=data.prenom %></td>
                   <td>
-                    <p class="status status-unpaid"><%=data.datenaissance %></p>
+                    <p class="status status-unpaid"><%=data.DateNaissance %></p>
                   </td>
                   <td><%=data.sexe %></td>
-                  <td><a href="/examen-medical/<%=data.idpatient%>">Ouvrir</a></td>
+                  <td><a href="/examen-medical/<%=data.IdPatient%>">Ouvrir</a></td>
                 </tr>
                 <%  i++; }) %>
                 <% } else{ %>

@@ -3,22 +3,33 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// var cookieSession = require('cookie-session')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var creerDossRouter = require('./routes/CreerDossier')
 var PatientRouter = require('./routes/patient');
 var InfirmierRouter = require('./routes/infirmier');
+var statRouter = require('./routes/static')
 var con = require('./conn/conn');
 var session = require('express-session');
+<<<<<<< HEAD
 var imageRouter = require('./routes/image-route');
+=======
+var http = require('http');
+>>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
 var app = express();
 
 app.use(session({
   secret : 'ABCDefg',
+<<<<<<< HEAD
   resave : false,
   //cookie:{maxAge:  },
+=======
+  resave : true,
+>>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
   saveUninitialized : true
 }));
+// app.use(cookieSession({ keys: ['abc'], name: 'user' }));
 
 
 // view engine setup
@@ -34,8 +45,14 @@ app.use('/', indexRouter);/*
 app.use('/users', usersRouter);*/
 app.use('/creer', creerDossRouter);
 app.use('', PatientRouter);
+<<<<<<< HEAD
 app.use('/infirmier', InfirmierRouter);
 app.use('/', imageRouter);
+=======
+app.use('', InfirmierRouter);
+app.use('',statRouter)
+// http.createServer(statRouter);
+>>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
 
 
 // catch 404 and forward to error handler

@@ -78,11 +78,16 @@
             </div>
         </nav>
         <main>
+          <!-- <form action="creercompte" method="POST"> -->
             <div class="main__container">
-              <form class="form"> 
+              <form class="form" action="creer-compte" method="POST"> 
                <div class="titre"><h1>Ajouter un nouveau compte</h1></div>    
+<<<<<<< HEAD
+                <div class="form_wrap">
+=======
                   <div class="form_wrap">
                     <form action="" method="POST">
+>>>>>>> c0e3fd40fedc5b877fa65fe995a9f55d9e69235d
                    <div class="input_grp">
                      <div class="input_wrap">
                         
@@ -110,25 +115,27 @@
                       <label for="mot de passe"><h4>Date Naissance</h4></label>
                       <input type="date" id="mot de passe" name="date" required>
                     </div>
+                  </div>
                  <div class="input_grp2"> 
-                  <div class="input_wrap">
-                    <label for="mot de passe"><h4>Mot de passe</h4></label>
-                    <input type="password" id="mot de passe" name="mdp" required>
-                  </div>
-                  <div class="input_wrap">
-                    <label for="catégorie"><h4>Catégorie</h4></label>
-                    <select id="catégorie" name="catégorie" required>
-                      <option>Medecin</option>
-                      <option>Infermier</option>
-                      <option>Assistant-admin</option>
-                    </select>
-                  </div>
+                    <div class="input_wrap">
+                      <label for="mot de passe"><h4>Mot de passe</h4></label>
+                      <input type="password" id="mot de passe" name="mdp" required>
+                    </div>
+                    <div class="input_wrap">
+                      <label for="catégorie"><h4>Catégorie</h4></label>
+                      <select id="catégorie" name="catégorie" required>
+                        <option>Medecin</option>
+                        <option>Infermier</option>
+                        <option>Assistant-admin</option>
+                      </select>
+                    </div>
                  </div>
                  <div class="input_wrap">
                   <button class="btn" >Enregistrer</button>
+                 </div>
+                </div> 
                 </form>
-               </div> 
-              </form>
+              <!-- </form> -->
             </div>
         </main>
       </div>
