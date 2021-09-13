@@ -15,8 +15,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
         rel="stylesheet">
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <title>Statistique | Sah-Tech</title>
 </head>
 
@@ -115,45 +114,78 @@
                 </button>
             </form>
             <div>
-                <canvas id="myChart"></canvas>
-                <script>
-                    var optionsPie = {
-                            layout: {
-                                padding: {
-                                    left: 0, right: 500, bottom: 100,
-                                }
-                            },
-                            responsive: true,
-                            scaleBeginAtZero: true,
-                            legend: {
-                                display: false
-                            },
-                        };
-                        const data = {
-                            labels: [
-                                'femme',
-                                'homme'
-                            ],
-                            datasets: [{
-                                label: '',
-                                data: chartData,
-                                backgroundColor: [
-                                    'rgb(255, 99, 132)',
-                                    'rgb(54, 162, 235)'
-                                ],
-                                hoverOffset: 0
-                            }]
-                        };
-                        const config = {
-                            type: 'pie',
-                            data: data,
-                            options: optionsPie,
-                        };
-                        var ctx = document.getElementById("myChart").getContext("2d");
-                        var myNewChart = new Chart(ctx, config);
-                </script>
+                <canvas id="barChart"></canvas>
             </div>
         </main>
+        <script>
+            const labelss = ['hat', 'Cholecystectomie', 'Appendicectomie', 'Cardiopathie', 'Allergique', 'Diabète'];
+                const datas = {
+                    labels: labelss,
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: barData,
+                        fill: false,
+                        backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                        tension: 1
+                    }]
+                };
+                const configs = {
+                    type: 'bar',
+                    data: datas,
+                };
+                var ctx = document.getElementById("barChart").getContext("2d");
+                var myNewChart = new Chart(ctx, configs);
+            // var ctx = document.getElementById('barChart').getContext('2d');
+            //     var myChart = new Chart(ctx, {
+            //         type: 'bar',
+            //         data: {
+            //             labels: ['hat', 'Cholecystectomie', 'Appendicectomie', 'Cardiopathie', 'Allergique', 'Diabète'],
+            //             datasets: [{
+            //                 label: 'Patients Par Maladies',
+            //                 data: barData,
+            //                 backgroundColor: [
+            //                     'rgba(255, 99, 132, 0.2)',
+            //                     'rgba(54, 162, 235, 0.2)',
+            //                     'rgba(255, 206, 86, 0.2)',
+            //                     'rgba(75, 192, 192, 0.2)',
+            //                     'rgba(153, 102, 255, 0.2)',
+            //                     'rgba(255, 159, 64, 0.2)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(255, 99, 132, 1)',
+            //                     'rgba(54, 162, 235, 1)',
+            //                     'rgba(255, 206, 86, 1)',
+            //                     'rgba(75, 192, 192, 1)',
+            //                     'rgba(153, 102, 255, 1)',
+            //                     'rgba(255, 159, 64, 1)'
+            //                 ],
+            //                 borderWidth: 1
+            //             }]
+            //         },
+            //         options: {
+            //             scales: {
+            //                 y: {
+            //                     beginAtZero: true
+            //                 }
+            //             }
+            //         }
+            //     });
+        </script>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="/stylesheets/fichiers-js/statistique.js"></script>

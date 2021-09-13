@@ -24,7 +24,7 @@
     </div>
     <ul class="nav-list">
       <li>
-        <form action="examen" method="get">
+        <form action="/examen" method="GET">
        <button class="bttn">
         <i class="fa fa-stethoscope" aria-hidden="true"></i>
          <span class="links_name">Examen médical</span>
@@ -32,10 +32,12 @@
        <span class="tooltip">Examen médical</span>
      </li>
      <li>
+       <form action="statistique" method="GET">
        <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
        </button>
+      </form>
        <span class="tooltip">Statistique</span>
      </li>
 
@@ -59,15 +61,16 @@
                   </div>
           
                   <div class="menu">
+                    <% if(data.length!=0){ data.forEach(function(data){ %>
                       <h3>
-                          MERABET MOHAMED
-                          <div>m.merabet@esi-sba.dz</div>
+                          <%=data.nom%> <%=data.prenom%>
+                          <div><%=data.Email%></div>
                       </h3>
                       <ul>
                           <li>
-                              <button class="rundown-btn">
+                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>">
                                 <span class="material-icons icons-size" id="p">person</span>
-                                <span class="links_name"><h4>Mon profile</h4></span>
+                                <span class="links_name"><h4>Mon profile</h4></span></a>
                               </button>
                           </li>
                           <li>
@@ -85,6 +88,7 @@
                               </button></form>
                           </li>
                       </ul>
+                      <% })}%>
                   </div>
               </div>
             </div>             <!-- drop-down user account -->
@@ -108,11 +112,11 @@
                 userData.forEach(function(data){
                 %>
                 <tr>
-                  <td><%=data.iddoss %></td>
-                  <td><a href ="/examen/<%=data.IdPatient%>" ><%=data.nom %></a></td>
+                  <td><%=data.IdDoss %></td>
+                  <td><%=data.nom %></td>
                   <td><%=data.prenom %></td>
                   <td>
-                    <p class="status status-unpaid"><%=data.datenaissance %></p>
+                    <p class="status status-unpaid"><%=data.DateNaissance %></p>
                   </td>
                   <td><%=data.sexe %></td>
                   <td><a href="/consulter/<%=data.IdPatient%>">Consulter</a></td>

@@ -5,7 +5,10 @@ var nodemailer = require('nodemailer');
 
 
 
-infirmier.get('', function (req, res) {
+infirmier.get('/infirmier/:id', function (req, res) {
+    var idInfirmier = req.session.id;
+    console.log(idInfirmier);
+    var inf = 'select * from infirmier where IdInfirmier = ?'
     var demande = 'SELECT * FROM demande WHERE IdDemandeRDV IS NOT NULL; ';
     var rdv = 'SELECT * FROM rdv WHERE IdRDV IS NOT NULL;';
     var query = function(callback){
@@ -22,10 +25,19 @@ infirmier.get('', function (req, res) {
             return callback(result);
         })
     }
+    var query3 = function(callback){
+        con.query(inf,[req.params.id],function(err, row){
+            if (err) throw err;
+            console.log(row)
+            return callback(row);
+        })
+    }
 
      query2(function(result){
         query(function(data){
-            res.render('infirmier', {title : 'Liste De Demandes RDV ',title2 : 'Les Rendes-Vous',demandeData:data , rdv : result })
+            query3(function(row){
+                res.render(`infirmier`, {  demandeData: data, rdv: result , data : row})
+            })
         })
      })
 });
@@ -38,7 +50,8 @@ infirmier.post('/modifier/:id', (req,res)=>{
     var hfin = req.body.hfin ;
     var idpatient = 'SELECT IdPatient FROM demanderdv WHERE IdDemandeRDV = ?';
     var motiff = 'SELECT Motif FROM demanderdv WHERE IdDemandeRDV = ?'
-    var idInfirmier = 'SELECT IdInfirmier FROM infirmier;'
+    var idInfirmier = req.session.IdInfirmier;
+    console.log(idInfirmier);
     var rdv = 'INSERT INTO rendezvous (dateRDV ,HeureDébutRDV , HeureFinRDV,Motif,IdPatient , IdInfirmier) Values (? , ? , ? , ? , ? , ?)'
     var supp = 'DELETE FROM demanderdv WHERE IdDemandeRDV =?'
 

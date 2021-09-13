@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+// var cookieSession = require('cookie-session')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var creerDossRouter = require('./routes/CreerDossier')
@@ -11,14 +12,15 @@ var InfirmierRouter = require('./routes/infirmier');
 var statRouter = require('./routes/static')
 var con = require('./conn/conn');
 var session = require('express-session');
-
+var http = require('http');
 var app = express();
 
 app.use(session({
   secret : 'ABCDefg',
-  resave : false,
+  resave : true,
   saveUninitialized : true
 }));
+// app.use(cookieSession({ keys: ['abc'], name: 'user' }));
 
 
 // view engine setup
@@ -34,8 +36,9 @@ app.use('/', indexRouter);/*
 app.use('/users', usersRouter);*/
 app.use('/creer', creerDossRouter);
 app.use('', PatientRouter);
-app.use('/infirmier', InfirmierRouter);
+app.use('', InfirmierRouter);
 app.use('',statRouter)
+// http.createServer(statRouter);
 
 
 // catch 404 and forward to error handler
