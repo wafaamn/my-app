@@ -10,12 +10,13 @@ var PatientRouter = require('./routes/patient');
 var InfirmierRouter = require('./routes/infirmier');
 var con = require('./conn/conn');
 var session = require('express-session');
-
+var imageRouter = require('./routes/image-route');
 var app = express();
 
 app.use(session({
   secret : 'ABCDefg',
   resave : false,
+  //cookie:{maxAge:  },
   saveUninitialized : true
 }));
 
@@ -34,6 +35,7 @@ app.use('/users', usersRouter);*/
 app.use('/creer', creerDossRouter);
 app.use('', PatientRouter);
 app.use('/infirmier', InfirmierRouter);
+app.use('/', imageRouter);
 
 
 // catch 404 and forward to error handler

@@ -71,12 +71,12 @@ router.get('/home', function(req, res, next) {
 router.get('/', function(request, response) {
 response.render('home')
 });
-router.get('/deconnecter', function(request, response) {
+/*router.get('/deconnecter', function(request, response) {
   response.render('login')
   });
   router.get('/modifier/deconnecter', function(request, response) {
     response.render('login')
-    });
+    });*/
 router.get('/inscrire', function(request, response) {
   response.render('inscription-patient')
   });
@@ -126,8 +126,9 @@ router.post('/auth',function(request,response){
 	var password = request.body.password;
 	if (username && password) {
 		con.query('SELECT * FROM utilisateur WHERE email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
-			if (results.length > 0) {
-				request.session.loggedin = true;
+			console.log(results[0]);
+      if ((results.length > 0) && ( typeof results[0].active !=="1" )) {
+				//request.session.i = true;
         con.query('select * from medecin where email= ?',[username],function(err,result){
           if (result.length>0){
             response.redirect('/dossiers');
@@ -848,22 +849,17 @@ router.post('/examen-medical/rapport/:id' ,function(req,res){
   var rapport=req.body.message;
   console.log(rapport);
   var idpat=req.params.id;
+ var d =new Date();
+  console.log(d);
   con.query('select idmedecin from medecin',function(err,result){
     idmed=result[0].idmedecin;
-  con.query('insert into rapport(idpatient,idmedecin,text) values(?,?,?)',[idpat,idmed,rapport],function(err,data){
+  con.query('insert into rapport(idpatient,idmed,text) values(?,?,?)',[idpat,idmed,rapport],function(err,data){
+   if (err) throw err
     console.log("rapport inseré!!!!");
   })
 })
 res.status(204).send();
 });
-router.get('/examen-medical/rapport/:id',function(req,res){
-  idpat=req.params.id;
-
-  con.query('select * from rapport where idpatient=?',[idpat],function(err,data1){
-    if(err) throw err;
-    res.render('examen-medical',{userData:data1});
-  })
-})
 router.post('/examen-medical/ordonnance/:id' ,function(req,res){
   var ordonnance=req.body.message;
   console.log(ordonnance);
@@ -877,39 +873,176 @@ router.post('/examen-medical/ordonnance/:id' ,function(req,res){
 })
 res.status(204).send();
 });
+router.get('/enr-orientation/:id',function(req,res){
+  idpat=req.params.id;
+  // query1
+var query1=function(callback)
+{
+con.query('select * from patient where idpatient=?',[idpat] , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+ // query2
+ var query2=function(callback)
+ {
+
+  con.query(' select * from orientation where idoriantation=(select max(idoriantation) from orientation)',function(err,data){
+    if (err)throw err
+    console.log(data)
+    return callback(data);
+  })
+}
+query1(function(data1){
+  query2(function(data){
+  res.render('imp-orientation',{userData:data,userData1:data1})
+})
+})
+})
 router.get('/enr-ordonnace/:id',function(req,res){
+  idpat=req.params.id;
+  // query1
+var query1=function(callback)
+{
+con.query('select * from patient where idpatient=?',[idpat] , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+ // query2
+ var query2=function(callback)
+ {
+
   con.query(' select * from ordonnance where idordonnace=(select max(idordonnace) from ordonnance)',function(err,data){
     if (err)throw err
     console.log(data)
-  res.render('imp-ordonnace',{userData:data})
+    return callback(data);
+  })
+}
+query1(function(data1){
+  query2(function(data){
+  res.render('imp-ordonnace',{userData:data,userData1:data1})
 })
 })
+})
+
 router.get('/enr-certificat/:id',function(req,res){
+  idpat=req.params.id;
+   // query1
+var query1=function(callback)
+{
+con.query('select * from patient where idpatient=?',[idpat] , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+ // query2
+ var query2=function(callback)
+ {
+
   con.query(' select * from certificatmdicale where idcertificatmedicale=(select max(idcertificatmedicale) from certificatmdicale)',function(err,data){
     if (err)throw err
     console.log(data)
-  res.render('imp-certificat',{userData:data})
+    return callback(data);
+  })
+}
+query1(function(data1){
+  query2(function(data){
+
+  res.render('imp-certificat',{userData: data,userData1: data1})
+})
 })
 })
 router.get('/enr-evacuation/:id',function(req,res){
-  con.query(' select * from evacuation where ideva=(select max(ideva) from ideva)',function(err,data){
+  idpat=req.params.id;
+   // query1
+var query1=function(callback)
+{
+con.query('select * from patient where idpatient=?',[idpat] , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+ // query2
+ var query2=function(callback)
+ {
+
+  con.query(' select * from evacuation where ideva=(select max(ideva) from evacuation)',function(err,data){
     if (err)throw err
     console.log(data)
-  res.render('imp-evacuation',{userData:data})
+    return callback(data);
+  })
+}
+query1(function(data1){
+  query2(function(data){
+
+  res.render('imp-evacuattion',{userData:data,userData1:data1})
 })
 })
-router.get('/enr-orientation/:id',function(req,res){
-  con.query(' select * from orientation where idorientation=(select max(idorientation) from orientation)',function(err,data){
-    if (err)throw err
-    console.log(data)
-  res.render('imp-orientation',{userData:data})
+})
+router.get('/enr-params/:id',function(req,res){
+  idpat=req.body.id;
+  // query1
+var query1=function(callback)
+{
+con.query('select * from patient where idpatient=?',[idpat] , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+// query2
+var query2=function(callback)
+{
+
+ con.query(' select * from orientation where idorientation=(select max(idorientation) from orientation)',function(err,data){
+   if (err)throw err
+   console.log(data)
+   return callback(data);
+ })
+}
+query1(function(data1){
+ query2(function(data){
+  
+  res.render('imp-orientation',{userData:data,userData1:data1})
 })
 });
+})
 router.get('/enr-rapport/:id',function(req,res){
-  con.query(' select * from rapport where idrapport=(select max(idrapport) from rapport)',function(err,data){
-    if (err)throw err
-    console.log(data)
-  res.render('imp-rapport',{userData:data})
+  idpat=req.params.id;
+  // query1
+var query1=function(callback)
+{
+con.query('select * from patient where idpatient=?',[idpat], function (err,data1) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+// query2
+var query2=function(callback)
+{
+
+ con.query(' select * from rapport where idrapport=(select max(idrapport) from rapport)',function(err,data){
+   if (err)throw err
+   console.log(data)
+   return callback(data);
+ })
+}
+query1(function(data1){
+ query2(function(data){
+  res.render('imp-rapport',{userData:data,userData1:data1})
+})
 })
 })
 router.post('/examen-clinique/:id' ,function(req,res){
@@ -924,6 +1057,7 @@ router.post('/examen-clinique/:id' ,function(req,res){
   con.query('select idmedecin from medecin',function(err,result){
     idmed=result[0].idmedecin;
   con.query('insert into examenclinique(idpat,idmed,motif,ta,fc,spo,glycemie,synthese) values(?,?,?,?,?,?,?,?)',[idpat,idmed,motif,ta,fc,spo,gly,syn],function(err,data){
+    if (err) throw err
     console.log("examen inseréé!!!!");
   })
 })
@@ -936,6 +1070,7 @@ router.post('/evacuation/:id' ,function(req,res){
   con.query('select idmedecin from medecin',function(err,result){
     idmed=result[0].idmedecin;
   con.query('insert into evacuation(idpat,idmed,description) values(?,?,?)',[idpat,idmed,description],function(err,data){
+   if (err) throw err
     console.log("evacuation inseréé!!!!");
   })
 })
@@ -950,7 +1085,8 @@ router.post('/examen-medical/certificat/:id' ,function(req,res){
       console.log(idpat);
       con.query("select idmedecin from medecin",function(err,result){
         idmed=result[0].idmedecin;
-        con.query("insert into certificatmdicale (idpatient,idmed,type,duree,datedebut,datefin",[idpat,idmed,type,duree,debut,fin],function(err,result){
+        con.query("insert into certificatmdicale (idpatient,idmed,type,duree,datedebut,datefin) values (?,?,?,?,?,?)",[idpat,idmed,type,duree,debut,fin],function(err,result){
+          if (err)throw err
           console.log('certificat insereéé!!!')
         })
       })
@@ -963,45 +1099,126 @@ router.post('/examen-medical/certificat/:id' ,function(req,res){
         var idpat=req.params.id;
         con.query('select idmedecin from medecin',function(err,result){
           idmed=result[0].idmedecin;
-        con.query('insert into orientation(idpatient,idmedecin,descriptionort) values(?,?,?)',[idpat,idmed,message],function(err,data){
-          console.log("orientation inserée!!!!");
+        con.query('insert into orientation(idpatient,idmed,descriptionort) values(?,?,?)',[idpat,idmed,message],function(err,data){
+          if (err) throw err
+           console.log("orientation inserée!!!!");
         })
       })
       res.status(204).send();
       });
  /*** Interface admin starts */
  router.get('/gestion-medecin',function(req,res){
-   con.query('select * from medecin ',function(err,data){
-     if (err) throw err;
-     res.render('gestion-medecin',{userData:data})
-   })
+  // query1
+var query1=function(callback)
+{
+con.query('select * from vmedecin ' , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
+
+}
+ // query2
+ var query2=function(callback)
+ {
+ con.query('select * from medecin', function (err,data, fields) {
+ if (err) throw err;
+ console.log(data);
+ return callback(data);
+ });
+ 
  }
+ query1(function(data1){
+  query2(function(data){
+     res.render('gestion-medecin',{userData:data,userData1:data1})
+   })
+ })
 
- );
+});
  router.get('/assistant',function(req,res){
-  con.query('select * from assistantadmin ',function(err,data){
-    if (err) throw err;
-    res.render('gestion-assistant',{userData:data})
-  })
-}
+ // query1
+var query1=function(callback)
+{
+con.query('select * from vassistant ' , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
 
-);
+}
+ // query2
+ var query2=function(callback)
+ {
+ con.query('select * from assistantadmin ', function (err,data, fields) {
+ if (err) throw err;
+ console.log(data);
+ return callback(data);
+ });
+ 
+ }
+ query1(function(data1){
+  query2(function(data){
+    res.render('gestion-assistant',{userData:data,userData1:data1})
+  })
+})
+
+ });
 router.get('/infermier',function(req,res){
-  con.query('select * from infirmier ',function(err,data){
-    if (err) throw err;
-    res.render('gestion-infermier',{userData:data})
-  })
-}
+ // query1
+var query1=function(callback)
+{
+con.query('select * from vinfermier ' , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
 
-);
+}
+ // query2
+ var query2=function(callback)
+ {
+ con.query('select * from infirmier ', function (err,data, fields) {
+ if (err) throw err;
+ console.log(data);
+ return callback(data);
+ });
+ 
+ }
+ query1(function(data1){
+  query2(function(data){
+    res.render('gestion-infermier',{userData:data,userData1:data1})
+  })
+})
+
+
+});
 router.get('/gestion-patient',function(req,res){
-  con.query('select * from patient ',function(err,data){
-    if (err) throw err;
-    res.render('gestion-patient',{userData:data})
-  })
-}
+   // query1
+var query1=function(callback)
+{
+con.query('select * from vpatient ' , function (err,data1, fields) {
+if (err) throw err;
+console.log(data1);
+return callback(data1);
+});
 
-);
+}
+ // query2
+ var query2=function(callback)
+ {
+ con.query('select * from patient ', function (err,data, fields) {
+ if (err) throw err;
+ console.log(data);
+ return callback(data);
+ });
+ 
+ }
+ query1(function(data1){
+  query2(function(data){
+    res.render('gestion-patient',{userData:data ,userData1:data1})
+ })
+  })
+});
 router.get('/creer-compte',function(req,res){
   res.render("creer-compte");
 });
@@ -1047,6 +1264,23 @@ router.post('/creer-compte',function(req,res){
    res.render("patients",{title: 'Liste-demandes',userData:data})
    })
  });
+ router.post('/activer/:id',function(req,res){
+   email=req.params.id;
+   if (typeof req.body.check !== 'undefined'){
+    con.query('update utilisateur set active=1 where email=?',[email],function(err,data){
+      if (err) throw err
+      console.log('activé')
+   })
+  }
+else {
+  con.query('update utilisateur set active=0 where email=? ' ,[email],function(err,data){
+    if (err) throw err
+    console.log('desactivé')
+    })
+ 
+}
+  
+ })
  router.post('/accepter/:id',function(req,res){
   var email=req.params.id;
 console.log(email);
@@ -1127,12 +1361,12 @@ console.log(email);
   //res.render('home', {message : 'Welcome, ' + req.session.email});
 //});
 
-//router.get('/logout', function(req, res, next){
-  //if(req.session.email){
-    //req.session.destroy();
-    //res.redirect('/');
-  //}
-//})
+router.get('/deconnecter', function(req, res, next){
+ // if(req.session.loggedin){
+    req.session.destroy();
+    res.redirect('/');
+  
+})
 
 
 module.exports = router;

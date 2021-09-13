@@ -102,7 +102,6 @@
                                             <td>Nom Prenom</td>
                                             <td>Email</td>
                                             <td>Categorie</td>
-                                            <td>Activer</td>
                                             <td>Accepter</td>
                                             <td>Supprimer</td>
                                         </tr>
@@ -114,18 +113,14 @@
                                             <td><%=data.nom%> <%=data.prenom%></td>
                                             <td><%=data.email%></td>
                                             <td><%=data.categorie%></td>
-                                            <td><div class="checkbox">
-                                                <input type="checkbox" id="click">
-                                                <label for="click" class="text"></label>
-                                              </div> 
-                                            </td> 
                                             <td><form action="/accepter/<%=data.email%>" method="POST"><button class="acc-btn" id="accBtn">Accepter</button></form></td>
+                                            
+                            
                                             <td><button id="button-icon"> <span class="material-icons-outlined">
                                                 delete
                                                 </span> </button></td>
-                                        </tr>
-                                        <%})%>
-                                        
+                                            </tr>
+                                            <%})%>
                                     </tbody>
                                 </table>
                             </div>

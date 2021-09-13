@@ -141,8 +141,8 @@
                   <small><%=data.categorie%></small>
                 </label>
                 <div style="margin-left: 500px;margin-top: -88px;">
-                <label><h4>Type</h4>
-                  <small>Consultation</small>
+                <label><h4>Date Naissance</h4>
+                  <small><%=data.datenaissance%></small>
                 </label>
                 <label><h4>Date</h4>
                   <small>07/08/2021</small>
@@ -203,16 +203,20 @@
                   </div>
                   <div class="content content-2">
                     <div class="title"></div>
-                    <input type="file" id="real-file" hidden="hidden" />
-                    <button class="btn" type="button" id="custom-button">Séléctionner un fichier</button>
+                    <form action="/store-image/<%=data.idpatient%>" method="POST" enctype="multipart/form-data">
+                      <p><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
+                    <input type="file" name="image" id="real-file" hidden="hidden" multiple />
+                    <button class="btn" type="button"  type="submit" id="custom-button">Séléctionner un fichier</button>
+                    
                     <span id="custom-text">Pas de fichier choisi</span>
+            
                     <div >
-                      <button class="btn">Enregistrer</button>
+                      <button class="btn">Enregistrer</button></form>
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
                   <div class="content content-3">
-                    <form action="/examen-medical/rapport/<%=data.idpatient%>" method="POST">
+                    <form action="/examen-medical/rapport/<%=data.idpatient%>" method="POST" >
                     <div class="title">
                     <textarea name="message" rows="20" cols="100"  placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
                     </div>

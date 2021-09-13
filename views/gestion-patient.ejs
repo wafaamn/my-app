@@ -89,7 +89,7 @@
                 <div class="projects">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Medecins</h3>
+                            <h3>Patients</h3>
                             
                         </div>
 
@@ -101,28 +101,32 @@
                                             <td>Nom Prenom</td>
                                             <td>Email</td>
                                             <td>Numéro Télephone</td>
-                                            <td>Modifier</td>
-                                            <td>Supprimer</td>
+                                            <td>Activer</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <%
                                         userData.forEach(function(data){
+        
+                                        userData1.forEach(function(data1){
                                         %>
                                         <tr>
                                             <td><%=data.nom%> <%=data.prenom%></td>
                                             <td><%=data.Email%></td>
                                             <td><%=data.NumTel%></td>
             
-                                            <td>
-                                                <button id="button-icon"> <span class="material-icons-outlined">
-                                                edit
-                                                </span> </button></td>
-                                            <td><button id="button-icon"><span class="material-icons-outlined">
-                                                delete
-                                                </span> </button></td>
-                                        </tr>
-                                        <%})%>
+                                            <td><form action="activer/<%=data.Email%>" method="POST">
+                                                <div class="checkbox">
+                                             <input type="checkbox" id="click" name="check"  onchange="this.form.submit()" <%= data1.active ? "checked" : "" %>>
+                                               
+                                            </form>
+                                                <label for="click" class="text"></label>
+                                                
+                                              </div>
+                                            </td> 
+        
+                                       
+                                        <%}) })%>
                                         
                                     </tbody>
                                 </table>

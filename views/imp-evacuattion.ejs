@@ -116,31 +116,33 @@
                     <tr> 
                       <td>
                         <div style="display:flex;">
-                          <h4>Nom:</h4> &nbsp; Ourrad
+                          <%       
+                          userData.forEach(function(data){
+                            userData1.forEach(function(data1){
+                              %>
+                          <h4>Nom: <%=data1.nom%></h4> &nbsp;
                         </div>
                       </td>
                     </tr>
-                    <tr>    
+                    <tr>  
                       <td>
                         <div style="display:flex;">
-                          <h4>Prénom:</h4> &nbsp; Ourrad
+                          <h4>Prénom: <%=data1.prenom%></h4> &nbsp;
                         </div>
                       </td>
                     </tr>
                     <tr> 
                       <td>
                         <div style="display:flex;">
-                          <h4>Date de naissance:</h4> &nbsp; Ourrad
+                          <h4>Date de naissance: <%=data1.DateNaissance%></h4> &nbsp; 
                         </div>
                       </td>
                     </tr>
-                        <%
-                        userData.forEach(function(data){
-                            %>
-                        <tr>
-                          <td>cc</td>
-                        </tr>
-                        <%})%>
+                    <tr>
+                      <%=data.description%>
+                    </tr>
+
+                        <%}) })%>
                   </table>
                   </div>
                     <div >
