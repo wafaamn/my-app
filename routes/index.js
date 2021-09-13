@@ -126,18 +126,10 @@ router.post('/auth',function(request,response){
   var username = request.body.username;
 	var password = request.body.password;
 	if (username && password) {
-<<<<<<< HEAD
-		con.query('SELECT * FROM utilisateur WHERE email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
-			console.log(results[0]);
-      if ((results.length > 0) && ( typeof results[0].active !=="1" )) {
-				//request.session.i = true;
-        con.query('select * from medecin where email= ?',[username],function(err,result){
-=======
 		con.query('SELECT * FROM utilisateur WHERE Email = ? AND MotPasse = ?', [username, password], function(error,results,fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
         con.query('select * from medecin where Email= ?',[username],function(err,result){
->>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
           if (result.length>0){
             request.session.id = result[0].IdMedecin ;
             var id = result[0].IdMedecin;
@@ -956,12 +948,8 @@ router.post('/examen-medical/rapport/:id' ,function(req,res){
   console.log(d);
   con.query('select idmedecin from medecin',function(err,result){
     idmed=result[0].idmedecin;
-<<<<<<< HEAD
   con.query('insert into rapport(idpatient,idmed,text) values(?,?,?)',[idpat,idmed,rapport],function(err,data){
    if (err) throw err
-=======
-  con.query('insert into rapport(IdPatient,IdMed,text,DateRapport) values(?,?,?,?)',[idpat,idmed,rapport],function(err,data){
->>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
     console.log("rapport inseré!!!!");
     con.query('insert into consultation values (?, ?,?) ', [n, idmed, idpat], function (err, result) {
       if(err) throw err ; 
@@ -971,20 +959,6 @@ router.post('/examen-medical/rapport/:id' ,function(req,res){
 })
 res.status(204).send();
 });
-<<<<<<< HEAD
-=======
-router.get('/examen-medical/rapport/:id',function(req,res){
-  idpat=req.params.id;
-
-  con.query('select * from rapport where idpatient=?',[idpat],function(err,data1){
-    if(err) throw err;
-    res.render('examen-medical',{userData:data1});
-  })
-  con.query('insert into consultation values (?, ?,?) ', [n, idmed, idpat], function (err, result) {
-
-  })
-})
->>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
 router.post('/examen-medical/ordonnance/:id' ,function(req,res){
   var ordonnance=req.body.message;
   console.log(ordonnance);
@@ -1226,17 +1200,9 @@ router.post('/examen-medical/orientation/:id' ,function(req,res){
         var idpat=req.params.id;
         con.query('select idmedecin from medecin',function(err,result){
           idmed=result[0].idmedecin;
-<<<<<<< HEAD
         con.query('insert into orientation(idpatient,idmed,descriptionort) values(?,?,?)',[idpat,idmed,message],function(err,data){
           if (err) throw err
            console.log("orientation inserée!!!!");
-=======
-        con.query('insert into orientation(idpatient,idmedecin,descriptionort) values(?,?,?)',[idpat,idmed,message],function(err,data){
-          console.log("orientation inserée!!!!");
-          con.query('insert into consultation values (?, ?,?) ',[n,idmed,idpat],function(err,result){
-
-          })
->>>>>>> e2264bcda0503ec2fef5da48f6e77c59a0dc5d42
         })
       })
       res.status(204).send();
