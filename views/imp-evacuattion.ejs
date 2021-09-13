@@ -7,12 +7,12 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="Examen-medical.css" />
+    <link rel="stylesheet" href="/stylesheets/examen-medical.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <title>Rapport | Sah-Tech</title>
+    <title>Evacuation | Sah-Tech</title>
 </head>
 
 <body id="body">
@@ -42,8 +42,8 @@
   </div>
   <!--sidebar ends here-->
     <div class="container">
-        <nav class="navbar">    
-              <h2 for="btttn">Rapport</h2>
+      <nav class="navbar">    
+              <h2 for="btttn">Evacuation</h2>
           
               <!--modification profil-->
               <!-- drop-down user account -->
@@ -83,69 +83,75 @@
                   </div>
               </div>
             </div>           
-            
-            <!-- hada code li tzidih -->
-        </nav>
+      </nav>
         <main class="main">
          
             <div class="wrapper">
-                
-                <div class="formm">
-                    <table id="td">
-                        <tbody>
-                        <tr> 
-                            <td>
-                                <div style="display:flex;">
-                                <h4>Dr </h4> &nbsp; Merabet Mohamed
-                                </div>
-                            </td>
-                                
-                        </tr>
-                        <tr> 
-                            <td><h4>Généraliste</h4></td>
-                        </tr>
-                        <tr> 
-                            <td><h4>Sidi bel abbes</h4></td>
-                        </tr>
-                        <tr> 
-                            <td>
-                                <div style="display:flex;">
-                                <h4>Tel:</h4> &nbsp; 048 74 94 52
-                                </div>
-                            </td>
-                        </tr>
-                        <tr> 
-                            <td><h1 style="margin-left: 300px;">Rapport</h1></td>
-                        </tr>
-                    
-                        <tr> 
-                            <td>
+                  <div class="formm">
+                  <table id="td">
+                    <tr> 
+                        <td>
                             <div style="display:flex;">
-                                <h4>Nom:</h4> &nbsp; Ourrad
+                            <h4>Dr </h4> &nbsp; Merabet Mohamed
                             </div>
-                            </td>
-                        </tr>
-                        <tr>    
-                            <td><h4>Prénom:</h4></td>
-                        </tr>
-                        <tr> 
-                            <td><h4>Date de naissance:</h4></td>
-                        </tr>
-                        <tr>    
+                        </td>   
+                    </tr>
+                    <tr> 
+                        <td><h4>Généraliste</h4></td>
+                    </tr>
+                    <tr> 
+                        <td><h4>Sidi bel abbes</h4></td>
+                    </tr>
+                    <tr> 
+                        <td>
+                            <div style="display:flex;">
+                            <h4>Tel:</h4> &nbsp; 048 74 94 52
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td><h1 style="margin-left: 300px;">Evacuation</h1></td>
+                    </tr>
+                
+                    <tr> 
+                      <td>
+                        <div style="display:flex;">
+                          <h4>Nom:</h4> &nbsp; Ourrad
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>    
+                      <td>
+                        <div style="display:flex;">
+                          <h4>Prénom:</h4> &nbsp; Ourrad
+                        </div>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td>
+                        <div style="display:flex;">
+                          <h4>Date de naissance:</h4> &nbsp; Ourrad
+                        </div>
+                      </td>
+                    </tr>
+                        <%
+                        userData.forEach(function(data){
+                            %>
+                        <tr>
                           <td>cc</td>
                         </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div >
+                        <%})%>
+                  </table>
+                  </div>
+                    <div >
                       <button class="btn" onclick="printContent('td')">Imprimer</button>
-                </div>
-               
+                    </div>
+                  
             </div>
-         </main>
+        </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="Examen-medical.js"></script>
+    <script src="/stylesheets/fichiers-js/examen-medical.js"></script>
     <!-- début drop-down user account -->
  
   <!-- fin drop-down user account -->

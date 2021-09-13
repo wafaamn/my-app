@@ -118,19 +118,6 @@
                       </div>
                     </form>
                   </div>
-                  <%
-                  userData.forEach(function(data1){
-                    %>
-                    <div class="formm">
-                      <table>
-                      <th>affichage</th>
-                      <tr>
-                        <td id="td"><%=data1.text%>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                  <%})%>
                     
             </div>
           </div> 
@@ -230,7 +217,7 @@
                     <textarea name="message" rows="20" cols="100"  placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
                     </div>
                     <div>
-                     <form action="" method="GET"><button class="btn">Enregistrer</button></form></form>
+                  <button class="btn"><a href="/enr-rapport/<%=data.idpatient%>">Enregistrer</a></button></form>
                      <button class="btn" >Imprimer</button>
                       <button class="btn" >Annuler</button>
                     </div>
@@ -241,7 +228,9 @@
                       <textarea name="message" rows="20" cols="100" placeholder="Ordonnance." style="margin-left: 130px;"></textarea>
                     </div>
                     <div >
-                      <button class="btn">Enregistrer</button></fform>
+                      
+                      <button class="btn"><a href="/enr-ordonnace/<%=data.idpatient%>">Enregistrer</a></button></form>
+                    
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
@@ -266,7 +255,7 @@
                   </div>
                 </div>
                    <div>
-                    <button class="btn">Enregistrer</button></form>
+                    <button class="btn"><a href="/enr-certificat/<%=data.idpatient%>">Enregistrer</a></button></form>
                     <button class="btn" >Annuler</button>
                   </div>
             </div>
@@ -276,7 +265,7 @@
                     <textarea name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
                     </div>
                     <div>
-                      <button class="btn">Enregistrer</button></form>
+                      <button class="btn"><a href="/enr-evacuation/<%=data.idpatient%>">Enregistrer</a></button></form>
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
@@ -285,7 +274,7 @@
                     <div class="title"></div>
                     <textarea name="message" rows="5" cols="100" placeholder="Orientation." style="margin-left: 130px;"></textarea>
                     <div >
-                      <button class="btn">Enregistrer</button></form>
+                      <button class="btn"><a href="/enr-orientation/<%=data.idpatient%>">Enregistrer</a></button></form>
 
                       <button class="btn" >Annuler</button>
                     </div>
