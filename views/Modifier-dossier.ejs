@@ -16,7 +16,7 @@
 </head>
 
 <body id="body">
-  <form action="" method="POST">
+  
   <!--sidebar starts here-->
   <div class="sidebar">
     <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
@@ -123,6 +123,7 @@
                 <section>
                  
                   <div class="content content-1">
+                    <form action="/enregistrer/<%=data.IdPatient%>" method="POST"></form>
                     <p>
                         <table class="table">
                         
@@ -139,6 +140,7 @@
                                 <td><h4>Numéro téléphone</h4></td>
                                 <td><%=data.NumTel%></td>
                               </tr>
+                              
                               <tr>
                                 <td><h4>Groupe sanguin</h4></td>
                                 <td>  <select name="grs"  required value="<%=data1.grs%>" >
@@ -178,6 +180,8 @@
                       <label for="IMC"><h4>IMC</h4></label>
                       <input type="number" id="IMC" name="imc"  required value="<%=data1.IMC%>">
                     </div> 
+                    <button id="calculer">Calculer IMC </button>
+                    <h4> S'il vous plait  entrer le poids [kg] et la taille [m]</h4>
                   </div>
                   <div class="content content-3">
                     <div class="title"></div>
@@ -187,6 +191,8 @@
 
                         <input type="checkbox" id="HTA" name="hta" value="<%=data2.hta%>" <%=data2.hta ? "checked" : "" %>>
                         <label for="HTA"> HTA</label>
+                        <input type="checkbox" id="autres" name="diabete" value="<%=data2.Diabète %>" <%=data2.Diabète ? "checked" : "" %>>
+                            <label for="autres"> Diabète</label>
                         <input type="checkbox" id="autres" name="autres"  value="<%=data2.autre %>" <%=data2.autre ? "checked" : "" %>>
                         <label for="autres"> autres</label>
                         <h3>Remarque</h3>
@@ -223,14 +229,21 @@
                       <h1>Toxiques</h1>
                       <input type="text" id="Toxiques" name="tox"  required value="<%=data2.Toxiques%>">
                     </div>  
-                  </div>  
+                  </div> 
+
+                  <div>
+                    <!-- <form action=""> -->
+                    <button class="btn" type="submit">enregistrer</button>
+                    <!-- </form> -->
+                  </div>
+                  </form>
                   </div>
                   </div>
                   <div class="content content-4">
                     <div class="title"></div>
                       <div class="depistage">
                         <div class="depistage1">
-
+                          <form action="/depistage/<%=data.IdPatient%>" method="POST"> 
                         
                           <h1>Peau et muqueuses</h1>
                             <input type="checkbox" id="aff" name="aff" value="<%=data3.affectation%>" <%=data3.affectation ? "checked" : "" %> >
@@ -361,9 +374,10 @@
                     </div>  
                     <div>
                       <!-- <form action=""> -->
-                        <input class="btn" type="submit" value="Enregistrer" form="post" ></input>
+                        <button class="btn" type="submit"  >enregistrer</button>
                       <!-- </form> -->
-                      </div>    
+                     </div>
+                    </form>
                   </div>
                 </section>
               </div>
@@ -375,7 +389,6 @@
     <!-- début drop-down user account -->
  
   <!-- fin drop-down user account -->
-</form>
 </body>
 
 </html>

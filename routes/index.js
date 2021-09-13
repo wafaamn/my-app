@@ -5,6 +5,7 @@ var bcrypt = require('bcrypt');
 var con = require('../conn/conn');
 var nodemailer = require('nodemailer');
 const { response } = require('express');
+const { RepositoryNotFoundError } = require('typeorm');
 
  
 
@@ -130,18 +131,32 @@ router.post('/auth',function(request,response){
 				request.session.loggedin = true;
         con.query('select * from medecin where Email= ?',[username],function(err,result){
           if (result.length>0){
-            response.redirect('/dossiers');
+            request.session.id = result[0].IdMedecin ;
+            var id = result[0].IdMedecin;
+            response.redirect(`/dossiers/${id}`);
           };
         })
 
             con.query('select * from adminstrateur where Email= ?',[username],function(err,result){
               if (result.length>0){
-                response.redirect('/admin');
+                request.session.id = result[0].IdAdmin;
+                var id = result[0].IdAdmin;
+                response.redirect(`/admin/${id}`);
           };
         })
         con.query('select * from infirmier where Email= ?', [username], function (err, result) {
           if (result.length > 0) {
-            response.redirect('/infirmier');
+            request.session.id = result[0].IdInfirmier;
+            var id = result[0].IdInfirmier;
+            console.log('id t3 frmli : ', id)
+            response.redirect(`/infirmier/${id}`);
+          };
+        })
+        con.query('select * from patient where Email= ?', [username], function (err, result) {
+          if (result.length > 0) {
+            request.session.id = result[0].IdPatient;
+            var id = result[0].IdPatient;
+            response.redirect(`/patient/${id}`);
           };
         })
        // response.render('interfacemedecin');
@@ -207,9 +222,115 @@ router.get('/medecin', function(request, response) {
 	}
 	response.end();
 });
-router.get('/admin',function(req,res){
+router.get('/admin/:id',function(req,res){
   res.render('admin');
   res.end();
+  // query1
+var query1=function(callback)
+{
+con.query('select * from patient',function (err,result, fields) {
+if (err) throw err;
+console.log(result);
+return callback(result);
+});
+
+}
+// query2
+var query2=function(callback)
+{
+con.query('select * from medecin', function (err,result1, fields) {
+if (err) throw err;
+return callback(result1);
+});
+
+}
+// query3
+var query3=function(callback)
+{
+con.query('select * from infirmier' , function (err,result2, fields) {
+if (err) throw err;
+return callback(result2);
+});
+
+}
+// query4
+var query4=function(callback)
+{
+con.query('select * from assistantadmin' , function (err,result3, fields) {
+if (err) throw err;
+return callback(result3);
+});
+
+}
+// query5
+var query5=function(callback)
+{
+con.query('select * from adminstrateur' , function (err,result4, fields) {
+if (err) throw err;
+return callback(result4);
+});
+
+}
+// query6
+var query6=function(callback)
+{
+con.query('select count(idmedecin) from medecin' , function (err,result5, fields) {
+if (err) throw err;
+console.log(result5);
+return callback(result5);
+});
+
+}
+// query7
+var query7=function(callback)
+{
+con.query('select count(idpatient) from patient' , function (err,result6, fields) {
+if (err) throw err;
+console.log(result6);
+return callback(result6);
+});
+
+}
+// query8
+var query8=function(callback)
+{
+con.query('select count(idinfirmier) from infirmier' , function (err,result7, fields) {
+if (err) throw err;
+console.log(result7);
+return callback(result7);
+});
+
+}
+// query9
+var query9=function(callback)
+{
+con.query('select count(idassistant) from assistantadmin' , function (err,result8, fields) {
+if (err) throw err;
+console.log(result8);
+return callback(result8);
+});
+
+}
+query1(function(result){
+  query2(function(result1){
+  query3(function(result2){
+    query4(function(result3){
+      query5(function(result4){
+        query6(function(result5){
+          query7(function(result6){
+            query8(function(result7){
+              query9(function(result8){
+  res.render('interface-admin', { userData: result, userData2: result1, userData3: result2,userData4: result3, userData5: result4,userData6: result5, userData7: result6, userData8: result7,userData9: result8,});
+  });
+  
+  });
+  });
+});
+});
+});
+});
+});
+  });
 });
 router.get('/creer' ,function(req,res){
   var sql='SELECT * FROM view_ant where iddoss=1';
@@ -219,6 +340,22 @@ router.get('/creer' ,function(req,res){
   res.render('dossier-medical',{ title:'dossier' , userData:data});
 });
 });
+router.get('/examen' ,function(req,res){
+  var sql='SELECT * FROM myview';
+con.query(sql, function (err, data, fields) {
+if (err) throw err;
+console.log(data);
+res.render('Dossiers-medicaux1', { title: 'User List', userData: data});
+});
+});
+router.get('/examen-medical/:id',function(req,res){
+  var idd=req.params.id;
+  con.query('select * from myview where iddoss=?',[idd],function(err,data,fields)
+{
+  if(err) throw err;
+  res.render('examen-medical',{userData:data})
+});
+/*
 router.get('/examen/:id', function (req, res) {
 
   var userid = req.params.id;
@@ -293,15 +430,30 @@ router.post('/examen/:id', function (req, res) {
   })
 
 })
-
+*/
 });
-router.get('/dossiers' ,function(req,res){
+router.get('/dossiers/:id' ,function(req,res){
+var query = function(callback){
+  con.query('SELECT * FROM medecin where IdMedecin = ?',[req.params.id],function(err, result){
+    if(err) throw err ; 
+    return callback(result)
+  })
+}
 var sql='SELECT * FROM myview where IdDoss IS NOT NULL ';
-con.query(sql, function (err, data, fields) {
-if (err) throw err;
-console.log(data);
-res.render('Dossiers-medicaux', { title: 'User List', userData: data});
-});
+var query1 = function(callback){
+  con.query(sql, function (err, data, fields) {
+    if (err) throw err;
+    console.log(data);
+    return callback(data)
+  });
+}
+query(function(result){
+  query1(function(data){
+    res.render('Dossiers-medicaux', { title: 'User List', userData: data , data : result});
+
+  })
+})
+
 
 });   
 router.get('/Consulter/:id',function(req,res){
@@ -368,6 +520,62 @@ res.render('affichage-dossier', { title: 'User List', userData: result, userData
 
 
 });*/
+// router.post('/enregistrer/:id', function (req, res) {
+//   var idpat = req.params.id;
+//   /*info dossiermed starts*/
+//   var grs = req.body.grs,
+//     nss = req.body.nss,
+//     poids = req.body.poids,
+//     taille = req.body.taille,
+//     imc = req.body.imc;
+
+//   /*ends*/
+//   /*antecedant*/
+//   var hta = req.body.hta,
+//     autres = req.body.autres,
+//     re = req.body.remarque,
+//     app = req.body.app,
+//     chole = req.body.chole,
+//     re1 = req.body.remarque1,
+//     allgq = req.body.allgq,
+//     cardio = req.body.cardio,
+//     autres1 = req.body.autres1,
+//     re2 = req.body.remarque2,
+//     tox = req.body.tox;
+
+//   if (hta == null) {
+//     hta = false
+//   } else { hta = true };
+//   if (autres == null) {
+//     autres = false
+//   } else { autres = true }
+//   if (app == null) {
+//     app = false
+//   } else { app = true };
+//   if (chole == null) {
+//     chole = false
+//   } else { chole = true };
+//   if (cardio == null) {
+//     cardio = false
+//   } else { cardio = true };
+//   if (autres1 == null) {
+//     autres1 = false
+//   } else { autres1 = true }
+//   /*antecedant*/
+//   console.log(hta);
+//   console.log(grs);
+
+//   con.query('update dossiermed set grs=?,nss=? ,poids=?, taille=?, imc=? where IdPatient=?', [grs, nss, poids, taille, imc, idpat], function (err, data, fields) {
+//     if (err) throw err;
+//     console.log("updated1")
+//   });
+//   con.query('update antecedant set hta=?,autre=?,pdMed=?, Appendicectomie=?,Cholecystectomie=?,psChirurg=?,Allergique=?,Cardiopathie=?,autres=?,psFamille=?,Toxiques=? where IdPatient=?', [hta, autres, re, app, chole, re1, allgq, cardio, autres1, re2, tox, idpat], function (err, data, fields) {
+//     if (err) throw err;
+//     console.log("updated2");
+//   });
+
+// });
+
 router.get('/modifier/:id' ,function(req,res){
   var idpat=req.params.id;
   
@@ -427,7 +635,7 @@ router.get('/modifier/:id' ,function(req,res){
  
   
 });
-router.post('/modifier/:id',function(req,res){
+router.post('/enregistrer/:id',function(req,res){
   var idpat=req.params.id;
   /*info dossiermed starts*/
   var  grs=req.body.grs,
@@ -469,238 +677,9 @@ if (autres1 ==  null){
   autres1 = false
 } else {autres1 = true}
 /*antecedant*/
-var aff = req.body.aff,
-     larmo = req.body.larmo,
-    douleur = req.body.douleur,
-    tdl = req.body.tdl,
-    siff = req.body.siff,
-   angine = req.body.angine,
-     ang = req.body.ang ,
-     muscu = req.body.muscu,
-     articu = req.body.articu,
-     verte = req.body.verte,
-     neuro = req.body.neuro,
-    toux = req.body.toux,
-    expec = req.body.expec,
-     tho = req.body.tho,
-     palpi = req.body.palpi,
-     oedemes = req.body.oedemes,
-     marche =req.body.marche,
-     repos = req.body.repos,
-     leffort = req.body.leffort,
-     permanents = req.body.permanents,
-     appetit = req.body.appetit,
-     transit = req.body.transit,
-     selles = req.body.selles,
-     pyrosis = req.body.pyrosis,
-     rectoreagies = req.body.rectoreagies,
-     abdominales = req.body.abdominales,
-     miction = req.body.miction,
-     pollakiurie = req.body.pollakiurie,
-     banaturie = req.body.banaturie,
-    dysurie = req.body.dysurie,
-     mictionnelles = req.body.mictionnelles,
-     coliques = req.body.coliques,
-     regulier = req.body.Regulier,
-     irregulier = req.body.irregulier,
-     sommeil = req.body.sommeil,
-     vertiges = req.body.vertiges,
-     cephalees = req.body.cephalees,
-     peur= req.body.peur,
-     perte = req.body.perte,
-     paresie = req.body.paresie,
-     paresthesie = req.body.paresthesie,
-     echymose = req.body.echymose,
-     tendances = req.body.tendances,
-     obesite = req.body.obesite,
-     maigraire = req.body.maigraire;
-
-
-     if (aff == null) {
-      aff = false
-  }
-  else { aff = true }
-
-  if (larmo == null) {
-      larmo = false
-  }
-  else { larmo = true }
-
-  if (douleur == null) {
-      douleur = false
-  }
-  else { douleur = true }
-  if (tdl == null) {
-      tdl = false
-  }
-  else { tdl = true }
-  if (siff == null) {
-      siff = false
-  }
-  else { siff = true }
-  if (angine == null) {
-      angine = false
-  }
-  else { angine = true }
-  if (ang == null) {
-      ang = false
-  }
-  else { ang = true }
-
-  if (muscu == null) {
-      muscu = false
-  } else { muscu = true }
-
-  if (articu == null) {
-      articu = false
-  } else { articu = true }
-
-  if (verte == null) {
-      verte = false
-  } else { verte = true }
-
-  if (neuro == null) {
-      neuro = false
-  } else { neuro = true }
-
-  if (toux == null) {
-      toux = false
-  } else { toux = true }
-
-  if (expec == null) {
-      expec = false
-  } else { expec = true }
-
-  if (tho == null) {
-      tho = false
-  } else { tho = true }
-
-  if (palpi == null) {
-      palpi = false
-  } else { palpi = true }
-
-  if (oedemes == null) {
-      oedemes = false
-  } else { oedemes = true }
-
-  if (marche == null) {
-      marche = false
-  } else { marche = true }
-
-  if (repos == null) {
-      repos = false
-  } else { repos = true }
-
-  if (leffort == null) {
-      leffort = false
-  } else { leffort = true }
-
-  if (permanents == null) {
-      permanents = false
-  } else { permanents = true }
-
-  if (appetit == null) {
-      appetit = false
-  } else { appetit = true }
-
-  if (transit == null) {
-      transit = false
-  } else { transit = true }
-
-  if (selles == null) {
-      selles = false
-  } else { selles = true }
-
-  if (pyrosis == null) {
-      pyrosis = false
-  } else { pyrosis = true }
-
-  if (rectoreagies == null) {
-      rectoreagies = false
-  } else { rectoreagies = true }
-
-  if (abdominales == null) {
-      abdominales = false
-  } else { abdominales = true }
-
-  if (miction == null) {
-      miction = false
-  } else { miction = true }
-
-  if (pollakiurie == null) {
-      pollakiurie = false
-  } else { pollakiurie = true }
-
-  if (banaturie == null) {
-      banaturie = false
-  } else { banaturie = true }
-
-  if (dysurie == null) {
-      dysurie = false
-  } else { dysurie = true }
-
-  if (mictionnelles == null) {
-      mictionnelles = false
-  } else { mictionnelles = true }
-
-  if (coliques == null) {
-      coliques = false
-  } else { coliques = true }
-
-  if (regulier == null) {
-      regulier = false
-  } else { regulier = true }
-
-  if (irregulier == null) {
-      irregulier = false
-  } else { irregulier = true }
-
-  if (sommeil == null) {
-      sommeil = false
-  } else { sommeil = true }
-
-  if (vertiges == null) {
-      vertiges = false
-  } else { vertiges = true }
-
-  if (cephalees == null) {
-      cephalees = false
-  } else { cephalees = true }
-
-  if (peur == null) {
-      peur = false
-  } else { peur = true }
-
-  if (perte == null) {
-      perte = false
-  } else { perte = true }
-
-  if (paresie == null) {
-      paresie = false
-  } else { paresie = true }
-
-  if (paresthesie == null) {
-      paresthesie = false
-  } else { paresthesie = true }
-
-  if (echymose == null) {
-      echymose = false
-  } else { echymose = true }
-
-  if (tendances == null) {
-      tendances = false
-  } else { tendances = true }
-
-  if (obesite == null) {
-      obesite = false
-  } else { obesite = true }
-
-  if (maigraire == null) {
-      maigraire = false
-  } else { maigraire = true };
 console.log(hta);
  console.log(grs);
- console.log(regulier);
+ 
   con.query('update dossiermed set grs=?,nss=? ,poids=?, taille=?, imc=? where IdPatient=?',[grs,nss,poids,taille,imc,idpat],function(err,data,fields)
   {
     if(err) throw err;
@@ -711,34 +690,427 @@ con.query('update antecedant set hta=?,autre=?,pdMed=?, Appendicectomie=?,Cholec
     if(err) throw err;
     console.log("updated2");
 });
-con.query('update depistage set  affectation=?,Larmolement=?,Douleurs=?,Taches=?,Siffelements=?,Angines=?,Epistaxis=?,musculaires=?,articulaires=?,vértébrales=?,Neurologiques=?,Toux=?,Expectorations=?,thoraciques=?,Palpitation=?,oedèmes=?,marche=?,repos=?,effort=?,permanents=?,Appétit=?,Transit=?,selles=?,Pyrosis=?,Rectoreagies=?,abdominales=?,Miction=?,Pollakiurie=?,Banaturie=?,Dysurie=?,Ballures=?,Coliques=?,CycleRegulier=?,CycleIrregulier=?,Sommeil=?,Vertiges=?,Céphalées=?,Peurvide=?,Perteconnai=?,Parésie=?,Paresthésie=?,Echymose=?,hémorragies=?,Obésité=?,Maigraire=? where IdPatient=?'
-,[aff ,larmo , douleur , tdl ,siff , angine,ang ,muscu ,articu ,verte,neuro ,toux , expec , tho,palpi ,oedemes ,marche ,repos ,leffort ,permanents ,appetit ,transit, selles,pyrosis ,rectoreagies , abdominales ,miction ,pollakiurie,banaturie , dysurie, mictionnelles ,coliques , regulier,irregulier, sommeil , vertiges, cephalees ,peur ,perte, paresie,paresthesie ,echymose , tendances , obesite ,maigraire,idpat],function(err,data,fields)
-  {
-    if(err) throw err;
+
+});
+router.post('/depistage/:id',function(req,res){
+  var idpat = req.params.id;
+  var aff = req.body.aff,
+    larmo = req.body.larmo,
+    douleur = req.body.douleur,
+    tdl = req.body.tdl,
+    siff = req.body.siff,
+    angine = req.body.angine,
+    ang = req.body.ang,
+    muscu = req.body.muscu,
+    articu = req.body.articu,
+    verte = req.body.verte,
+    neuro = req.body.neuro,
+    toux = req.body.toux,
+    expec = req.body.expec,
+    tho = req.body.tho,
+    palpi = req.body.palpi,
+    oedemes = req.body.oedemes,
+    marche = req.body.marche,
+    repos = req.body.repos,
+    leffort = req.body.leffort,
+    permanents = req.body.permanents,
+    appetit = req.body.appetit,
+    transit = req.body.transit,
+    selles = req.body.selles,
+    pyrosis = req.body.pyrosis,
+    rectoreagies = req.body.rectoreagies,
+    abdominales = req.body.abdominales,
+    miction = req.body.miction,
+    pollakiurie = req.body.pollakiurie,
+    banaturie = req.body.banaturie,
+    dysurie = req.body.dysurie,
+    mictionnelles = req.body.mictionnelles,
+    coliques = req.body.coliques,
+    regulier = req.body.Regulier,
+    irregulier = req.body.irregulier,
+    sommeil = req.body.sommeil,
+    vertiges = req.body.vertiges,
+    cephalees = req.body.cephalees,
+    peur = req.body.peur,
+    perte = req.body.perte,
+    paresie = req.body.paresie,
+    paresthesie = req.body.paresthesie,
+    echymose = req.body.echymose,
+    tendances = req.body.tendances,
+    obesite = req.body.obesite,
+    maigraire = req.body.maigraire;
+
+
+  if (aff == null) {
+    aff = false
+  }
+  else { aff = true }
+
+  if (larmo == null) {
+    larmo = false
+  }
+  else { larmo = true }
+
+  if (douleur == null) {
+    douleur = false
+  }
+  else { douleur = true }
+  if (tdl == null) {
+    tdl = false
+  }
+  else { tdl = true }
+  if (siff == null) {
+    siff = false
+  }
+  else { siff = true }
+  if (angine == null) {
+    angine = false
+  }
+  else { angine = true }
+  if (ang == null) {
+    ang = false
+  }
+  else { ang = true }
+
+  if (muscu == null) {
+    muscu = false
+  } else { muscu = true }
+
+  if (articu == null) {
+    articu = false
+  } else { articu = true }
+
+  if (verte == null) {
+    verte = false
+  } else { verte = true }
+
+  if (neuro == null) {
+    neuro = false
+  } else { neuro = true }
+
+  if (toux == null) {
+    toux = false
+  } else { toux = true }
+
+  if (expec == null) {
+    expec = false
+  } else { expec = true }
+
+  if (tho == null) {
+    tho = false
+  } else { tho = true }
+
+  if (palpi == null) {
+    palpi = false
+  } else { palpi = true }
+
+  if (oedemes == null) {
+    oedemes = false
+  } else { oedemes = true }
+
+  if (marche == null) {
+    marche = false
+  } else { marche = true }
+
+  if (repos == null) {
+    repos = false
+  } else { repos = true }
+
+  if (leffort == null) {
+    leffort = false
+  } else { leffort = true }
+
+  if (permanents == null) {
+    permanents = false
+  } else { permanents = true }
+
+  if (appetit == null) {
+    appetit = false
+  } else { appetit = true }
+
+  if (transit == null) {
+    transit = false
+  } else { transit = true }
+
+  if (selles == null) {
+    selles = false
+  } else { selles = true }
+
+  if (pyrosis == null) {
+    pyrosis = false
+  } else { pyrosis = true }
+
+  if (rectoreagies == null) {
+    rectoreagies = false
+  } else { rectoreagies = true }
+
+  if (abdominales == null) {
+    abdominales = false
+  } else { abdominales = true }
+
+  if (miction == null) {
+    miction = false
+  } else { miction = true }
+
+  if (pollakiurie == null) {
+    pollakiurie = false
+  } else { pollakiurie = true }
+
+  if (banaturie == null) {
+    banaturie = false
+  } else { banaturie = true }
+
+  if (dysurie == null) {
+    dysurie = false
+  } else { dysurie = true }
+
+  if (mictionnelles == null) {
+    mictionnelles = false
+  } else { mictionnelles = true }
+
+  if (coliques == null) {
+    coliques = false
+  } else { coliques = true }
+
+  if (regulier == null) {
+    regulier = false
+  } else { regulier = true }
+
+  if (irregulier == null) {
+    irregulier = false
+  } else { irregulier = true }
+
+  if (sommeil == null) {
+    sommeil = false
+  } else { sommeil = true }
+
+  if (vertiges == null) {
+    vertiges = false
+  } else { vertiges = true }
+
+  if (cephalees == null) {
+    cephalees = false
+  } else { cephalees = true }
+
+  if (peur == null) {
+    peur = false
+  } else { peur = true }
+
+  if (perte == null) {
+    perte = false
+  } else { perte = true }
+
+  if (paresie == null) {
+    paresie = false
+  } else { paresie = true }
+
+  if (paresthesie == null) {
+    paresthesie = false
+  } else { paresthesie = true }
+
+  if (echymose == null) {
+    echymose = false
+  } else { echymose = true }
+
+  if (tendances == null) {
+    tendances = false
+  } else { tendances = true }
+
+  if (obesite == null) {
+    obesite = false
+  } else { obesite = true }
+
+  if (maigraire == null) {
+    maigraire = false
+  } else { maigraire = true };
+  console.log(obesite)
+
+  con.query('update depistage set  affectation=?,Larmolement=?,Douleurs=?,Taches=?,Siffelements=?,Angines=?,Epistaxis=?,musculaires=?,articulaires=?,vértébrales=?,Neurologiques=?,Toux=?,Expectorations=?,thoraciques=?,Palpitation=?,oedèmes=?,marche=?,repos=?,effort=?,permanents=?,Appétit=?,Transit=?,selles=?,Pyrosis=?,Rectoreagies=?,abdominales=?,Miction=?,Pollakiurie=?,Banaturie=?,Dysurie=?,Ballures=?,Coliques=?,CycleRegulier=?,CycleIrregulier=?,Sommeil=?,Vertiges=?,Céphalées=?,Peurvide=?,Perteconnai=?,Parésie=?,Paresthésie=?,Echymose=?,hémorragies=?,Obésité=?,Maigraire=? where IdPatient=?'
+    , [aff, larmo, douleur, tdl, siff, angine, ang, muscu, articu, verte, neuro, toux, expec, tho, palpi, oedemes, marche, repos, leffort, permanents, appetit, transit, selles, pyrosis, rectoreagies, abdominales, miction, pollakiurie, banaturie, dysurie, mictionnelles, coliques, regulier, irregulier, sommeil, vertiges, cephalees, peur, perte, paresie, paresthesie, echymose, tendances, obesite, maigraire, idpat], function (err, data, fields) {
+    if (err) throw err;
     console.log("upd");
     res.status(204).send();
-});
-});
+  });
+
+})
 router.get('/examenclinique' ,function(req,res){
   res.render('examen-clinique')
 });
-router.get('/rapport' ,function(req,res){
-  res.render('rapport-medical')
+router.post('/examen-medical/rapport/:id' ,function(req,res){
+  var rapport=req.body.message;
+  var n = new date();
+  console.log(n);
+  console.log(rapport);
+  var idpat=req.params.id;
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into rapport(IdPatient,IdMed,text,DateRapport) values(?,?,?,?)',[idpat,idmed,rapport],function(err,data){
+    console.log("rapport inseré!!!!");
+    con.query('insert into consultation values (?, ?,?) ', [n, idmed, idpat], function (err, result) {
+      if(err) throw err ; 
+      console.log('insertion')
+    })
+  })
+})
+res.status(204).send();
 });
-router.get('/ordonnance' ,function(req,res){
-  res.render('ordonnance')
+router.get('/examen-medical/rapport/:id',function(req,res){
+  idpat=req.params.id;
+
+  con.query('select * from rapport where idpatient=?',[idpat],function(err,data1){
+    if(err) throw err;
+    res.render('examen-medical',{userData:data1});
+  })
+  con.query('insert into consultation values (?, ?,?) ', [n, idmed, idpat], function (err, result) {
+
+  })
+})
+router.post('/examen-medical/ordonnance/:id' ,function(req,res){
+  var ordonnance=req.body.message;
+  console.log(ordonnance);
+  var idpat=req.params.id;
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into ordonnance(idpatient,idmedecin,description) values(?,?,?)',[idpat,idmed,ordonnance],function(err,data){
+    console.log("ordonnance inseréé!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/evacuation' ,function(req,res){
-  res.render('evacuation')
+router.post('/examen-clinique/:id' ,function(req,res){
+  var idpat=req.params.id,
+      motif=req.body.motif,
+      ta=req.body.ta,
+      fc=req.body.fc,
+      spo=req.body.spo,
+      gly=req.body.glycemie,
+      syn=req.body.synthese;
+
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into examenclinique(idpat,idmed,motif,ta,fc,spo,glycemie,synthese) values(?,?,?,?,?,?,?,?)',[idpat,idmed,motif,ta,fc,spo,gly,syn],function(err,data){
+    console.log("examen inseréé!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/certificat' ,function(req,res){
-  res.render('certificat-medical')
+router.post('/evacuation/:id' ,function(req,res){
+  var description=req.body.message;
+  console.log(description);
+  var idpat=req.params.id;
+  con.query('select idmedecin from medecin',function(err,result){
+    idmed=result[0].idmedecin;
+  con.query('insert into evacuation(idpat,idmed,description) values(?,?,?)',[idpat,idmed,description],function(err,data){
+    console.log("evacuation inseréé!!!!");
+  })
+})
+res.status(204).send();
 });
-router.get('/orientation' ,function(req,res){
-  res.render('orientation')
-});
+router.post('/examen-medical/certificat/:id' ,function(req,res){
+  var idpat=req.params.id,
+      type=req.body.type,
+      duree=req.body.duree,
+      debut=req.body.debut,
+      fin=req.body.fin;
+      console.log(idpat);
+      con.query("select idmedecin from medecin",function(err,result){
+        idmed=result[0].idmedecin;
+        con.query("insert into certificatmdicale (idpatient,idmed,type,duree,datedebut,datefin",[idpat,idmed,type,duree,debut,fin],function(err,result){
+          console.log('certificat insereéé!!!')
+        })
+      })
+      res.status(204).send();
+      });
+
+router.post('/examen-medical/orientation/:id' ,function(req,res){
+        var message=req.body.message;
+        var n = new Date();
+        console.log(n);
+        console.log(message);
+        var idpat=req.params.id;
+        con.query('select idmedecin from medecin',function(err,result){
+          idmed=result[0].idmedecin;
+        con.query('insert into orientation(idpatient,idmedecin,descriptionort) values(?,?,?)',[idpat,idmed,message],function(err,data){
+          console.log("orientation inserée!!!!");
+          con.query('insert into consultation values (?, ?,?) ',[n,idmed,idpat],function(err,result){
+
+          })
+        })
+      })
+      res.status(204).send();
+      });
  /*** Interface admin starts */
- router.get('/patients',function(req,res){
+ router.get('/gestion-medecin',function(req,res){
+   con.query('select * from medecin ',function(err,data){
+     if (err) throw err;
+     res.render('gestion-medecin',{userData:data})
+   })
+ }
+
+ );
+ router.get('/assistant',function(req,res){
+  con.query('select * from assistantadmin ',function(err,data){
+    if (err) throw err;
+    res.render('gestion-assistant',{userData:data})
+  })
+}
+
+);
+router.get('/infermier',function(req,res){
+  con.query('select * from infirmier ',function(err,data){
+    if (err) throw err;
+    res.render('gestion-infermier',{userData:data})
+  })
+}
+
+);
+router.get('/gestion-patient',function(req,res){
+  con.query('select * from patient ',function(err,data){
+    if (err) throw err;
+    res.render('gestion-patient',{userData:data})
+  })
+}
+
+);
+router.get('/creer-compte',function(req,res){
+  res.render("creer-compte");
+});
+router.post('/creer-compte',function(req,res){
+  var nom=req.body.nom,
+      prenom=req.body.prenom,
+      email=req.body.email,
+      num=req.body.numtel,
+      date=req.body.date,
+      mdp=req.body.mdp,
+      cat=req.body.catégorie;
+      console.log(cat);
+  con.query('insert into utilisateur values(?,?)', [email, mdp], function (err) {
+    if (err) throw err;
+    console.log("inserer");
+  })
+
+      if (cat=="medecin"){
+      con.query('insert into medecin (nom,prenom,numtel,email,datenaissance)values (?,?,?,?,?)',[nom,prenom,num,email,date],function(err){
+        if (err) throw err;
+        console.log('hello');
+
+      })
+    }
+      else if (cat=="infermier"){
+        con.query('insert into infirmier values (?,?,?,?,?)',[nom,prenom,num,email,date],function(err){
+          if (err) throw err;
+          console.log('hello2'); 
+      })
+    }
+      else{
+        con.query('insert into assistantadmin values (?,?,?,?,?)',[nom,prenom,num,email,date],function(err){
+          if (err) throw err;
+          console.log('hello');
+      })
+    }
+     });
+ router.get("/patients",function(req,res){
+
    con.query('select * from demandesins ',function(err,data){
      if (err) throw err;
      console.log(data)
@@ -815,6 +1187,81 @@ console.log(email);
    console.log("delete from demande table")
  })
 });
+router.get('/profil/:id',function(req,res){
+  con.query('select * from medecin where Email = ?',[req.params.id],function(err,result){
+    if(err) throw err;
+    if(result.length>0){
+      res.render('profil',{data: result})
+    }
+    })
+  con.query('select * from infirmier where Email = ?', [req.params.id], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      res.render('profil', { data: result })
+    }
+  })
+  con.query('select * from adminstrateur where Email = ?', [req.params.id], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      res.render('profil', { data: result })
+    }
+  })
+  con.query('select * from patient where Email = ?', [req.params.id], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      res.render('profil', { data: result })
+    }
+  })
+  con.query('select * from assistantadmin where Email = ?', [req.params.id], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      res.render('profil', { data: result })
+    }
+  })
+})
+router.post('/profil/:id',function(req,res){
+  var email = req.params.id;
+  var {adr , numtel , mdp }= req.body;
+  con.query('UPDATE utilisateur SET MotPasse= ? WHERE Email =?', [mdp, email],function(err,result){
+    if(err) throw err ;
+    if (result.length > 0) {
+      console.log('mot de passe changé');
+    }
+  
+  con.query('UPDATE medecin SET Adress = ?, NumTel = ? WHERE Email =?', [adr, numtel, email],function(err,result){
+    if (err) throw err;
+    if (result.length > 0) {
+      console.log('mot de passe changé');
+    }
+  })
+  con.query('UPDATE infirmier SET Adress = ?, NumTel = ? WHERE Email =?', [adr, numtel, email], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      console.log('mot de passe changé');
+    }
+
+  })
+  con.query('UPDATE adminstrateur SET Adress = ?, NumTel = ? WHERE Email =?', [adr, numtel, email], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      console.log('mot de passe changé');
+    }
+    })
+  con.query('UPDATE assistantadmin SET Adress = ?, NumTel = ? WHERE Email =?', [adr, numtel, email], function (err, result) {
+    if (err) throw err;
+    if(result.length>0){
+      console.log('mot de passe changé');
+    }
+  })
+  con.query('UPDATE patient SET Adress = ?, NumTel = ? WHERE Email =?', [adr, numtel, email], function (err, result) {
+    if (err) throw err;
+    if (result.length > 0) {
+      console.log('mot de passe changé');
+    }
+  })
+  })
+})
+
 /* router.post('/accepter/:id',function(res,res){
    var email=req.params.id;
   con.query('insert into patient(nom,prenom) select nom,prenom from demandesins where email=?',[email],function(err,result){
@@ -835,5 +1282,6 @@ console.log(email);
     //res.redirect('/');
   //}
 //})
+
 
 module.exports = router;

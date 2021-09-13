@@ -7,18 +7,18 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/stylesheets/examen-medical.css" />
+    <link rel="stylesheet" href="Examen-medical.css" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" ><!-- link to add-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <title>Dossiers Médicaux | Sah-Tech</title>
+    <title>Orientation | Sah-Tech</title>
 </head>
 
 <body id="body">
   <!--sidebar starts here-->
   <div class="sidebar">
-    <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
+    <img src="logoapppp.png" class="sidebar_img">
     <div class="logo-details">
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
@@ -50,7 +50,7 @@
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="/styelesheets/img/medecina.png"  alt="">
+                    <img src="medecina.png"  alt="">
                   </div>
           
                   <div class="menu">
@@ -89,14 +89,11 @@
             
             <div class="user-wrapper2">
               <div class="action2">
-                <%
-                  userData.forEach(function(data){
-                    %>
+            
                 <button class="btn" onclick="formToggle();">Programmer un rdv</button>
-                <form action="" method="POST">
-                  <div class="form">
+                <div class="form">
                     <form>
-                      <div class="title"><h1><%=data.nom%> <%=data.prenom%></h1></div>
+                      <div class="title"><h1>Ourrad Imane</h1></div>
                       <label> Date</label>
                       <div class="form1">
                       <input type="date">
@@ -117,21 +114,7 @@
                         <button class="btn">Annuler</button>
                       </div>
                     </form>
-                  </div>
-                  <%
-                  userData.forEach(function(data1){
-                    %>
-                    <div class="formm">
-                      <table>
-                      <th>affichage</th>
-                      <tr>
-                        <td id="td"><%=data1.text%>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                  <%})%>
-                    
+                </div>
             </div>
           </div> 
         </nav>
@@ -146,12 +129,12 @@
                 <input type="radio" name="slider" checked id="Certificat">
                 <input type="radio" name="slider" id="Evacuation">
                 <input type="radio" name="slider" id="Orientation">
-                <div class="title"><h1><%=data.nom%> <%=data.prenom%></h1></div>
+                <div class="title"><h1>Ourrad Imane</h1></div>
                 <label><h4>Email</h4>
-                  <small><%=data.email%></small>
+                  <small>i.ourrad@esi-sba.dz</small>
                 </label>
                 <label><h4>Catégorie</h4>
-                  <small><%=data.categorie%></small>
+                  <small>Etudiant</small>
                 </label>
                 <div style="margin-left: 500px;margin-top: -88px;">
                 <label><h4>Type</h4>
@@ -161,7 +144,7 @@
                   <small>07/08/2021</small>
                 </label>
                 </div>
-    
+            
                 <nav>
                   <div class="nav1">
                   <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Examen clinique</label>
@@ -182,34 +165,34 @@
                     <p>
                       <div class="form_wrap">
                         <div class="input_wrap1">
-                          <form action="/examen-clinique/<%=data.idpatient%>" method="POST">
                           <label for="fname"><h2>Motif</h2></label>
-                          <textarea cols="110" rows="2" id="fname" name="motif"></textarea>
+                          <textarea cols="110" rows="2" id="fname"></textarea>
                         </div>
                         <div class="input_wrap2">
                           <label for="Paramètre"><h2>Paramètres vitaux</h2></label>
                           <div class="div1">
                           <div class="div11">
                           <label for="TA"><h4>TA</h4></label>
-                          <input type="text" id="TA" name="ta">
+                          <input type="text" id="TA">
                           <label for="FC"><h4>FC</h4></label>
-                          <input type="text" id="FC"  name="fc">
+                          <input type="text" id="FC" >
                           </div>
                           <div class="div12">
                           <label for="SpO2"><h4>SpO2</h4></label>
-                          <input type="text" id="SpO2" name="spo" >
+                          <input type="text" id="SpO2" >
                           <label for="Glycémie"><h4>Glycémie</h4></label>
-                          <input type="text" id="Glycémie" name="glycemie">
+                          <input type="text" id="Glycémie">
                           </div>
                           </div>
                         </div>
                       <div class="input_wrap3">
                         <label for="examen"><h2>Examen du jour + synthèse</h2></label>
-                        <textarea cols="110" rows="6" id="examen" name="synthese"></textarea>
+                        <textarea cols="110" rows="6" id="examen"></textarea>
                       </div>
                       <div >
-                        <button class="btn">Enregistrer</button></form>
+                        <button class="btn">Enregistrer</button>
                         <button class="btn" >Annuler</button>
+                        
                       </div>
                     </div>
                     </p>
@@ -225,23 +208,20 @@
                     </div>
                   </div>
                   <div class="content content-3">
-                    <form action="/examen-medical/rapport/<%=data.idpatient%>" method="POST">
-                    <div class="title">
-                    <textarea name="message" rows="20" cols="100"  placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
-                    </div>
-                    <div>
-                     <form action="" method="GET"><button class="btn">Enregistrer</button></form></form>
-                     <button class="btn" >Imprimer</button>
+                    <div class="title"></div>
+                    <textarea name="message" rows="20" cols="100" placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
+                    <div >
+                      <button class="btn">Enregistrer</button>
                       <button class="btn" >Annuler</button>
+                      <button onclick="printContent('td')">Print Content</button>
                     </div>
-
                   </div>
                   <div class="content content-4">
-                    <div class="title"><form action="/examen-medical/ordonnance/<%=data.idpatient%>" method="POST">
+                    <div class="title">
                       <textarea name="message" rows="20" cols="100" placeholder="Ordonnance." style="margin-left: 130px;"></textarea>
                     </div>
                     <div >
-                      <button class="btn">Enregistrer</button></fform>
+                      <button class="btn">Enregistrer</button>
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
@@ -249,54 +229,58 @@
                     <div class="title"></div>
                    <div style="display:flex;margin-left: 50px;"> 
                    <div class="div1" style="display:block;">
-                    <form action="/examen-medical/certificat/<%=data.idpatient%>" method="POST">
                     <label><h4>Type</h4></label>
-                     <select name="type">
+                     <select>
                        <option>traitement</option>
                        <option>prolongation</option>
                      </select>
                      <label><h4>Durée</h4></label>
-                     <input type="number" name="duree">
+                     <input type="number">
                    </div>
                    <div class="div2" style="display:block;margin-left: 300px;">
                       <label><h4>Du</h4></label>
-                      <input type="date" name="debut">
+                      <input type="date">
                       <label><h4>Au</h4></label>
-                      <input type="date" name="fin">
+                      <input type="date">
                   </div>
                 </div>
                    <div>
-                    <button class="btn">Enregistrer</button></form>
+                    <button class="btn">Enregistrer</button>
                     <button class="btn" >Annuler</button>
                   </div>
             </div>
                   <div class="content content-6">
-                    <div class="title">
-                      <form action="/evacuation/<%=data.idpatient%>" method="POST">
-                    <textarea name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
-                    </div>
-                    <div>
-                      <button class="btn">Enregistrer</button></form>
+                    <div class="title"></div>
+                    <textarea id="tx" name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
+                    <div >
+                      <button class="btn">Enregistrer</button>
                       <button class="btn" >Annuler</button>
+                      
                     </div>
                   </div>
                   <div class="content content-7">
-                    <form action="/examen-medical/orientation/<%=data.idpatient%>" method="POST">
                     <div class="title"></div>
-                    <textarea name="message" rows="5" cols="100" placeholder="Orientation." style="margin-left: 130px;"></textarea>
-                    <div >
-                      <button class="btn">Enregistrer</button></form>
-
-                      <button class="btn" >Annuler</button>
+                    <div class="formm">
+                        <table>
+                            <th>affichage</th>
+                            <tr>
+                              <td id="td">cc</td>
+                            </tr>
+                        </table>
                     </div>
+                        <div >
+                          <button class="btn">Enregistrer</button>
+                          <button class="btn" >Annuler</button>
+                          <button class="btn" onclick="printContent('td')">Print Content</button>
+                        </div>
                   </div>
                 </section>
-                <%})%>
+               
               </div>
-                  </main>
+            </main>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="/stylesheets/fichiers-js/examen-medical.js"></script>
+    <script src="Examen-medical.js"></script>
     <!-- début drop-down user account -->
  
   <!-- fin drop-down user account -->
