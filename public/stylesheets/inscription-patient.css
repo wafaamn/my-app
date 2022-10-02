@@ -58,9 +58,7 @@ main {
   background-size: 200%;
   font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
-  
-  margin-top: -8px;
-  margin-left: 685px;
+  margin-top: 60px;
 }
 
 .btn:hover {
@@ -70,13 +68,14 @@ main {
 
 
 
-.form {
+form {
   background: rgb(192, 30, 30);
   padding: 25px;
   border-radius: 5px;
-  width: 1000px;
-  height: 600px;
-  justify-content:right;  
+  width: 1500px;
+  height: 600px; 
+  margin-top: 50px; 
+  margin-left:1170px;
 }
 .titre {
   background-image: linear-gradient(to right, #80ffdb, #4e2793);
@@ -162,7 +161,11 @@ main {
     margin-left: 250px;
   }
 
-.form_wrap .input_grp1 input[type="email"] {
+form .form_wrap .input_grp2 input[type="email"] {
+  width: 200px;
+  padding: 10px;
+}
+form .form_wrap .input_grp0 input[type="date"] {
   width: 200px;
   padding: 10px;
 }

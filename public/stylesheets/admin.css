@@ -190,11 +190,7 @@
   margin-left: 270px;
 }
 
-#nav-toggle:checked ~ .main-content header {
-  width: 1000px;
-  left: 275px;
-  
-}
+
 
 /* inside when i drop to colse */
 
@@ -204,17 +200,15 @@
   margin-left: 110px;
 }
 
-header {
-  background: #fff;
+nav {
+background: #fff;
+  grid-area: nav;
+  height: 80px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  left: 105px;
-  width: calc(106% - 165px);
-  top: 0;
-  transition: left 500ms;
 }
 
 #nav-toggle {
@@ -287,7 +281,7 @@ main {
 .card-single {
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(to right, #4e2793, #80ffdb);
+  background-image: linear-gradient(to right, #3fd353, #80ffdb);
   padding: 2rem;
   border-radius: 2px;
 }
@@ -341,7 +335,16 @@ main {
 }
 
 table {
-  border-collapse: collapse;
+   border-collapse: collapse;
+  box-shadow: 0 5px 10px #e1e5ee;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+  margin-top: -60px;
+  max-width: 2900px;
+  width: 97%;
+  height: 500px;
+  margin-left: 30px;
 }
 
 thead tr {
@@ -381,8 +384,32 @@ tr td:last-child {
 }
 
 .table-responsive {
-  width: 100%;
-  overflow-x: auto;
+   border-collapse: collapse;
+  box-shadow: 0 5px 10px #e1e5ee;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+  margin-top: -60px;
+  max-width: 2900px;
+  width: 97%;
+  height: 500px;
+  margin-left: 30px;
+}
+button {
+  background-image: linear-gradient(to right,#4e2793,#80ffdb);
+  border: none; 
+  color: white; 
+  padding: 12px 16px; 
+  font-size: 16px; 
+  cursor: pointer; 
+    transition: .5s;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-size: 200%;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    margin: 1rem 0;  
 }
 
 .customer {
@@ -416,7 +443,7 @@ tr td:last-child {
   color: #4e2793;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 2200px) {
   .sidebar {
     width: 70px;
   }
@@ -435,10 +462,7 @@ tr td:last-child {
   .main-content {
     margin-left: 70px;
   }
-  .main-content header {
-    width: calc(100% - 70px);
-    left: 70px;
-  }
+  
 }
 
 @media only screen and (max-width: 960px) {

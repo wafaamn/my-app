@@ -18,18 +18,23 @@ stat.get('/statistique',function(req,res){
 stat.get('/PatientsParSexe', function (req, res) {
         fs.readFile('./views/stat.ejs', 'utf-8', function (err, data) {
            if (err) throw err;
+           var femme = 'femme'
+           var homme = 'homme'
            res.writeHead(200, {'Content-Type': 'text/html' });
            var chartData = [];
            console.log(data);
-           con.query('select * from patient', function (error, rows) {
+           con.query('select count(sexe) as femme from patient where sexe = ?',[femme], function (error, row) {
                if (error) throw error;
-               chartData.push(collect(rows.sexe == 'femme').count());
-               chartData.push(collect(rows.sexe == 'homme').count());
-               console.log(chartData)
-               var result = data.replace('chartData', JSON.stringify(chartData));
-               res.write(result)
-               res.end();
-          })
+               con.query('select count(sexe) as homme from patient where sexe = ?', [homme], function (error, rows){
+                   chartData.push(row[0].femme)
+                   chartData.push(rows[0].homme)
+                   console.log(chartData)
+                   var result = data.replace('chartData', JSON.stringify(chartData));
+                   res.write(result)
+                   res.end();
+               })
+               })
+               
 
         })
 });
@@ -40,18 +45,18 @@ stat.get('/Consultation',function(res,res){
         res.writeHead(200, { 'Content-Type': 'text/html' });
         var lineData = [];
         console.log(data);
-        con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 01', function (err, result1) {
-            con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 02', function (err, result2) {
-                con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 03', function (err, result3) {
-                    con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 04', function (err, result4) {
-                        con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 05', function (err, result5) {
-                            con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 06', function (err, result6) {
-                                con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 07', function (err, result7) {
-                                    con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 08', function (err, result8) {
-                                        con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 09', function (err, result9) {
-                                            con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 10', function (err, result10) {
-                                                con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 11', function (err, result11) {
-                                                    con.query('select count(IdConsultation) as num from consultation where Month(DateConsultation) = 12', function (err, result12) {
+        con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 01', function (err, result1) {
+            con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 02', function (err, result2) {
+                con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 03', function (err, result3) {
+                    con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 04', function (err, result4) {
+                        con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 05', function (err, result5) {
+                            con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 06', function (err, result6) {
+                                con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 07', function (err, result7) {
+                                    con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 08', function (err, result8) {
+                                        con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 09', function (err, result9) {
+                                            con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 10', function (err, result10) {
+                                                con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 11', function (err, result11) {
+                                                    con.query('select count(IdConsultation) as num from Consultation where Month(DateConsultation) = 12', function (err, result12) {
                                                         lineData.push(result1[0].num);
                                                         lineData.push(result2[0].num);
                                                         lineData.push(result3[0].num);

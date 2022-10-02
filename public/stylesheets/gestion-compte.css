@@ -185,7 +185,7 @@
 }
 
 #nav-toggle:checked ~ .main-content header {
-  width: 1000px;
+  width: 1250px;
   left: 275px;
 }
 

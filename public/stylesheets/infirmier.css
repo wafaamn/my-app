@@ -11,7 +11,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  width: 105px;
+  width: 155px;
   background: #4e2793;
   padding: 6px 14px;
   z-index: 99;
@@ -20,7 +20,7 @@
 .sidebar .sidebar_img {
   display: flex;
   align-items: center;
-  margin-left: 70px;
+  margin-left: 90px;
   width: 75px;
   object-fit: contain;
   opacity: 0;
@@ -30,7 +30,7 @@
   opacity: 1;
 }
 .sidebar.open {
-  width: 275px;
+  width: 320px;
 }
 .sidebar .logo-details {
   height: 60px;

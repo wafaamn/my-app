@@ -10,7 +10,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  width: 105px;
+  width: 155px;
   background: #4e2793;
   padding: 6px 14px;
   z-index: 99;
@@ -19,7 +19,7 @@
 .sidebar .sidebar_img {
   display: flex;
   align-items: center;
-  margin-left: 70px;
+  margin-left: 90px;
   width: 75px;
   object-fit: contain;
   opacity: 0;
@@ -29,7 +29,7 @@
   opacity: 1;
 }
 .sidebar.open {
-  width: 275px;
+  width: 320px;
 }
 .sidebar .logo-details {
   height: 60px;
@@ -185,14 +185,15 @@
   box-shadow: 0 5px 10px #e1e5ee;
   background-color: white;
   text-align: left;
-  overflow: hidden;
-  margin-top: -60px;
-  width: 1000px;
-  height: 500px;
+  max-width: 2000px;
+  width: 100%;
   margin-left: 10px;
 }
 thead {
   box-shadow: 0 5px 10px #e1e5ee;
+}
+h1{
+  margin-left: 20px;
 }
 
 th {
@@ -205,6 +206,7 @@ th {
 
 td {
   padding: 1rem 2rem;
+
 }
 
 a {

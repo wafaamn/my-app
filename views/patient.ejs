@@ -32,7 +32,7 @@
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="/stylesheets/img/medecina.png"  alt="">
+                    <img src="/stylesheets/img/pat.png"  alt="">
                   </div>
           
                   <div class="menu">
@@ -43,17 +43,12 @@
                       </h3>
                       <ul>
                           <li>
-                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>">
+                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>" style="text-decoration: none;color:aliceblue;">
                                 <span class="material-icons icons-size" id="p">person</span>
                                 <span class="links_name"><h4>Mon profile</h4></span></a>
                               </button>
                           </li>
-                          <li>
-                            <button class="rundown-btn">
-                              <span class="material-icons icons-size" id="p">mode</span>
-                                <span class="links_name"><h4>Modifier le compte</h4></span>
-                              </button>
-                          </li>
+                          
                           <li>
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">mail</span>
@@ -62,10 +57,14 @@
                               </button>
                           </li>
                           <li>
+                            <form action="/deconnecter" method="GET">
+
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">logout</span>
                                 <span class="links_name"><h4>Se déconnecter</h4></span>
                               </button>
+                              </form>
+                          
                           </li>
                       </ul>
                       <% })}%>
@@ -108,11 +107,10 @@
           <table class="table">
             <thead>
               <tr>
-                
                 <th>Date</th>
                 <th>Motif</th>
                 <th>H-debut</th>
-                <th>H-fin</th>          
+                <th>H-fin</th> 
               </tr>
             </thead>
             <tbody>
@@ -122,6 +120,7 @@
                 <td><%=data.Motif%></td>
                 <td class="amount"><%=data.HeureDébutRDV%></td>
                 <td> <%=data.HeureFinRDV%></td>
+                <td><%=data.statut%></td>
               </tr>
               <% i++; }) %>
                 <% } else{ %>

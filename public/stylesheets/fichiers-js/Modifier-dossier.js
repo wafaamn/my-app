@@ -9,7 +9,7 @@ let calculate = document.getElementById("calculer")
 calculate.addEventListener("click", ()=>{
   let poids = document.getElementById("Poids").value;
 let taille = document.getElementById("Taille").value;
-let imc = (poids/(taille*taille));
+let imc = poids/(taille/100*taille/100);
 document.getElementById("IMC").value = imc.toFixed(2); 
 });
 

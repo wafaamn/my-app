@@ -4,6 +4,25 @@ create table utilisateur ( email varchar(255) primary key ,
  MotPasse varchar(255) ,
  active tinyint default 1 
  ) ;
+
+
+ CREATE TABLE patient ( IdPatient int primary key not null auto_increment,
+    nom varchar (40),
+    prenom varchar(40),
+    NumTel int,
+    sexe varchar(20),
+    wilaya varchar(40),
+    categorie varchar(40),
+    DateNaissance date,
+    Adress varchar(40),
+    Email varchar(40) unique,
+    foreign key(Email)references utilisateur (email) );
+    
+    create table bilan (idmed int not null,
+    foreign key (idmed) references medecin (IdMedecin),
+    image varchar(30),
+    idpat int not null ,
+    foreign key (idpat) references patient(IdPatient));
  
     
     CREATE TABLE medecin ( IdMedecin int primary key not null auto_increment,
@@ -51,7 +70,7 @@ Email varchar(40) unique ,
 foreign key(Email)references utilisateur (email) );
 
 create table infirmier( IdInfirmier int primary key not null auto_increment, 
- nom varchar (40),
+    nom varchar (40),
 prenom varchar(40),
 NumTel int,
 Adress varchar(40),
@@ -80,13 +99,7 @@ idmed int not null,
  foreign key (idpatient) references parient (IdPatient),
  foreign key (idmed) references medecin (IdMedecin)); 
 
-create table CertificatMdicale (IdCertificatMedicale int primary key auto_increment,
- DateCertificat date ,
- DescriptionCertf varchar(300),
- IdPatient int not null,
- foreign key (IdPatient) references parient (IdPatient),
- IdMed int not null,
- foreign key (IdMed) references medecin (IdMedecin));
+
 
 create table Ordonnance (IdOrdonnace int primary key auto_increment,
  DateORD date,
@@ -261,9 +274,12 @@ ON utilisateur.email = patient.email where utilisateur.email = patient.email ;
 CREATE VIEW demande AS
 SELECT demanderdv.*, patient.nom , patient.prenom , patient.categorie  FROM demanderdv
 LEFT OUTER JOIN patient
-ON patient.IdPatient = demanderdv.IdPatient ;
+ON patient.IdPatient = demanderdv.IdPatient where patient.IdPatient = demanderdv.IdPatient ;
 
 CREATE VIEW rdv AS
-SELECT rendezvous.*, patient.nom , patient.prenom , patient.categorie  FROM rendezvous
+SELECT RendezVous.*, patient.nom , patient.prenom , patient.categorie  FROM RendezVous
 LEFT OUTER JOIN patient
-ON patient.IdPatient = rendezvous.IdPatient ;
+ON patient.IdPatient = RendezVous.IdPatient ;
+
+CREATE VIEW pexamn AS SELECT a.*, b.* FROM examenclinique a LEFT OUTER JOIN patient b ON a.idpat = b.IdPatient where a.idpat = b.IdPatient
+CREATE VIEW V AS SELECT a.* , b.cat, c.cat, d.cat, e.cat, f.cat from utilisateur u LEFT OUTER JOIN patient b LEFT OUTER JOIN medecin c LEFT OUTER JOIN assistantadmin d LEFT OUTER JOIN infirmier e LEFT OUTER JOIN admin f on a.email = b.Email and a.email = c.Email and a.email = d.Email and a.email = e.Email and a.email = f.Email where a.email = b.Email and a.email = c.Email and a.email = d.Email and a.email = e.Email and a.email = f.Email;

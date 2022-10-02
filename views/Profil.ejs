@@ -27,44 +27,6 @@
     <div class="logo-details">
        <i class='bx bx-menu' id="btttn" ></i>
     </div>
-    <ul class="nav-list">
-      <li>
-         <button class="bttn"> 
-          <i class="fa fa-folder" aria-hidden="true"></i>
-          <span class="links_name">Dossier médical</span>
-         </button> 
-         <span class="tooltip">Dossier médical</span>
-      </li>
-      <li>
-       <button class="bttn">
-        <i class="fa fa-stethoscope" aria-hidden="true"></i>
-         <span class="links_name">Examen médical</span>
-       </button>
-       <span class="tooltip">Examen médical</span>
-     </li>
-     <li>
-       <button class="bttn">
-        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-         <span class="links_name">Agenda</span>
-       </button>
-       <span class="tooltip">Agenda</span>
-     </li>
-     <li>
-       <button class="bttn">
-        <i class="fa fa-bar-chart" aria-hidden="true"></i>
-         <span class="links_name">Statistique</span>
-       </button>
-       <span class="tooltip">Statistique</span>
-     </li>
-     <li>
-      <button class="bttn">
-       <i class="fa fa-plus-square" aria-hidden="true"></i>
-        <span class="links_name">Créer un dossier</span>
-      </button>
-      <span class="tooltip">Créer un dossier</span>
-    </li>
-
-    </ul>
   </div>
   <!--sidebar ends here-->
     <div class="container">
@@ -110,10 +72,11 @@
                               </button>
                           </li>
                           <li>
+                            <form action="deconnecter" method="GET">
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">logout</span>
                                 <span class="links_name"><h4>Se déconnecter</h4></span>
-                              </button>
+                              </button></form>
                           </li>
                       </ul>
                       <% })}%>
@@ -164,9 +127,9 @@
                                       <tbody>
                                         <tr>
                                           <td><h4>Nom Prénom</h4></td>
-                                          <td><%=data.nom%>  <%=data.prenom%></td>
+                                          <td><input type="text" id="nom" name="nom" value="<%=data.nom%>" disabled /><input type = "text" id="prenom" name="prenom" value="<%=data.prenom%>" disabled /> </td>
                                           <td><h4>Date de naissance</h4></td>
-                                          <td ><%=data.DateNaissance%></td>
+                                          <td ><input type="date" id="dnai" name="dnai" value="<%=data.DateNaissance%>" disabled /></td>
                                         </tr>
                                         <tr>
                                           <td><h4>Adresse</h4></td>
@@ -176,9 +139,9 @@
                                         </tr>
                                         <tr>
                                           <td><h4>Email</h4></td>
-                                          <td ><%=data.Email%></td>
+                                          <td ><input type="email" id="email" name="email" value="<%=data.Email%>" disabled /></td>
                                           <td><h4>Sexe</h4></td>
-                                          <td ><%=data.sexe%></td>
+                                          <td ><input type="text" id="sexe" name="sexe" value="<%=data.sexe%>" disabled/></td>
                                         </tr>
                                         <tr>
                                           <td><h4>Mot de passe</h4></td>

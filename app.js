@@ -13,12 +13,15 @@ var statRouter = require('./routes/static')
 var con = require('./conn/conn');
 var session = require('express-session');
 var imageRouter = require('./routes/image-route');
+var data = require('./routes/data')
 var app = express();
+const oneDay = 1000 * 60 * 60 * 24;
+
 
 app.use(session({
   secret : 'ABCDefg',
   resave : false,
-  //cookie:{maxAge:  },
+  cookie:{maxAge: oneDay  },
   saveUninitialized : true
 }));
 // app.use(cookieSession({ keys: ['abc'], name: 'user' }));
@@ -40,6 +43,18 @@ app.use('', PatientRouter);
 app.use('', InfirmierRouter);
 app.use('/', imageRouter);
 app.use('',statRouter)
+// app.use('/find', (req, res, next) => {
+//   const filters = req.query;
+//   const filteredUsers = data.filter(user => {
+//     let isValid = true;
+//     for (key in filters) {
+//       console.log(key, user[key], filters[key]);
+//       isValid = isValid && user[key] == filters[key];
+//     }
+//     return isValid;
+//   });
+//   res.send(filteredUsers);
+// });
 
 
 // catch 404 and forward to error handler

@@ -32,11 +32,13 @@
        <span class="tooltip">Examen médical</span>
      </li>
      <li>
+       <form action="/statistique" method="GET">
        <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
        </button>
        <span class="tooltip">Statistique</span>
+      </form>
      </li>
 
     </ul>
@@ -72,12 +74,6 @@
                           </li>
                           <li>
                             <button class="rundown-btn">
-                              <span class="material-icons icons-size" id="p">mode</span>
-                                <span class="links_name"><h4>Modifier le compte</h4></span>
-                              </button>
-                          </li>
-                          <li>
-                            <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">mail</span>
                             
                                 <span class="links_name"><h4>Boite de récéption</h4></span>
@@ -104,7 +100,8 @@
                   <th>Prénom</th>
                   <th>Date_Naiss</th>
                   <th>Sexe</th>
-                  <th style="color:blueviolet;">Ouvrir</th>
+                  <th style="color:blueviolet;">Examen Medical</th>
+                  <th style="color:blueviolet;">Historique</th>
                 </tr>
               </thead>
               <tbody>
@@ -114,14 +111,15 @@
                 userData.forEach(function(data){
                 %>
                 <tr>
-                  <td><%=data.IdDoss %></td>
+                  <td><%=data.iddoss %></td>
                   <td><%=data.nom %></td>
                   <td><%=data.prenom %></td>
                   <td>
                     <p class="status status-unpaid"><%=data.DateNaissance %></p>
                   </td>
                   <td><%=data.sexe %></td>
-                  <td><a href="/examen-medical/<%=data.IdPatient%>">Ouvrir</a></td>
+                  <td><a href="/examen-medical/<%=data.IdPatient%>">Créer</a></td>
+                  <td><a href="/historique/<%=data.IdPatient%>">Ouvrir</a></td>
                 </tr>
                 <%  i++; }) %>
                 <% } else{ %>

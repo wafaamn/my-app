@@ -16,6 +16,7 @@
 </head>
 
 <body id="body">
+
   <!--sidebar starts here-->
   <div class="sidebar">
     <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
@@ -24,18 +25,20 @@
     </div>
     <ul class="nav-list">
       <li>
+        <form action="/dossiers" method="GET">
        <button class="bttn">
-        <i class="fa fa-stethoscope" aria-hidden="true"></i>
-         <span class="links_name">Examen médical</span>
+        <i class="fa fa-folder" aria-hidden="true"></i>
+         <span class="links_name">Dossiers médical</span>
        </button>
-       <span class="tooltip">Examen médical</span>
+       <span class="tooltip">Dossiers médical</span></form>
      </li>
      <li>
+       <form action="/statistique" method="GET">
        <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
        </button>
-       <span class="tooltip">Statistique</span>
+       <span class="tooltip">Statistique</span></form>
      </li>
 
     </ul>
@@ -52,19 +55,21 @@
                   <div class="profile" onclick="menuToggle();">
                     <img src="/styelesheets/img/medecina.png"  alt="">
                   </div>
+
           
                   <div class="menu">
-                      <h3>
-                          MERABET MOHAMED
-                          <div>m.merabet@esi-sba.dz</div>
+                     <h3>
+                        MERABET MOHAMMED
+                            <div>m.merabet@esi-sba.dz</div>
                       </h3>
                       <ul>
                           <li>
-                              <button class="rundown-btn">
+                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>" style="text-decoration:none; color:aliceblue;">
                                 <span class="material-icons icons-size" id="p">person</span>
-                                <span class="links_name"><h4>Mon profile</h4></span>
+                                <span class="links_name"><h4>Mon profile</h4></span></a>
                               </button>
                             </li>
+                            
                           <li>
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">mail</span>
@@ -73,12 +78,13 @@
                               </button>
                           </li>
                           <li>
-                            <form action="deconnecter" method="GET">
+                            <form action="/deconnecter" method="GET">
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">logout</span>
                                 <span class="links_name"><h4>Se déconnecter</h4></span>
                               </button></form>
                           </li>
+                         
                       </ul>
                   </div>
               </div>
@@ -93,7 +99,7 @@
                   userData.forEach(function(data){
                     %>
                 <button class="btn" onclick="formToggle();">Programmer un rdv</button>
-                <form action="" method="POST">
+                <form action="/examen-medical/rendezvous/<%=data.IdPatient%>" method="POST">
                   <div class="form">
                     <form>
                       <div class="title"><h1><%=data.nom%> <%=data.prenom%></h1></div>
@@ -110,7 +116,7 @@
                       </div>
                       <label>Motif</label>
                       <div class="form1">
-                      <textarea cols="50" rows="2"></textarea>
+                      <textarea cols="20" rows="2"></textarea>
                       </div>
                       <div class="form1" style="display:flex;">
                         <button class="btn">Envoyer</button>
@@ -137,15 +143,15 @@
                 <label><h4>Email</h4>
                   <small><%=data.Email%></small>
                 </label>
-                <label><h4>Catégorie</h4>
-                  <small><%=data.categorie%></small>
+                <label><h4>Numéro téléphone</h4>
+                  <small><%=data.NumTel%></small>
                 </label>
                 <div style="margin-left: 500px;margin-top: -88px;">
                 <label><h4>Date Naissance</h4>
-                  <small><%=data.datenaissance%></small>
+                  <small><%=data.DateNaissance%></small>
                 </label>
-                <label><h4>Date</h4>
-                  <small>07/08/2021</small>
+                <label><h4>Sexe</h4>
+                  <small><%=data.sexe%></small>
                 </label>
                 </div>
     
@@ -153,7 +159,7 @@
                   <div class="nav1">
                   <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Examen clinique</label>
                   <label for="Bilan_paraclinique" class="blog"><i class="fas fa-blog"></i>Bilan paraclinique</label>
-                  <label for="Rapport" class="code"><i class="fas fa-code"></i>Rapport</label>
+                  <label for="Rapport" class="code"><i class="fas fa-code"></i>Rapport médical</label>
                   <label for="Ordonnance" class="help"><i class="far fa-envelope"></i>Ordonnance</label>
                   </div>
                   <div class="nav2">
@@ -169,9 +175,9 @@
                     <p>
                       <div class="form_wrap">
                         <div class="input_wrap1">
-                          <form action="/examen-clinique/<%=data.idpatient%>" method="POST">
+                          <form action="/examen-clinique/<%=data.IdPatient%>" method="POST">
                           <label for="fname"><h2>Motif</h2></label>
-                          <textarea cols="110" rows="2" id="fname" name="motif"></textarea>
+                          <textarea cols="65" rows="2" id="fname" name="motif"></textarea>
                         </div>
                         <div class="input_wrap2">
                           <label for="Paramètre"><h2>Paramètres vitaux</h2></label>
@@ -192,7 +198,7 @@
                         </div>
                       <div class="input_wrap3">
                         <label for="examen"><h2>Examen du jour + synthèse</h2></label>
-                        <textarea cols="110" rows="6" id="examen" name="synthese"></textarea>
+                        <textarea cols="65" rows="6" id="examen" name="synthese"></textarea>
                       </div>
                       <div >
                         <button class="btn">Enregistrer</button></form>
@@ -203,7 +209,7 @@
                   </div>
                   <div class="content content-2">
                     <div class="title"></div>
-                    <form action="/store-image/<%=data.idpatient%>" method="POST" enctype="multipart/form-data">
+                    <form action="/store-image/<%=data.IdPatient%>" method="POST" enctype="multipart/form-data">
                       <p><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
                     <input type="file" name="image" id="real-file" hidden="hidden" multiple />
                     <button class="btn" type="button"  type="submit" id="custom-button">Séléctionner un fichier</button>
@@ -216,24 +222,23 @@
                     </div>
                   </div>
                   <div class="content content-3">
-                    <form action="/examen-medical/rapport/<%=data.idpatient%>" method="POST" >
+                    <form action="/rapport/<%=data.IdPatient%>" method="POST" >
                     <div class="title">
-                    <textarea name="message" rows="20" cols="100"  placeholder="Ecriver votre rapport." style="margin-left: 130px;"></textarea>
+                    <textarea name="message" rows="20" cols="65"  placeholder="Ecriver votre rapport." style="margin-left: 104px;"></textarea>
                     </div>
                     <div>
-                  <button class="btn"><a href="/enr-rapport/<%=data.idpatient%>">Enregistrer</a></button></form>
-                     <button class="btn" >Imprimer</button>
-                      <button class="btn" >Annuler</button>
+                  <button class="btn"><a href="/enr-rapport/<%=data.IdPatient%>" style="text-decoration: none;color: aliceblue;">Enregistrer</a></button></form>
+                  <button class="btn" >Annuler</button>
                     </div>
 
                   </div>
                   <div class="content content-4">
-                    <div class="title"><form action="/examen-medical/ordonnance/<%=data.idpatient%>" method="POST">
-                      <textarea name="message" rows="20" cols="100" placeholder="Ordonnance." style="margin-left: 130px;"></textarea>
+                    <div class="title"><form action="/examen-medical/ordonnance/<%=data.IdPatient%>" method="POST">
+                      <textarea name="message" rows="20" cols="65" placeholder="Ordonnance." style="margin-left: 104px;"></textarea>
                     </div>
                     <div >
                       
-                      <button class="btn"><a href="/enr-ordonnace/<%=data.idpatient%>">Enregistrer</a></button></form>
+                      <button class="btn"><a href="/enr-ordonnace/<%=data.IdPatient%>"style="text-decoration:none;color:aliceblue;">Enregistrer</a></button></form>
                     
                       <button class="btn" >Annuler</button>
                     </div>
@@ -242,15 +247,13 @@
                     <div class="title"></div>
                    <div style="display:flex;margin-left: 50px;"> 
                    <div class="div1" style="display:block;">
-                    <form action="/examen-medical/certificat/<%=data.idpatient%>" method="POST">
+                    <form action="/examen-medical/certificat/<%=data.IdPatient%>" method="POST">
                     <label><h4>Type</h4></label>
                      <select name="type">
                        <option>traitement</option>
                        <option>prolongation</option>
                      </select>
-                     <label><h4>Durée</h4></label>
-                     <input type="number" name="duree">
-                   </div>
+                     </div>
                    <div class="div2" style="display:block;margin-left: 300px;">
                       <label><h4>Du</h4></label>
                       <input type="date" name="debut">
@@ -259,26 +262,26 @@
                   </div>
                 </div>
                    <div>
-                    <button class="btn"><a href="/enr-certificat/<%=data.idpatient%>">Enregistrer</a></button></form>
+                    <button class="btn"><a href="/enr-certificat/<%=data.IdPatient%>"style="text-decoration:none;color:aliceblue;">Enregistrer</a></button></form>
                     <button class="btn" >Annuler</button>
                   </div>
             </div>
                   <div class="content content-6">
                     <div class="title">
-                      <form action="/evacuation/<%=data.idpatient%>" method="POST">
-                    <textarea name="message" rows="5" cols="100" placeholder="Evacuation." style="margin-left: 130px;"></textarea>
+                      <form action="/evacuation/<%=data.IdPatient%>" method="POST">
+                    <textarea name="message" rows="5" cols="65" placeholder="Evacuation." style="margin-left: 104px;"></textarea>
                     </div>
                     <div>
-                      <button class="btn"><a href="/enr-evacuation/<%=data.idpatient%>">Enregistrer</a></button></form>
+                      <button class="btn"><a href="/enr-evacuation/<%=data.IdPatient%>" style="text-decoration:none;color:aliceblue;">Enregistrer</a></button></form>
                       <button class="btn" >Annuler</button>
                     </div>
                   </div>
                   <div class="content content-7">
-                    <form action="/examen-medical/orientation/<%=data.idpatient%>" method="POST">
+                    <form action="/examen-medical/orientation/<%=data.IdPatient%>" method="POST">
                     <div class="title"></div>
-                    <textarea name="message" rows="5" cols="100" placeholder="Orientation." style="margin-left: 130px;"></textarea>
+                    <textarea name="message" rows="5" cols="65" placeholder="Orientation." style="margin-left: 104px;"></textarea>
                     <div >
-                      <button class="btn"><a href="/enr-orientation/<%=data.idpatient%>">Enregistrer</a></button></form>
+                      <button class="btn"><a href="/enr-orientation/<%=data.IdPatient%>" style="text-decoration:none;color:aliceblue;">Enregistrer</a></button></form>
 
                       <button class="btn" >Annuler</button>
                     </div>

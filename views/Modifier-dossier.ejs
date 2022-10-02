@@ -25,18 +25,20 @@
     </div>
     <ul class="nav-list">
       <li>
+        <form action="/examen" method="GET">
        <button class="bttn">
         <i class="fa fa-stethoscope" aria-hidden="true"></i>
          <span class="links_name">Examen médical</span>
        </button>
-       <span class="tooltip">Examen médical</span>
+       <span class="tooltip">Examen médical</span></form>
      </li>
      <li>
+       <form action="/statistique" method="GET">
        <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
        </button>
-       <span class="tooltip">Statistique</span>
+       <span class="tooltip">Statistique</span></form>
      </li>
     </ul>
   </div>
@@ -123,7 +125,7 @@
                 <section>
                  
                   <div class="content content-1">
-                    <form action="/enregistrer/<%=data.IdPatient%>" method="POST"></form>
+                    <form action="/infos/<%=data.IdPatient%>" method="POST">
                     <p>
                         <table class="table">
                         
@@ -135,15 +137,10 @@
                                 <td><%=data.wilaya%></td>
                               </tr>
                               <tr>
-                                <td><h4>Adresse</h4></td>
-                                <td><%=data.Adress%></td>
-                                <td><h4>Numéro téléphone</h4></td>
-                                <td><%=data.NumTel%></td>
-                              </tr>
-                              
-                              <tr>
-                                <td><h4>Groupe sanguin</h4></td>
-                                <td>  <select name="grs"  required value="<%=data1.grs%>" >
+                                <td>
+                                  <h4>Groupe sanguin</h4>
+                                </td>
+                                <td> <select name="grs" value="<%=data1.grs%>">
                                     <option>A+</option>
                                     <option>A-</option>
                                     <option>B+</option>
@@ -153,20 +150,30 @@
                                     <option>AB+</option>
                                     <option>AB-</option>
                                   </select></td>
-                                <td><h4>N°SS</h4></td>
-                                <td> <input type="number" id="nss" name="nss"  required value="<%=data1.nss%>"></td>
+                                <td><h4>Numéro téléphone</h4></td>
+                                <td><%=data.NumTel%></td>
                               </tr>
-                              <tr>
-                                <td><h4>Sexe</h4></td>
-                                <td><%=data.sexe%></td>
                               
+                              <tr>
+                                  <td>
+                                    <h4>Sexe</h4>
+                                  </td>
+                                  <td>
+                                    <%=data.sexe%>
+                                  </td>
+                                <td><h4>N°SS</h4></td>
+                                <td> <input type="number" id="nss" name="nss"   value="<%=data1.nss%>" style="padding: 5px 1px; width: 80px;"></td>
                               </tr>
+                            
                             </tbody>
                      </table> 
                     </p>
+                    <button class="btn" type="submit">Enregistrer</button></form>
+                    </div>
 
-                  </div>
+
                   <div class="content content-2">
+                    <form action="/biona/<%=data.IdPatient%>" method="POST">
                     <div class="title"></div>
                     <div class="input_wrap">
                         <label for="Poids"><h4>Poids</h4></label>
@@ -181,9 +188,11 @@
                       <input type="number" id="IMC" name="imc"  required value="<%=data1.IMC%>">
                     </div> 
                     <button id="calculer">Calculer IMC </button>
-                    <h4> S'il vous plait  entrer le poids [kg] et la taille [m]</h4>
+                    <h4> Veuillez entrer le poids en [kg] et la taille en [cm]</h4>
+                    <button class="btn" type="submit">Enregistrer</button></form>
                   </div>
                   <div class="content content-3">
+                    <form action="/enregistrer/<%=data.IdPatient%>" method="POST">
                     <div class="title"></div>
                     <div class="input_wrapa">
                    <div class="antece1">   
@@ -191,12 +200,12 @@
 
                         <input type="checkbox" id="HTA" name="hta" value="<%=data2.hta%>" <%=data2.hta ? "checked" : "" %>>
                         <label for="HTA"> HTA</label>
-                        <input type="checkbox" id="autres" name="diabete" value="<%=data2.Diabète %>" <%=data2.Diabète ? "checked" : "" %>>
-                            <label for="autres"> Diabète</label>
+                        <input type="checkbox" id="diabete" name="diabete" value="<%=data2.Diabète %>" <%=data2.Diabète ? "checked" : "" %>>
+                        <label for="diabete"> Diabète</label>
                         <input type="checkbox" id="autres" name="autres"  value="<%=data2.autre %>" <%=data2.autre ? "checked" : "" %>>
                         <label for="autres"> autres</label>
                         <h3>Remarque</h3>
-                        <input type="text" id="remarque" name="remarque"  value="<%=data2.pdMed%>">
+                        <input type="text" id="remarque" name="remarque"  value="<%=data2.Remarque%>">
                       
                     
                     <div class="input_wrap">
@@ -207,37 +216,38 @@
                       <input type="checkbox" id="chole" name="chole" value="<%=data2.Cholecystectomie%> " <%=data2.Cholecystectomie ? "checked" : "" %>>
                       <label for="chole"> Cholecystectomie</label>
                       <h3>Remarque</h3>
-                      <input type="text" id="remarque1" name="remarque1"  required value="<%=data2.psChirurg%>" >
+                      <input type="text" id="remarque1" name="remarque1"   value="<%=data2.remarque1%>" >
                     </div>
                   </div>
                   <div class="antece2">
                     <div class="input_wrap">
                       <h1>Allergique</h1>
-                      <input type="text" id="Allergique" name="allgq" required value="<%=data2.Allergique%>">
+                      <input type="text" id="Allergique" name="allgq"  value="<%=data2.Allergique%>">
                     </div>
                     <div class="input_wrap">
                       <h1>Familiaux</h1>
                          
                       <input type="checkbox" id="cardio" name="cardio" value = "<%=data2.Cardiopathie %>" <%=data2.Cardiopathie ? "checked" : "" %> >
                       <label for="cardio"> Cardiopathie</label>
-                      <input type="checkbox" id="autres" name="autres1" value="<%=data2.autres %>" <%=data2.autres ? "checked" : "" %>>
-                      <label for="autres"> autres</label>
+                      <input type="checkbox" id="autre" name="autres1" value="<%=data2.autres %>" <%=data2.autres ? "checked" : "" %>>
+                      <label for="autre"> autres</label>
                       <h3>Remarque</h3>
-                      <input type="text" id="remarque2" name="remarque2"   value="<%=data2.psFamille%>">
+                      <input type="text" id="remarque2" name="remarque2"   value="<%=data2.remarque2%>">
                     </div>
                     <div class="input_wrap">
                       <h1>Toxiques</h1>
-                      <input type="text" id="Toxiques" name="tox"  required value="<%=data2.Toxiques%>">
+                      <input type="text" id="Toxiques" name="tox"  value="<%=data2.Toxiques%>">
                     </div>  
                   </div> 
 
                   <div>
                     <!-- <form action=""> -->
-                    <button class="btn" type="submit">enregistrer</button>
+                   
                     <!-- </form> -->
                   </div>
-                  </form>
+                  
                   </div>
+                  <button class="btn" type="submit">Enregistrer</button></form>
                   </div>
                   <div class="content content-4">
                     <div class="title"></div>
@@ -312,17 +322,17 @@
                         <label for="appétit"> Appétit</label>
                         <input type="checkbox" id="transit" name="transit" value="transit" <%=data3.Transit ? "checked" : "" %>>
                         <label for="transit"> Transit</label><br>
-                        <input type="checkbox" id="Selles" name="Selles" value="selles" <%=data3.Selles ? "checked" : "" %>>
+                        <input type="checkbox" id="Selles" name="selles" value="selles" <%=data3.Selles ? "checked" : "" %>>
                         <label for="selles"> Selles</label>
                         <input type="checkbox" id="pyrosis" name="pyrosis" value="pyrosis" <%=data3.Pyrosis ? "checked" : "" %>>
                         <label for="pyrosis"> Pyrosis</label><br>
-                        <input type="checkbox" id="Rectoreagies" name="Rectoreagies" value="rectoreagies" <%=data3.Rectoreagies ? "checked" : "" %>>
+                        <input type="checkbox" id="Rectoreagies" name="rectoreagies" value="rectoreagies" <%=data3.Rectoreagies ? "checked" : "" %>>
                         <label for="Rectoreagies"> Rectoreagies</label>
                         <input type="checkbox" id="abdominales" name="abdominales" value="abdominales" <%=data3.abdominales ? "checked" : "" %>>
                         <label for="abdominales"> Douleurs abdominales</label>
                     
                         <h1>Génito-urinaire</h1>    
-                       <input type="checkbox" id="Miction" name="Miction" value="Miction" <%=data3.Miction ? "checked" : "" %>>
+                       <input type="checkbox" id="Miction" name="miction" value="Miction" <%=data3.Miction ? "checked" : "" %>>
                         <label for="Miction"> Miction</label>
                         <input type="checkbox" id="Pollakiurie" name="pollakiurie" value="pollakiurie" <%=data3.Pollakiurie ? "checked" : "" %>>
                         <label for="Pollakiurie"> Pollakiurie</label>
@@ -338,43 +348,43 @@
                           <label > Cycle </label><br>
                           <input type="checkbox" id="Régulier" name="Regulier" value="Régulier" <%=data3.CycleRegulier ? "checked" : "" %>>
                           <label for="Régulier"> Régulier</label><br>
-                          <input type="checkbox" id="Irrégulier" name="Irregulier" value="irrégulier" <%=data3.CycleIrregulier ? "checked" : "" %>>
+                          <input type="checkbox" id="Irrégulier" name="irregulier" value="irrégulier" <%=data3.CycleIrregulier ? "checked" : "" %>>
                           <label for="Irrégulier"> Irrégulier </label>
                         
                         <h1>Neurologique et psychisme</h1>    
-                       <input type="checkbox" id="Sommeil" name="Sommeil" value="sommeil" <%=data3.Sommeil ? "checked" : "" %>>
+                       <input type="checkbox" id="Sommeil" name="sommeil" value="sommeil" <%=data3.Sommeil ? "checked" : "" %>>
                         <label for="Sommeil"> Sommeil</label>
-                        <input type="checkbox" id="Vertiges" name="Vertiges" value="vertiges" <%=data3.Vertiges ? "checked" : "" %>>
+                        <input type="checkbox" id="Vertiges" name="vertiges" value="vertiges" <%=data3.Vertiges ? "checked" : "" %>>
                         <label for="Vertiges"> Vertiges</label>
-                        <input type="checkbox" id="Céphalées" name="Cephalees" value="céphalées" <%=data3.Céphalées ? "checked" : "" %>>
+                        <input type="checkbox" id="Céphalées" name="cephalees" value="céphalées" <%=data3.Céphalées ? "checked" : "" %>>
                         <label for="Céphalées"> Céphalées</label>
-                        <input type="checkbox" id="Peur" name="Peur" value="peur" <%=data3.Peurvide ? "checked" : "" %>>
+                        <input type="checkbox" id="Peur" name="peur" value="peur" <%=data3.Peurvide ? "checked" : "" %>>
                         <label for="Peur"> Peur de vide</label><br>
-                        <input type="checkbox" id="Perte" name="Perte" value="perte" <%=data3.Perteconnai? "checked" : "" %>>
+                        <input type="checkbox" id="Perte" name="perte" value="perte" <%=data3.Perteconnai? "checked" : "" %>>
                         <label for="Perte"> Perte de connaissance</label>
-                        <input type="checkbox" id="Parésie" name="Parésie" value="parésie" <%=data3.Parésie ? "checked" : "" %>>
+                        <input type="checkbox" id="Parésie" name="parésie" value="parésie" <%=data3.Parésie ? "checked" : "" %>>
                         <label for="Parésie"> Parésie </label>
-                        <input type="checkbox" id="Paresthésie" name="Paresthesie" value="paresthésie" <%=data3.Paresthésie ? "checked" : "" %>>
+                        <input type="checkbox" id="Paresthésie" name="paresthesie" value="paresthésie" <%=data3.Paresthésie ? "checked" : "" %>>
                         <label for="Paresthésie"> Paresthésie</label><br>
                           
                           <h1>Hémathologique et gonglionnaire</h1>    
-                         <input type="checkbox" id="Echymose" name="Echymose" value="echymose" <%=data3.Echymose ? "checked" : "" %>>
+                         <input type="checkbox" id="Echymose" name="echymose" value="echymose" <%=data3.Echymose ? "checked" : "" %>>
                           <label for="Echymose"> Echymose</label>
-                          <input type="checkbox" id="Tendances" name="Tendances" value="tendances" <%=data3.hémorragies ? "checked" : "" %>>
+                          <input type="checkbox" id="Tendances" name="tendances" value="tendances" <%=data3.hémorragies ? "checked" : "" %>>
                           <label for="Tendances"> Tendances aux hémorragies</label>
                             
                        
                             <h1>Endocrinologie</h1>    
-                           <input type="checkbox" id="Obésité" name="Obesite" value="obésité" <%=data3.Obésité ? "checked" : "" %>>
+                           <input type="checkbox" id="Obésité" name="obesite" value="obésité" <%=data3.Obésité ? "checked" : "" %>>
                             <label for="Obésité"> Obésité familiale</label>
-                            <input type="checkbox" id="Maigraire" name="Maigraire" value="maigraire" <%=data3.Maigraire ? "checked" : "" %>>
+                            <input type="checkbox" id="Maigraire" name="maigraire" value="maigraire" <%=data3.Maigraire ? "checked" : "" %>>
                             <label for="Maigraire"> Maigraire familiale</label>
                               
                         </div>
                     </div>  
                     <div>
                       <!-- <form action=""> -->
-                        <button class="btn" type="submit"  >enregistrer</button>
+                        <button class="btn" type="submit"  >Enregistrer</button>
                       <!-- </form> -->
                      </div>
                     </form>

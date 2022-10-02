@@ -4,7 +4,7 @@ module.exports.image={
     storage:function(){
         var storage = multer.diskStorage({
         destination: function (req, file, cb) {
-          cb(null, 'publi/images/')
+          cb(null, 'public/stylesheets/img')
         },
         filename: function (req, file, cb) {
             cb(null, file.originalname)

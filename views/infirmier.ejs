@@ -27,16 +27,13 @@
     <div class="container">
         <nav class="navbar">    
               <h2 for="btttn">Rendez-vous</h2>
-              <div class="search-wrapper">
-                <span class="las la-search" ></span>
-                <input type="search" placeholder="Recherche" />
-              </div>
+            
               <!--modification profil-->
               <!-- drop-down user account -->
               <div class="user-wrapper">
                 <div class="action">
                   <div class="profile" onclick="menuToggle();">
-                    <img src="/stylesheets/img/medecina.png"  alt="">
+                    <img src="/stylesheets/img/infirmier.png"  alt="">
                   </div> 
                   <div class="menu">
                     <% if(data.length!=0){ data.forEach(function(data){ %>
@@ -46,7 +43,7 @@
                       </h3>
                       <ul>
                           <li>
-                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>">
+                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>" style="text-decoration: none; color:aliceblue;">
                                 <span class="material-icons icons-size" id="p">person</span>
                                 <span class="links_name"><h4>Mon profile</h4></span>
                               </a></button>
@@ -57,14 +54,17 @@
                                 <span class="links_name"><h4>Boite de récéption</h4></span>
                               </button>
                           </li>
+                          <% })}%>
                           <li>
+                            <form action="deconnecter" method="GET">
                             <button class="rundown-btn">
                               <span class="material-icons icons-size" id="p">logout</span>
                                 <span class="links_name"><h4>Se déconnecter</h4></span>
                               </button>
+                              </form>
                           </li>
                       </ul>
-                    <% })}%>
+                    
                   </div>
               </div>
             </div>             <!-- drop-down user account -->
@@ -74,7 +74,8 @@
                 <div class="action2">
                   <div class="form">
                     <% if(demandeData.length!=0){ demandeData.forEach(function(data){ %>
-                      <form action="infirmier/modifier/<%=data.IdDemandeRDV%>" method="POST">
+                      <form action="/modifier/<%=data.IdDemandeRDV%>" method="POST">
+                        <% })}%>
                         <table>
                             <tbody>
                               <tr>
@@ -91,12 +92,14 @@
                               </tr>
                             </tbody>
                         </table>
+                        
                         <div class="form1" style="display:flex;">
                           <button class="btn">Envoyer</button>
                           <button class="btn">Annuler</button>
+                          </form>
                         </div>
-                      </form>
-                      <% })}%>
+                      
+                      
                   </div>
               </div>
             </div> 
@@ -107,7 +110,7 @@
                   <th>Nom</th>
                   <th>Prénom</th>
                   <th>Date</th>
-                  <th>Catégorie</th>
+                 
                   <th>Motif</th>
                   <th>H-debut</th>
                   <th>H-fin</th>
@@ -121,26 +124,26 @@
                   <td><%=data.nom%></td>
                   <td><%=data.prenom%></td>
                   <td><%=data.DateRDV%></td>
-                  <td class="amount"><%=data.categorie%></td>
+                  
                   <td><%=data.Motif%> </td>
                   <td class="amount"><%=data.HeureDébutRDV%></td>
                   <td><%=data.HeureFinRDV%> </td>
                   <td class="amount">
-                    <form action="infirmier/accepter/<%=data.IdDemandeRDV%>" method="GET"></form>
-                  <button class="btn"  ><a href="infirmier/accepter/<%=data.IdDemandeRDV%>">
+                    <form action="/valider/<%=data.IdDemandeRDV%>" method="GET">
+                  <button class="btn"  >
                     <i class="fa fa-check" aria-hidden="true"></i>
                   </button>
                   </form>
-                  <form action="infirmier/refuser/<%=data.IdDemandeRDV%>" method="GET">
-                    <button class="btn"><a href = "infirmier/refuser/<%=data.IdDemandeRDV%>">
-                        <i class="fa fa-times" aria-hidden="true"></i></a>
+                  <form action="/refuser/<%=data.IdDemandeRDV%>" method="GET">
+                    <button class="btn">
+                        <i class="fa fa-times" aria-hidden="true"></i>
                       </button>
                   </form>
-                      <form action="infirmier/refuser/<%=data.IdDemandeRDV%>" method="GET">
-                      <button class="btn"><a  href="infirmier/modifier/<%=data.IdDemandeRDV%>">
-                        <i class="fa fa-pencil" aria-hidden="true" onclick="formToggle();" ></i></a>
+                      <!-- <form action="modifier/<%=data.IdDemandeRDV%>" method="GET"> -->
+                      <button class="btn">
+                        <i class="fa fa-pencil" aria-hidden="true" onclick="formToggle();" ></i>
                       </button>
-                      </form>
+                      <!-- </form> -->
                   </td>
                 </tr>
                 <% i++; }) %>
@@ -158,7 +161,7 @@
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Date</th>
-                    <th>Catégorie</th>
+                    
                     <th>Motif</th>
                     <th>H-debut</th>
                     <th>H-fin</th>
@@ -171,14 +174,14 @@
                       <td><%=data.nom%></td>
                       <td><%=data.prenom%></td>
                       <td><%=data.DateRDV%></td>
-                      <td class="amount"><%=data.categorie%></td>
+                  
                       <td><%=data.Motif%></td>
                       <td class="amount"><%=data.HeureDébutRDV%></td>
                       <td><%=data.HeureFinRDV%></td>
                       <td class="amount">
-                        <form action="infirmier/delete/<%=data.IdRDV%>" method="GET">
-                        <button class="btn"><a href="infirmier/delete/<%=data.IdRDV%>">
-                          <i class="fa fa-trash" aria-hidden="true"></i></a>
+                        <form action="/supprimer/<%=data.IdRDV%>" method="GET">
+                        <button class="btn">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
                         </button>
                         </form>
                       </td>

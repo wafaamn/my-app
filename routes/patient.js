@@ -12,16 +12,27 @@ patient.get('/patient/:id', function(req,res){
         })
     }
     var query1 = function(callback){
-        con.query('SELECT * FROM rendezvous WHERE IdPatient =?',[userid],function(err,results){
+        con.query('SELECT * FROM RendezVous WHERE IdPatient =?',[userid],function(err,results){
             if(err) throw err ;
             console.log('hello')
             console.log(results);
             return callback(results)
         })
     }
+    var query2 = function (callback) {
+        con.query('SELECT * FROM demanderdv WHERE IdPatient =?', [userid], function (err, results) {
+            if (err) throw err;
+            console.log('hello')
+            console.log(results);
+            return callback(results)
+        })
+    }
+
     query(function(result){
         query1(function(results){
-            res.render('patient',{data : results , data1 : result})
+            query2(function(result1){
+                res.render('patient', { data: results, data1: result , data2 : result1 })
+            })
         })
     })
  });
@@ -42,6 +53,8 @@ patient.post('/patient/:id',function(req,res){
             console.log('insertion de rdv est terminé', result);
 
         })
+
+    res.redirect(`/patient/${userid}`)
         
 
 })

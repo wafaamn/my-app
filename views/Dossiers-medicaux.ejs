@@ -32,7 +32,7 @@
        <span class="tooltip">Examen médical</span>
      </li>
      <li>
-       <form action="statistique" method="GET">
+       <form action="/statistique" method="GET">
        <button class="bttn">
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
          <span class="links_name">Statistique</span>
@@ -49,7 +49,7 @@
               <h2 for="btttn">Dossiers médicaux</h2>
               <div class="search-wrapper">
                 <span class="las la-search" ></span>
-                <form  action ="find" method="POST">
+                <form  action ="/dossiers/find" method="POST">
                 <input type="search" placeholder="search" for="search" name="search"/></form>
               </div>
               <!--modification profil-->
@@ -68,7 +68,7 @@
                       </h3>
                       <ul>
                           <li>
-                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>">
+                              <button class="rundown-btn"><a href="/profil/<%=data.Email%>" style="text-decoration:none; color:aliceblue;">
                                 <span class="material-icons icons-size" id="p">person</span>
                                 <span class="links_name"><h4>Mon profile</h4></span></a>
                               </button>
@@ -112,14 +112,14 @@
                 userData.forEach(function(data){
                 %>
                 <tr>
-                  <td><%=data.IdDoss %></td>
+                  <td><%=data.iddoss %></td>
                   <td><%=data.nom %></td>
                   <td><%=data.prenom %></td>
                   <td>
                     <p class="status status-unpaid"><%=data.DateNaissance %></p>
                   </td>
                   <td><%=data.sexe %></td>
-                  <td><a href="/consulter/<%=data.IdPatient%>">Consulter</a></td>
+                  <td><a href="/modifier/<%=data.IdPatient%>">Consulter</a></td>
                 </tr>
                 <%  i++; }) %>
                 <% } else{ %>

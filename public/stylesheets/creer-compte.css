@@ -10,7 +10,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  width: 105px;
+  width: 155px;
   background: #4e2793;
   padding: 6px 14px;
   z-index: 99;
@@ -19,7 +19,7 @@
 .sidebar .sidebar_img {
   display: flex;
   align-items: center;
-  margin-left: 70px;
+  margin-left: 90px;
   width: 75px;
   object-fit: contain;
   opacity: 0;
@@ -29,7 +29,7 @@
   opacity: 1;
 }
 .sidebar.open {
-  width: 275px;
+  width: 320px;
 }
 .sidebar .logo-details {
   height: 60px;
@@ -282,7 +282,8 @@ main {
 }
 
 .main__container {
-  padding: 43px 35px;
+  padding: 30px 25px;
+  height: 800px;
 }
 .main__container > p {
   font-size: 70px;
@@ -337,8 +338,8 @@ main {
   font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
   margin: 1rem 0;
-  margin-left: 358px;
-  margin-top: 55px;
+  margin-left: 910px;
+  margin-top: -35px;
 }
 
 .btn:hover {
@@ -387,16 +388,18 @@ main {
   background: rgb(255, 255, 255);
   padding: 25px;
   border-radius: 5px;
-  width: 950px;
   min-height: 70vh;
   display: block;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+    max-width: 2900px;
+  width: 97%;
 }
 .titre {
   background-image: linear-gradient(to right, #80ffdb, #4e2793);
-  width: 950px;
+    max-width: 2900px;
+  width: 104%;
   padding: 10px;
   margin-left: -25px;
   margin-top: -25px;
@@ -411,6 +414,8 @@ main {
 
 .form_wrap {
   margin-top: 35px;
+  height: 500px;
+ 
 }
 
 .form_wrap .input_wrap {
@@ -445,6 +450,27 @@ main {
   justify-content: space-between;
   padding: 10px;
 }
+.form_wrap .input_grp3 {
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.form_wrap .input_grp3 select {
+    width: 410px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #373738;
+    outline: none;
+  
+  }
+  .form_wrap input[type="date"] {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #373738;
+    padding: 10px;
+    outline: none;
+  }
 .form_wrap .input_grp2 {
   margin-top: -30px;
   display: flex;

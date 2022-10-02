@@ -2,12 +2,11 @@ var express = require('express');
 var infirmier = express.Router();
 var con = require('../conn/conn');
 var nodemailer = require('nodemailer');
+const { Console } = require('console');
 
 
 
 infirmier.get('/infirmier/:id', function (req, res) {
-    var idInfirmier = req.session.id;
-    console.log(idInfirmier);
     var inf = 'select * from infirmier where IdInfirmier = ?'
     var demande = 'SELECT * FROM demande WHERE IdDemandeRDV IS NOT NULL; ';
     var rdv = 'SELECT * FROM rdv WHERE IdRDV IS NOT NULL;';
@@ -48,11 +47,11 @@ infirmier.post('/modifier/:id', (req,res)=>{
     var date = req.body.date; 
     var hdebut = req.body.hdebut;
     var hfin = req.body.hfin ;
+    var idInf = req.session.userid;
+    console.log(idInf)
     var idpatient = 'SELECT IdPatient FROM demanderdv WHERE IdDemandeRDV = ?';
     var motiff = 'SELECT Motif FROM demanderdv WHERE IdDemandeRDV = ?'
-    var idInfirmier = req.session.IdInfirmier;
-    console.log(idInfirmier);
-    var rdv = 'INSERT INTO rendezvous (dateRDV ,HeureDébutRDV , HeureFinRDV,Motif,IdPatient , IdInfirmier) Values (? , ? , ? , ? , ? , ?)'
+    var rdv = 'INSERT INTO RendezVous (dateRDV ,HeureDébutRDV , HeureFinRDV,Motif,IdPatient , IdInfirmier) Values (? , ? , ? , ? , ? , ?)'
     var supp = 'DELETE FROM demanderdv WHERE IdDemandeRDV =?'
 
     
@@ -68,86 +67,85 @@ infirmier.post('/modifier/:id', (req,res)=>{
                 var motif = result[0].Motif;
                 console.log('motif is :', motif);
             }
-            con.query(idInfirmier, function (err, result) {
-                if (err) throw err;
-                if (result.length > 0) {
-                    idInf = result[0].IdInfirmier;
-                    console.log(idInf);
-                }
 
                 con.query(rdv, [date, hdebut, hfin, motif, idp, idInf], function (err, result) {
                     if (err) throw err;
                     console.log('modification est faite perfectement !')
-                    res.redirect('/infirmier')
 
 
                 })
-            })
-        
-        })
-        
-    })
 
-    con.query('select IdPatient FROM`demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], function (err, result) {
-        if (err) throw err;
-        idp = result[0].IdPatient;
-        con.query('SELECT nom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
-            if (err) throw err;
-            nom = result[0].nom;
-            con.query('SELECT prenom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+            con.query('select IdPatient FROM`demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], function (err, result) {
                 if (err) throw err;
-                prenom = result[0].prenom;
-
-                const modifier = `<h3>Bonjour ${nom} ${prenom} </h3><p>votre rendez-vous est remporté en <b>${date}</b> de <b> ${hdebut}</b> à <b> ${hfin}</b>  </p>`
-
-                con.query('SELECT Email FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+                idp = result[0].IdPatient;
+                con.query('SELECT nom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
                     if (err) throw err;
-                    email = result[0].Email;
-                    let transporter = nodemailer.createTransport({
-                        service: 'gmail',
-                        auth: {
-                            type: 'OAuth2',
-                            user: 'sahtechteam@gmail.com',
-                            pass: 'Sahtech&99',
-                            clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
-                            clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
-                            refreshToken: '1//04p1VDGRnXsdSCgYIARAAGAQSNwF-L9IrXhUWfbfzrFUfmoOGsYZhsBrUYhxd2BuAxzovJa-61OB2_7x3UiC_RgHJaTI15oeDJfo'
-                        }
+                    nom = result[0].nom;
+                    con.query('SELECT prenom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+                        if (err) throw err;
+                        prenom = result[0].prenom;
+
+                        const modifier = `<h3>Bonjour ${nom} ${prenom} </h3><p>votre rendez-vous est remporté en <b>${date}</b> de <b> ${hdebut}</b> à <b> ${hfin}</b>  </p>`
+
+                        con.query('SELECT Email FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+                            if (err) throw err;
+                            email = result[0].Email;
+                            let transporter = nodemailer.createTransport({
+                                service: 'gmail',
+                                auth: {
+                                    type: 'OAuth2',
+                                    user: 'sahtechteam@gmail.com',
+                                    pass: 'Sahtech&99',
+                                    clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
+                                    clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
+                                    refreshToken: "1//04Wae0z0mo6t1CgYIARAAGAQSNwF-L9IrZB_YnN8vgkjal1zpLYV8U5z2rFx62dulCGDj8uPFcPEE-j2Dp8z4tKJ7iL7On7AvNPw"
+                                }
+                            })
+
+                            let mailOptions = {
+                                from: '"Team Sahtech" <sahtechteam@gmail.com>', // sender address
+                                to: email, // list of receivers
+                                subject: "modification de rendez-vous avec ", // Subject line
+                                text: "rdv", // plain text body
+                                html: modifier, // html body
+                            };
+
+                            transporter.sendMail(mailOptions, function (err, data) {
+                                if (err) {
+                                    console.log("Error " + err);
+                                } else {
+                                    console.log("Email sent successfully");
+                                }
+                            });
+                            con.query(supp, [demandeid], function (err, result) {
+                                if (err) throw err;
+                                console.log('suppression est faite !');
+
+                            })
+                        })
                     })
-
-                    let mailOptions = {
-                        from: '"Team Sahtech" <sahtechteam@gmail.com>', // sender address
-                        to: email, // list of receivers
-                        subject: "modification de rendez-vous avec ", // Subject line
-                        text: "rdv", // plain text body
-                        html: modifier, // html body
-                    };
-
-                    transporter.sendMail(mailOptions, function (err, data) {
-                        if (err) {
-                            console.log("Error " + err);
-                        } else {
-                            console.log("Email sent successfully");
-                        }
-                    });
                 })
-            })
+        
         })
+        
+    })
+        res.redirect(`/infirmier/${idInf}`)
+
+        
 
     })
-    con.query(supp, [demandeid], function (err, result) {
-        if (err) throw err;
-        console.log('suppression est faite !');
-
-    })
+   
 
 })
 
-infirmier.get('/delete/:id', (req, res) => {
+infirmier.get('/supprimer/:id', (req, res) => {
+    console.log('msg')
+    var id = req.session.userid;
+    console.log(req.session)
     
     console.log('we want to delete it ');
     
-    con.query('select IdPatient FROM`rendezvous` WHERE IdRDV = ?', [req.params.id], function (err, result) {
+    con.query('select IdPatient FROM`RendezVous` WHERE IdRDV = ?', [req.params.id], function (err, result) {
         if (err) throw err;
         idp = result[0].IdPatient;
         con.query('SELECT nom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
@@ -170,7 +168,8 @@ infirmier.get('/delete/:id', (req, res) => {
                             pass: 'Sahtech&99',
                             clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
                             clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
-                            refreshToken: '1//04p1VDGRnXsdSCgYIARAAGAQSNwF-L9IrXhUWfbfzrFUfmoOGsYZhsBrUYhxd2BuAxzovJa-61OB2_7x3UiC_RgHJaTI15oeDJfo'
+                            refreshToken: "1//04Wae0z0mo6t1CgYIARAAGAQSNwF-L9IrZB_YnN8vgkjal1zpLYV8U5z2rFx62dulCGDj8uPFcPEE-j2Dp8z4tKJ7iL7On7AvNPw"
+
                         }
                     })
 
@@ -194,15 +193,19 @@ infirmier.get('/delete/:id', (req, res) => {
     
         })
     })
-    con.query('DELETE FROM `rendezvous` WHERE IdRDV = ?', [req.params.id], (err, results) => {
+    con.query('DELETE FROM `RendezVous` WHERE IdRDV = ?', [req.params.id], (err, results) => {
         console.log('message from here')
         if (err) throw err;
-        res.redirect('/infirmier');
+        res.redirect(`/infirmier/${id}`);
 
     });
 });
 
 infirmier.get('/refuser/:id', (req, res) => {
+    console.log('msg')
+    var id = req.session.userid;
+    console.log(req.session)
+
     console.log('we want to delete it ');
 
     con.query('select IdPatient FROM`demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], function (err, result) {
@@ -227,7 +230,8 @@ infirmier.get('/refuser/:id', (req, res) => {
                             pass: 'Sahtech&99',
                             clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
                             clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
-                            refreshToken: '1//04p1VDGRnXsdSCgYIARAAGAQSNwF-L9IrXhUWfbfzrFUfmoOGsYZhsBrUYhxd2BuAxzovJa-61OB2_7x3UiC_RgHJaTI15oeDJfo'
+                            refreshToken: "1//04Wae0z0mo6t1CgYIARAAGAQSNwF-L9IrZB_YnN8vgkjal1zpLYV8U5z2rFx62dulCGDj8uPFcPEE-j2Dp8z4tKJ7iL7On7AvNPw"
+
                         }
                     })
 
@@ -253,14 +257,14 @@ infirmier.get('/refuser/:id', (req, res) => {
     con.query('DELETE FROM `demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], (err, results) => {
         console.log('message from here')
         if (err) throw err;
-        res.redirect('/infirmier');
-    });
+        res.redirect(`/infirmier/${id}`);
+        });
 })
 
 
-infirmier.get('/accepter/:id', (req, res) => {
-
-
+infirmier.get('/valider/:id', (req, res) => {
+    var idInf = req.session.userid;
+    console.log(idInf)
     console.log('on n\'est accepter ce rdv ');
     con.query('select DateRDV FROM `demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], (err, results) => {
         if (err) throw err;
@@ -283,77 +287,74 @@ infirmier.get('/accepter/:id', (req, res) => {
                             if (err) throw err ;
                             idpatient = results[0].IdPatient;
                             console.log('id de patient : ', idpatient)
-                            con.query('SELECT IdInfirmier FROM infirmier', function (err, result) {
-                                if (err) throw err;
-                                if (result.length > 0) {
-                                    idInf = result[0].IdInfirmier;
-                                    console.log(idInf);
-                                }
-                                con.query('INSERT INTO rendezvous (DateRDV ,HeureDébutRDV , HeureFinRDV , Motif , IdPatient , IdInfirmier) values ( ? , ? , ? , ? , ? , ?) ',[dateRDV , hdebut, hfin, motif ,idpatient , idInf], function(err, result){
+                            
+                                con.query('INSERT INTO RendezVous (DateRDV ,HeureDébutRDV , HeureFinRDV , Motif , IdPatient , IdInfirmier) values ( ? , ? , ? , ? , ? , ?) ',[dateRDV , hdebut, hfin, motif ,idpatient , idInf], function(err, result){
                                     if(err) throw err ; 
                                     console.log('insertion terminé !');
                                 })
+                            con.query('select IdPatient FROM`demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], function (err, result) {
+                                if (err) throw err;
+                                idp = result[0].IdPatient;
+                                con.query('SELECT nom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+                                    if (err) throw err;
+                                    nom = result[0].nom;
+                                    con.query('SELECT prenom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+                                        if (err) throw err;
+                                        prenom = result[0].prenom;
+                                        const accepter = `<h2> Bonjour ${nom} ${prenom} </h2> <p> votre rendez-vous est accepté</p>`
+
+                                        con.query('SELECT Email FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
+                                            if (err) throw err;
+                                            email = result[0].Email;
+                                            let transporter = nodemailer.createTransport({
+                                                service: 'gmail',
+                                                auth: {
+                                                    type: 'OAuth2',
+                                                    user: 'sahtechteam@gmail.com',
+                                                    pass: 'Sahtech&99',
+                                                    clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
+                                                    clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
+                                                    refreshToken: "1//04Wae0z0mo6t1CgYIARAAGAQSNwF-L9IrZB_YnN8vgkjal1zpLYV8U5z2rFx62dulCGDj8uPFcPEE-j2Dp8z4tKJ7iL7On7AvNPw"
+
+                                                }
+                                            })
+
+                                            let mailOptions = {
+                                                from: '"Team Sahtech" <sahtechteam@gmail.com>', // sender address
+                                                to: email, // list of receivers
+                                                subject: "accepter de rendez-vous avec ", // Subject line
+                                                text: "rdv", // plain text body
+                                                html: accepter, // html body
+                                            };
+
+                                            transporter.sendMail(mailOptions, function (err, data) {
+                                                if (err) {
+                                                    console.log("Error " + err);
+                                                } else {
+                                                    console.log("Email sent successfully");
+                                                }
+                                            });
+
+                                        })
+                                        con.query('DELETE FROM `demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], (err, results) => {
+                                            console.log('message from here')
+                                            if (err) throw err;
+                                            res.redirect(`/infirmier/${idInf}`);
+
+                                        })
+                                    })
+                                })
                             })
-                        })
+                            
+                        });
+                        
+                    
                     })
                 }) 
             })
         }
-        con.query('select IdPatient FROM`demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], function (err, result) {
-            if (err) throw err;
-            idp = result[0].IdPatient;
-            con.query('SELECT nom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
-                if (err) throw err;
-                nom = result[0].nom;
-                con.query('SELECT prenom FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
-                    if (err) throw err;
-                    prenom = result[0].prenom;
-                    const accepter = `<h2> Bonjour ${nom} ${prenom} </h2> <p> votre rendez-vous est accepté</p>`
-
-                    con.query('SELECT Email FROM patient WHERE IdPatient = ?', [idp], function (err, result) {
-                        if (err) throw err;
-                        email = result[0].Email;
-                        let transporter = nodemailer.createTransport({
-                            service: 'gmail',
-                            auth: {
-                                type: 'OAuth2',
-                                user: 'sahtechteam@gmail.com',
-                                pass: 'Sahtech&99',
-                                clientId: '1056334353973-jlhf0iv3ehte9r17nsgt99fk6c5tobdg.apps.googleusercontent.com',
-                                clientSecret: 'AJFLB4fCH0VjmZz9SkO7W6Ca',
-                                refreshToken: '1//04p1VDGRnXsdSCgYIARAAGAQSNwF-L9IrXhUWfbfzrFUfmoOGsYZhsBrUYhxd2BuAxzovJa-61OB2_7x3UiC_RgHJaTI15oeDJfo'
-                            }
-                        })
-
-                        let mailOptions = {
-                            from: '"Team Sahtech" <sahtechteam@gmail.com>', // sender address
-                            to: email, // list of receivers
-                            subject: "accepter de rendez-vous avec ", // Subject line
-                            text: "rdv", // plain text body
-                            html: accepter, // html body
-                        };
-
-                        transporter.sendMail(mailOptions, function (err, data) {
-                            if (err) {
-                                console.log("Error " + err);
-                            } else {
-                                console.log("Email sent successfully");
-                            }
-                        });
-
-                    })
-                    con.query('DELETE FROM `demanderdv` WHERE IdDemandeRDV = ?', [req.params.id], (err, results) => {
-                        console.log('message from here')
-                        if (err) throw err;
-                        res.redirect('/infirmier');
-
-                    })
-                })
-            })
-        })
-
+    })
        
-    });
 });
 
 

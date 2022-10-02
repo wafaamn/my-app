@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/Examen-medical.css" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"><!-- link to add-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <title>Dossiers Médicaux | Sah-Tech</title>
+</head>
+
+<body id="body">
+    <!--sidebar starts here-->
+    <div class="sidebar">
+        <img src="/stylesheets/img/logoapppp.png" class="sidebar_img">
+        <div class="logo-details">
+            <i class='bx bx-menu' id="btttn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <button class="bttn">
+                    <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <span class="links_name">Examen médical</span>
+                </button>
+                <span class="tooltip">Examen médical</span>
+            </li>
+            <li>
+                <button class="bttn">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <span class="links_name">Statistique</span>
+                </button>
+                <span class="tooltip">Statistique</span>
+            </li>
+
+        </ul>
+    </div>
+    <!--sidebar ends here-->
+    <div class="container">
+        <nav class="navbar">
+            <h2 for="btttn">Examen médical</h2>
+
+            <!--modification profil-->
+            <!-- drop-down user account -->
+            <div class="user-wrapper">
+                <div class="action">
+                    <div class="profile" onclick="menuToggle();">
+                        <img src="medecina.png" alt="">
+                    </div>
+
+                    <div class="menu">
+                        <h3>
+                            MERABET MOHAMED
+                            <div>m.merabet@esi-sba.dz</div>
+                        </h3>
+                        <ul>
+                            <li>
+                                <button class="rundown-btn">
+                                    <span class="material-icons icons-size" id="p">person</span>
+                                    <span class="links_name">
+                                        <h4>Mon profile</h4>
+                                    </span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="rundown-btn">
+                                    <span class="material-icons icons-size" id="p">mail</span>
+
+                                    <span class="links_name">
+                                        <h4>Boite de récéption</h4>
+                                    </span>
+                                </button>
+                            </li>
+                            <li>
+                                <form action="/deconnecter" method="GET">
+                                    <button class="rundown-btn">
+                                        <span class="material-icons icons-size" id="p">logout</span>
+                                        <span class="links_name">
+                                            <h4>Se déconnecter</h4>
+                                        </span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- hada code li tzidih -->
+
+
+            <div class="user-wrapper2">
+                <div class="action2">
+
+                 
+                    <!-- <div class="form">
+                        <form action="" method="GET">
+                    <div class="wrapper">
+                        <div class="formm">
+                            <table id="td">
+                                <tr>
+                                    <td>
+                                        <div style="display:flex;">
+                                            <% medata.forEach(function(data){%>
+                                            <h4>Dr </h4> &nbsp; <%=data.nom%> <%=data.prenom%>
+                                            <% })%>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Généraliste</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Sidi bel abbes</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex;">
+                                            <h4>Tel:</h4> &nbsp; 048 74 94 52
+                                        </div>
+                                    </td>
+                                </tr>
+                                            <% examen.forEach(function(data){%>
+                                <tr>
+                                    <td>
+                                        <h1 style="margin-left: 300px;">Rapport</h1>
+                                    </td>
+                                </tr>
+                    
+                                <tr>
+                                    <td>
+                                            
+                                        <div style="display:flex;">
+                                                <h4>Nom: </h4> &nbsp; <%=data.nom%>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:flex;">
+                                            <h4>Prénom: 
+                                            </h4> &nbsp; <%=data.prenom%>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display:inline-block;">
+                                            <div style="display:flex;">
+                                                <h4>Date de naissance: <%=data.DateNaissance%>
+                                                </h4> &nbsp;
+                                                
+                                            </div><br>
+                                            <h4>
+                                                <%=data.motif%>
+                                            </h4>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <%})%>
+                    
+                    
+                                
+                            </table>
+                            
+                        </div>
+                        
+                    </div>
+                 </form>
+                </div>
+            >
+            </div> -->
+        </nav>
+        <main class="main">
+
+            <div class="wrapper">
+
+                <input type="radio" name="slider" checked id="Examen_clinique">
+                <input type="radio" name="slider" id="Bilan_paraclinique">
+                <input type="radio" name="slider" id="Rapport">
+                <input type="radio" name="slider" id="Ordonnance">
+                <input type="radio" name="slider" checked id="Certificat">
+                <input type="radio" name="slider" id="Evacuation">
+                <input type="radio" name="slider" id="Orientation">
+                <% data.forEach(function(data){ %>
+                <div class="title">
+
+                    <h1><%=data.nom%> <%=data.prenom%></h1>
+                </div>
+                <label>
+                    <h4>Email</h4>
+                    <small><%=data.Email%></small>
+                </label>
+                <label>
+                    <h4>Numéro téléphone</h4>
+                    <small><%=data.NumTel%></small>
+                </label>
+                <div style="margin-left: 500px;margin-top: -88px;">
+                    <label>
+                        <h4>Type</h4>
+                        <small>Consultation</small>
+                    </label>
+                    <label>
+                        <h4>Date de naissance</h4>
+                        <small><%=data.DateNaissance%></small>
+                    </label>
+                </div>
+                <%})%>
+                <nav>
+                    <div class="nav1">
+                        <label for="Examen_clinique" class="home"><i class="fas fa-home"></i>Examen clinique</label>
+                        <label for="Bilan_paraclinique" class="blog"><i class="fas fa-blog"></i>Bilan
+                            paraclinique</label>
+                        <label for="Rapport" class="code"><i class="fas fa-code"></i>Rapport</label>
+                        <label for="Ordonnance" class="help"><i class="far fa-envelope"></i>Ordonnance</label>
+                    </div>
+                    <div class="nav2">
+                        <label for="Certificat" class="Certificat"><i class="fas fa-home"></i>Certificat</label>
+                        <label for="Evacuation" class="Evacuation"><i class="fas fa-blog"></i>Evacuation</label>
+                        <label for="Orientation" class="Orientation"><i class="fas fa-code"></i>Orientation</label>
+                    </div>
+                </nav>
+                <section>
+                    <div class="content content-1">
+
+
+                        <p>
+                        <table>
+                            <% examen.forEach(function(data){ %>
+                            <tr><td>
+                                <button class="btn" value="<%=data.date%>">
+                                    <a href="/examen/<%=data.date%>" style="text-decoration: none;color:aliceblue"><%=data.date%></a>
+                                </button>
+                            </td></tr>
+                            <%})%>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="content content-2">
+                        <p>
+                        <table>
+                            <% bilan.forEach(function(data){ %>
+                                <tr>
+                                    <td><button class="btn" ><a href="/bilan/<%=data.date%>" style="text-decoration: none;color:aliceblue">
+                                        <%=data.date%></a></button>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="content content-3">
+                        <p>
+                        <table>
+                            <% rapport.forEach(function(data){ %>
+                                <tr>
+                                    <td><button class="btn"><a href="/rapport/<%=data.DateRapport%>" style="text-decoration: none;color:aliceblue">
+                                        <%=data.DateRapport%></a></button>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="content content-4">
+                        <p>
+                        <table>
+                            <% ord.forEach(function(data){ %>
+                                <tr>
+                                    <td><button class="btn"><a href="/ordonnance/<%=data.DateORD%>" style="text-decoration: none;color:aliceblue">
+                                        <%=data.Date%></a></button>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="content content-5">
+                        <p>
+                        <table>
+                            <% certificat.forEach(function(data){ %>
+                                <tr>
+                                    <td><button class="btn" ><a href="/certificat/<%=data.date%>" style="text-decoration: none;color:aliceblue">
+                                        <%=data.date%></a></button>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="content content-6">
+                        <p>
+                        <table>
+                            <% eva.forEach(function(data){ %>
+                                <tr>
+                                    <td><button class="btn" ><a href="/evacuation/<%=data.date%>" style="text-decoration: none;color:aliceblue">
+                                        <%=data.date%></a></button>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="content content-7">
+                        <p>
+                        <table>
+                            <% orient.forEach(function(data){ %>
+                                <tr>
+                                    <td><button class="btn"><a href="/orientation/<%=data.DateOrientation%>" style="text-decoration: none;color:aliceblue">
+                                        <%=data.DateOrientation%></a></button>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </table>
+                        </p>                    </div>
+                </section>
+
+            </div>
+           
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="/stylesheets/fichiers-js/Examen-medical.js"></script>
+    <!-- début drop-down user account -->
+
+    <!-- fin drop-down user account -->
+
+</body>
+
+</html>

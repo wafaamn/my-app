@@ -4,8 +4,9 @@ var imageModel= require('../models/image-model');
 
 module.exports={
     imageUploadForm:function(req,res){
-        res.render('upload-form');
-     },
+        res.render('upload-form');     
+      },
+   }
    /*  storeImage:function(req,res){
         var upload = multer({
                     storage: imageMiddleware.image.storage(), 
@@ -35,4 +36,3 @@ module.exports={
         })
         
      }*/
-}

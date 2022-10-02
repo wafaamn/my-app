@@ -29,6 +29,24 @@ button.addEventListener("click", () => {
 button.addEventListener("click", () => {
   document.getElementById("numtel").disabled = false;
 });
+button.addEventListener("click", () => {
+  document.getElementById("sexe").disabled = false;
+});
+button.addEventListener("click", () => {
+  document.getElementById("nom").disabled = false;
+});
+button.addEventListener("click", () => {
+  document.getElementById("prenom").disabled = false;
+});
+button.addEventListener("click", () => {
+  document.getElementById("dnai").disabled = false;
+});
+button.addEventListener("click", () => {
+  document.getElementById("email").disabled = false;
+});
+
+
+
 
 
 

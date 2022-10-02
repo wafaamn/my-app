@@ -212,9 +212,25 @@ color: #fff;
 }
 
 #nav-toggle:checked ~ .main-content header {
-  width: 1000px;
+  width: 1250px;
   left: 275px;
   
+}
+.btn {
+  background-image: linear-gradient(to right,#4e2793,#80ffdb);
+  border: none; 
+  color: white; 
+  padding: 10px 14px; 
+  
+  cursor: pointer; 
+    transition: .5s;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-size: 200%;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    
 }
 
 /* inside when i drop to colse */
@@ -330,12 +346,7 @@ main {
   color: #fff;
 }
 
-.recent-grid {
-  margin-top: 3.5rem;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 65% auto;
-}
+
 
 .card {
   background: #fff;
@@ -343,14 +354,20 @@ main {
 
 .card-header {
   padding: 1rem;
+  width:1800px;
+}
+.titre {
+ background-color: #b4f5e265;
+  max-width: 2900px;
+  width: 99%;
+  padding: 1px;
+  margin-left: 20px;
+  text-align: center;
+  height: 30px;
+  font-size: 8px;
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #f0f0f0;
-}
+
 
 .card-header button {
   background-image: linear-gradient(to right, #4e2793, #80ffdb);
@@ -362,7 +379,18 @@ main {
 }
 
 table {
-  border-collapse: collapse;
+  
+ border-collapse: collapse;
+  box-shadow: 0 5px 10px #e1e5ee;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+  margin-top: 10px;
+  max-width: 2900px;
+  width: 97%;
+  
+  margin-left: 30px;
+
 }
 
 thead tr {
@@ -392,6 +420,9 @@ tr td:last-child {
   display: flex;
   align-items: center;
 }
+tr:nth-child(even) {
+  background-color: #b4f5e265;
+}
 
 .status.green {
   background: rgb(6, 192, 6);
@@ -401,10 +432,7 @@ tr td:last-child {
   background: red;
 }
 
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-}
+
 
 .customer {
   display: flex;

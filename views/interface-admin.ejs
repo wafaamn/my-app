@@ -65,11 +65,12 @@
                   <span class="tooltip">Agenda</span>
                 </li>
                 <li>
-                 <form action="patient" method="GET">
+                 <form action="patients" method="GET">
                <button class="bttn">
                 <i class="fa fa-users" aria-hidden="true"></i>
                  <span class="links_name">Demandes-Inscription</span>
-               </button></form>
+               </button>
+            </form>
                <span class="tooltip">Statistique</span>
              </li>
              <li>
@@ -93,16 +94,13 @@
                 </label> Tableau de bord
             </h2>
 
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Recherche"/>
-            </div>
+          
             <div class="user-wrapper">
                 <img src="/stylesheets/img/medecina.png" width="40px" height="40px" alt="">
                 <div>
-                    
+                   <form action="/deconnecter" method="GET"> 
                 <button class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
-                      
+                    </form>
                 </div>
             </div>
         </header>
@@ -161,8 +159,8 @@
             <div class="recent-grid">
                 <div class="projects">
                     <div class="card">
-                        <div class="card-header">
-                            <h3>Tous les comptes</h3>
+                        <div class="titre">
+                            <h1>Tous les comptes</h1>
                         </div>
 
                         <div class="card-body">
@@ -172,6 +170,7 @@
                                         <tr>
                                             <td>Nom Prenom</td>
                                             <td>Email</td>
+                                            <td>Catégorie</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -180,27 +179,42 @@
                                         <tr>
                                             <td><%=result.nom%> <%=result.prenom%></td>
                                             <td><%=result.Email%></td>
+                                            <td>
+                                                <%=result.cat%>
+                                            </td>
                                         </tr><%})%>
                                         <%    userData2.forEach(function(result1){ %>
                                         <tr>
                                             <td><%=result1.nom%> <%=result1.prenom%></td>
                                             <td><%=result1.Email%></td>
+                                            <td>
+                                                <%=result1.cat%>
+                                            </td>
                                         </tr><%})%>
                                         <%  userData3.forEach(function(result2){ %>
                                         <tr>
                                             <td><%=result2.nom%> <%=result2.prenom%></td>
                                             <td><%=result2.Email%></td>
+                                            <td>
+                                                <%=result2.cat%>
+                                            </td>
                                         </tr><%})%>
                                         <% userData4.forEach(function(result3){ %>
                                         <tr>
                                             <td><%=result3.nom%> <%=result3.prenom%></td>
                                             <td><%=result3.Email%></td>
+                                            <td>
+                                                <%=result3.cat%>
+                                            </td>
                                         </tr><%})%>
                                         <%    userData5.forEach(function(result4){
                                             %> 
                                         <tr>
                                             <td><%=result4.nom%> <%=result4.prenom%></td>
                                             <td><%=result4.Email%></td>
+                                            <td>
+                                                <%=result4.cat%>
+                                            </td>
             
                                         </tr><%})%>
                                     </tbody>

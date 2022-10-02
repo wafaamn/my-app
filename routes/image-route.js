@@ -6,6 +6,9 @@ var imageModel= require('../models/image-model');
 var multer  = require('multer');
 var con = require('../conn/conn');
 router.get('/store-image',imageController.imageUploadForm);
+var date = new Date () ;
+var imageModel = require('../models/image-model');
+
 
 //router.post('/store-image/:id',imageController.storeImage);
 
@@ -32,9 +35,10 @@ router.post('/store-image/:id',function(req,res){
            console.log(inputValues);
 
           // var sql='insert into bilan (idpat,image) value(?,?)';
-           con.query('insert into bilan (image,idpat) values(?,?)',[inputValues.image, idpat], function (err, data) {
+           con.query('insert into bilan (image,idpat,date) values(?,?,?)',[inputValues.image, idpat,date], function (err, data) {
                if (err) throw err;
                console.log('image')
+               
             });
            var msg = inputValues.image+ "is uploaded successfully";
          // call model
@@ -50,4 +54,21 @@ router.post('/store-image/:id',function(req,res){
     })
     
  })
+// router.get('/bilan/:id',function(req,res){
+   
+//       // check unique email address
+//       var sql = 'SELECT * FROM pbilan where date=?';
+//       con.query(sql,[req.params.id], function (err, data, fields) {
+//          if (err) throw err
+//          con.query('select * from medecin where IdMedecin=?', [req.session.userid], function (err, row) {
+//             if (err) throw err;
+//             console.log(req.session.userid)
+//             res.render('afficher-bilan', { imagePath: data, medata: row })
+//          })
+//       })
+
+   
+
+   
+// })
 module.exports = router;
